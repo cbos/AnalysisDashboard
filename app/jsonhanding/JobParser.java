@@ -13,7 +13,7 @@ public class JobParser
 	
 	public String getName()
 	{
-		
+		return null;
 	}
 
 }
