@@ -1,0 +1,52 @@
+{
+  "actions" : [
+    
+  ],
+  "displayName" : "lab1014.cordyslab.com",
+  "executors" : [
+    {
+      
+    }
+  ],
+  "icon" : "computer-x.png",
+  "idle" : true,
+  "jnlpAgent" : false,
+  "launchSupported" : true,
+  "loadStatistics" : {
+    
+  },
+  "manualLaunchAllowed" : true,
+  "monitorData" : {
+    "hudson.node_monitors.SwapSpaceMonitor" : {
+      "availablePhysicalMemory" : 2425909248,
+      "availableSwapSpace" : 19004698624,
+      "totalPhysicalMemory" : 16725909504,
+      "totalSwapSpace" : 19008577536
+    },
+    "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+    "hudson.node_monitors.TemporarySpaceMonitor" : {
+      "path" : "/tmp",
+      "size" : 100077568
+    },
+    "hudson.node_monitors.ResponseTimeMonitor" : {
+      "average" : 2
+    },
+    "hudson.node_monitors.DiskSpaceMonitor" : {
+      "path" : "/var/jenkins",
+      "size" : 100077568
+    },
+    "hudson.node_monitors.ClockMonitor" : {
+      "diff" : -48023
+    }
+  },
+  "numExecutors" : 1,
+  "offline" : true,
+  "offlineCause" : {
+    
+  },
+  "offlineCauseReason" : "694759424",
+  "oneOffExecutors" : [
+    
+  ],
+  "temporarilyOffline" : true
+}

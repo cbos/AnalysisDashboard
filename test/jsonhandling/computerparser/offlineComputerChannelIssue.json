@@ -1,0 +1,37 @@
+{
+  "actions" : [
+    
+  ],
+  "displayName" : "srv-nl-vdt010",
+  "executors" : [
+    {
+      
+    }
+  ],
+  "icon" : "computer-x.png",
+  "idle" : true,
+  "jnlpAgent" : true,
+  "launchSupported" : false,
+  "loadStatistics" : {
+    
+  },
+  "manualLaunchAllowed" : true,
+  "monitorData" : {
+    "hudson.node_monitors.SwapSpaceMonitor" : null,
+    "hudson.node_monitors.ArchitectureMonitor" : null,
+    "hudson.node_monitors.TemporarySpaceMonitor" : null,
+    "hudson.node_monitors.ResponseTimeMonitor" : null,
+    "hudson.node_monitors.DiskSpaceMonitor" : null,
+    "hudson.node_monitors.ClockMonitor" : null
+  },
+  "numExecutors" : 1,
+  "offline" : true,
+  "offlineCause" : {
+    
+  },
+  "offlineCauseReason" : "hudson.slaves.OfflineCause$ChannelTermination@33704094",
+  "oneOffExecutors" : [
+    
+  ],
+  "temporarilyOffline" : false
+}

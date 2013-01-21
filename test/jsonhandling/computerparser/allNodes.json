@@ -1,0 +1,5352 @@
+{
+  "busyExecutors" : 8,
+  "computer" : [
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1001.cordyslab.com",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 13378666496,
+          "availableSwapSpace" : 28803002368,
+          "totalPhysicalMemory" : 17178746880,
+          "totalSwapSpace" : 34096074752
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\loadtest\\Local Settings\\Temp",
+          "size" : 42061168640
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 42061168640
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 962
+        }
+      },
+      "numExecutors" : 3,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1004.cordyslab.com",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3949219840,
+          "availableSwapSpace" : 17155997696,
+          "totalPhysicalMemory" : 17179066368,
+          "totalSwapSpace" : 34356191232
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\loadtest\\AppData\\Local\\Temp",
+          "size" : 14674624512
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 14674624512
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -133
+        }
+      },
+      "numExecutors" : 3,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1007.cordyslab.com",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 14338629632,
+          "availableSwapSpace" : 30075863040,
+          "totalPhysicalMemory" : 17178746880,
+          "totalSwapSpace" : 34107682816
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\loadtest\\Local Settings\\Temp",
+          "size" : 34838401024
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 34838401024
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 743
+        }
+      },
+      "numExecutors" : 3,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1008.cordyslab.com",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 14425333760,
+          "availableSwapSpace" : 31033389056,
+          "totalPhysicalMemory" : 17179066368,
+          "totalSwapSpace" : 34356191232
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\loadtest\\AppData\\Local\\Temp",
+          "size" : 115004018688
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 115004018688
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 1276
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1009.cordyslab.com",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 10841186304,
+          "availableSwapSpace" : 21659885568,
+          "totalPhysicalMemory" : 17179066368,
+          "totalSwapSpace" : 34356191232
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\em\\AppData\\Local\\Temp",
+          "size" : 112094158848
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 112094158848
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -295
+        }
+      },
+      "numExecutors" : 3,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1014.cordyslab.com",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2422530048,
+          "availableSwapSpace" : 19004698624,
+          "totalPhysicalMemory" : 16725909504,
+          "totalSwapSpace" : 19008577536
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 95158272
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/var/jenkins",
+          "size" : 95158272
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -48039
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "694759424",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : true
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1018.cordyslab.com",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 12431998976,
+          "availableSwapSpace" : 23399944192,
+          "totalPhysicalMemory" : 17179066368,
+          "totalSwapSpace" : 34356187136
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\loadtest.LAB1018\\AppData\\Local\\Temp",
+          "size" : 22024859648
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 22024859648
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -52
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1018-vm.cordyslab.com",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 7791902720,
+          "availableSwapSpace" : 9948205056,
+          "totalPhysicalMemory" : 8588996608,
+          "totalSwapSpace" : 10638483456
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\loadtest\\Local Settings\\Temp",
+          "size" : 17313075200
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 21
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 17313075200
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -40
+        }
+      },
+      "numExecutors" : 3,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "lab1019.cordyslab.com",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 11791847424,
+          "availableSwapSpace" : 22925381632,
+          "totalPhysicalMemory" : 17179066368,
+          "totalSwapSpace" : 34356236288
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\avdberg\\AppData\\Local\\Temp",
+          "size" : 27473719296
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 27473719296
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 1249
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-ces102",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 642498560,
+          "availableSwapSpace" : 2200301568,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587571200
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 7482011648
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 7482011648
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -620
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-ces92",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 586199040,
+          "availableSwapSpace" : 2129006592,
+          "totalPhysicalMemory" : 4294434816,
+          "totalSwapSpace" : 8587505664
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 14290837504
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 9322594304
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -960
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-ces98",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3520925696,
+          "availableSwapSpace" : 761683968,
+          "totalPhysicalMemory" : 8589467648,
+          "totalSwapSpace" : 8587571200
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 4813287424
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 11697061888
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -13
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-ces99",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 841916416,
+          "availableSwapSpace" : 6846717952,
+          "totalPhysicalMemory" : 8589467648,
+          "totalSwapSpace" : 17177038848
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 11660849152
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 11660849152
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 73
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd04",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 103460864,
+          "availableSwapSpace" : 1444478976,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 5845286912
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 34
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 4667289600
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -229
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd05",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1054748672,
+          "availableSwapSpace" : 2846318592,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 4614225920
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 529
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 4620251136
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -22
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd08",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 648794112,
+          "availableSwapSpace" : 3134377984,
+          "totalPhysicalMemory" : 3181731840,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3115438080
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 3
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 38388781056
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -13
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd08-root",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 648794112,
+          "availableSwapSpace" : 3134377984,
+          "totalPhysicalMemory" : 3181731840,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3115438080
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 18
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 38388781056
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -13
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd100",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 806072320,
+          "availableSwapSpace" : 3224301568,
+          "totalPhysicalMemory" : 3190116352,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3476176896
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 3
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 12940775424
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -8
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd101",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1457045504,
+          "availableSwapSpace" : 4025102336,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8698814464
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 2004697088
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 4
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 2004697088
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -152
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd102",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2357178368,
+          "availableSwapSpace" : 4884443136,
+          "totalPhysicalMemory" : 3220676608,
+          "totalSwapSpace" : 6273122304
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\jenkins.NTDOM\\Local Settings\\Temp",
+          "size" : 1467203584
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 0
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 1467203584
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 545
+        }
+      },
+      "numExecutors" : 10,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd103",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1961238528,
+          "availableSwapSpace" : 3774185472,
+          "totalPhysicalMemory" : 3220758528,
+          "totalSwapSpace" : 6439620608
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 7 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 2705584128
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 3
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 2705584128
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 4
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd104",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 289701888,
+          "availableSwapSpace" : 3524509696,
+          "totalPhysicalMemory" : 3163971584,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3012943872
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 16
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 10651058176
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -3
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd105",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3129593856,
+          "availableSwapSpace" : 3395874816,
+          "totalPhysicalMemory" : 4294144000,
+          "totalSwapSpace" : 5727227904
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\jenkins\\Local Settings\\Temp",
+          "size" : 1680220160
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 1680220160
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 346
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd109",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2694332416,
+          "availableSwapSpace" : 3601063936,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 1641222144
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 9
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 1641222144
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 13
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd110",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1923117056,
+          "availableSwapSpace" : 4294950912,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 1890787328
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 1890787328
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -2
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd114",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3371495424,
+          "availableSwapSpace" : 7703769088,
+          "totalPhysicalMemory" : 6441918464,
+          "totalSwapSpace" : 12881940480
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 14183608320
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 14183608320
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -94
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd115",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3543818240,
+          "availableSwapSpace" : 7339778048,
+          "totalPhysicalMemory" : 4293496832,
+          "totalSwapSpace" : 8762105856
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 24271646720
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 11706306560
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -484
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd116",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1163038720,
+          "availableSwapSpace" : 4294860800,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 10370113536
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 10370113536
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 2
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd118-root",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 111181824,
+          "availableSwapSpace" : 6905176064,
+          "totalPhysicalMemory" : 4019367936,
+          "totalSwapSpace" : 8589926400
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2419167232
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 169
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 6168494080
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 739
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd119",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1208315904,
+          "availableSwapSpace" : 4062949376,
+          "totalPhysicalMemory" : 4140716032,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3154370560
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 8
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 5475758080
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -1
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd120",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1221931008,
+          "availableSwapSpace" : 4074229760,
+          "totalPhysicalMemory" : 4140716032,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2216361984
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 10
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 1741168640
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 3
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd121",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2029805568,
+          "availableSwapSpace" : 3905961984,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 12574838784
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 34453270528
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -194
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd123",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2288160768,
+          "availableSwapSpace" : 4294864896,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2362449920
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 12
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 2362449920
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -1
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd125-root",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 35373056,
+          "availableSwapSpace" : 3325943808,
+          "totalPhysicalMemory" : 4140716032,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2235269120
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 11
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 7104524288
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -29
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd126",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1764884480,
+          "availableSwapSpace" : 4294864896,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 7210397696
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 10
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 909451264
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -2
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd134",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 87150592,
+          "availableSwapSpace" : 3224211456,
+          "totalPhysicalMemory" : 2124787712,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 1114476544
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 18
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 8129662976
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -17
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd135",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 609079296,
+          "availableSwapSpace" : 4287029248,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 1523724288
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 5
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 1523724288
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 0
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd136",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2333409280,
+          "availableSwapSpace" : 4294864896,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2909712384
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 2909712384
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -1
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd137",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 6121336832,
+          "availableSwapSpace" : 4294959104,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3129163776
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 9
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 3129163776
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 4
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd138",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 291758080,
+          "availableSwapSpace" : 4118577152,
+          "totalPhysicalMemory" : 4140716032,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3285528576
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 7
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 6191546368
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 5
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd139",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1708285952,
+          "availableSwapSpace" : 4070117376,
+          "totalPhysicalMemory" : 6252539904,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3414867968
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 35
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd140",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1129623552,
+          "availableSwapSpace" : 4184616960,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\cordys\\AppData\\Local\\Temp",
+          "size" : 20145311744
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 0
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 39158792192
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 18
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd141",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 752209920,
+          "availableSwapSpace" : 3308945408,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 7296442368
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 114
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 31067385856
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -431
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd142",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2216038400,
+          "availableSwapSpace" : 4294864896,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2957168640
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 2957168640
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 20
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd144",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2146410496,
+          "availableSwapSpace" : 6757220352,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 19996385280
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 37197885440
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -181
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd145",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1461469184,
+          "availableSwapSpace" : 3902783488,
+          "totalPhysicalMemory" : 4140716032,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3141922816
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 23
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 973717504
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 7
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd146",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : null,
+        "hudson.node_monitors.TemporarySpaceMonitor" : null,
+        "hudson.node_monitors.ResponseTimeMonitor" : null,
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : null
+      },
+      "numExecutors" : 1,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "This node is offline because Jenkins failed to launch the slave agent on it.",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd146template",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : null,
+        "hudson.node_monitors.TemporarySpaceMonitor" : null,
+        "hudson.node_monitors.ResponseTimeMonitor" : null,
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : null
+      },
+      "numExecutors" : 1,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "This node is offline because Jenkins failed to launch the slave agent on it.",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd149",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 10245451776
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 37070618624
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -464
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd157",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1626288128,
+          "availableSwapSpace" : 4023894016,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 9395568640
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 11
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 9395568640
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 3
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd159",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 4491300864,
+          "availableSwapSpace" : 4294868992,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 11078823936
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 10
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 19993137152
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 20
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd160",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1352425472,
+          "availableSwapSpace" : 6171136000,
+          "totalPhysicalMemory" : 6137303040,
+          "totalSwapSpace" : 6308225024
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 4234129408
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 14245900288
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -11
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd162",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 708505600,
+          "availableSwapSpace" : 4294848512,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 11138220032
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 10
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 14633590784
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 0
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd18",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1174020096,
+          "availableSwapSpace" : 2869956608,
+          "totalPhysicalMemory" : 4140716032,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2800078848
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 111
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 1370644480
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 4
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd19",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 675627008,
+          "availableSwapSpace" : 1449009152,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8608075776
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 7832559616
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 6
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 39199612928
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 7
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd21",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1768443904,
+          "availableSwapSpace" : 3224211456,
+          "totalPhysicalMemory" : 3181727744,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3024482304
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 20
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 1772900352
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 9
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd22",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 384303104,
+          "availableSwapSpace" : 1954856960,
+          "totalPhysicalMemory" : 4294434816,
+          "totalSwapSpace" : 9068572672
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\hudson\\AppData\\Local\\Temp\\4",
+          "size" : 3929640960
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 10072621056
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -7
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd23",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3520851968,
+          "availableSwapSpace" : 7518851072,
+          "totalPhysicalMemory" : 4294144000,
+          "totalSwapSpace" : 8410746880
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\cordyslab\\Local Settings\\Temp",
+          "size" : 1198116864
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 14706102272
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 213
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd24",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 968683520,
+          "availableSwapSpace" : 2851962880,
+          "totalPhysicalMemory" : 3181727744,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2629685248
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 2629685248
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -15
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd25",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 649371648,
+          "availableSwapSpace" : 2614603776,
+          "totalPhysicalMemory" : 3181727744,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 1755836416
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 9
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 1755836416
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 2
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd26",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1828249600,
+          "availableSwapSpace" : 3224195072,
+          "totalPhysicalMemory" : 3181727744,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3478388736
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 10
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 9414017024
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -13
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd27",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1355563008,
+          "availableSwapSpace" : 3224301568,
+          "totalPhysicalMemory" : 3181727744,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3404800000
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 19
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 17323712512
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 6
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd28",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3613097984,
+          "availableSwapSpace" : 7314247680,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Windows\\Temp",
+          "size" : 5655920640
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -846
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd34",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1951383552,
+          "availableSwapSpace" : 4294864896,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 10063286272
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 10063286272
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -9
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd38",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : null,
+        "hudson.node_monitors.TemporarySpaceMonitor" : null,
+        "hudson.node_monitors.ResponseTimeMonitor" : null,
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : null
+      },
+      "numExecutors" : 1,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "This node is offline because Jenkins failed to launch the slave agent on it.",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : true
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd39",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2227347456,
+          "availableSwapSpace" : 4294864896,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 10757263360
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 5
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 10757263360
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -1
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd41",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 7020462080,
+          "availableSwapSpace" : 11050614784,
+          "totalPhysicalMemory" : 8589467648,
+          "totalSwapSpace" : 12882538496
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Windows\\Temp",
+          "size" : 7505039360
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 145
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 10155827200
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 3434
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd44",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3398111232,
+          "availableSwapSpace" : 7932833792,
+          "totalPhysicalMemory" : 8589467648,
+          "totalSwapSpace" : 17177038848
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Windows\\Temp",
+          "size" : 1325006848
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 0
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 10180993024
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -386
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd45",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2758291456,
+          "availableSwapSpace" : 4194836480,
+          "totalPhysicalMemory" : 3220643840,
+          "totalSwapSpace" : 4674072576
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 3446013952
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 2007146496
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 26
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd47",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1795682304,
+          "availableSwapSpace" : 2738745344,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 7752146944
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 3
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 39296749568
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -44729
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd48",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2285645824,
+          "availableSwapSpace" : 2824781824,
+          "totalPhysicalMemory" : 3220598784,
+          "totalSwapSpace" : 5208809472
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 809496576
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 3
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 3046526976
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -123
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd52",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2212540416,
+          "availableSwapSpace" : 1923227648,
+          "totalPhysicalMemory" : 3220643840,
+          "totalSwapSpace" : 3950129152
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 1184997376
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 3095633920
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -208
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd53",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1783664640,
+          "availableSwapSpace" : 5513728000,
+          "totalPhysicalMemory" : 6441984000,
+          "totalSwapSpace" : 12882071552
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 5467574272
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 10888777728
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -312
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd54",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 4231184384,
+          "availableSwapSpace" : 8950009856,
+          "totalPhysicalMemory" : 8589467648,
+          "totalSwapSpace" : 17177038848
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\support\\AppData\\Local\\Temp",
+          "size" : 4423569408
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 11215642624
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -463
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd55",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 26697728,
+          "availableSwapSpace" : 4294856704,
+          "totalPhysicalMemory" : 4140716032,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 3186266112
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 12
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 5664051200
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 0
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd61",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2705260544,
+          "availableSwapSpace" : 5578424320,
+          "totalPhysicalMemory" : 3220598784,
+          "totalSwapSpace" : 6209150976
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 2404061184
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 22
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 14495784960
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 17
+        }
+      },
+      "numExecutors" : 6,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd62",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 427507712,
+          "availableSwapSpace" : 1947144192,
+          "totalPhysicalMemory" : 2146856960,
+          "totalSwapSpace" : 4636585984
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 976625664
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 2611515392
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 8
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd64",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 4021518336,
+          "availableSwapSpace" : 7928586240,
+          "totalPhysicalMemory" : 6441918464,
+          "totalSwapSpace" : 12881940480
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 15130955776
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 39142227968
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -45
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd68",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 7157297152,
+          "availableSwapSpace" : 4294959104,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 10994532352
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 3
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 10994532352
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -14
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd75",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1625513984,
+          "availableSwapSpace" : 3773612032,
+          "totalPhysicalMemory" : 2146856960,
+          "totalSwapSpace" : 4677177344
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\gvdmaat\\Local Settings\\Temp",
+          "size" : 11637075968
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 3190738944
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 242
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd78",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1750683648,
+          "availableSwapSpace" : 3156246528,
+          "totalPhysicalMemory" : 4294500352,
+          "totalSwapSpace" : 8587104256
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 17556361216
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 40001093632
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 227
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd80",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3336876032,
+          "availableSwapSpace" : 4294959104,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 9582530560
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 9582530560
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 50
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd83",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2305773568,
+          "availableSwapSpace" : 2863136768,
+          "totalPhysicalMemory" : 3220598784,
+          "totalSwapSpace" : 5208809472
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 1322745856
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 4828815360
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -232
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd86",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1896771584,
+          "availableSwapSpace" : 4294959104,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 11209506816
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 19
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 11209506816
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -28
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd88",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 190910464,
+          "availableSwapSpace" : 3224211456,
+          "totalPhysicalMemory" : 3181727744,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 1947340800
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 11
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 1947340800
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -17
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd89",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2787184640,
+          "availableSwapSpace" : 4294959104,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 9238085632
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 10
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 9238085632
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -12
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd90",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 2055061504,
+          "availableSwapSpace" : 4294959104,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 10848542720
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 9
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 10848542720
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -1
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd91",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 43298816,
+          "availableSwapSpace" : 1615507456,
+          "totalPhysicalMemory" : 3989610496,
+          "totalSwapSpace" : 3224301568
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2825191424
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 10
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 2825191424
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -14
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd93",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3537932288,
+          "availableSwapSpace" : 4793741312,
+          "totalPhysicalMemory" : 4025950208,
+          "totalSwapSpace" : 5467422720
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 816381952
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "F:\\jenkins",
+          "size" : 6248402944
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 126
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd95",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 5055021056,
+          "availableSwapSpace" : 4294959104,
+          "totalPhysicalMemory" : 8370655232,
+          "totalSwapSpace" : 4294959104
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 10262351872
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 9
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/root/jenkins",
+          "size" : 10262351872
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -41
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-crd97",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1166946304,
+          "availableSwapSpace" : 5548691456,
+          "totalPhysicalMemory" : 6441984000,
+          "totalSwapSpace" : 12882071552
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins\\AppData\\Local\\Temp",
+          "size" : 16979918848
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 0
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 1879478272
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -1
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-demo4",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 3748974592,
+          "availableSwapSpace" : 8145440768,
+          "totalPhysicalMemory" : 6441918464,
+          "totalSwapSpace" : 12881940480
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows Server 2008 R2 (amd64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Users\\jenkins.NTDOM\\AppData\\Local\\Temp",
+          "size" : 15925428224
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 39607549952
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -560
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-spt6",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 5206073344,
+          "availableSwapSpace" : 2080354304,
+          "totalPhysicalMemory" : 10639245312,
+          "totalSwapSpace" : 2080366592
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (i386)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 2970771456
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 19
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 175169892352
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 29
+        }
+      },
+      "numExecutors" : 10,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt002",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1146228736,
+          "availableSwapSpace" : 3319853056,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3598700544
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 4334804992
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "E:\\jenkins",
+          "size" : 5485649920
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 14
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt003",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 743333888,
+          "availableSwapSpace" : 2201485312,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3062972416
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 3424333824
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 3424333824
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -6
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt004",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 663527424,
+          "availableSwapSpace" : 2078519296,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3063513088
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 1011666944
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 14
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 1011666944
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 4
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt005",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1117806592,
+          "availableSwapSpace" : 2633863168,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3063517184
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 1633792000
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 1633792000
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 9
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt006",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1029050368,
+          "availableSwapSpace" : 3173117952,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3598286848
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 2475716608
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 2475716608
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 8
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt007",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1147912192,
+          "availableSwapSpace" : 3348426752,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3598700544
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 4150886400
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 4150886400
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 11
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt008",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1236062208,
+          "availableSwapSpace" : 3374735360,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3598700544
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 3227594752
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 3227594752
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 375
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt009",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1214476288,
+          "availableSwapSpace" : 3205791744,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3598286848
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 1729196032
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 2
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 1729196032
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -24
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt010",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : null,
+        "hudson.node_monitors.TemporarySpaceMonitor" : null,
+        "hudson.node_monitors.ResponseTimeMonitor" : null,
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : null
+      },
+      "numExecutors" : 1,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "hudson.slaves.OfflineCause$ChannelTermination@33704094",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt011",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1017085952,
+          "availableSwapSpace" : 3222839296,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3598704640
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\hudson\\Local Settings\\Temp",
+          "size" : 2458271744
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 2458271744
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 5671
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "srv-nl-vdt012",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 1194643456,
+          "availableSwapSpace" : 3178229760,
+          "totalPhysicalMemory" : 1610072064,
+          "totalSwapSpace" : 3598286848
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Windows XP (x86)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "C:\\Documents and Settings\\jenkins\\Local Settings\\Temp",
+          "size" : 2587938816
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 1
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "C:\\jenkins",
+          "size" : 2587938816
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 9
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "vclient24",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : "AIX (ppc64)",
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 1056104448
+        },
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 421
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/opt/jenkins",
+          "size" : 1708355584
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 100623
+        }
+      },
+      "numExecutors" : 1,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    }
+  ],
+  "displayName" : "nodes",
+  "totalExecutors" : 152
+}

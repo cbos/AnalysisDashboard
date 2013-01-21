@@ -1,0 +1,37 @@
+{
+  "actions" : [
+    
+  ],
+  "displayName" : "srv-nl-crd146",
+  "executors" : [
+    {
+      
+    }
+  ],
+  "icon" : "computer-x.png",
+  "idle" : true,
+  "jnlpAgent" : false,
+  "launchSupported" : true,
+  "loadStatistics" : {
+    
+  },
+  "manualLaunchAllowed" : true,
+  "monitorData" : {
+    "hudson.node_monitors.SwapSpaceMonitor" : null,
+    "hudson.node_monitors.ArchitectureMonitor" : null,
+    "hudson.node_monitors.TemporarySpaceMonitor" : null,
+    "hudson.node_monitors.ResponseTimeMonitor" : null,
+    "hudson.node_monitors.DiskSpaceMonitor" : null,
+    "hudson.node_monitors.ClockMonitor" : null
+  },
+  "numExecutors" : 1,
+  "offline" : true,
+  "offlineCause" : {
+    
+  },
+  "offlineCauseReason" : "This node is offline because Jenkins failed to launch the slave agent on it.",
+  "oneOffExecutors" : [
+    
+  ],
+  "temporarilyOffline" : false
+}

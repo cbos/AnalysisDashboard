@@ -1,0 +1,50 @@
+{
+  "actions" : [
+    
+  ],
+  "displayName" : "srv-nl-crd23",
+  "executors" : [
+    {
+      
+    }
+  ],
+  "icon" : "computer.png",
+  "idle" : false,
+  "jnlpAgent" : false,
+  "launchSupported" : true,
+  "loadStatistics" : {
+    
+  },
+  "manualLaunchAllowed" : true,
+  "monitorData" : {
+    "hudson.node_monitors.SwapSpaceMonitor" : {
+      "availablePhysicalMemory" : 3523805184,
+      "availableSwapSpace" : 7519653888,
+      "totalPhysicalMemory" : 4294144000,
+      "totalSwapSpace" : 8410746880
+    },
+    "hudson.node_monitors.ArchitectureMonitor" : "Windows 2003 (x86)",
+    "hudson.node_monitors.TemporarySpaceMonitor" : {
+      "path" : "C:\\Documents and Settings\\cordyslab\\Local Settings\\Temp",
+      "size" : 1198833664
+    },
+    "hudson.node_monitors.ResponseTimeMonitor" : {
+      "average" : 1
+    },
+    "hudson.node_monitors.DiskSpaceMonitor" : {
+      "path" : "E:\\jenkins",
+      "size" : 14815469568
+    },
+    "hudson.node_monitors.ClockMonitor" : {
+      "diff" : 126
+    }
+  },
+  "numExecutors" : 1,
+  "offline" : false,
+  "offlineCause" : null,
+  "offlineCauseReason" : "",
+  "oneOffExecutors" : [
+    
+  ],
+  "temporarilyOffline" : false
+}

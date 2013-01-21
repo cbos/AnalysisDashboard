@@ -1,0 +1,280 @@
+{
+  "description" : "<A href=\"https://wiki.cordys.com/display/PDi/CWS+Team\">CWS Team page</a><BR><BR>\r\n\r\n<p>\r\nFor more information about the build process <A href=\"https://wiki.cordys.com/display/PDi/CWS+WIP+branch\">https://wiki.cordys.com/display/PDi/CWS+WIP+Branch</A><br>\r\nThe CWS installation builders can be found here: <a href=\"http://buildmaster-hyd/jenkins/view/CWS/\">http://buildmaster-hyd/jenkins/view/CWS/</a>\r\n</p>\r\n<table border=0 width=\"100%\">\r\n<tr>\r\n<td>Trunk\r\n</td>\r\n<td><A href=\"http://srv-ind-scrat:8080/repos/bcp/trunk\">http://srv-ind-scrat:8080/repos/bcp/trunk</A>\r\n</td>\r\n<td>BOP-4 CU branch\r\n</td>\r\n<td><A href=\"http://srv-ind-scrat:8080/repos/bcp/branches/global/BOP4-CU/\">http://srv-ind-scrat:8080/repos/bcp/branches/global/BOP4-CU</A>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td>Development WIP branch\r\n</td>\r\n<td><A href=\"http://srv-ind-scrat:8080/repos/bcp/branches/private/cws/d1-cws-wip/\">http://srv-ind-scrat:8080/repos/bcp/branches/private/cws/d1-cws-wip/</A>\r\n</td>\r\n<td>WIP branch for BOP-4 CU\r\n</td>\r\n<td><A href=\"http://srv-ind-scrat:8080/repos/bcp/branches/private/cu/cu-cws-wip/\">http://srv-ind-scrat:8080/repos/bcp/branches/private/cu/cu-cws-wip</A>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td>BOP 4.2 CU1 Release\r\n</td>\r\n<td><A href=\"http://srv-ind-scrat:8080/repos/bcp/branches/global/BOP4.2-CU1\">http://srv-ind-scrat:8080/repos/bcp/branches/global/BOP4.2-CU1</A>\r\n</td>\r\n<td>BOP-4 CU Release\r\n</td>\r\n<td><A href=\"http://srv-ind-scrat:8080/repos/bcp/branches/global/BOP4-CU-Release/\">http://srv-ind-scrat:8080/repos/bcp/branches/global/BOP4-CU-Release/</A>\r\n</td>\r\n</tr>\r\n</table>",
+  "jobs" : [
+    {
+      "name" : "cws-is-wip",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-is-wip/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-trunk-wip-cobertura",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-trunk-wip-cobertura/",
+      "color" : "disabled"
+    },
+    {
+      "name" : "cws-trunk-wip-testcoverage",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-trunk-wip-testcoverage/",
+      "color" : "disabled"
+    },
+    {
+      "name" : "cws-wip",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-metrics",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-metrics/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-metrics",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-metrics/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-trunk",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-trunk/",
+      "color" : "blue"
+    },
+    {
+      "name" : "bop4.2-uiunit-EW",
+      "url" : "http://buildmaster-nl/jenkins/job/bop4.2-uiunit-EW/",
+      "color" : "disabled"
+    },
+    {
+      "name" : "cws-bop4cu-wip-uiunit",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip-uiunit/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-wip-gmf-chrome",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-gmf-chrome/",
+      "color" : "blue_anime"
+    },
+    {
+      "name" : "cws-wip-smoketest",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-smoketest/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-wip-uiunit",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit/",
+      "color" : "yellow_anime"
+    },
+    {
+      "name" : "wip-content-upgrade",
+      "url" : "http://buildmaster-nl/jenkins/job/wip-content-upgrade/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-bop4cu",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-bop4cu-wip",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-bop4cu-wip-junit-l",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip-junit-l/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-bop4cu-wip-junit-w",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip-junit-w/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-is-junit-l",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-is-junit-l/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-junit-l",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-junit-l/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-junit-w",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-junit-w/",
+      "color" : "blue"
+    },
+    {
+      "name" : "prepare-for-is-regressions",
+      "url" : "http://buildmaster-nl/jenkins/job/prepare-for-is-regressions/",
+      "color" : "blue"
+    },
+    {
+      "name" : "xds-is-junit-l",
+      "url" : "http://buildmaster-nl/jenkins/job/xds-is-junit-l/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-bop4cu-wip-junit-l",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip-junit-l/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-bop4cu-wip-junit-w",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip-junit-w/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-bop4cu-wip-uiunit",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip-uiunit/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-bop4cu-wip-uiunit-compile",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-wip-uiunit-compile/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-trunk-wip-uiunit-IE",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-trunk-wip-uiunit-IE/",
+      "color" : "disabled"
+    },
+    {
+      "name" : "cws-utils-cleanup-uiunit-repos",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-utils-cleanup-uiunit-repos/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-bld-mdls-crd04",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-bld-mdls-crd04/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-gmf-chrome",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-gmf-chrome/",
+      "color" : "blue_anime"
+    },
+    {
+      "name" : "cws-wip-gmf-ff",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-gmf-ff/",
+      "color" : "blue_anime"
+    },
+    {
+      "name" : "cws-wip-gmf-safari",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-gmf-safari/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-gmf-uiunit-base",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-gmf-uiunit-base/",
+      "color" : "disabled"
+    },
+    {
+      "name" : "cws-wip-smoketest",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-smoketest/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-wip-uiunit",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit/",
+      "color" : "yellow_anime"
+    },
+    {
+      "name" : "cws-wip-uiunit-compile-SE",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit-compile-SE/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-uiunit-EW",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit-EW/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-uiunit-EW-II",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit-EW-II/",
+      "color" : "red_anime"
+    },
+    {
+      "name" : "cws-wip-uiunit-EW-NewBuildEngine",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit-EW-NewBuildEngine/",
+      "color" : "red"
+    },
+    {
+      "name" : "cws-wip-uiunit-l",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit-l/",
+      "color" : "disabled"
+    },
+    {
+      "name" : "wip-content-upgrade",
+      "url" : "http://buildmaster-nl/jenkins/job/wip-content-upgrade/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "cws-buildmaster",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-buildmaster/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-buildmaster-restartslave",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-buildmaster-restartslave/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-utils-cleanup-uiunit-repos",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-utils-cleanup-uiunit-repos/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-utils-cordyshome-update-CU",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-utils-cordyshome-update-CU/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-utils-cordyshome-update-CU-CWS",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-utils-cordyshome-update-CU-CWS/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-utils-cordyshome-update-CWS",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-utils-cordyshome-update-CWS/",
+      "color" : "disabled"
+    },
+    {
+      "name" : "cws-utils-cordyshome-update-trunk",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-utils-cordyshome-update-trunk/",
+      "color" : "blue"
+    },
+    {
+      "name" : "download-latest-build",
+      "url" : "http://buildmaster-nl/jenkins/job/download-latest-build/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-bop4cu-dropmerge",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-dropmerge/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-bop4cu-syncmerge",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-bop4cu-syncmerge/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-trunk-wip-dropmerge",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-trunk-wip-dropmerge/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-trunk-wip-syncmerge",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-trunk-wip-syncmerge/",
+      "color" : "blue"
+    },
+    {
+      "name" : "cws-wip-inline-storage-syncmerge",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-inline-storage-syncmerge/",
+      "color" : "blue_anime"
+    }
+  ],
+  "name" : "CWS",
+  "property" : [
+    
+  ],
+  "url" : "http://buildmaster-nl/jenkins/view/CWS/"
+}

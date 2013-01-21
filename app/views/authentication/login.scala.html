@@ -1,0 +1,53 @@
+@(loginFrom: Form[controllers.authentication.LoginController.LoginForm])
+
+@import helper._
+@import viewutils._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>AnalysisDashboard | Login</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.ico")">
+		<script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+		<script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+    
+    @if(loginFrom.hasGlobalErrors) { 
+	<div class="container">
+	        <div class="alert alert-error">
+	            @loginFrom.globalError.message
+	        </div>
+        </div>
+     }
+     
+    @if(flash.contains("success")) {
+	<div class="container">
+	        <div class="alert alert-success">
+	            @flash.get("success")
+	        </div>
+        </div>
+    }
+        
+	
+	 <div class="container">
+        <div class="well">
+        
+            @form(controllers.authentication.routes.LoginController.authenticate, 'class -> "form-horizontal") {
+            <fieldset>
+            	<legend>Login</legend>
+	            @inputText(loginFrom("username"), '_label -> "Username", '_id -> "username")
+            </fieldset>
+           
+            <div class="form-actions">
+			    <button type="submit" class="btn btn-primary">Login</button>
+			</div>
+        	}
+        </div>
+        </div>
+    </body>
+</html>
