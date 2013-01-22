@@ -1,4 +1,4 @@
-package jsonhanding;
+package jsonhandling;
 
 import org.codehaus.jackson.JsonNode;
 

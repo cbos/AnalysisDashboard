@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 
-import jsonhanding.ComputerParser;
+import jsonhandling.ComputerParser;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -78,17 +78,18 @@ public class ComputerParserTest
 				ComputerParser computer = new ComputerParser(computerNode);
 				if (computer.isOffline())
 				{
-					assertThat(computer.getDisplayName(), anyOf(equalTo("lab1014.cordyslab.com"),
-					                                            equalTo("srv-nl-crd146"),
-					                                            equalTo("srv-nl-crd146template"),
-					                                            equalTo("srv-nl-crd38"),
-					                                            equalTo("srv-nl-vdt010")));
+					assertThat(computer.getDisplayName(),
+										 anyOf(equalTo("lab1014.cordyslab.com"),
+													 equalTo("srv-nl-crd146"),
+													 equalTo("srv-nl-crd146template"),
+													 equalTo("srv-nl-crd38"),
+													 equalTo("srv-nl-vdt010")));
 				}
 			}
 		}
 	}
 
-	private ComputerParser parseFile(String fileName) throws IOException
+	private ComputerParser parseFile(final String fileName) throws IOException
 	{
 		try (InputStream input = ComputerParserTest.class.getResourceAsStream(fileName))
 		{

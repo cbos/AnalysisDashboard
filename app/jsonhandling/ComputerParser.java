@@ -1,4 +1,4 @@
-package jsonhanding;
+package jsonhandling;
 
 import java.math.BigDecimal;
 
