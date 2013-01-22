@@ -1,0 +1,94 @@
+{
+  "actions" : [
+    {
+      "parameters" : [
+        {
+          "name" : "WSDLVALIDATION",
+          "value" : "false"
+        }
+      ]
+    },
+    {
+      "causes" : [
+        {
+          "shortDescription" : "Started by user Gert-Jan van de Maat",
+          "userId" : "gvdmaat",
+          "userName" : "Gert-Jan van de Maat"
+        }
+      ]
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    }
+  ],
+  "artifacts" : [
+    
+  ],
+  "building" : false,
+  "description" : "ERROR: Directory E:/cordys/bop4/defaultInst is locked.",
+  "duration" : 71833,
+  "estimatedDuration" : 1916222,
+  "executor" : null,
+  "fullDisplayName" : "install-crd04 #932",
+  "id" : "2013-01-22_07-53-56",
+  "keepLog" : false,
+  "number" : 932,
+  "result" : "FAILURE",
+  "timestamp" : 1358837636627,
+  "url" : "http://buildmaster-nl/jenkins/job/install-crd04/932/",
+  "builtOn" : "srv-nl-crd04",
+  "changeSet" : {
+    "items" : [
+      {
+        "affectedPaths" : [
+          ""
+        ],
+        "author" : {
+          "absoluteUrl" : "http://buildmaster-nl/jenkins/user/buildbot",
+          "fullName" : "buildbot"
+        },
+        "commitId" : "11436",
+        "timestamp" : 1358837516208,
+        "date" : "2013-01-22T06:51:56.208351Z",
+        "msg" : "",
+        "paths" : [
+          {
+            "editType" : "add",
+            "file" : "/trunk/silent-installer/stable/dev"
+          }
+        ],
+        "revision" : 11436,
+        "user" : "buildbot"
+      }
+    ],
+    "kind" : "svn",
+    "revisions" : [
+      {
+        "module" : "http://srv-ind-scrat.vanenburg.com:8080/repos/tools/trunk/silent-installer/stable/dev",
+        "revision" : 11436
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/bcp/branches/private/cws/d1-cws-wip/tools/selenium-uiunit-utils/src/java/com/cordys/cm/qunit",
+        "revision" : 234118
+      }
+    ]
+  },
+  "culprits" : [
+    {
+      "absoluteUrl" : "http://buildmaster-nl/jenkins/user/buildbot",
+      "fullName" : "buildbot"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "actions" : [
+    {
+      "parameterDefinitions" : [
+        {
+          "defaultParameterValue" : {
+            "value" : "false"
+          },
+          "description" : "",
+          "name" : "WSDLVALIDATION",
+          "type" : "ChoiceParameterDefinition",
+          "choices" : [
+            "false",
+            "true"
+          ]
+        }
+      ]
+    }
+  ],
+  "description" : "BOP4 FP1 latest trunk build is installed for CWS WIP build-modelers, running JUnits on top it. X64",
+  "displayName" : "install-crd04",
+  "displayNameOrNull" : null,
+  "name" : "install-crd04",
+  "url" : "http://buildmaster-nl/jenkins/job/install-crd04/",
+  "buildable" : true,
+  "builds" : [
+    {
+      "number" : 932,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/932/"
+    },
+    {
+      "number" : 931,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/931/"
+    },
+    {
+      "number" : 930,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/930/"
+    },
+    {
+      "number" : 929,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/929/"
+    },
+    {
+      "number" : 928,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/928/"
+    },
+    {
+      "number" : 927,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/927/"
+    },
+    {
+      "number" : 926,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/926/"
+    },
+    {
+      "number" : 925,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/925/"
+    },
+    {
+      "number" : 924,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/924/"
+    },
+    {
+      "number" : 923,
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/923/"
+    }
+  ],
+  "color" : "red",
+  "firstBuild" : {
+    "number" : 913,
+    "url" : "http://buildmaster-nl/jenkins/job/install-crd04/913/"
+  },
+  "healthReport" : [
+    {
+      "description" : "Build stability: 2 out of the last 5 builds failed.",
+      "iconUrl" : "health-40to59.png",
+      "score" : 60
+    }
+  ],
+  "inQueue" : false,
+  "keepDependencies" : false,
+  "lastBuild" : {
+    "number" : 932,
+    "url" : "http://buildmaster-nl/jenkins/job/install-crd04/932/"
+  },
+  "lastCompletedBuild" : {
+    "number" : 932,
+    "url" : "http://buildmaster-nl/jenkins/job/install-crd04/932/"
+  },
+  "lastFailedBuild" : {
+    "number" : 932,
+    "url" : "http://buildmaster-nl/jenkins/job/install-crd04/932/"
+  },
+  "lastStableBuild" : {
+    "number" : 930,
+    "url" : "http://buildmaster-nl/jenkins/job/install-crd04/930/"
+  },
+  "lastSuccessfulBuild" : {
+    "number" : 930,
+    "url" : "http://buildmaster-nl/jenkins/job/install-crd04/930/"
+  },
+  "lastUnstableBuild" : null,
+  "lastUnsuccessfulBuild" : {
+    "number" : 932,
+    "url" : "http://buildmaster-nl/jenkins/job/install-crd04/932/"
+  },
+  "nextBuildNumber" : 933,
+  "property" : [
+    {
+      "room" : "",
+      "startNotification" : false
+    },
+    {
+      "parameterDefinitions" : [
+        {
+          "defaultParameterValue" : {
+            "name" : "WSDLVALIDATION",
+            "value" : "false"
+          },
+          "description" : "",
+          "name" : "WSDLVALIDATION",
+          "type" : "ChoiceParameterDefinition",
+          "choices" : [
+            "false",
+            "true"
+          ]
+        }
+      ]
+    }
+  ],
+  "queueItem" : null,
+  "concurrentBuild" : false,
+  "downstreamProjects" : [
+    {
+      "name" : "cws-wip-uiunit",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-uiunit/",
+      "color" : "yellow"
+    }
+  ],
+  "scm" : {
+    
+  },
+  "upstreamProjects" : [
+    
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "actions" : [
+    {
+      
+    }
+  ],
+  "description" : "",
+  "displayName" : "FP1-LOADTEST-MYSQL",
+  "displayNameOrNull" : null,
+  "name" : "FP1-LOADTEST-MYSQL",
+  "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/",
+  "buildable" : true,
+  "builds" : [
+    {
+      "number" : 1091,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1091/"
+    },
+    {
+      "number" : 1090,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1090/"
+    },
+    {
+      "number" : 1089,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1089/"
+    },
+    {
+      "number" : 1088,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1088/"
+    },
+    {
+      "number" : 1087,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1087/"
+    },
+    {
+      "number" : 1086,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1086/"
+    },
+    {
+      "number" : 1085,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1085/"
+    },
+    {
+      "number" : 1084,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1084/"
+    },
+    {
+      "number" : 1083,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1083/"
+    },
+    {
+      "number" : 1082,
+      "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1082/"
+    }
+  ],
+  "color" : "yellow",
+  "firstBuild" : {
+    "number" : 1067,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1067/"
+  },
+  "healthReport" : [
+    {
+      "description" : "Build stability: 3 out of the last 5 builds failed.",
+      "iconUrl" : "health-20to39.png",
+      "score" : 40
+    },
+    {
+      "description" : "Test Result: 2 tests failing out of a total of 39 tests.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 94
+    }
+  ],
+  "inQueue" : false,
+  "keepDependencies" : false,
+  "lastBuild" : {
+    "number" : 1091,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1091/"
+  },
+  "lastCompletedBuild" : {
+    "number" : 1091,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1091/"
+  },
+  "lastFailedBuild" : {
+    "number" : 1089,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1089/"
+  },
+  "lastStableBuild" : {
+    "number" : 1086,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1086/"
+  },
+  "lastSuccessfulBuild" : {
+    "number" : 1091,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1091/"
+  },
+  "lastUnstableBuild" : {
+    "number" : 1091,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1091/"
+  },
+  "lastUnsuccessfulBuild" : {
+    "number" : 1091,
+    "url" : "http://buildmaster-nl/jenkins/view/Loadtests/job/FP1-LOADTEST-MYSQL/1091/"
+  },
+  "nextBuildNumber" : 1092,
+  "property" : [
+    {
+      "room" : "",
+      "startNotification" : false
+    }
+  ],
+  "queueItem" : null,
+  "concurrentBuild" : false,
+  "downstreamProjects" : [
+    {
+      "name" : "FP1-INSTALL-MYSQL",
+      "url" : "http://buildmaster-nl/jenkins/job/FP1-INSTALL-MYSQL/",
+      "color" : "blue"
+    }
+  ],
+  "scm" : {
+    
+  },
+  "upstreamProjects" : [
+    
+  ]
+}

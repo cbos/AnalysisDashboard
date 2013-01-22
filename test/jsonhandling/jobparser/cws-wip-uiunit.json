@@ -1,0 +1,202 @@
+{
+  "actions" : [
+    {
+      
+    }
+  ],
+  "description" : "",
+  "displayName" : "cws-wip-uiunit",
+  "displayNameOrNull" : null,
+  "name" : "cws-wip-uiunit",
+  "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/",
+  "buildable" : true,
+  "builds" : [
+    {
+      "number" : 1885,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1885/"
+    },
+    {
+      "number" : 1884,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1884/"
+    },
+    {
+      "number" : 1883,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1883/"
+    },
+    {
+      "number" : 1882,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1882/"
+    },
+    {
+      "number" : 1881,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1881/"
+    },
+    {
+      "number" : 1880,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1880/"
+    },
+    {
+      "number" : 1879,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1879/"
+    },
+    {
+      "number" : 1878,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1878/"
+    },
+    {
+      "number" : 1877,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1877/"
+    },
+    {
+      "number" : 1876,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1876/"
+    },
+    {
+      "number" : 1875,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1875/"
+    },
+    {
+      "number" : 1874,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1874/"
+    },
+    {
+      "number" : 1873,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1873/"
+    },
+    {
+      "number" : 1872,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1872/"
+    },
+    {
+      "number" : 1871,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1871/"
+    },
+    {
+      "number" : 1870,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1870/"
+    },
+    {
+      "number" : 1869,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1869/"
+    },
+    {
+      "number" : 1868,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1868/"
+    },
+    {
+      "number" : 1867,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1867/"
+    },
+    {
+      "number" : 1866,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1866/"
+    },
+    {
+      "number" : 1865,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1865/"
+    },
+    {
+      "number" : 1864,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1864/"
+    },
+    {
+      "number" : 1863,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1863/"
+    }
+  ],
+  "color" : "yellow",
+  "firstBuild" : {
+    "number" : 1861,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1861/"
+  },
+  "healthReport" : [
+    {
+      "description" : "Test Result: 8 tests failing out of a total of 399 tests.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 97
+    },
+    {
+      "description" : "Build stability: No recent builds failed.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 100
+    }
+  ],
+  "inQueue" : false,
+  "keepDependencies" : false,
+  "lastBuild" : {
+    "number" : 1885,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1885/"
+  },
+  "lastCompletedBuild" : {
+    "number" : 1885,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1885/"
+  },
+  "lastFailedBuild" : {
+    "number" : 1861,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1861/"
+  },
+  "lastStableBuild" : {
+    "number" : 1862,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1862/"
+  },
+  "lastSuccessfulBuild" : {
+    "number" : 1885,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1885/"
+  },
+  "lastUnstableBuild" : {
+    "number" : 1885,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1885/"
+  },
+  "lastUnsuccessfulBuild" : {
+    "number" : 1885,
+    "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1885/"
+  },
+  "nextBuildNumber" : 1886,
+  "property" : [
+    {
+      "room" : "",
+      "startNotification" : false
+    }
+  ],
+  "queueItem" : null,
+  "concurrentBuild" : false,
+  "downstreamProjects" : [
+    {
+      "name" : "cws-utils-cleanup-uiunit-repos",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-utils-cleanup-uiunit-repos/",
+      "color" : "blue"
+    }
+  ],
+  "scm" : {
+    
+  },
+  "upstreamProjects" : [
+    {
+      "name" : "cws-wip-bld-mdls-crd04",
+      "url" : "http://buildmaster-nl/jenkins/job/cws-wip-bld-mdls-crd04/",
+      "color" : "red"
+    },
+    {
+      "name" : "install-crd04",
+      "url" : "http://buildmaster-nl/jenkins/job/install-crd04/",
+      "color" : "red"
+    }
+  ],
+  "activeConfigurations" : [
+    {
+      "name" : "arch=64,browser=Chrome,jdk=oraclejdk-1.7.3",
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/./arch=64,browser=Chrome,jdk=oraclejdk-1.7.3/",
+      "color" : "yellow"
+    },
+    {
+      "name" : "arch=64,browser=Firefox,jdk=oraclejdk-1.7.3",
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/./arch=64,browser=Firefox,jdk=oraclejdk-1.7.3/",
+      "color" : "blue"
+    },
+    {
+      "name" : "arch=64,browser=Safari,jdk=oraclejdk-1.7.3",
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/./arch=64,browser=Safari,jdk=oraclejdk-1.7.3/",
+      "color" : "yellow"
+    }
+  ]
+}

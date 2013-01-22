@@ -1,0 +1,198 @@
+{
+  "actions" : [
+    {
+      
+    },
+    {
+      "causes" : [
+        {
+          "shortDescription" : "Started by upstream project \"cws-wip-uiunit\" build number 1,885",
+          "upstreamBuild" : 1885,
+          "upstreamProject" : "cws-wip-uiunit",
+          "upstreamUrl" : "job/cws-wip-uiunit/"
+        }
+      ]
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      "failCount" : 2,
+      "skipCount" : 4,
+      "totalCount" : 133,
+      "urlName" : "testReport"
+    },
+    {
+      
+    },
+    {
+      
+    }
+  ],
+  "artifacts" : [
+    {
+      "displayPath" : null,
+      "fileName" : "006 - addSingleRoleFromArtifactViewer(com.cordys.cws.uiunit.test.documents.role.RoleTestCase).png",
+      "relativePath" : "selenium-uiunit-utils/build/classes/cws/images/006 - addSingleRoleFromArtifactViewer(com.cordys.cws.uiunit.test.documents.role.RoleTestCase).png"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "013 - testArtifactFromPackageA(com.cordys.cws.uiunit.test.runtime_references.RuntimeReferenceTestCase).png",
+      "relativePath" : "selenium-uiunit-utils/build/classes/cws/images/013 - testArtifactFromPackageA(com.cordys.cws.uiunit.test.runtime_references.RuntimeReferenceTestCase).png"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "qunit_report_CWSQUnitTestCase.xml",
+      "relativePath" : "selenium-uiunit-utils/build/classes/cws/qunit_report_CWSQUnitTestCase.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "uiunit.log",
+      "relativePath" : "selenium-uiunit-utils/build/classes/cws/uiunit.log"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "uiunit_trace.log",
+      "relativePath" : "selenium-uiunit-utils/build/classes/cws/uiunit_trace.log"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.suite.CWSUIUnitNewTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.suite.CWSUIUnitNewTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.suite.CWSUIUnitProxyTeamDevelopmentTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.suite.CWSUIUnitProxyTeamDevelopmentTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.suite.CWSUIUnitTIGTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.suite.CWSUIUnitTIGTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.associations.AssociationTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.associations.AssociationTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.defects.DefectScenario1TestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.defects.DefectScenario1TestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.documents.DocumentsBasicTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.documents.DocumentsBasicTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.jsunit.QUnitTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.jsunit.QUnitTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.project.ProjectAdvancedTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.project.ProjectAdvancedTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.project.ProjectBasicTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.project.ProjectBasicTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.save.SaveDocumentsBasicSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.save.SaveDocumentsBasicSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.solution.SolutionBasicTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.solution.SolutionBasicTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.stagingarea.StagingTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.stagingarea.StagingTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.teamdevelopment.CWSTeamDevelopmentTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.teamdevelopment.CWSTeamDevelopmentTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.whereused.WhereUsedBasicSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.whereused.WhereUsedBasicSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.workspace.WorkspaceAdvancedTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.workspace.WorkspaceAdvancedTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-com.cordys.cws.uiunit.test.workspace.WorkspaceBasicTestSuite.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-com.cordys.cws.uiunit.test.workspace.WorkspaceBasicTestSuite.xml"
+    },
+    {
+      "displayPath" : null,
+      "fileName" : "TEST-ingoredTests.xml",
+      "relativePath" : "selenium-uiunit-utils/build/report/TEST-ingoredTests.xml"
+    }
+  ],
+  "building" : false,
+  "description" : null,
+  "duration" : 3784066,
+  "estimatedDuration" : 7566606,
+  "executor" : null,
+  "fullDisplayName" : "cws-wip-uiunit » 64,Chrome,oraclejdk-1.7.3 64,Chrome,oraclejdk-1.7.3",
+  "id" : "2013-01-21_21-28-12",
+  "keepLog" : false,
+  "number" : 1885,
+  "result" : "UNSTABLE",
+  "timestamp" : 1358800092000,
+  "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/./arch=64,browser=Chrome,jdk=oraclejdk-1.7.3/1885/",
+  "builtOn" : "srv-nl-vdt002",
+  "changeSet" : {
+    "items" : [
+      
+    ],
+    "kind" : "svn",
+    "revisions" : [
+      {
+        "module" : "http://srv-nl-svn01:8080/repos/bcp/branches/private/cws/d1-cws-wip/tools/selenium-uiunit-utils",
+        "revision" : 235870
+      },
+      {
+        "module" : "http://srv-nl-svn01:8080/repos/bcp/branches/private/cws/d1-cws-wip/components/cws/dev/test/src/uiunit",
+        "revision" : 234207
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/cws/branches/cordyshome-vdt",
+        "revision" : 7443
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/tools/trunk/config/sdk/sdk-bop4-fp2/common/mb-violations",
+        "revision" : 11364
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/bcp/trunk/components/xds/src/dbschema",
+        "revision" : 234449
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/cws/branches/slavetools",
+        "revision" : 7481
+      }
+    ]
+  },
+  "culprits" : [
+    {
+      "absoluteUrl" : "http://buildmaster-nl/jenkins/user/cwsbuildbot",
+      "fullName" : "cwsbuildbot"
+    }
+  ]
+}

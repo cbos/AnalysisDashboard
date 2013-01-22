@@ -1,0 +1,104 @@
+{
+  "actions" : [
+    {
+      "causes" : [
+        {
+          "shortDescription" : "Started by upstream project \"cws-wip-bld-mdls-crd04\" build number 1,498",
+          "upstreamBuild" : 1498,
+          "upstreamProject" : "cws-wip-bld-mdls-crd04",
+          "upstreamUrl" : "job/cws-wip-bld-mdls-crd04/"
+        }
+      ]
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      "failCount" : 8,
+      "skipCount" : 12,
+      "totalCount" : 399,
+      "urlName" : "testReport"
+    },
+    {
+      
+    },
+    {
+      
+    }
+  ],
+  "artifacts" : [
+    
+  ],
+  "building" : false,
+  "description" : null,
+  "duration" : 6338339,
+  "estimatedDuration" : 11652062,
+  "executor" : null,
+  "fullDisplayName" : "cws-wip-uiunit #1885",
+  "id" : "2013-01-21_21-28-12",
+  "keepLog" : false,
+  "number" : 1885,
+  "result" : "UNSTABLE",
+  "timestamp" : 1358800092892,
+  "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/1885/",
+  "builtOn" : "srv-nl-spt6",
+  "changeSet" : {
+    "items" : [
+      
+    ],
+    "kind" : "svn",
+    "revisions" : [
+      {
+        "module" : "http://srv-nl-svn01:8080/repos/bcp/branches/private/cws/d1-cws-wip/tools/selenium-uiunit-utils",
+        "revision" : 235870
+      },
+      {
+        "module" : "http://srv-nl-svn01:8080/repos/bcp/branches/private/cws/d1-cws-wip/components/cws/dev/test/src/uiunit",
+        "revision" : 234207
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/cws/branches/cordyshome-vdt",
+        "revision" : 7443
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/tools/trunk/config/sdk/sdk-bop4-fp2/common/mb-violations",
+        "revision" : 11364
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/bcp/trunk/components/xds/src/dbschema",
+        "revision" : 234449
+      },
+      {
+        "module" : "http://srv-ind-scrat:8080/repos/cws/branches/slavetools",
+        "revision" : 7481
+      }
+    ]
+  },
+  "culprits" : [
+    {
+      "absoluteUrl" : "http://buildmaster-nl/jenkins/user/cwsbuildbot",
+      "fullName" : "cwsbuildbot"
+    },
+    {
+      "absoluteUrl" : "http://buildmaster-nl/jenkins/user/gvdmaat",
+      "fullName" : "Gert-Jan van de Maat"
+    }
+  ],
+  "runs" : [
+    {
+      "number" : 1885,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/./arch=64,browser=Chrome,jdk=oraclejdk-1.7.3/1885/"
+    },
+    {
+      "number" : 1885,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/./arch=64,browser=Firefox,jdk=oraclejdk-1.7.3/1885/"
+    },
+    {
+      "number" : 1885,
+      "url" : "http://buildmaster-nl/jenkins/view/CWS/job/cws-wip-uiunit/./arch=64,browser=Safari,jdk=oraclejdk-1.7.3/1885/"
+    }
+  ]
+}
