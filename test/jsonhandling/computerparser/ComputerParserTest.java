@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 
 import jsonhandling.ComputerParser;
+import jsonhandling.ParserUtil;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -91,10 +92,6 @@ public class ComputerParserTest
 
 	private ComputerParser parseFile(final String fileName) throws IOException
 	{
-		try (InputStream input = ComputerParserTest.class.getResourceAsStream(fileName))
-		{
-			JsonNode rootNode = new ObjectMapper().readTree(input);
-			return new ComputerParser(rootNode);
-		}
+		return new ComputerParser(ParserUtil.parseJsonFile(this, fileName));
 	}
 }

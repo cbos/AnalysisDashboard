@@ -13,6 +13,11 @@ object ApplicationBuild extends Build {
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = JAVA).settings(
-      // Add your own project settings here      
+
+		//This line is needed to load the .json files correctly for Play framework tests
+		//See http://journal.michaelahlers.org/2013/01/play-framework-and-testing-resources.html
+		//console: show test:resource-directory will show the right folder now
+		
+      	resourceDirectory in Test <<= (baseDirectory) apply  {(baseDir: File) => baseDir / "test"}  
     )
 }
