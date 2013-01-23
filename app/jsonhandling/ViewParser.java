@@ -2,18 +2,15 @@ package jsonhandling;
 
 import org.codehaus.jackson.JsonNode;
 
-public class ViewParser
+public class ViewParser extends BaseParser
 {
-	private JsonNode m_node;
-
-	public ViewParser(JsonNode node)
+	public ViewParser(final JsonNode node)
 	{
-		m_node = node;
+		super(node);
 	}
-	
+
 	public JsonNode getJobs()
 	{
-		return m_node.path("jobs");
+		return path("jobs");
 	}
-
 }

@@ -4,48 +4,46 @@ import java.math.BigDecimal;
 
 import org.codehaus.jackson.JsonNode;
 
-public class ComputerParser
+public class ComputerParser extends BaseParser
 {
 
-	private JsonNode m_node;
-
-	public ComputerParser(JsonNode node)
+	public ComputerParser(final JsonNode node)
 	{
-		m_node = node;
+		super(node);
 	}
 
 	public String getDisplayName()
 	{
-		return m_node.path("displayName").asText();
+		return path("displayName").asText();
 	}
 
 	public boolean isOffline()
 	{
-		return m_node.path("offline").getBooleanValue();
+		return path("offline").getBooleanValue();
 	}
 
 	public boolean isTemporarilyOffline()
 	{
-		return m_node.path("temporarilyOffline").getBooleanValue();
+		return path("temporarilyOffline").getBooleanValue();
 	}
 
 	public boolean isOfflineCauseAvailable()
 	{
-		return !m_node.path("offlineCause").isNull();
+		return !path("offlineCause").isNull();
 	}
 
 	public String getOfflineCause()
 	{
 		if (isOfflineCauseAvailable())
 		{
-			return m_node.path("offlineCauseReason").asText();
+			return path("offlineCauseReason").asText();
 		}
 		return null;
 	}
 
 	public BigDecimal getGbLeft()
 	{
-		JsonNode diskSpaceMonitor = m_node.path("monitorData").path("hudson.node_monitors.DiskSpaceMonitor");
+		JsonNode diskSpaceMonitor = path("monitorData", "hudson.node_monitors.DiskSpaceMonitor");
 		if (!diskSpaceMonitor.isNull())
 		{
 			long space = diskSpaceMonitor.path("size").asLong();

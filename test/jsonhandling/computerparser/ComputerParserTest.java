@@ -8,14 +8,12 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.math.BigDecimal;
 
 import jsonhandling.ComputerParser;
 import jsonhandling.ParserUtil;
 
 import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.hamcrest.core.IsNull;
 import org.junit.Test;
 
@@ -70,22 +68,19 @@ public class ComputerParserTest
 	@Test
 	public void allNodes() throws IOException
 	{
-		try (InputStream input = ComputerParserTest.class.getResourceAsStream("allNodes.json"))
+		JsonNode rootNode = ParserUtil.parseJsonFile(this, "allNodes.json");
+		JsonNode computers = rootNode.path("computer");
+		for (JsonNode computerNode : computers)
 		{
-			JsonNode rootNode = new ObjectMapper().readTree(input);
-			JsonNode computers = rootNode.path("computer");
-			for (JsonNode computerNode : computers)
+			ComputerParser computer = new ComputerParser(computerNode);
+			if (computer.isOffline())
 			{
-				ComputerParser computer = new ComputerParser(computerNode);
-				if (computer.isOffline())
-				{
-					assertThat(computer.getDisplayName(),
-										 anyOf(equalTo("lab1014.cordyslab.com"),
-													 equalTo("srv-nl-crd146"),
-													 equalTo("srv-nl-crd146template"),
-													 equalTo("srv-nl-crd38"),
-													 equalTo("srv-nl-vdt010")));
-				}
+				assertThat(computer.getDisplayName(),
+									 anyOf(equalTo("lab1014.cordyslab.com"),
+												 equalTo("srv-nl-crd146"),
+												 equalTo("srv-nl-crd146template"),
+												 equalTo("srv-nl-crd38"),
+												 equalTo("srv-nl-vdt010")));
 			}
 		}
 	}

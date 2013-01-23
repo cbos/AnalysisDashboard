@@ -1,25 +1,44 @@
 package jsonhandling.viewparser;
 
 import java.io.IOException;
-import java.io.InputStream;
 
+import jsonhandling.JobParser;
+import jsonhandling.ParserUtil;
 import jsonhandling.ViewParser;
-import jsonhandling.computerparser.ComputerParserTest;
 
 import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
+import org.junit.Test;
 
 public class ViewParserTest
 {
-
-	private ViewParser parseFile(final String fileName) throws IOException
+	@Test
+	public void testView() throws IOException
 	{
-
-		try (InputStream input = ComputerParserTest.class.getResourceAsStream(fileName))
+		ViewParser vp = parseFile("view.json");
+		for (JsonNode jobNode : vp.getJobs())
 		{
-			JsonNode rootNode = new ObjectMapper().readTree(input);
-			return new ViewParser(rootNode);
+			JobParser job = new JobParser(jobNode);
+			System.out.println(job.getName());
+			System.out.println(job.getUrl());
+			System.out.println(job.getStatus().toString());
 		}
 	}
 
+	@Test
+	public void testViewOneDepth() throws IOException
+	{
+		ViewParser vp = parseFile("viewDepthOne.json");
+		for (JsonNode jobNode : vp.getJobs())
+		{
+			JobParser job = new JobParser(jobNode);
+			System.out.println(job.getName());
+			System.out.println(job.getUrl());
+			System.out.println(job.getStatus().toString());
+		}
+	}
+
+	private ViewParser parseFile(final String fileName) throws IOException
+	{
+		return new ViewParser(ParserUtil.parseJsonFile(this, fileName));
+	}
 }
