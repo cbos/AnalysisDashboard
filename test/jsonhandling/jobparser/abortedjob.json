@@ -1,0 +1,74 @@
+{
+  "actions" : [
+    
+  ],
+  "description" : "",
+  "displayName" : "AbortedJob",
+  "displayNameOrNull" : null,
+  "name" : "AbortedJob",
+  "url" : "http://bos-laptop:8080/job/AbortedJob/",
+  "buildable" : true,
+  "builds" : [
+    {
+      "number" : 2,
+      "url" : "http://bos-laptop:8080/job/AbortedJob/2/"
+    },
+    {
+      "number" : 1,
+      "url" : "http://bos-laptop:8080/job/AbortedJob/1/"
+    }
+  ],
+  "color" : "aborted_anime",
+  "firstBuild" : {
+    "number" : 1,
+    "url" : "http://bos-laptop:8080/job/AbortedJob/1/"
+  },
+  "healthReport" : [
+    {
+      "description" : "Build stability: No recent builds failed.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 100
+    }
+  ],
+  "inQueue" : false,
+  "keepDependencies" : false,
+  "lastBuild" : {
+    "number" : 3,
+    "url" : "http://bos-laptop:8080/job/AbortedJob/3/"
+  },
+  "lastCompletedBuild" : {
+    "number" : 2,
+    "url" : "http://bos-laptop:8080/job/AbortedJob/2/"
+  },
+  "lastFailedBuild" : null,
+  "lastStableBuild" : {
+    "number" : 1,
+    "url" : "http://bos-laptop:8080/job/AbortedJob/1/"
+  },
+  "lastSuccessfulBuild" : {
+    "number" : 1,
+    "url" : "http://bos-laptop:8080/job/AbortedJob/1/"
+  },
+  "lastUnstableBuild" : null,
+  "lastUnsuccessfulBuild" : {
+    "number" : 2,
+    "url" : "http://bos-laptop:8080/job/AbortedJob/2/"
+  },
+  "nextBuildNumber" : 4,
+  "property" : [
+    {
+      
+    }
+  ],
+  "queueItem" : null,
+  "concurrentBuild" : false,
+  "downstreamProjects" : [
+    
+  ],
+  "scm" : {
+    
+  },
+  "upstreamProjects" : [
+    
+  ]
+}

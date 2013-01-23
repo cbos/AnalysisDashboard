@@ -1,5 +1,9 @@
 package jsonhandling.viewparser;
 
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertThat;
+
 import java.io.IOException;
 
 import jsonhandling.JobParser;
@@ -18,9 +22,34 @@ public class ViewParserTest
 		for (JsonNode jobNode : vp.getJobs())
 		{
 			JobParser job = new JobParser(jobNode);
-			System.out.println(job.getName());
-			System.out.println(job.getUrl());
-			System.out.println(job.getStatus().toString());
+			assertThat(job.getName(), notNullValue());
+			assertThat(job.getUrl(), notNullValue());
+			assertThat(job.getStatus(), notNullValue());
+			assertThat(job.hasBuildInformationAvailable(), equalTo(false));
+		}
+	}
+
+	@Test
+	public void testAnotherView() throws IOException
+	{
+		ViewParser vp = parseFile("anotherview.json");
+		for (JsonNode jobNode : vp.getJobs())
+		{
+			JobParser job = new JobParser(jobNode);
+			if ("AbortedJob".equals(job.getName()))
+			{
+				assertThat(job.getStatus(), equalTo(JobParser.JobStatus.ABORTED));
+			}
+
+			if ("NewJob".equals(job.getName()))
+			{
+				assertThat(job.getStatus(), equalTo(JobParser.JobStatus.NEW));
+			}
+
+			assertThat(job.getName(), notNullValue());
+			assertThat(job.getUrl(), notNullValue());
+			assertThat(job.getStatus(), notNullValue());
+			assertThat(job.hasBuildInformationAvailable(), equalTo(false));
 		}
 	}
 
@@ -31,9 +60,10 @@ public class ViewParserTest
 		for (JsonNode jobNode : vp.getJobs())
 		{
 			JobParser job = new JobParser(jobNode);
-			System.out.println(job.getName());
-			System.out.println(job.getUrl());
-			System.out.println(job.getStatus().toString());
+			assertThat(job.getName(), notNullValue());
+			assertThat(job.getUrl(), notNullValue());
+			assertThat(job.getStatus(), notNullValue());
+			assertThat(job.hasBuildInformationAvailable(), equalTo(true));
 		}
 	}
 

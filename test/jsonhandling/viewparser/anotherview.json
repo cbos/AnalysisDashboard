@@ -1,0 +1,44 @@
+{
+  "assignedLabels" : [
+    {
+      
+    }
+  ],
+  "mode" : "NORMAL",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExecutors" : 2,
+  "description" : null,
+  "jobs" : [
+    {
+      "name" : "AbortedJob",
+      "url" : "http://bos-laptop:8080/job/AbortedJob/",
+      "color" : "aborted"
+    },
+    {
+      "name" : "NewJob",
+      "url" : "http://bos-laptop:8080/job/NewJob/",
+      "color" : "grey"
+    }
+  ],
+  "overallLoad" : {
+    
+  },
+  "primaryView" : {
+    "name" : "Alle",
+    "url" : "http://bos-laptop:8080/"
+  },
+  "quietingDown" : false,
+  "slaveAgentPort" : 0,
+  "unlabeledLoad" : {
+    
+  },
+  "useCrumbs" : false,
+  "useSecurity" : false,
+  "views" : [
+    {
+      "name" : "Alle",
+      "url" : "http://bos-laptop:8080/"
+    }
+  ]
+}

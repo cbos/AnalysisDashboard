@@ -6,7 +6,7 @@ public class JobParser extends BaseParser
 {
 	public enum JobStatus
 	{
-		STABLE("blue"), UNSTABLE("yellow"), DISABLED("disabled"), FAILED("red");
+		STABLE("blue"), UNSTABLE("yellow"), DISABLED("disabled"), FAILED("red"), ABORTED("aborted"), NEW("grey");
 
 		private String jenkinsStatus;
 
@@ -52,4 +52,37 @@ public class JobParser extends BaseParser
 		return JobStatus.fromString(path("color").asText());
 	}
 
+	public boolean hasBuildInformationAvailable()
+	{
+		return !path("lastCompletedBuild").isMissingNode();
+	}
+
+	public void loadBuildInformation(final JsonReader reader)
+	{
+		replaceNode(reader.getJSonResult(getUrl()));
+	}
+
+	public long getLastCompletedBuildNumber()
+	{
+		checkHasCompletedBuild();
+		return path("lastCompletedBuild", "number").asLong();
+	}
+
+	private void checkHasCompletedBuild()
+	{
+		if (!hasBuildInformationAvailable())
+		{
+			throw new IllegalStateException("No build information available");
+		}
+		if (JobStatus.NEW == getStatus())
+		{
+			throw new IllegalStateException("Job is NEW, so there is no complete build");
+		}
+	}
+
+	public BuildParser loadLastCompletedBuild(final JsonReader reader)
+	{
+		checkHasCompletedBuild();
+		return new BuildParser(reader.getJSonResult(path("lastCompletedBuild", "url").asText()));
+	}
 }

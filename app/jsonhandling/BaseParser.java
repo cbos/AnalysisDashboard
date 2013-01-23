@@ -4,7 +4,7 @@ import org.codehaus.jackson.JsonNode;
 
 public abstract class BaseParser
 {
-	private final JsonNode m_node;
+	private JsonNode m_node;
 
 	protected BaseParser(final JsonNode node)
 	{
@@ -19,5 +19,10 @@ public abstract class BaseParser
 			node = node.path(fieldname);
 		}
 		return node;
+	}
+
+	protected void replaceNode(final JsonNode node)
+	{
+		m_node = node;
 	}
 }

@@ -1,0 +1,38 @@
+{
+  "actions" : [
+    {
+      "causes" : [
+        {
+          "shortDescription" : "Started by user anonymous",
+          "userId" : null,
+          "userName" : "anonymous"
+        }
+      ]
+    }
+  ],
+  "artifacts" : [
+    
+  ],
+  "building" : false,
+  "description" : null,
+  "duration" : 4514,
+  "estimatedDuration" : 15085,
+  "executor" : null,
+  "fullDisplayName" : "AbortedJob #2",
+  "id" : "2013-01-23_20-34-30",
+  "keepLog" : false,
+  "number" : 2,
+  "result" : "ABORTED",
+  "timestamp" : 1358969670031,
+  "url" : "http://bos-laptop:8080/job/AbortedJob/2/",
+  "builtOn" : "",
+  "changeSet" : {
+    "items" : [
+      
+    ],
+    "kind" : null
+  },
+  "culprits" : [
+    
+  ]
+}
