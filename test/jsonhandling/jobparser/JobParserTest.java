@@ -25,6 +25,7 @@ public class JobParserTest
 		//small info is the same as the info from a view (0-depth)
 		JobParser job = new JobParser(ParserUtil.parseJsonFile(this, "abortedjob-small.json"));
 		assertThat(job.hasBuildInformationAvailable(), equalTo(false));
+		assertThat(job.isMatrixJob(), equalTo(false));
 
 		jsonreader.setNextResult("abortedjob.json");
 		job.loadBuildInformation(jsonreader);
@@ -39,6 +40,7 @@ public class JobParserTest
 		assertThat(build.getTimestamp(), equalTo(1358969670031L));
 		assertThat(build.getUrl(), equalTo("http://bos-laptop:8080/job/AbortedJob/2/"));
 		assertThat(build.hasTestResults(), equalTo(false));
+		assertThat(build.hasRuns(), equalTo(false));
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -58,12 +60,14 @@ public class JobParserTest
 		JobParser job = new JobParser(ParserUtil.parseJsonFile(this, "install-crd04.json"));
 		assertThat(job.hasBuildInformationAvailable(), equalTo(true));
 		assertThat(job.getLastCompletedBuildNumber(), equalTo(932L));
+		assertThat(job.isMatrixJob(), equalTo(false));
 
 		jsonreader.setNextResult("install-crd04-932.json");
 		BuildParser build = job.loadLastCompletedBuild(jsonreader);
 		assertThat(build.getStatus(), equalTo(BuildParser.BuildStatus.FAILED));
 		assertThat(build.getDescription(), equalTo("ERROR: Directory E:/cordys/bop4/defaultInst is locked."));
 		assertThat(build.hasTestResults(), equalTo(false));
+		assertThat(build.hasRuns(), equalTo(false));
 	}
 
 	@Test
@@ -72,6 +76,7 @@ public class JobParserTest
 		//small info is the same as the info from a view (0-depth)
 		JobParser job = new JobParser(ParserUtil.parseJsonFile(this, "loadtest.json"));
 		assertThat(job.hasBuildInformationAvailable(), equalTo(true));
+		assertThat(job.isMatrixJob(), equalTo(false));
 		assertThat(job.getLastCompletedBuildNumber(), equalTo(1091L));
 
 		jsonreader.setNextResult("loadtest-1091.json");
@@ -81,6 +86,7 @@ public class JobParserTest
 		assertThat(build.getDescription(), equalTo("Loadtest on #1424"));
 		assertThat(build.hasTestResults(), equalTo(true));
 		assertThat(build.getFailedTestCount(), equalTo(2L));
+		assertThat(build.hasRuns(), equalTo(false));
 
 		jsonreader.setNextResult("loadtest-1091-testreport.json");
 		TestReportParser testReport = build.loadTestReport(jsonreader);
@@ -88,6 +94,25 @@ public class JobParserTest
 		assertThat(testReport.getFailedTestCount(), equalTo(2L));
 		assertThat(testReport.getAllTestCases().size(), equalTo(39));
 		assertThat(testReport.getFailingTestCases().size(), equalTo(2));
+	}
+
+	@Test
+	public void cwswipuiunitTest() throws IOException
+	{
+		JobParser job = new JobParser(ParserUtil.parseJsonFile(this, "cws-wip-uiunit.json"));
+		assertThat(job.isMatrixJob(), equalTo(true));
+		assertThat(job.hasBuildInformationAvailable(), equalTo(true));
+		assertThat(job.getLastCompletedBuildNumber(), equalTo(1885L));
+
+		jsonreader.setNextResult("cws-wip-uiunit-1885.json");
+		BuildParser build = job.loadLastCompletedBuild(jsonreader);
+
+		assertThat(build.getStatus(), equalTo(BuildParser.BuildStatus.UNSTABLE));
+		assertThat(build.getDescription(), IsNull.nullValue());
+		assertThat(build.hasTestResults(), equalTo(true));
+		assertThat(build.getFailedTestCount(), equalTo(8L));
+		assertThat(build.hasRuns(), equalTo(true));
+
 	}
 
 	private class JsonReaderMock implements JsonReader

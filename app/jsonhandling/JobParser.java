@@ -57,6 +57,11 @@ public class JobParser extends BaseParser
 		return !path("lastCompletedBuild").isMissingNode();
 	}
 
+	public boolean isMatrixJob()
+	{
+		return !path("activeConfigurations").isMissingNode();
+	}
+
 	public void loadBuildInformation(final JsonReader reader)
 	{
 		replaceNode(reader.getJSonResult(getUrl()));
