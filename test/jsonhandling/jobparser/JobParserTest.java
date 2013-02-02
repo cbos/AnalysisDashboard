@@ -4,11 +4,15 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 import jsonhandling.BuildParser;
 import jsonhandling.JobParser;
 import jsonhandling.JsonReader;
 import jsonhandling.ParserUtil;
+import jsonhandling.RunParser;
 import jsonhandling.TestReportParser;
 
 import org.codehaus.jackson.JsonNode;
@@ -113,23 +117,67 @@ public class JobParserTest
 		assertThat(build.getFailedTestCount(), equalTo(8L));
 		assertThat(build.hasRuns(), equalTo(true));
 
+		jsonreader.setNextResult("cws-wip-uiunit-1885-chrome.json");
+		jsonreader.setNextResult("cws-wip-uiunit-1885-firefox.json");
+		jsonreader.setNextResult("cws-wip-uiunit-1885-safari.json");
+		List<RunParser> runs = build.getRuns(jsonreader);
+
+		RunParser runChrome = runs.get(0);
+		assertThat(runChrome.getStatus(), equalTo(BuildParser.BuildStatus.UNSTABLE));
+		assertThat(runChrome.getFullDisplayName(),
+							 equalTo("cws-wip-uiunit » 64,Chrome,oraclejdk-1.7.3 64,Chrome,oraclejdk-1.7.3"));
+		assertThat(runChrome.hasTestResults(), equalTo(true));
+		assertThat(runChrome.getFailedTestCount(), equalTo(2L));
+
+		jsonreader.setNextResult("cws-wip-uiunit-1885-chrome-testreport.json");
+		TestReportParser testReport = runChrome.loadTestReport(jsonreader);
+
+		assertThat(testReport.getFailedTestCount(), equalTo(2L));
+		assertThat(testReport.getAllTestCases().size(), equalTo(133));
+		assertThat(testReport.getFailingTestCases().size(), equalTo(2));
+
+		RunParser runFirefox = runs.get(1);
+		assertThat(runFirefox.getStatus(), equalTo(BuildParser.BuildStatus.STABLE));
+		assertThat(runFirefox.getFullDisplayName(),
+							 equalTo("cws-wip-uiunit » 64,Firefox,oraclejdk-1.7.3 64,Firefox,oraclejdk-1.7.3"));
+		assertThat(runFirefox.hasTestResults(), equalTo(true));
+		assertThat(runFirefox.getFailedTestCount(), equalTo(0L));
+
+		jsonreader.setNextResult("cws-wip-uiunit-1885-firefox-testreport.json");
+		testReport = runFirefox.loadTestReport(jsonreader);
+
+		assertThat(testReport.getFailedTestCount(), equalTo(0L));
+		assertThat(testReport.getAllTestCases().size(), equalTo(133));
+		assertThat(testReport.getFailingTestCases().size(), equalTo(0));
+
+		RunParser runSafari = runs.get(2);
+		assertThat(runSafari.getStatus(), equalTo(BuildParser.BuildStatus.UNSTABLE));
+		assertThat(runSafari.getFullDisplayName(),
+							 equalTo("cws-wip-uiunit » 64,Safari,oraclejdk-1.7.3 64,Safari,oraclejdk-1.7.3"));
+		assertThat(runSafari.hasTestResults(), equalTo(true));
+		assertThat(runSafari.getFailedTestCount(), equalTo(6L));
+
+		jsonreader.setNextResult("cws-wip-uiunit-1885-safari-testreport.json");
+		testReport = runSafari.loadTestReport(jsonreader);
+
+		assertThat(testReport.getFailedTestCount(), equalTo(6L));
+		assertThat(testReport.getAllTestCases().size(), equalTo(133));
+		assertThat(testReport.getFailingTestCases().size(), equalTo(6));
 	}
 
 	private class JsonReaderMock implements JsonReader
 	{
-		private JsonNode nextResult;
+		private final Queue<JsonNode> nextResults = new LinkedList<>();
 
 		public void setNextResult(final String fileName) throws IOException
 		{
-			nextResult = ParserUtil.parseJsonFile(this, fileName);
+			nextResults.add(ParserUtil.parseJsonFile(this, fileName));
 		}
 
 		@Override
 		public JsonNode getJSonResult(final String url)
 		{
-			JsonNode resultToReturn = nextResult;
-			nextResult = null; //reset result
-			return resultToReturn;
+			return nextResults.poll();
 		}
 	}
 }

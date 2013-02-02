@@ -112,5 +112,4 @@ public class RunParser extends BaseParser
 		}
 		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport"));
 	}
-
 }

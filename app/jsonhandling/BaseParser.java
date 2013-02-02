@@ -8,6 +8,10 @@ public abstract class BaseParser
 
 	protected BaseParser(final JsonNode node)
 	{
+		if (node == null)
+		{
+			throw new IllegalArgumentException("JsonNode is not allowed to be null");
+		}
 		m_node = node;
 	}
 

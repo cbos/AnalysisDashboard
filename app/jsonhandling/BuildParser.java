@@ -1,5 +1,9 @@
 package jsonhandling;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.codehaus.jackson.JsonNode;
 
 public class BuildParser extends RunParser
@@ -20,6 +24,21 @@ public class BuildParser extends RunParser
 		return !path("runs").isMissingNode();
 	}
 
+	public List<RunParser> getRuns(final JsonReader reader)
+	{
+		if (hasRuns())
+		{
+			ArrayList<RunParser> runs = new ArrayList<>();
+			JsonNode runsNode = path("runs");
+			for (JsonNode runNode : runsNode)
+			{
+				runs.add(new RunParser(reader.getJSonResult(runNode.path("url").asText())));
+			}
+			return runs;
+		}
+		return Collections.emptyList();
+	}
+
 	@Override
 	public TestReportParser loadTestReport(final JsonReader reader)
 	{
@@ -27,10 +46,6 @@ public class BuildParser extends RunParser
 		{
 			throw new IllegalStateException("Get the testReport by querying the runs");
 		}
-		if (!hasTestResults())
-		{
-			throw new IllegalStateException("There is not testReport available");
-		}
-		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport"));
+		return super.loadTestReport(reader);
 	}
 }
