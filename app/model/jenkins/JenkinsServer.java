@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import model.EntityBase;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import play.data.validation.Constraints.Required;
 
 @Entity(name = "jenkinsserver")
@@ -24,20 +27,20 @@ public class JenkinsServer extends EntityBase
 	@Column(length = 50)
 	@Required
 	private String name;
-	
+
 	@Column(length = 250)
 	@Required
 	private String url;
-	
+
 	@OneToMany(targetEntity = Job.class, fetch = FetchType.LAZY, mappedBy = "jenkinsServer", cascade = CascadeType.ALL)
 	private Set<Job> jobs;
-	
+
 	@Override
-	protected void setId(Long id)
+	protected void setId(final Long id)
 	{
 		this.id = id;
 	}
-	
+
 	@Override
 	public Long getId()
 	{
@@ -49,7 +52,7 @@ public class JenkinsServer extends EntityBase
 		return name;
 	}
 
-	public void setName(String name)
+	public void setName(final String name)
 	{
 		this.name = name;
 	}
@@ -59,11 +62,12 @@ public class JenkinsServer extends EntityBase
 		return url;
 	}
 
-	public void setUrl(String url)
+	public void setUrl(final String url)
 	{
 		this.url = url;
 	}
-	
+
+	@JsonIgnore
 	public Set<Job> getJobs()
 	{
 		return jobs;

@@ -1,11 +1,15 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+
 import play.db.jpa.JPA;
 
 public class EntityHelper
 {
-	
-	public static <T extends EntityBase> T persist(T entityToPersist)
+
+	public static <T extends EntityBase> T persist(final T entityToPersist)
 	{
 		if (null == entityToPersist.getId() || entityToPersist.getId() < 1L)
 		{
@@ -17,9 +21,17 @@ public class EntityHelper
 		}
 		return entityToPersist;
 	}
-	
+
 	public static <T extends EntityBase> T getEntityById(final Class<T> clazz, final Long id)
 	{
 		return JPA.em().find(clazz, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public static <T extends EntityBase> List<T> getAll(final Class<T> clazz)
+	{
+		Entity entityAnnotation = clazz.getAnnotation(Entity.class);
+		String entityName = entityAnnotation.name();
+		return JPA.em().createQuery("from " + entityName).getResultList();
 	}
 }

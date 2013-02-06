@@ -10,5 +10,8 @@ GET     /login                      		controllers.authentication.LoginController
 POST    /login                      		controllers.authentication.LoginController.authenticate()
 GET     /logout                     		controllers.authentication.LoginController.logout()
 
+GET		/jenkinsserver						controllers.data.JenkinsServerController.jenkinsServer(id:Long ?= -1L)
+GET		/jenkinsserver/:id					controllers.data.JenkinsServerController.jenkinsServer(id:Long)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
