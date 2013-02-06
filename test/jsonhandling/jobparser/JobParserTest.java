@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Queue;
 
 import jsonhandling.BuildParser;
+import jsonhandling.BuildStatus;
 import jsonhandling.JobParser;
 import jsonhandling.JsonReader;
 import jsonhandling.ParserUtil;
@@ -39,7 +40,7 @@ public class JobParserTest
 
 		jsonreader.setNextResult("abortedjob-2.json");
 		BuildParser build = job.loadLastCompletedBuild(jsonreader);
-		assertThat(build.getStatus(), equalTo(BuildParser.BuildStatus.ABORTED));
+		assertThat(build.getStatus(), equalTo(BuildStatus.ABORTED));
 		assertThat(build.getDescription(), IsNull.nullValue());
 		assertThat(build.getTimestamp(), equalTo(1358969670031L));
 		assertThat(build.getUrl(), equalTo("http://bos-laptop:8080/job/AbortedJob/2/"));
@@ -68,7 +69,7 @@ public class JobParserTest
 
 		jsonreader.setNextResult("install-crd04-932.json");
 		BuildParser build = job.loadLastCompletedBuild(jsonreader);
-		assertThat(build.getStatus(), equalTo(BuildParser.BuildStatus.FAILED));
+		assertThat(build.getStatus(), equalTo(BuildStatus.FAILED));
 		assertThat(build.getDescription(), equalTo("ERROR: Directory E:/cordys/bop4/defaultInst is locked."));
 		assertThat(build.hasTestResults(), equalTo(false));
 		assertThat(build.hasRuns(), equalTo(false));
@@ -86,7 +87,7 @@ public class JobParserTest
 		jsonreader.setNextResult("loadtest-1091.json");
 		BuildParser build = job.loadLastCompletedBuild(jsonreader);
 
-		assertThat(build.getStatus(), equalTo(BuildParser.BuildStatus.UNSTABLE));
+		assertThat(build.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(build.getDescription(), equalTo("Loadtest on #1424"));
 		assertThat(build.hasTestResults(), equalTo(true));
 		assertThat(build.getFailedTestCount(), equalTo(2L));
@@ -111,7 +112,7 @@ public class JobParserTest
 		jsonreader.setNextResult("cws-wip-uiunit-1885.json");
 		BuildParser build = job.loadLastCompletedBuild(jsonreader);
 
-		assertThat(build.getStatus(), equalTo(BuildParser.BuildStatus.UNSTABLE));
+		assertThat(build.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(build.getDescription(), IsNull.nullValue());
 		assertThat(build.hasTestResults(), equalTo(true));
 		assertThat(build.getFailedTestCount(), equalTo(8L));
@@ -123,7 +124,7 @@ public class JobParserTest
 		List<RunParser> runs = build.getRuns(jsonreader);
 
 		RunParser runChrome = runs.get(0);
-		assertThat(runChrome.getStatus(), equalTo(BuildParser.BuildStatus.UNSTABLE));
+		assertThat(runChrome.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(runChrome.getFullDisplayName(),
 							 equalTo("cws-wip-uiunit » 64,Chrome,oraclejdk-1.7.3 64,Chrome,oraclejdk-1.7.3"));
 		assertThat(runChrome.hasTestResults(), equalTo(true));
@@ -137,7 +138,7 @@ public class JobParserTest
 		assertThat(testReport.getFailingTestCases().size(), equalTo(2));
 
 		RunParser runFirefox = runs.get(1);
-		assertThat(runFirefox.getStatus(), equalTo(BuildParser.BuildStatus.STABLE));
+		assertThat(runFirefox.getStatus(), equalTo(BuildStatus.STABLE));
 		assertThat(runFirefox.getFullDisplayName(),
 							 equalTo("cws-wip-uiunit » 64,Firefox,oraclejdk-1.7.3 64,Firefox,oraclejdk-1.7.3"));
 		assertThat(runFirefox.hasTestResults(), equalTo(true));
@@ -151,7 +152,7 @@ public class JobParserTest
 		assertThat(testReport.getFailingTestCases().size(), equalTo(0));
 
 		RunParser runSafari = runs.get(2);
-		assertThat(runSafari.getStatus(), equalTo(BuildParser.BuildStatus.UNSTABLE));
+		assertThat(runSafari.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(runSafari.getFullDisplayName(),
 							 equalTo("cws-wip-uiunit » 64,Safari,oraclejdk-1.7.3 64,Safari,oraclejdk-1.7.3"));
 		assertThat(runSafari.hasTestResults(), equalTo(true));

@@ -1,5 +1,8 @@
 package jsonhandling;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.codehaus.jackson.JsonNode;
 
 public class ViewParser extends BaseParser
@@ -9,8 +12,13 @@ public class ViewParser extends BaseParser
 		super(node);
 	}
 
-	public JsonNode getJobs()
+	public List<JobParser> getJobs()
 	{
-		return path("jobs");
+		ArrayList<JobParser> jobs = new ArrayList<>();
+		for (JsonNode jobNode : path("jobs"))
+		{
+			jobs.add(new JobParser(jobNode));
+		}
+		return jobs;
 	}
 }
