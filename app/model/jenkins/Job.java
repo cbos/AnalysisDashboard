@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import model.EntityBase;
-
 import play.data.validation.Constraints.Required;
 
 @Entity(name = "job")
@@ -27,20 +26,23 @@ public class Job extends EntityBase
 	@Column(length = 50)
 	@Required
 	private String name;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, targetEntity = JenkinsServer.class)
 	@JoinColumn(name = "jenkinsServer_id", nullable = false, updatable = true, insertable = true)
 	private JenkinsServer jenkinsServer;
-	
+
 	@OneToMany(targetEntity = Build.class, fetch = FetchType.LAZY, mappedBy = "job", cascade = CascadeType.ALL)
 	private Set<Build> builds;
-	
+
+	@Required
+	private Long lastBuildNumber;
+
 	@Override
-	protected void setId(Long id)
+	protected void setId(final Long id)
 	{
 		this.id = id;
 	}
-	
+
 	@Override
 	public Long getId()
 	{
@@ -52,7 +54,7 @@ public class Job extends EntityBase
 		return name;
 	}
 
-	public void setName(String name)
+	public void setName(final String name)
 	{
 		this.name = name;
 	}
@@ -62,8 +64,18 @@ public class Job extends EntityBase
 		return jenkinsServer;
 	}
 
-	public void setJenkinsServer(JenkinsServer jenkinsServer)
+	public void setJenkinsServer(final JenkinsServer jenkinsServer)
 	{
 		this.jenkinsServer = jenkinsServer;
+	}
+
+	public Long getLastBuildNumber()
+	{
+		return lastBuildNumber == null ? -1L : lastBuildNumber;
+	}
+
+	public void setLastBuildNumber(final Long lastBuildNumber)
+	{
+		this.lastBuildNumber = lastBuildNumber;
 	}
 }

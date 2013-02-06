@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import jsonhandling.BuildStatus;
 import model.EntityBase;
 import play.data.validation.Constraints.Required;
 
@@ -20,23 +21,23 @@ public class Build extends EntityBase
 
 	@Required
 	private Long buildNumber;
-	
+
 	@Required
 	private String status;
-	
+
 	@Required
 	private Long timestamp;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, targetEntity = Job.class)
 	@JoinColumn(name = "job_id", nullable = false, updatable = true, insertable = true)
 	private Job job;
-	
+
 	@Override
-	protected void setId(Long id)
+	protected void setId(final Long id)
 	{
 		this.id = id;
 	}
-	
+
 	@Override
 	public Long getId()
 	{
@@ -48,7 +49,7 @@ public class Build extends EntityBase
 		return buildNumber;
 	}
 
-	public void setBuildNumber(Long buildNumber)
+	public void setBuildNumber(final Long buildNumber)
 	{
 		this.buildNumber = buildNumber;
 	}
@@ -58,18 +59,28 @@ public class Build extends EntityBase
 		return job;
 	}
 
-	public void setJob(Job job)
+	public void setJob(final Job job)
 	{
 		this.job = job;
 	}
-	
+
 	public Long getTimestamp()
 	{
 		return timestamp;
 	}
-	
-	public void setTimestamp(Long timestamp)
+
+	public void setTimestamp(final Long timestamp)
 	{
 		this.timestamp = timestamp;
+	}
+
+	public void setStatus(final BuildStatus buildStatus)
+	{
+		status = buildStatus.asText();
+	}
+
+	public BuildStatus getStatus()
+	{
+		return BuildStatus.fromString(status);
 	}
 }
