@@ -5,11 +5,12 @@ import play.db.jpa.JPA;
 public abstract class EntityBase
 {
 	public abstract Long getId();
-	
+
 	protected abstract void setId(Long id);
 
 	public void update()
 	{
+		JPA.em().merge(this);
 		JPA.em().flush();
 	}
 
