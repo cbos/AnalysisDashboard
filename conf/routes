@@ -10,11 +10,11 @@ GET     /login                      		controllers.authentication.LoginController
 POST    /login                      		controllers.authentication.LoginController.authenticate()
 GET     /logout                     		controllers.authentication.LoginController.logout()
 
-GET		/jenkinsserver						controllers.data.JenkinsServerController.jenkinsServer(id:Long ?= -1L)
-POST	/jenkinsserver						controllers.data.JenkinsServerController.newInstance()
-GET		/jenkinsserver/:id					controllers.data.JenkinsServerController.jenkinsServer(id:Long)
-POST	/jenkinsserver/:id					controllers.data.JenkinsServerController.save(id:Long)
-DELETE  /jenkinsserver/:id					controllers.data.JenkinsServerController.delete(id:Long)
+GET		/jenkinsserver						@controllers.data.JenkinsServerController.entity(id:Long ?= -1L)
+POST	/jenkinsserver						@controllers.data.JenkinsServerController.newInstance()
+GET		/jenkinsserver/:id					@controllers.data.JenkinsServerController.entity(id:Long)
+POST	/jenkinsserver/:id					@controllers.data.JenkinsServerController.save(id:Long)
+DELETE  /jenkinsserver/:id					@controllers.data.JenkinsServerController.delete(id:Long)
 
 
 # Map static resources from the /public folder to the /assets URL path

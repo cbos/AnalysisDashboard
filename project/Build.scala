@@ -1,6 +1,6 @@
 import sbt._
 import Keys._
-import PlayProject._
+import play.Project._
 
 object ApplicationBuild extends Build {
 
@@ -8,11 +8,12 @@ object ApplicationBuild extends Build {
     val appVersion      = "1.0-SNAPSHOT"
 
     val appDependencies = Seq(
+    	javaCore, javaJpa, 
       "org.hibernate" % "hibernate-entitymanager" % "3.6.9.Final",
       "mysql" % "mysql-connector-java" % "5.1.18"
     )
 
-    val main = PlayProject(appName, appVersion, appDependencies, mainLang = JAVA).settings(
+	val main = play.Project(appName, appVersion, appDependencies).settings(
 
 		//This line is needed to load the .json files correctly for Play framework tests
 		//See http://journal.michaelahlers.org/2013/01/play-framework-and-testing-resources.html

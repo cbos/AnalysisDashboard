@@ -10,7 +10,7 @@ public class LoginController extends Controller
 {
 	public static Result login()
 	{
-		return ok(login.render(form(LoginForm.class)));
+		return ok(login.render(play.data.Form.form(LoginForm.class)));
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class LoginController extends Controller
 	 */
 	public static Result authenticate()
 	{
-		final Form<LoginForm> loginForm = form(LoginForm.class).bindFromRequest();
+		final Form<LoginForm> loginForm = play.data.Form.form(LoginForm.class).bindFromRequest();
 		if (loginForm.hasErrors())
 		{
 			return badRequest(login.render(loginForm));
@@ -36,13 +36,13 @@ public class LoginController extends Controller
 		session(Secured.SESSION_KEY_USERNAME, loginForm.get().username);
 		final String url = session().get(Secured.SESSION_KEY_REDIRECTURL);
 		session().remove(Secured.SESSION_KEY_REDIRECTURL);
-		if(null == url)
+		if (null == url)
 		{
 			return redirect(controllers.routes.Application.index());
 		}
 		return redirect(url);
 	}
-	
+
 	public static class LoginForm
 	{
 		@Required
