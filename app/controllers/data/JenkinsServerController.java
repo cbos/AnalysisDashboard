@@ -24,6 +24,19 @@ public class JenkinsServerController extends EntityController
 	}
 
 	@Transactional()
+	public static Result newInstance() throws JsonParseException, JsonMappingException, IOException
+	{
+		JsonNode json = request().body().asJson();
+		ObjectMapper mapper = new ObjectMapper();
+		JenkinsServer jenkinsServer = mapper.readValue(json, JenkinsServer.class);
+		System.out.println(json);
+		System.out.println(jenkinsServer.getName());
+		EntityHelper.persist(jenkinsServer);
+
+		return ok(Json.toJson(jenkinsServer));
+	}
+
+	@Transactional()
 	public static Result save(final Long id) throws JsonParseException, JsonMappingException, IOException
 	{
 		JsonNode json = request().body().asJson();
@@ -35,4 +48,12 @@ public class JenkinsServerController extends EntityController
 
 		return ok(Json.toJson(jenkinsServer));
 	}
+
+	@Transactional()
+	public static Result delete(final Long id)
+	{
+		EntityHelper.getEntityById(JenkinsServer.class, id).delete();
+		return ok();
+	}
+
 }

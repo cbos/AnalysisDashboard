@@ -39,13 +39,15 @@ $scope.isClean = function() {
 }
 
 $scope.destroy = function() {
+	debugger;
   self.original.$remove(function() {
     $location.path('/jenkinsserver');
   });
 };
 
 $scope.save = function() {
-  $scope.jenkinsserver.update(function() {
+	debugger;
+  $scope.jenkinsserver.$save(function() {
     $location.path('/');
   });
 };

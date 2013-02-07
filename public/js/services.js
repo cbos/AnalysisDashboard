@@ -10,15 +10,10 @@ serviceModule.value('version', '0.1');
 
 serviceModule.factory('JenkinsServer', function($resource) {
       var JenkinsServer = $resource('/jenkinsserver/:id',
-          { }, {
+          { id:'@id'}, {
             update: { method: 'POST' }
           }
       ); 
-      
-      JenkinsServer.prototype.update = function(cb) {
-          return JenkinsServer.update({id: this.id},
-              angular.extend({}, this), cb);
-        };
       
       return JenkinsServer;
     });
