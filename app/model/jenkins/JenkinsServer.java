@@ -35,6 +35,11 @@ public class JenkinsServer extends EntityBase
 	@OneToMany(targetEntity = Job.class, fetch = FetchType.LAZY, mappedBy = "jenkinsServer", cascade = CascadeType.ALL)
 	private Set<Job> jobs;
 
+	@OneToMany(targetEntity = Computer.class, fetch = FetchType.LAZY, mappedBy = "jenkinsServer", cascade = CascadeType.ALL)
+	private Set<Computer> computers;
+
+	private String labelsToAnalyze;
+
 	@Override
 	protected void setId(final Long id)
 	{
@@ -71,5 +76,15 @@ public class JenkinsServer extends EntityBase
 	public Set<Job> getJobs()
 	{
 		return jobs;
+	}
+
+	public String getLabelsToAnalyze()
+	{
+		return labelsToAnalyze;
+	}
+
+	public void setLabelsToAnalyze(String labelsToAnalyze)
+	{
+		this.labelsToAnalyze = labelsToAnalyze;
 	}
 }

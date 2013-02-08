@@ -1,7 +1,5 @@
 package model.jenkins;
 
-import java.io.IOException;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,10 +10,7 @@ import javax.persistence.ManyToOne;
 
 import model.EntityBase;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.map.ObjectMapper;
 
 @Entity(name = "computer")
 public class Computer extends EntityBase
@@ -34,7 +29,11 @@ public class Computer extends EntityBase
 
 	private boolean stickyWatch;
 
-	private String jenkinsData;
+	private boolean offline;
+
+	private String offlineCause;
+
+	private Double diskSpaceLeft;
 
 	@Override
 	protected void setId(final Long id)
@@ -90,24 +89,33 @@ public class Computer extends EntityBase
 		this.stickyWatch = stickyWatch;
 	}
 
-	public JsonNode getJenkinsData() throws JsonProcessingException, IOException
+	public boolean isOffline()
 	{
-		if (null != jenkinsData)
-		{
-			return new ObjectMapper().readTree(jenkinsData);
-		}
-		return null;
+		return offline;
 	}
 
-	public void setJenkinsData(final JsonNode jenkinsData)
+	public void setOffline(final boolean offline)
 	{
-		if (jenkinsData != null)
-		{
-			this.jenkinsData = jenkinsData.toString();
-		}
-		else
-		{
-			this.jenkinsData = null;
-		}
+		this.offline = offline;
+	}
+
+	public String getOfflineCause()
+	{
+		return offlineCause;
+	}
+
+	public void setOfflineCause(final String offlineCause)
+	{
+		this.offlineCause = offlineCause;
+	}
+
+	public Double getDiskSpaceLeft()
+	{
+		return diskSpaceLeft;
+	}
+
+	public void setDiskSpaceLeft(final Double diskSpaceLeft)
+	{
+		this.diskSpaceLeft = diskSpaceLeft;
 	}
 }
