@@ -17,6 +17,11 @@ POST	/jenkinsserver/:id					@controllers.data.JenkinsServerController.save(id:Lo
 DELETE  /jenkinsserver/:id					@controllers.data.JenkinsServerController.delete(id:Long)
 GET		/jenkinsserver/:id/analyzeComputers	@controllers.data.JenkinsServerController.analyzeComputers(id:Long)
 
+GET		/computer							@controllers.data.ComputerController.entity(id:Long ?= -1L)
+POST	/computer							@controllers.data.ComputerController.newInstance()
+GET		/computer/:id						@controllers.data.ComputerController.entity(id:Long)
+POST	/computer/:id						@controllers.data.ComputerController.save(id:Long)
+DELETE  /computer/:id						@controllers.data.ComputerController.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file               		controllers.Assets.at(path="/public", file)

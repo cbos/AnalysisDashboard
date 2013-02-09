@@ -1,0 +1,27 @@
+<div class="row-fluid">
+	<div class="span4">
+		<div class="well">
+		<!-- Computers -->
+		
+		<p class="text-error"><Strong>Offline computers</Strong></p>
+		<div ng-repeat="computer in computers | filter:{offline:true} |orderBy:'displayName'">
+			<div class="alert" ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
+				<img src="img/computer.png" ng-show="!computer.offline">
+				<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;
+				<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}</span>
+				
+			</div>
+		</div>
+		
+		<p class="text-info"><Strong>Computers in watch list</Strong></p>
+		<div ng-repeat="computer in computers | filter:{stickyWatch:true} |orderBy:'displayName'">
+			<div class="alert" ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
+				<img src="img/computer.png" ng-show="!computer.offline">
+				<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;
+				<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="span8"></div>
+</div>

@@ -2,17 +2,21 @@
 
 /* Controllers */
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
-
-
-function MyCtrl2() {
+function DashboardCtrl($scope, Computer) {
+	$scope.computers = Computer.query();
 }
-MyCtrl2.$inject = [];
-
 
 function JenkinsServerListCtrl($scope, JenkinsServer) {
+	self = this;
 	$scope.jenkinsservers = JenkinsServer.query();
+	
+	self.computerStyleClass = function(computer) {
+		if(computer.offline)
+		{
+			return "alert-error";
+		}
+		return "alert-success";
+	}
 }
 
 
@@ -23,7 +27,6 @@ function JenkinsServerCreateCtrl($scope, $location, JenkinsServer) {
 	  });
 	}
 }
-
 
 function JenkinsServerEditCtrl($scope, $location, $routeParams, $http, JenkinsServer) {
 	var self = this;

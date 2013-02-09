@@ -5,11 +5,14 @@
 angular.module('analysisApp', ['analysisApp.filters', 'analysisApp.services', 'analysisApp.directives']).
   config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
+	when('/dashboard', {controller:DashboardCtrl, templateUrl:'partials/dashboard/dashboard.html'}).
+	
 	when('/jenkinsserver', {controller:JenkinsServerListCtrl, templateUrl:'partials/jenkinsserver/list.html'}).
 	when('/jenkinsserver/edit/:id', {controller:JenkinsServerEditCtrl, templateUrl:'partials/jenkinsserver/detail.html'}).
 	when('/jenkinsserver/new', {controller:JenkinsServerCreateCtrl, templateUrl:'partials/jenkinsserver/detail.html'}).
+	
+	when('/computer', {controller:JenkinsServerListCtrl, templateUrl:'partials/computer/list.html'}).
+	when('/computer/edit/:id', {controller:JenkinsServerEditCtrl, templateUrl:'partials/computer/detail.html'}).
 	 
-    when('/view1', {templateUrl: 'partials/partial1.html', controller: MyCtrl1}).
-    when('/view2', {templateUrl: 'partials/partial2.html', controler: MyCtrl2}).
-    otherwise({redirectTo: '/view1'});
+    otherwise({redirectTo: '/dashboard'});
   }]);
