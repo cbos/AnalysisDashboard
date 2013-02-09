@@ -23,7 +23,7 @@ public class Computer extends EntityBase
 	@JoinColumn(name = "jenkinsServer_id", nullable = false, updatable = true, insertable = true)
 	private JenkinsServer jenkinsServer;
 
-	private String assignedLabels;
+	private String displayName;
 
 	private boolean watch;
 
@@ -57,16 +57,6 @@ public class Computer extends EntityBase
 	public void setJenkinsServer(final JenkinsServer jenkinsServer)
 	{
 		this.jenkinsServer = jenkinsServer;
-	}
-
-	public String getAssignedLabels()
-	{
-		return assignedLabels;
-	}
-
-	public void setAssignedLabels(final String assignedLabels)
-	{
-		this.assignedLabels = assignedLabels;
 	}
 
 	public boolean isWatch()
@@ -117,5 +107,15 @@ public class Computer extends EntityBase
 	public void setDiskSpaceLeft(final Double diskSpaceLeft)
 	{
 		this.diskSpaceLeft = diskSpaceLeft;
+	}
+
+	public String getDisplayName()
+	{
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName)
+	{
+		this.displayName = displayName;
 	}
 }

@@ -17,6 +17,8 @@
 		    <td>{{jenkinsserver.name}}</td>
 		    <td>{{jenkinsserver.labelsToAnalyze}}</td>
 		    <td><a href="{{jenkinsserver.url}}" target="_blank">{{jenkinsserver.url}}</a></td>
+		    <td><a href="" ng-click="jenkinsserver.analyzeComputers()"><i class="icon-list-alt"></i>&nbsp;Analysis</a>&nbsp;
+		    <img ng-show="jenkinsserver.isAnalyzingComputers()" src="img/spinner.gif"/></td>
 		  </tr>
 		  </tbody>
 		</table>

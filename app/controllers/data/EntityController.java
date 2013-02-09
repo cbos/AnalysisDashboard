@@ -24,6 +24,11 @@ public class EntityController<T extends EntityBase> extends Controller
 		m_clazz = clazz;
 	}
 
+	protected T getEntityById(final Long id)
+	{
+		return EntityHelper.getEntityById(m_clazz, id);
+	}
+
 	@Transactional(readOnly = true)
 	public Result entity(final Long id)
 	{
@@ -37,10 +42,14 @@ public class EntityController<T extends EntityBase> extends Controller
 	@Transactional()
 	public Result newInstance() throws JsonParseException, JsonMappingException, IOException
 	{
+		return parseAndPersist();
+	}
+
+	private Result parseAndPersist() throws IOException, JsonParseException, JsonMappingException
+	{
 		JsonNode json = request().body().asJson();
 		ObjectMapper mapper = new ObjectMapper();
 		T entity = mapper.readValue(json, m_clazz);
-		System.out.println(json);
 		EntityHelper.persist(entity);
 
 		return ok(Json.toJson(entity));
@@ -49,13 +58,7 @@ public class EntityController<T extends EntityBase> extends Controller
 	@Transactional()
 	public Result save(final Long id) throws JsonParseException, JsonMappingException, IOException
 	{
-		JsonNode json = request().body().asJson();
-		ObjectMapper mapper = new ObjectMapper();
-		T entity = mapper.readValue(json, m_clazz);
-		System.out.println(json);
-		EntityHelper.persist(entity);
-
-		return ok(Json.toJson(entity));
+		return parseAndPersist();
 	}
 
 	@Transactional()

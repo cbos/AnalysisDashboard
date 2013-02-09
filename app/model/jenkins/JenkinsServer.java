@@ -78,12 +78,18 @@ public class JenkinsServer extends EntityBase
 		return jobs;
 	}
 
+	@JsonIgnore
+	public Set<Computer> getComputers()
+	{
+		return computers;
+	}
+
 	public String getLabelsToAnalyze()
 	{
 		return labelsToAnalyze;
 	}
 
-	public void setLabelsToAnalyze(String labelsToAnalyze)
+	public void setLabelsToAnalyze(final String labelsToAnalyze)
 	{
 		this.labelsToAnalyze = labelsToAnalyze;
 	}
