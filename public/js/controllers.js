@@ -7,16 +7,7 @@ function DashboardCtrl($scope, Computer) {
 }
 
 function JenkinsServerListCtrl($scope, JenkinsServer) {
-	self = this;
 	$scope.jenkinsservers = JenkinsServer.query();
-	
-	self.computerStyleClass = function(computer) {
-		if(computer.offline)
-		{
-			return "alert-error";
-		}
-		return "alert-success";
-	}
 }
 
 

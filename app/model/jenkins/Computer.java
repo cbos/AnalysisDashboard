@@ -114,8 +114,13 @@ public class Computer extends EntityBase
 		return displayName;
 	}
 
-	public void setDisplayName(String displayName)
+	public void setDisplayName(final String displayName)
 	{
 		this.displayName = displayName;
+	}
+
+	public String getURL()
+	{
+		return String.format("%s/computer/%s", jenkinsServer.getUrl(), getDisplayName());
 	}
 }
