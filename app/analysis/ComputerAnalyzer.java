@@ -43,8 +43,22 @@ public class ComputerAnalyzer
 			computerEntity.setJenkinsServer(m_jenkinsServer);
 		}
 
+		if (m_computerParser.isOfflineCauseAvailable())
+		{
+			if (m_computerParser.getOfflineCause().matches("\\d*"))
+			{
+				computerEntity.setOfflineCause("Offline due to lack of diskspace");
+			}
+			else
+			{
+				computerEntity.setOfflineCause(m_computerParser.getOfflineCause());
+			}
+		}
+		else
+		{
+			computerEntity.setOfflineCause("");
+		}
 		computerEntity.setOffline(m_computerParser.isOffline());
-		computerEntity.setOfflineCause(m_computerParser.getOfflineCause());
 		computerEntity.setDiskSpaceLeft(m_computerParser.getGbLeft().doubleValue());
 		EntityHelper.persist(computerEntity);
 	}

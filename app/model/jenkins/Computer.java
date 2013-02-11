@@ -11,8 +11,10 @@ import javax.persistence.ManyToOne;
 import model.EntityBase;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @Entity(name = "computer")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Computer extends EntityBase
 {
 	@Id

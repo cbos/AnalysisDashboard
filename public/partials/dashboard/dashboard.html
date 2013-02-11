@@ -4,7 +4,7 @@
 			<!-- Computers -->
 			
 			<p class="text-error"><Strong>Offline computers</Strong></p>
-			<div ng-repeat="computer in computers | filter:{offline:true} |orderBy:'displayName'">
+			<div ng-repeat="computer in computers | filter:{offline:true, watch:true} |orderBy:'displayName'">
 				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
 					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img src="img/computer.png" ng-show="!computer.offline">
@@ -18,10 +18,14 @@
 			
 			<p class="text-info"><Strong>Computers in watch list</Strong></p>
 			<div ng-repeat="computer in computers | filter:{stickyWatch:true} |orderBy:'displayName'">
-				<div class="alert" style="margin-bottom: 0px;" ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
+				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
+					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img src="img/computer.png" ng-show="!computer.offline">
 					<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;
-					<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}
+					<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}<BR>
+					<ul class="inline unstyled" ng-show="computer.showActions">
+						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a>
+					</ul>
 				</div>
 			</div>
 		</div>

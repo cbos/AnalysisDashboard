@@ -42,23 +42,29 @@ public class EntityController<T extends EntityBase> extends Controller
 	@Transactional()
 	public Result newInstance() throws JsonParseException, JsonMappingException, IOException
 	{
-		return parseAndPersist();
+		return parseAndPersist(null);
 	}
 
-	private Result parseAndPersist() throws IOException, JsonParseException, JsonMappingException
+	private Result parseAndPersist(final Long id) throws IOException, JsonParseException, JsonMappingException
 	{
 		JsonNode json = request().body().asJson();
 		ObjectMapper mapper = new ObjectMapper();
 		T entity = mapper.readValue(json, m_clazz);
+		validateEntity(id, entity);
 		EntityHelper.persist(entity);
 
 		return ok(Json.toJson(entity));
 	}
 
+	protected void validateEntity(final Long id, final T entity)
+	{
+
+	}
+
 	@Transactional()
 	public Result save(final Long id) throws JsonParseException, JsonMappingException, IOException
 	{
-		return parseAndPersist();
+		return parseAndPersist(id);
 	}
 
 	@Transactional()
