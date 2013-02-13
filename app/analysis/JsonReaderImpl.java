@@ -4,6 +4,7 @@ import jsonhandling.JsonReader;
 
 import org.codehaus.jackson.JsonNode;
 
+import play.Logger;
 import play.libs.F.Promise;
 import play.libs.WS;
 import play.libs.WS.Response;
@@ -14,9 +15,8 @@ public class JsonReaderImpl implements JsonReader
 	@Override
 	public JsonNode getJSonResult(final String url)
 	{
-		System.out.println(url);
 		String enhancedURL = enhanceURL(url);
-		System.out.println(enhancedURL);
+		Logger.of(JsonReaderImpl.class).info("Loading url " + enhancedURL);
 		Promise<Response> promise = WS.url(enhancedURL).get();
 		Response response = promise.get();
 
