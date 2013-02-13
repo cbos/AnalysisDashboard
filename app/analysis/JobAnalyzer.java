@@ -3,6 +3,7 @@ package analysis;
 import jsonhandling.BuildParser;
 import jsonhandling.JobParser;
 import jsonhandling.JsonReader;
+import model.EntityHelper;
 import model.jenkins.Job;
 
 public class JobAnalyzer
@@ -27,6 +28,9 @@ public class JobAnalyzer
 			m_jobParser.loadBuildInformation(m_jsonReader);
 		}
 
+		m_job.setBuilding(m_jobParser.isBuilding());
+		m_job.setStatus(m_jobParser.getStatus());
+
 		switch (m_jobParser.getStatus())
 		{
 		case NEW:
@@ -46,6 +50,8 @@ public class JobAnalyzer
 		default:
 			break;
 		}
+
+		EntityHelper.persist(m_job);
 	}
 
 	private void analyzeDetails()
@@ -59,7 +65,7 @@ public class JobAnalyzer
 			BuildParser buildParser = m_jobParser.loadLastCompletedBuild(m_jsonReader);
 			new RunAnalyzer(m_job, buildParser, m_jsonReader).analyze();
 
-			m_job.setLastBuildNumber(m_jobParser.getLastCompletedBuildNumber());
+			//m_job.setLastBuildNumber(m_jobParser.getLastCompletedBuildNumber());
 		}
 
 	}

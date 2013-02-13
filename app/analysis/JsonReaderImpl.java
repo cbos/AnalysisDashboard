@@ -17,18 +17,25 @@ public class JsonReaderImpl implements JsonReader
 	{
 		String enhancedURL = enhanceURL(url);
 		Logger.of(JsonReaderImpl.class).info("Loading url " + enhancedURL);
-		Promise<Response> promise = WS.url(enhancedURL).get();
-		Response response = promise.get();
-
-		if (response.getStatus() == 200)
+		try
 		{
-			return response.asJson();
-		}
+			Promise<Response> promise = WS.url(enhancedURL).get();
+			Response response = promise.get(60000L);
 
-		throw new RuntimeException(String.format("Requested url '%s' failed with status %s. %s",
-																						 enhancedURL,
-																						 response.getStatus(),
-																						 response.getBody()));
+			if (response.getStatus() == 200)
+			{
+				return response.asJson();
+			}
+
+			throw new RuntimeException(String.format("Requested url '%s' failed with status %s. %s",
+																							 enhancedURL,
+																							 response.getStatus(),
+																							 response.getBody()));
+		}
+		catch (Throwable t)
+		{
+			throw new RuntimeException("Error during fetch of url " + enhancedURL, t);
+		}
 	}
 
 	private String enhanceURL(final String url)

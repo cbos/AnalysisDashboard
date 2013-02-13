@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+GET		/log						controllers.Application.getLog()
 
 # Authentication
 GET     /login                      		controllers.authentication.LoginController.login()
@@ -18,10 +19,16 @@ DELETE  /jenkinsserver/:id					@controllers.data.JenkinsServerController.delete(
 GET		/jenkinsserver/:id/analyzeServer	@controllers.data.JenkinsServerController.analyzeServer(id:Long)
 
 GET		/computer							@controllers.data.ComputerController.entity(id:Long ?= -1L)
-POST	/computer							@controllers.data.ComputerController.newInstance()
 GET		/computer/:id						@controllers.data.ComputerController.entity(id:Long)
 POST	/computer/:id						@controllers.data.ComputerController.save(id:Long)
 DELETE  /computer/:id						@controllers.data.ComputerController.delete(id:Long)
+
+GET		/job								@controllers.data.JobController.entity(id:Long ?= -1L)
+GET		/job/:id							@controllers.data.JobController.entity(id:Long)
+POST	/job/:id							@controllers.data.JobController.save(id:Long)
+DELETE  /job/:id							@controllers.data.JobController.delete(id:Long)
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file               		controllers.Assets.at(path="/public", file)

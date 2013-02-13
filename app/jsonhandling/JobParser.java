@@ -19,6 +19,11 @@ public class JobParser extends BaseParser
 		return path("url").asText();
 	}
 
+	public boolean isBuilding()
+	{
+		return path("color").asText().endsWith("_anime");
+	}
+
 	public JobStatus getStatus()
 	{
 		return JobStatus.fromString(path("color").asText());

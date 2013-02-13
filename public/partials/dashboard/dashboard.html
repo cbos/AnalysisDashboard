@@ -4,18 +4,20 @@
 			<!-- Computers -->
 			
 			<p class="text-error"><Strong>Offline computers</Strong></p>
-			<div ng-repeat="computer in computers | filter:{offline:true, watch:true} |orderBy:'displayName'">
+			<div ng-repeat="computer in computers | filter:{offline:true} |orderBy:'displayName'">
 				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
 					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img src="img/computer.png" ng-show="!computer.offline">
 					<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;
 					<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}<BR>
-					<ul class="inline unstyled" ng-show="computer.showActions">
-						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a>
+					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
+						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{computer.url}}"><i class="icon-thumbs-up"></i>&nbsp;Fixed</a></li>
+						<li><a href="{{computer.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 					</ul>
 				</div>
 			</div>
-			
+			<BR>
 			<p class="text-info"><Strong>Computers in watch list</Strong></p>
 			<div ng-repeat="computer in computers | filter:{stickyWatch:true} |orderBy:'displayName'">
 				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
@@ -23,12 +25,35 @@
 					<img src="img/computer.png" ng-show="!computer.offline">
 					<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;
 					<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}<BR>
-					<ul class="inline unstyled" ng-show="computer.showActions">
-						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a>
+					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
+						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{computer.url}}"><i class="icon-thumbs-up"></i>&nbsp;Fixed</a></li>
+						<li><a href="{{computer.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="span8"></div>
+	<div class="span4">
+	
+		<div class="well">
+			<!-- Jobs -->
+			
+			<div ng-repeat="job in jobs | filter:'!STABLE' |orderBy:'name'">
+				<div class="alert" ng-mouseenter="job.showActions=true" ng-mouseleave="job.showActions=false" style="margin-bottom: 0px;" 
+					ng-class="{ 'alert-error': job.status=='FAILED', 
+								'alert-success': job.status=='STABLE', 
+								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
+					<strong>{{job.name}}</strong> {{job.status}}<BR>
+					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
+						<li><a href="{{job.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{job.url}}"><i class="icon-thumbs-up"></i>&nbsp;Fixed</a></li>
+						<li><a href="{{job.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<div class="span4"></div>
 </div>

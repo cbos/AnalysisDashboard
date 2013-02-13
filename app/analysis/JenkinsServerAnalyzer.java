@@ -24,32 +24,51 @@ public class JenkinsServerAnalyzer
 	public void analyzeComputers()
 	{
 		String labelsToAnalyze = m_jenkinsServer.getLabelsToAnalyze();
-		String[] labels = labelsToAnalyze.split(" ");
-
-		Set<String> computersToAnalyze = new HashSet<>();
-
-		for (String label : labels)
+		if (labelsToAnalyze != null)
 		{
-			String url = String.format("%s/label/%s/api/json", m_jenkinsServer.getUrl(), label);
+			String[] labels = labelsToAnalyze.split(" ");
 
-			JsonNode labelNode = m_jsonReader.getJSonResult(url);
+			Set<String> computersToAnalyze = new HashSet<>();
 
-			JsonNode nodes = labelNode.path("nodes");
-			for (JsonNode node : nodes)
+			for (String label : labels)
 			{
-				computersToAnalyze.add(node.path("nodeName").asText());
+				String url = String.format("%s/label/%s/api/json", m_jenkinsServer.getUrl(), label);
+
+				JsonNode labelNode = m_jsonReader.getJSonResult(url);
+
+				JsonNode nodes = labelNode.path("nodes");
+				for (JsonNode node : nodes)
+				{
+					computersToAnalyze.add(node.path("nodeName").asText());
+				}
+			}
+
+			JsonNode computersNode = m_jsonReader.getJSonResult(String.format("%s/computer/api/json",
+																																				m_jenkinsServer.getUrl()));
+
+			JsonNode computers = computersNode.path("computer");
+			for (JsonNode computerNode : computers)
+			{
+				ComputerParser computer = new ComputerParser(computerNode);
+				if (computersToAnalyze.contains(computer.getDisplayName()))
+				{
+					new ComputerAnalyzer(m_jenkinsServer, computer).analyze();
+				}
 			}
 		}
+	}
 
-		JsonNode computersNode = m_jsonReader.getJSonResult(String.format("%s/computer/api/json", m_jenkinsServer.getUrl()));
-
-		JsonNode computers = computersNode.path("computer");
-		for (JsonNode computerNode : computers)
+	public void analyzeViews()
+	{
+		String viewsToAnalyze = m_jenkinsServer.getViewsToAnalyze();
+		Set<String> jobsAnalyzed = new HashSet<>();
+		if (viewsToAnalyze != null)
 		{
-			ComputerParser computer = new ComputerParser(computerNode);
-			if (computersToAnalyze.contains(computer.getDisplayName()))
+			String[] views = viewsToAnalyze.split(" ");
+
+			for (String view : views)
 			{
-				new ComputerAnalyzer(m_jenkinsServer, computer).analyze();
+				new ViewAnalyzer(m_jenkinsServer, view, m_jsonReader, jobsAnalyzed).analyze();
 			}
 		}
 	}

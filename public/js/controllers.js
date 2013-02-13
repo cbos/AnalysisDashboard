@@ -2,8 +2,10 @@
 
 /* Controllers */
 
-function DashboardCtrl($scope, Computer) {
+function DashboardCtrl($scope, Computer, Job) {
 	$scope.computers = Computer.query();
+	
+	$scope.jobs = Job.query();
 }
 
 function ComputerListCtrl($scope, Computer) {

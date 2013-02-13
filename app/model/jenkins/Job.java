@@ -13,7 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import jsonhandling.JobStatus;
 import model.EntityBase;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import play.data.validation.Constraints.Required;
 
 @Entity(name = "job")
@@ -37,6 +41,10 @@ public class Job extends EntityBase
 	@Required
 	private Long lastBuildNumber;
 
+	private boolean isBuilding;
+
+	private String status;
+
 	@Override
 	protected void setId(final Long id)
 	{
@@ -59,6 +67,7 @@ public class Job extends EntityBase
 		this.name = name;
 	}
 
+	@JsonIgnore
 	public JenkinsServer getJenkinsServer()
 	{
 		return jenkinsServer;
@@ -77,5 +86,30 @@ public class Job extends EntityBase
 	public void setLastBuildNumber(final Long lastBuildNumber)
 	{
 		this.lastBuildNumber = lastBuildNumber;
+	}
+
+	public boolean isBuilding()
+	{
+		return isBuilding;
+	}
+
+	public void setBuilding(final boolean isBuilding)
+	{
+		this.isBuilding = isBuilding;
+	}
+
+	public void setStatus(final JobStatus jobStatus)
+	{
+		status = jobStatus.asText();
+	}
+
+	public JobStatus getStatus()
+	{
+		return JobStatus.fromString(status);
+	}
+
+	public String getURL()
+	{
+		return String.format("%s/job/%s", jenkinsServer.getUrl(), getName());
 	}
 }
