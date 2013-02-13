@@ -40,6 +40,8 @@ public class JenkinsServer extends EntityBase
 
 	private String labelsToAnalyze;
 
+	private String viewsToAnalyze;
+
 	@Override
 	protected void setId(final Long id)
 	{
@@ -92,5 +94,15 @@ public class JenkinsServer extends EntityBase
 	public void setLabelsToAnalyze(final String labelsToAnalyze)
 	{
 		this.labelsToAnalyze = labelsToAnalyze;
+	}
+
+	public String getViewsToAnalyze()
+	{
+		return viewsToAnalyze;
+	}
+
+	public void setViewsToAnalyze(final String viewsToAnalyze)
+	{
+		this.viewsToAnalyze = viewsToAnalyze;
 	}
 }

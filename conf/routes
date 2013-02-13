@@ -15,7 +15,7 @@ POST	/jenkinsserver						@controllers.data.JenkinsServerController.newInstance()
 GET		/jenkinsserver/:id					@controllers.data.JenkinsServerController.entity(id:Long)
 POST	/jenkinsserver/:id					@controllers.data.JenkinsServerController.save(id:Long)
 DELETE  /jenkinsserver/:id					@controllers.data.JenkinsServerController.delete(id:Long)
-GET		/jenkinsserver/:id/analyzeComputers	@controllers.data.JenkinsServerController.analyzeComputers(id:Long)
+GET		/jenkinsserver/:id/analyzeServer	@controllers.data.JenkinsServerController.analyzeServer(id:Long)
 
 GET		/computer							@controllers.data.ComputerController.entity(id:Long ?= -1L)
 POST	/computer							@controllers.data.ComputerController.newInstance()

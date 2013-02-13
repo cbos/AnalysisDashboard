@@ -13,24 +13,24 @@ serviceModule.factory('JenkinsServer', function($resource, $http, $rootScope) {
           { id:'@id'}
       ); 
       
-      JenkinsServer.prototype.analyzeComputers = function() {
+      JenkinsServer.prototype.analyzeServer = function() {
     	  var js = this;
-    	  js.isAnalyzing = true;
-          $http.get('/jenkinsserver/' + this.id + '/analyzeComputers').
+    	  js.isBusyAnalyzing = true;
+          $http.get('/jenkinsserver/' + this.id + '/analyzeServer').
           success(function(data, status, headers, config) {
-        	  js.isAnalyzing = false;
+        	  js.isBusyAnalyzing = false;
     	  }).
     	  error(function(data, status, headers, config) {
-    		  js.isAnalyzing = false;
+    		  js.isBusyAnalyzing = false;
     		  
-    		  $rootScope.errorObject = { data: data, status : status, info: "Analysis of the computers failed"}
+    		  $rootScope.errorObject = { data: data, status : status, info: "Analysis of the server failed"}
     		  $rootScope.showError = true;
 		  });
       };
       
-      JenkinsServer.prototype.isAnalyzingComputers = function()
+      JenkinsServer.prototype.isAnalyzing = function()
       {
-    	  return !!this.isAnalyzing;
+    	  return !!this.isBusyAnalyzing;
       }
       
       return JenkinsServer;

@@ -1,26 +1,30 @@
-<div class="container">
-	<div class="well">
-		<table class="table table-striped table-hover table-condensed">
-		  <thead>
-		  <tr>
-		    <th><a href="#/jenkinsserver/new"><i class="icon-plus-sign"></i></a></th>
-		    <th>Name</th>
-		    <th>Labels to analyze</th>
-		    <th>URL</th>
-		  </tr>
-		  </thead>
-		  <tbody>
-		  <tr ng-repeat="jenkinsserver in jenkinsservers | orderBy:'name'">
-		  	<td>
-		      <a href="#/jenkinsserver/edit/{{jenkinsserver.id}}"><i class="icon-pencil"></i></a>
-		    </td>
-		    <td>{{jenkinsserver.name}}</td>
-		    <td>{{jenkinsserver.labelsToAnalyze}}</td>
-		    <td><a href="{{jenkinsserver.url}}" target="_blank">{{jenkinsserver.url}}</a></td>
-		    <td><a href="" ng-click="jenkinsserver.analyzeComputers()"><i class="icon-list-alt"></i>&nbsp;Analysis</a>&nbsp;
-		    <img ng-show="jenkinsserver.isAnalyzingComputers()" src="img/spinner.gif"/></td>
-		  </tr>
-		  </tbody>
-		</table>
+<div class="row-fluid">
+	<div class="offset2 span8">
+		<div class="well">
+			<table class="table table-striped table-hover table-condensed">
+			  <thead>
+			  <tr>
+			    <th><a href="#/jenkinsserver/new"><i class="icon-plus-sign"></i></a></th>
+			    <th>Name</th>
+			    <th>Labels to analyze</th>
+			    <th>Views to analyze</th>
+			    <th>URL</th>
+			  </tr>
+			  </thead>
+			  <tbody>
+			  <tr ng-repeat="jenkinsserver in jenkinsservers | orderBy:'name'">
+			  	<td>
+			      <a href="#/jenkinsserver/edit/{{jenkinsserver.id}}"><i class="icon-pencil"></i></a>
+			    </td>
+			    <td>{{jenkinsserver.name}}</td>
+			    <td>{{jenkinsserver.labelsToAnalyze}}</td>
+			    <td>{{jenkinsserver.viewsToAnalyze}}</td>
+			    <td><a href="{{jenkinsserver.url}}" target="_blank">{{jenkinsserver.url}}</a></td>
+			    <td><a href="" ng-click="jenkinsserver.analyzeServer()"><i class="icon-list-alt"></i>&nbsp;Analysis</a>&nbsp;
+			    <img ng-show="jenkinsserver.isAnalyzing()" src="img/spinner.gif"/></td>
+			  </tr>
+			  </tbody>
+			</table>
+		</div>
 	</div>
 </div>

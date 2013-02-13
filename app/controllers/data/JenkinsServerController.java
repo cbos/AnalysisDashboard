@@ -14,7 +14,7 @@ public class JenkinsServerController extends EntityController<JenkinsServer>
 	}
 
 	@Transactional()
-	public Result analyzeComputers(final Long id)
+	public Result analyzeServer(final Long id)
 	{
 		JenkinsServer jenkinsServer = getEntityById(id);
 
