@@ -59,7 +59,14 @@ public class ComputerAnalyzer
 			computerEntity.setOfflineCause("");
 		}
 		computerEntity.setOffline(m_computerParser.isOffline());
-		computerEntity.setDiskSpaceLeft(m_computerParser.getGbLeft().doubleValue());
+		if (m_computerParser.isOffline() && !m_computerParser.isTemporarilyOffline())
+		{
+			computerEntity.setDiskSpaceLeft(new Double("-1"));
+		}
+		else
+		{
+			computerEntity.setDiskSpaceLeft(m_computerParser.getGbLeft().doubleValue());
+		}
 		EntityHelper.persist(computerEntity);
 	}
 }
