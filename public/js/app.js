@@ -29,6 +29,14 @@ angular.module(
 				controller : ComputerEditCtrl,
 				templateUrl : 'partials/computer/detail.html'
 			}).
+			
+			when('/job', {
+				controller : JobListCtrl,
+				templateUrl : 'partials/job/list.html'
+			}).when('/job/edit/:id', {
+				controller : JobEditCtrl,
+				templateUrl : 'partials/job/detail.html'
+			}).
 
 			otherwise({
 				redirectTo : '/dashboard'

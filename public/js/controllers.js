@@ -16,6 +16,10 @@ function JenkinsServerListCtrl($scope, JenkinsServer) {
 	$scope.jenkinsservers = JenkinsServer.query();
 }
 
+function JobListCtrl($scope, Job) {
+	$scope.jobs = Job.query();
+}
+
 function ComputerEditCtrl($scope, $location, $routeParams, $http, Computer) {
 	var self = this;
 
@@ -75,6 +79,33 @@ function JenkinsServerEditCtrl($scope, $location, $routeParams, $http,
 	$scope.save = function() {
 		$scope.jenkinsserver.$save(function() {
 			$location.path('/jenkinsserver');
+		});
+	};
+}
+
+function JobEditCtrl($scope, $location, $routeParams, $http, Job) {
+	var self = this;
+
+	Job.get({
+		id : $routeParams.id
+	}, function(job) {
+		self.original = job;
+		$scope.job = new Job(self.original);
+	});
+
+	$scope.isClean = function() {
+		return angular.equals(self.original, $scope.job);
+	}
+
+	$scope.destroy = function() {
+		self.original.$remove(function() {
+			$location.path('/job');
+		});
+	};
+
+	$scope.save = function() {
+		$scope.job.$save(function() {
+			$location.path('/job');
 		});
 	};
 }

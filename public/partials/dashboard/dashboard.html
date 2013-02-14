@@ -4,7 +4,7 @@
 			<!-- Computers -->
 			
 			<p class="text-error"><Strong>Offline computers</Strong></p>
-			<div ng-repeat="computer in computers | filter:{offline:true} |orderBy:'displayName'">
+			<div ng-repeat="computer in computers | filter:{offline:true, watch:true} |orderBy:'displayName'">
 				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
 					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img src="img/computer.png" ng-show="!computer.offline">
@@ -39,7 +39,7 @@
 		<div class="well">
 			<!-- Jobs -->
 			
-			<div ng-repeat="job in jobs | filter:'!STABLE' |orderBy:'name'">
+			<div ng-repeat="job in jobs | filter:'!STABLE' | filter:{watch:true} |orderBy:'name'">
 				<div class="alert" ng-mouseenter="job.showActions=true" ng-mouseleave="job.showActions=false" style="margin-bottom: 0px;" 
 					ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': job.status=='STABLE', 

@@ -8,4 +8,12 @@ public class JobController extends EntityController<Job>
 	{
 		super(Job.class);
 	}
+
+	@Override
+	protected void validateEntity(final Long id, final Job entity)
+	{
+		Job jobFromDB = getEntityById(id);
+
+		entity.setJenkinsServer(jobFromDB.getJenkinsServer());
+	}
 }

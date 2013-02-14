@@ -17,10 +17,12 @@ import jsonhandling.JobStatus;
 import model.EntityBase;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import play.data.validation.Constraints.Required;
 
 @Entity(name = "job")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Job extends EntityBase
 {
 	@Id
@@ -44,6 +46,8 @@ public class Job extends EntityBase
 	private boolean isBuilding;
 
 	private String status;
+
+	private boolean watch;
 
 	@Override
 	protected void setId(final Long id)
@@ -111,5 +115,15 @@ public class Job extends EntityBase
 	public String getURL()
 	{
 		return String.format("%s/job/%s", jenkinsServer.getUrl(), getName());
+	}
+
+	public boolean isWatch()
+	{
+		return watch;
+	}
+
+	public void setWatch(final boolean watch)
+	{
+		this.watch = watch;
 	}
 }
