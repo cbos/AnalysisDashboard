@@ -1,5 +1,8 @@
 import static play.test.Helpers.fakeApplication;
 import static play.test.Helpers.running;
+
+import java.util.HashSet;
+
 import model.EntityHelper;
 import model.jenkins.JenkinsServer;
 
@@ -28,7 +31,7 @@ public class JSONTest
 						JenkinsServer buildmasterNl = EntityHelper.getEntityById(JenkinsServer.class, 1L);
 
 						String viewName = "UIUnit%20Core";
-						new ViewAnalyzer(buildmasterNl, viewName, new JsonReaderImpl()).analyze();
+						new ViewAnalyzer(buildmasterNl, viewName, new JsonReaderImpl(), new HashSet<String>()).analyze();
 
 						//System.out.println(promise.get().asJson().toString());
 					}
