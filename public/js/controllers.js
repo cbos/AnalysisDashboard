@@ -10,6 +10,16 @@ function DashboardCtrl($scope, Computer, Job) {
 
 function ComputerListCtrl($scope, Computer) {
 	$scope.computers = Computer.query();
+	
+	$scope.change = function(index) {
+	    $scope.computers[index].$save();
+	};
+	
+	$scope.destroy = function(index) {
+		$scope.computers[index].$remove(function() {
+			$scope.computers.splice(index, 1);
+		});
+	};
 }
 
 function JenkinsServerListCtrl($scope, JenkinsServer) {
@@ -18,6 +28,8 @@ function JenkinsServerListCtrl($scope, JenkinsServer) {
 
 function JobListCtrl($scope, Job) {
 	$scope.jobs = Job.query();
+	
+	
 }
 
 function ComputerEditCtrl($scope, $location, $routeParams, $http, Computer) {

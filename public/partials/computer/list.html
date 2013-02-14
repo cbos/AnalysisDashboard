@@ -17,15 +17,15 @@
 			  <tbody>
 			  <tr ng-repeat="computer in computers | orderBy:'displayName'">
 			  	<td>
-			      <a href="#/computer/edit/{{computer.id}}"><i class="icon-pencil"></i></a>
+			  	  <button ng-click="destroy($index)" ng-show="computer.id" class="btn btn-danger btn-mini"><i class="icon-trash"></i>&nbsp;Delete</button>
 			    </td>
 			    <td><img src="img/computer.png" ng-show="!computer.offline">
 						<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;{{computer.displayName}}</td>
 				<td class="text-right">{{computer.diskSpaceLeft}} Gb</td>
 			    <td><span ng-class="{ 'label label-important': computer.offline}">{{computer.offline}}</span></td>
 			    <td>{{computer.offlineCause}}</td>
-			    <td>{{computer.watch}}</td>
-			    <td>{{computer.stickyWatch}}</td>
+			    <td><input type="checkbox" ng-model="computer.watch" ng-change="change($index)"></td>
+			    <td><input type="checkbox" ng-model="computer.stickyWatch" ng-change="change($index)"></td>
 			    <td><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></td>
 			    <td></td>
 			  </tr>
