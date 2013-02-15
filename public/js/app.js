@@ -25,17 +25,11 @@ angular.module(
 			when('/computer', {
 				controller : ComputerListCtrl,
 				templateUrl : 'partials/computer/list.html'
-			}).when('/computer/edit/:id', {
-				controller : ComputerEditCtrl,
-				templateUrl : 'partials/computer/detail.html'
 			}).
 			
 			when('/job', {
 				controller : JobListCtrl,
 				templateUrl : 'partials/job/list.html'
-			}).when('/job/edit/:id', {
-				controller : JobEditCtrl,
-				templateUrl : 'partials/job/detail.html'
 			}).
 
 			otherwise({

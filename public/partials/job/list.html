@@ -14,11 +14,11 @@
 			  <tbody>
 			  <tr ng-repeat="job in jobs | orderBy:'name'">
 			  	<td>
-			      <a href="#/job/edit/{{job.id}}"><i class="icon-pencil"></i></a>
+			  	  <button ng-click="destroy($index)" ng-show="job.id" class="btn btn-danger btn-mini"><i class="icon-trash"></i>&nbsp;Delete</button>
 			    </td>
-			    <td>{{job.name}}</td>
+			  	<td>{{job.name}}</td>
 			    <td>{{job.status}}</td>
-			    <td>{{job.watch}}</td>
+			    <td><input type="checkbox" ng-model="job.watch" ng-change="change($index)"></td>
 			    <td><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></td>
 			    <td></td>
 			  </tr>

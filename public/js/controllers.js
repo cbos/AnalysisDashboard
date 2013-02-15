@@ -22,41 +22,22 @@ function ComputerListCtrl($scope, Computer) {
 	};
 }
 
-function JenkinsServerListCtrl($scope, JenkinsServer) {
-	$scope.jenkinsservers = JenkinsServer.query();
-}
-
 function JobListCtrl($scope, Job) {
 	$scope.jobs = Job.query();
 	
+	$scope.change = function(index) {
+	    $scope.jobs[index].$save();
+	};
 	
+	$scope.destroy = function(index) {
+		$scope.jobs[index].$remove(function() {
+			$scope.jobs.splice(index, 1);
+		});
+	};
 }
 
-function ComputerEditCtrl($scope, $location, $routeParams, $http, Computer) {
-	var self = this;
-
-	Computer.get({
-		id : $routeParams.id
-	}, function(computer) {
-		self.original = computer;
-		$scope.computer = new Computer(self.original);
-	});
-
-	$scope.isClean = function() {
-		return angular.equals(self.original, $scope.computer);
-	}
-
-	$scope.destroy = function() {
-		self.original.$remove(function() {
-			$location.path('/computer');
-		});
-	};
-
-	$scope.save = function() {
-		$scope.computer.$save(function() {
-			$location.path('/computer');
-		});
-	};
+function JenkinsServerListCtrl($scope, JenkinsServer) {
+	$scope.jenkinsservers = JenkinsServer.query();
 }
 
 function JenkinsServerCreateCtrl($scope, $location, JenkinsServer) {
@@ -91,33 +72,6 @@ function JenkinsServerEditCtrl($scope, $location, $routeParams, $http,
 	$scope.save = function() {
 		$scope.jenkinsserver.$save(function() {
 			$location.path('/jenkinsserver');
-		});
-	};
-}
-
-function JobEditCtrl($scope, $location, $routeParams, $http, Job) {
-	var self = this;
-
-	Job.get({
-		id : $routeParams.id
-	}, function(job) {
-		self.original = job;
-		$scope.job = new Job(self.original);
-	});
-
-	$scope.isClean = function() {
-		return angular.equals(self.original, $scope.job);
-	}
-
-	$scope.destroy = function() {
-		self.original.$remove(function() {
-			$location.path('/job');
-		});
-	};
-
-	$scope.save = function() {
-		$scope.job.$save(function() {
-			$location.path('/job');
 		});
 	};
 }
