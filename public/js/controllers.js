@@ -1,5 +1,33 @@
 'use strict';
 
+angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope) 
+		  {
+			debugger;
+			$rootScope.alerts = [];
+
+			$rootScope.addAlert = function(type, info, status, data)
+			{
+				$rootScope.alerts.push({type: type, info: info, status: status, data:data});
+			};
+
+			$rootScope.closeAlert = function(index)
+			{
+			     $rootScope.alerts.splice(index, 1);
+			};
+			
+			$rootScope.change = function(entity) {
+			    entity.$save();
+			};
+
+			$rootScope.destroy = function(entityArray, entity) {
+				var index = entityArray.indexOf(entity);
+				entity.$remove(function() {
+					entityArray.splice(index, 1);
+				});
+			};
+
+		});
+
 /* Controllers */
 
 function DashboardCtrl($scope, Computer, Job) {
@@ -10,30 +38,10 @@ function DashboardCtrl($scope, Computer, Job) {
 
 function ComputerListCtrl($scope, Computer) {
 	$scope.computers = Computer.query();
-	
-	$scope.change = function(index) {
-	    $scope.computers[index].$save();
-	};
-	
-	$scope.destroy = function(index) {
-		$scope.computers[index].$remove(function() {
-			$scope.computers.splice(index, 1);
-		});
-	};
 }
 
 function JobListCtrl($scope, Job) {
 	$scope.jobs = Job.query();
-	
-	$scope.change = function(index) {
-	    $scope.jobs[index].$save();
-	};
-	
-	$scope.destroy = function(index) {
-		$scope.jobs[index].$remove(function() {
-			$scope.jobs.splice(index, 1);
-		});
-	};
 }
 
 function JenkinsServerListCtrl($scope, JenkinsServer) {

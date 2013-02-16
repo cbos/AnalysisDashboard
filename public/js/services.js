@@ -21,12 +21,7 @@ serviceModule.factory('JenkinsServer', function($resource, $http, $rootScope) {
 				}).error(function(data, status, headers, config) {
 			js.isBusyAnalyzing = false;
 
-			$rootScope.errorObject = {
-				data : data,
-				status : status,
-				info : "Analysis of the server failed"
-			}
-			$rootScope.showError = true;
+			$rootScope.addAlert("error", "Analysis of the server failed", "HTML status code:" + status, data);
 		});
 	};
 

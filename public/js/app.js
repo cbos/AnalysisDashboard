@@ -3,9 +3,9 @@
 // Declare app level module which depends on filters, and services
 angular.module(
 		'analysisApp',
-		[ 'analysisApp.filters', 'analysisApp.services',
-				'analysisApp.directives' ]).config(
-		[ '$routeProvider', function($routeProvider, Computer) {
+		[ 'analysisApp.rootScopeInitializer', 'analysisApp.filters', 'analysisApp.services',
+				'analysisApp.directives', 'ui.bootstrap.alert' ]).config(
+		[ '$routeProvider', function($routeProvider) {
 			$routeProvider.when('/dashboard', {
 				controller : DashboardCtrl,
 				templateUrl : 'partials/dashboard/dashboard.html'
@@ -26,7 +26,7 @@ angular.module(
 				controller : ComputerListCtrl,
 				templateUrl : 'partials/computer/list.html'
 			}).
-			
+
 			when('/job', {
 				controller : JobListCtrl,
 				templateUrl : 'partials/job/list.html'
