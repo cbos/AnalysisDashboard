@@ -59,7 +59,8 @@ public class ComputerAnalyzer
 			computerEntity.setOfflineCause("");
 		}
 		computerEntity.setOffline(m_computerParser.isOffline());
-		if (m_computerParser.isOffline() && !m_computerParser.isTemporarilyOffline())
+		if ((m_computerParser.isOffline() && !m_computerParser.isTemporarilyOffline())
+				|| m_computerParser.getGbLeft() == null)
 		{
 			computerEntity.setDiskSpaceLeft(new Double("-1"));
 		}
