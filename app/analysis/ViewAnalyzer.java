@@ -62,7 +62,6 @@ public class ViewAnalyzer
 
 	private Job getOrCreateJob(final String jobName)
 	{
-		System.out.println(m_jenkinsServer.getJobs());
 		for (Job job : m_jenkinsServer.getJobs())
 		{
 			if (job.getName().equals(jobName))
@@ -71,7 +70,6 @@ public class ViewAnalyzer
 			}
 		}
 
-		System.out.println("Creating a new job for " + jobName);
 		Job newJob = new Job();
 		newJob.setJenkinsServer(m_jenkinsServer);
 		newJob.setName(jobName);

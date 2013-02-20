@@ -33,6 +33,9 @@ public class Job extends EntityBase
 	@Required
 	private String name;
 
+	@Column(length = 250)
+	private String description;
+
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, targetEntity = JenkinsServer.class)
 	@JoinColumn(name = "jenkinsServer_id", nullable = false, updatable = true, insertable = true)
 	private JenkinsServer jenkinsServer;
@@ -137,5 +140,22 @@ public class Job extends EntityBase
 	public void setType(final String type)
 	{
 		this.type = type;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(final String description)
+	{
+		if (description != null && description.length() > 250)
+		{
+			this.description = description.substring(0, 249);
+		}
+		else
+		{
+			this.description = description;
+		}
 	}
 }

@@ -30,6 +30,7 @@ public class JobAnalyzer
 
 		m_job.setBuilding(m_jobParser.isBuilding());
 		m_job.setStatus(m_jobParser.getStatus());
+		m_job.setDescription(m_jobParser.getDescription());
 
 		switch (m_jobParser.getStatus())
 		{

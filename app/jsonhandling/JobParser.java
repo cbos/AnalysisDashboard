@@ -14,6 +14,11 @@ public class JobParser extends BaseParser
 		return path("name").asText();
 	}
 
+	public String getDescription()
+	{
+		return path("description").asText();
+	}
+
 	public String getUrl()
 	{
 		return path("url").asText();
