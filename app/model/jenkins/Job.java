@@ -49,6 +49,8 @@ public class Job extends EntityBase
 
 	private boolean watch;
 
+	private String type;
+
 	@Override
 	protected void setId(final Long id)
 	{
@@ -125,5 +127,15 @@ public class Job extends EntityBase
 	public void setWatch(final boolean watch)
 	{
 		this.watch = watch;
+	}
+
+	public String getType()
+	{
+		return type == null ? "" : type;
+	}
+
+	public void setType(final String type)
+	{
+		this.type = type;
 	}
 }

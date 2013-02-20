@@ -2,7 +2,6 @@
 
 angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope) 
 		  {
-			debugger;
 			$rootScope.alerts = [];
 
 			$rootScope.addAlert = function(type, info, status, data)
@@ -30,10 +29,22 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 
 /* Controllers */
 
-function DashboardCtrl($scope, Computer, Job) {
-	$scope.computers = Computer.query();
+function DashboardCtrl($scope, $timeout,  Computer, Job) {
 	
-	$scope.jobs = Job.query();
+	$scope.reload = function()
+	{
+		$scope.computers = Computer.query();
+		
+		$scope.jobs = Job.query();
+		
+		$timeout($scope.reload, 60000);
+	}
+	$timeout($scope.reload, 0);
+	
+	$scope.stopWatching = function(job) {
+		job.watch = false;
+		job.$save();
+	};
 }
 
 function ComputerListCtrl($scope, Computer) {
@@ -42,6 +53,19 @@ function ComputerListCtrl($scope, Computer) {
 
 function JobListCtrl($scope, Job) {
 	$scope.jobs = Job.query();
+	
+	$scope.types = [
+                {name:'Full Build', value:'fullbuild'},
+                {name:'Install', value:'install'},
+                {name:'Upgrade', value:'upgrade'},
+                {name:'Sync-merge', value:'syncmerge'},
+                {name:'Drop-merge', value:'dropmerge'},
+                {name:'Loadtests', value:'loadtests'},
+                {name:'Regression test', value:'regression-test'},
+                {name:'Quick build', value:'quick-build'},
+                {name:'Misc', value:'misc'},
+                {name:'Unknown', value:''}
+	            ];
 }
 
 function JenkinsServerListCtrl($scope, JenkinsServer) {
