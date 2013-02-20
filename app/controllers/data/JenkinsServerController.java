@@ -18,7 +18,12 @@ public class JenkinsServerController extends EntityController<JenkinsServer>
 	public Result analyzeServer(final Long id)
 	{
 		JenkinsServer jenkinsServer = getEntityById(id);
+		analyzeServer(jenkinsServer);
+		return ok();
+	}
 
+	public static synchronized void analyzeServer(final JenkinsServer jenkinsServer)
+	{
 		JenkinsServerAnalyzer jenkinsServerAnalyzer = new JenkinsServerAnalyzer(jenkinsServer, new JsonReaderImpl());
 		Logger.of(JenkinsServerController.class).info("Analyzing computers");
 		jenkinsServerAnalyzer.analyzeComputers();
@@ -27,9 +32,7 @@ public class JenkinsServerController extends EntityController<JenkinsServer>
 		Logger.of(JenkinsServerController.class).info("Done with the analysis");
 
 		Logger.of(JenkinsServerController.class).info("Ready");
-		return ok();
 	}
-
 	/*public Result analyzeServer(final Long id)
 	{
 		{
