@@ -1,6 +1,6 @@
-<div class="row-fluid">
+<div class="row-fluid" style="font-size: 16px;">
 	<div class="span4">
-		<div class="well">
+		<div>
 			<!-- Computers -->
 			
 			<p class="text-error"><Strong>Offline computers</Strong></p>
@@ -9,7 +9,8 @@
 					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img src="img/computer.png" ng-show="!computer.offline">
 					<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;
-					<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}<BR>
+					<strong>{{computer.displayName}}</strong><BR>
+					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
 					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
 						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{computer.url}}"><i class="icon-thumbs-up"></i>&nbsp;Fixed</a></li>
@@ -24,7 +25,8 @@
 					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img src="img/computer.png" ng-show="!computer.offline">
 					<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;
-					<strong>{{computer.displayName}}</strong> has {{computer.diskSpaceLeft}}Gb left. {{computer.offlineCause}}<BR>
+					<strong>{{computer.displayName}}</strong><BR>
+					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
 					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
 						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{computer.url}}"><i class="icon-thumbs-up"></i>&nbsp;Fixed</a></li>
@@ -36,7 +38,7 @@
 	</div>
 	<div class="span4">
 	
-		<div class="well">
+		<div>
 			<!-- Jobs -->
 			
 			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |orderBy:'name'">
@@ -44,11 +46,13 @@
 					ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': job.status=='STABLE', 
 								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
-					<strong>{{job.name}}</strong> {{job.status}}<BR>
+					<strong>{{job.name}}</strong><BR>
+					<span style="font-size: 12px;"> {{job.status | lowercase}}</span><BR>
 					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
 						<li><a href="{{job.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{job.url}}"><i class="icon-thumbs-up"></i>&nbsp;Fixed</a></li>
 						<li><a href="{{job.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+						<li><a  href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 					</ul>
 				</div>
 			</div>
