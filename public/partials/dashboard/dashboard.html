@@ -41,7 +41,7 @@
 		<div>
 			<!-- Jobs -->
 			
-			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |orderBy:'name'">
+			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |jobType:jobTypes">
 				<div class="alert" ng-mouseenter="job.showActions=true" ng-mouseleave="job.showActions=false" style="margin-bottom: 0px;" 
 					ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': job.status=='STABLE', 

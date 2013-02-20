@@ -24,7 +24,19 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 					entityArray.splice(index, 1);
 				});
 			};
-
+			
+			$rootScope.jobTypes = [
+			                {name:'Full Build', value:'fullbuild', order:10},
+			                {name:'Install', value:'install', order:20},
+			                {name:'Upgrade', value:'upgrade', order:30},
+			                {name:'Sync-merge', value:'syncmerge', order:40},
+			                {name:'Drop-merge', value:'dropmerge', order:50},
+			                {name:'Loadtests', value:'loadtests', order:60},
+			                {name:'Regression test', value:'regression-test', order:70},
+			                {name:'Quick build', value:'quick-build', order:80},
+			                {name:'Misc', value:'misc', order:90},
+			                {name:'Unknown', value:'', order:100}
+				            ];
 		});
 
 /* Controllers */
@@ -78,18 +90,7 @@ function ComputerListCtrl($scope, Computer) {
 function JobListCtrl($scope, Job) {
 	$scope.jobs = Job.query();
 	
-	$scope.types = [
-                {name:'Full Build', value:'fullbuild'},
-                {name:'Install', value:'install'},
-                {name:'Upgrade', value:'upgrade'},
-                {name:'Sync-merge', value:'syncmerge'},
-                {name:'Drop-merge', value:'dropmerge'},
-                {name:'Loadtests', value:'loadtests'},
-                {name:'Regression test', value:'regression-test'},
-                {name:'Quick build', value:'quick-build'},
-                {name:'Misc', value:'misc'},
-                {name:'Unknown', value:''}
-	            ];
+
 }
 
 function JenkinsServerListCtrl($scope, JenkinsServer) {
