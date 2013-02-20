@@ -45,6 +45,30 @@ function DashboardCtrl($scope, $timeout,  Computer, Job) {
 		job.watch = false;
 		job.$save();
 	};
+	
+	$scope.imageName = function(job)
+	{
+		var img = "";
+		switch (job.status)
+		{
+		case "UNSTABLE":
+			img = "yellow";
+		  break;
+		case "STABLE":
+			img = "blue";
+		  break;
+		case "FAILED":
+			img = "red";
+		  break;
+		default:
+			img = "grey";
+		}
+		if(job.building)
+		{
+			return img + "_anime.gif";
+		}
+		return img + ".png";
+	}
 }
 
 function ComputerListCtrl($scope, Computer) {

@@ -46,8 +46,10 @@
 					ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': job.status=='STABLE', 
 								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
-					<strong>{{job.name}}</strong><BR>
-					<span style="font-size: 12px;"> {{job.status | lowercase}}</span><BR>
+					<strong>{{job.name}}</strong><span class="pull-right"><img ng-src="img/{{imageName(job)}}"/></span><BR>
+					<div style="font-size: 12px;">
+					{{job.description}}
+					</div>
 					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
 						<li><a href="{{job.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{job.url}}"><i class="icon-thumbs-up"></i>&nbsp;Fixed</a></li>
