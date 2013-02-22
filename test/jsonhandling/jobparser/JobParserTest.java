@@ -42,6 +42,7 @@ public class JobParserTest
 		BuildParser build = job.loadLastCompletedBuild(jsonreader);
 		assertThat(build.getStatus(), equalTo(BuildStatus.ABORTED));
 		assertThat(build.getDescription(), IsNull.nullValue());
+		assertThat(build.getBuildNumber(), equalTo(2l));
 		assertThat(build.getTimestamp(), equalTo(1358969670031L));
 		assertThat(build.getUrl(), equalTo("http://bos-laptop:8080/job/AbortedJob/2/"));
 		assertThat(build.hasTestResults(), equalTo(false));
@@ -71,6 +72,7 @@ public class JobParserTest
 		BuildParser build = job.loadLastCompletedBuild(jsonreader);
 		assertThat(build.getStatus(), equalTo(BuildStatus.FAILED));
 		assertThat(build.getDescription(), equalTo("ERROR: Directory E:/cordys/bop4/defaultInst is locked."));
+		assertThat(build.getBuildNumber(), equalTo(932l));
 		assertThat(build.hasTestResults(), equalTo(false));
 		assertThat(build.hasRuns(), equalTo(false));
 	}
@@ -89,6 +91,7 @@ public class JobParserTest
 
 		assertThat(build.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(build.getDescription(), equalTo("Loadtest on #1424"));
+		assertThat(build.getBuildNumber(), equalTo(1091l));
 		assertThat(build.hasTestResults(), equalTo(true));
 		assertThat(build.getFailedTestCount(), equalTo(2L));
 		assertThat(build.hasRuns(), equalTo(false));
@@ -114,6 +117,7 @@ public class JobParserTest
 
 		assertThat(build.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(build.getDescription(), IsNull.nullValue());
+		assertThat(build.getBuildNumber(), equalTo(1885l));
 		assertThat(build.hasTestResults(), equalTo(true));
 		assertThat(build.getFailedTestCount(), equalTo(8L));
 		assertThat(build.hasRuns(), equalTo(true));
@@ -129,6 +133,7 @@ public class JobParserTest
 							 equalTo("cws-wip-uiunit » 64,Chrome,oraclejdk-1.7.3 64,Chrome,oraclejdk-1.7.3"));
 		assertThat(runChrome.hasTestResults(), equalTo(true));
 		assertThat(runChrome.getFailedTestCount(), equalTo(2L));
+		assertThat(runChrome.getBuildNumber(), equalTo(1885l));
 
 		jsonreader.setNextResult("cws-wip-uiunit-1885-chrome-testreport.json");
 		TestReportParser testReport = runChrome.loadTestReport(jsonreader);
@@ -143,6 +148,7 @@ public class JobParserTest
 							 equalTo("cws-wip-uiunit » 64,Firefox,oraclejdk-1.7.3 64,Firefox,oraclejdk-1.7.3"));
 		assertThat(runFirefox.hasTestResults(), equalTo(true));
 		assertThat(runFirefox.getFailedTestCount(), equalTo(0L));
+		assertThat(runFirefox.getBuildNumber(), equalTo(1885l));
 
 		jsonreader.setNextResult("cws-wip-uiunit-1885-firefox-testreport.json");
 		testReport = runFirefox.loadTestReport(jsonreader);
@@ -157,6 +163,7 @@ public class JobParserTest
 							 equalTo("cws-wip-uiunit » 64,Safari,oraclejdk-1.7.3 64,Safari,oraclejdk-1.7.3"));
 		assertThat(runSafari.hasTestResults(), equalTo(true));
 		assertThat(runSafari.getFailedTestCount(), equalTo(6L));
+		assertThat(runSafari.getBuildNumber(), equalTo(1885l));
 
 		jsonreader.setNextResult("cws-wip-uiunit-1885-safari-testreport.json");
 		testReport = runSafari.loadTestReport(jsonreader);
@@ -164,6 +171,16 @@ public class JobParserTest
 		assertThat(testReport.getFailedTestCount(), equalTo(6L));
 		assertThat(testReport.getAllTestCases().size(), equalTo(133));
 		assertThat(testReport.getFailingTestCases().size(), equalTo(6));
+	}
+
+	@Test
+	public void xdsTestReportTest() throws IOException
+	{
+		TestReportParser testReport = new TestReportParser(ParserUtil.parseJsonFile(this, "xds-testreport.json"));
+		assertThat(testReport.getFailedTestCount(), equalTo(2L));
+		assertThat(testReport.getAllTestCases().size(), equalTo(608));
+		assertThat(testReport.getFailingTestCases().size(), equalTo(2));
+
 	}
 
 	private class JsonReaderMock implements JsonReader

@@ -100,7 +100,8 @@ public class TestReportParser extends BaseParser
 
 		public boolean isFailed()
 		{
-			return "REGRESSION".equals(path("status").asText());
+			String status = path("status").asText();
+			return "REGRESSION".equals(status) || "FAILED".equals(status);
 		}
 	}
 }
