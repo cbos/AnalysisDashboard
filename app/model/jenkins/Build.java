@@ -1,5 +1,8 @@
 package model.jenkins;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,9 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import jsonhandling.BuildStatus;
 import model.EntityBase;
+import model.analysis.Failure;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import play.data.validation.Constraints.Required;
 
 @Entity(name = "build")
@@ -31,6 +39,9 @@ public class Build extends EntityBase
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, targetEntity = Job.class)
 	@JoinColumn(name = "job_id", nullable = false, updatable = true, insertable = true)
 	private Job job;
+
+	@OneToMany(targetEntity = Failure.class, fetch = FetchType.LAZY, mappedBy = "build", cascade = CascadeType.ALL)
+	private Set<Failure> failures;
 
 	@Override
 	protected void setId(final Long id)
@@ -54,6 +65,7 @@ public class Build extends EntityBase
 		this.buildNumber = buildNumber;
 	}
 
+	@JsonIgnore
 	public Job getJob()
 	{
 		return job;
@@ -82,5 +94,10 @@ public class Build extends EntityBase
 	public BuildStatus getStatus()
 	{
 		return BuildStatus.fromString(status);
+	}
+
+	public Set<Failure> getFailures()
+	{
+		return failures;
 	}
 }

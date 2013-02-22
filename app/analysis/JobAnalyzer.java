@@ -45,7 +45,6 @@ public class JobAnalyzer
 			if (!m_job.getLastBuildNumber().equals(Long.valueOf(lastCompletedBuildNumber)))
 			{
 				analyzeDetails();
-				return;
 			}
 			break;
 		default:
@@ -65,9 +64,6 @@ public class JobAnalyzer
 		{
 			BuildParser buildParser = m_jobParser.loadLastCompletedBuild(m_jsonReader);
 			new RunAnalyzer(m_job, buildParser, m_jsonReader).analyze();
-
-			//m_job.setLastBuildNumber(m_jobParser.getLastCompletedBuildNumber());
 		}
-
 	}
 }

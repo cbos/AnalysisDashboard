@@ -25,6 +25,11 @@ public class RunParser extends BaseParser
 		return descriptionNode.asText();
 	}
 
+	public Long getBuildNumber()
+	{
+		return path("number").asLong();
+	}
+
 	public String getFullDisplayName()
 	{
 		JsonNode displayNameNode = path("fullDisplayName");

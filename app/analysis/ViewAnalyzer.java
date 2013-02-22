@@ -74,6 +74,7 @@ public class ViewAnalyzer
 		newJob.setJenkinsServer(m_jenkinsServer);
 		newJob.setName(jobName);
 		newJob.setLastBuildNumber(0L);
+		newJob.setLastBuild(null);
 		newJob.setWatch(true);
 		EntityHelper.persist(newJob);
 		return newJob;

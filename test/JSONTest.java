@@ -1,16 +1,11 @@
 import static play.test.Helpers.fakeApplication;
 import static play.test.Helpers.running;
-
-import java.util.HashSet;
-
 import model.EntityHelper;
 import model.jenkins.JenkinsServer;
 
 import org.junit.Test;
 
 import play.db.jpa.JPA;
-import analysis.JsonReaderImpl;
-import analysis.ViewAnalyzer;
 
 public class JSONTest
 {
@@ -28,12 +23,19 @@ public class JSONTest
 					@Override
 					public void invoke()
 					{
-						JenkinsServer buildmasterNl = EntityHelper.getEntityById(JenkinsServer.class, 1L);
+						JenkinsServer buildmasterNL = new JenkinsServer();
+						buildmasterNL.setName("buildmaster-nl");
+						buildmasterNL.setUrl("http://buildmaster-nl/jenkins");
+						buildmasterNL.setViewsToAnalyze("CWS Cluster%20and%20Upgrade Auto%20Ugrades Auto%20(Un)Install Loadtests");
+						buildmasterNL.setLabelsToAnalyze("CWS RnDNL");
+						EntityHelper.persist(buildmasterNL);
 
-						String viewName = "UIUnit%20Core";
-						new ViewAnalyzer(buildmasterNl, viewName, new JsonReaderImpl(), new HashSet<String>()).analyze();
-
-						//System.out.println(promise.get().asJson().toString());
+						JenkinsServer buildmasterHyd = new JenkinsServer();
+						buildmasterHyd.setName("buildmaster-hyd");
+						buildmasterHyd.setUrl("http://buildmaster-hyd/jenkins");
+						buildmasterHyd.setViewsToAnalyze("CWS");
+						buildmasterHyd.setLabelsToAnalyze("CWS CWS4.2");
+						EntityHelper.persist(buildmasterHyd);
 					}
 				});
 			}

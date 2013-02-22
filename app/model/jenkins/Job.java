@@ -46,6 +46,10 @@ public class Job extends EntityBase
 	@Required
 	private Long lastBuildNumber;
 
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Build.class, optional = true)
+	@JoinColumn(name = "lastBuild_id", nullable = true, updatable = true, insertable = true)
+	private Build lastBuild;
+
 	private boolean isBuilding;
 
 	private String status;
@@ -157,5 +161,15 @@ public class Job extends EntityBase
 		{
 			this.description = description;
 		}
+	}
+
+	public Build getLastBuild()
+	{
+		return lastBuild;
+	}
+
+	public void setLastBuild(final Build lastBuild)
+	{
+		this.lastBuild = lastBuild;
 	}
 }
