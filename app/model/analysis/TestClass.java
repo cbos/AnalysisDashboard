@@ -53,7 +53,6 @@ public class TestClass extends EntityBase
 
 	public Set<TestMethod> getTestMethods()
 	{
-		System.out.println(testMethods);
 		return testMethods;
 	}
 }
