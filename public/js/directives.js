@@ -8,16 +8,3 @@ angular.module('analysisApp.directives', []).directive('appVersion',
 				elm.text(version);
 			};
 		} ]);
-
-angular.module("ui.bootstrap.alert", []).directive('alert', function() {
-	return {
-		restrict : 'EA',
-		templateUrl : 'partials/directive/alert.html',
-		transclude : true,
-		replace : true,
-		scope : {
-			type : '=',
-			close : '&'
-		}
-	};
-});

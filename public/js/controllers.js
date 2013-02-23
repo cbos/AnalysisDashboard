@@ -31,12 +31,44 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 			                {name:'Upgrade', value:'upgrade', order:30},
 			                {name:'Sync-merge', value:'syncmerge', order:40},
 			                {name:'Drop-merge', value:'dropmerge', order:50},
-			                {name:'Loadtests', value:'loadtests', order:60},
-			                {name:'Regression test', value:'regression-test', order:70},
-			                {name:'Quick build', value:'quick-build', order:80},
+			                {name:'Quick build', value:'quick-build', order:60},
+			                {name:'Loadtests', value:'loadtests', order:70},
+			                {name:'Regression test', value:'regression-test', order:80},
 			                {name:'Misc', value:'misc', order:90},
 			                {name:'Unknown', value:'', order:100}
 				            ];
+			
+			$rootScope.showBuild = function(job)
+			{
+				$rootScope.jobToShow = job;
+			}
+			
+			$rootScope.imageJobStatus = function(job)
+			{
+				if(job)
+				{
+					var img = "";
+					switch (job.status)
+					{
+					case "UNSTABLE":
+						img = "yellow";
+					  break;
+					case "STABLE":
+						img = "blue";
+					  break;
+					case "FAILED":
+						img = "red";
+					  break;
+					default:
+						img = "grey";
+					}
+					if(job.building)
+					{
+						return "img/" + img + "_anime.gif";
+					}
+					return "img/" + img + ".png";
+				}
+			}
 		});
 
 /* Controllers */
@@ -58,30 +90,21 @@ function DashboardCtrl($scope, $timeout,  Computer, Job) {
 		job.$save();
 	};
 	
-	$scope.imageName = function(job)
+	$scope.imageComputerStatus = function(computer)
 	{
-		var img = "";
-		switch (job.status)
+		if(computer.offline)
 		{
-		case "UNSTABLE":
-			img = "yellow";
-		  break;
-		case "STABLE":
-			img = "blue";
-		  break;
-		case "FAILED":
-			img = "red";
-		  break;
-		default:
-			img = "grey";
+			return "computer-x.png";
 		}
-		if(job.building)
-		{
-			return img + "_anime.gif";
-		}
-		return img + ".png";
+		return "computer.png";
 	}
 }
+
+var JobDetailsController = function ($scope, $rootScope) {
+	  $scope.close = function () {
+	    $rootScope.jobToShow = null;
+	  };
+	};
 
 function ComputerListCtrl($scope, Computer) {
 	$scope.computers = Computer.query();
@@ -89,8 +112,6 @@ function ComputerListCtrl($scope, Computer) {
 
 function JobListCtrl($scope, Job) {
 	$scope.jobs = Job.query();
-	
-
 }
 
 function JenkinsServerListCtrl($scope, JenkinsServer) {

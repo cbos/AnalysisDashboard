@@ -37,6 +37,8 @@
 		</alert>
 	</div>
 	<div ng-view></div>
+	
+	 <div ng-include src="'partials/job/jobdetails.html'"></div>
 
 	<div>
 		Analysis Dashboard: v<span app-version></span>
@@ -47,6 +49,7 @@
   -->
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular/angular-resource.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.1.0.min.js"></script> <!-- From http://angular-ui.github.com/bootstrap/ -->
 	<script src="js/app.js"></script>
 	<script src="js/services.js"></script>
 	<script src="js/controllers.js"></script>
