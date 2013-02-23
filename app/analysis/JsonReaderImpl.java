@@ -20,7 +20,7 @@ public class JsonReaderImpl implements JsonReader
 		try
 		{
 			Promise<Response> promise = WS.url(enhancedURL).get();
-			Response response = promise.get(60000L);
+			Response response = promise.get(600000L);
 
 			if (response.getStatus() == 200)
 			{
