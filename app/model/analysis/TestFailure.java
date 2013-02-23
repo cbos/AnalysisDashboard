@@ -43,6 +43,31 @@ public class TestFailure extends Failure
 		return String.format("%s.%s", className, methodName);
 	}
 
+	public String getUrl()
+	{
+		String methodName = testMethod.getMethodName();
+
+		TestClass testClass = testMethod.getTestClass();
+		String fullClassName = testClass.getClassName();
+
+		String namespace = "(root)"; //default for Jenkins, when there is no namespace
+		String className = fullClassName;
+
+		int lastIndexOf = fullClassName.lastIndexOf('.');
+		if (lastIndexOf > 0)
+		{
+			namespace = fullClassName.substring(0, lastIndexOf);
+			className = fullClassName.substring(lastIndexOf + 1);
+		}
+
+		return String.format("%s/%s/testReport/junit/%s/%s/%s",
+												 getBuild().getJob().getURL(),
+												 getBuild().getBuildNumber(),
+												 namespace,
+												 className,
+												 methodName);
+	}
+
 	public long getAge()
 	{
 		return age;
