@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import jsonhandling.BuildStatus;
 import model.EntityBase;
 import model.analysis.Failure;
+import model.analysis.TestFailure;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -99,5 +100,26 @@ public class Build extends EntityBase
 	public Set<Failure> getFailures()
 	{
 		return failures;
+	}
+
+	public String getFailedTestCount()
+	{
+		BuildStatus parsedStatus = getStatus();
+		if (parsedStatus == BuildStatus.FAILED || parsedStatus == BuildStatus.UNSTABLE)
+		{
+			long testFailCount = 0l;
+			for (Failure failure : failures)
+			{
+				if (failure instanceof TestFailure)
+				{
+					testFailCount++;
+				}
+			}
+			if (testFailCount > 0)
+			{
+				return Long.toString(testFailCount);
+			}
+		}
+		return "";
 	}
 }
