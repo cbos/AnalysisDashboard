@@ -8,6 +8,7 @@ import play.Logger;
 import play.libs.F.Promise;
 import play.libs.WS;
 import play.libs.WS.Response;
+import play.libs.WS.WSRequestHolder;
 
 public class JsonReaderImpl implements JsonReader
 {
@@ -19,7 +20,20 @@ public class JsonReaderImpl implements JsonReader
 		Logger.of(JsonReaderImpl.class).info("Loading url " + enhancedURL);
 		try
 		{
-			Promise<Response> promise = WS.url(enhancedURL).get();
+			WSRequestHolder requestHolder = WS.url(enhancedURL);
+			if (enhancedURL.contains("?"))
+			{
+				String parameters = enhancedURL.split("\\?")[1];
+
+				String[] parameter = parameters.split(",");
+				for (String keyValuePair : parameter)
+				{
+					String[] keyValuePairArray = keyValuePair.split("=");
+					requestHolder.setQueryParameter(keyValuePairArray[0], keyValuePairArray[1]);
+				}
+			}
+
+			Promise<Response> promise = requestHolder.get();
 			Response response = promise.get(600000L);
 
 			if (response.getStatus() == 200)
