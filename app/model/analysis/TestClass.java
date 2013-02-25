@@ -26,8 +26,6 @@ public class TestClass extends EntityBase
 	@Required
 	private String className;
 
-	private String namespace;
-
 	@OneToMany(targetEntity = TestMethod.class, fetch = FetchType.EAGER, mappedBy = "testClass", cascade = CascadeType.ALL)
 	private Set<TestMethod> testMethods;
 

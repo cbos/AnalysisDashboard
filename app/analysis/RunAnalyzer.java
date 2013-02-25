@@ -72,7 +72,6 @@ public class RunAnalyzer
 				testFailure.setTestMethod(testMethod);
 				testFailure.setAge(testCase.getAge());
 				testFailure.setErrorDetails(testCase.getErrorDetails());
-				testFailure.setErrorStackTrace(testCase.getErrorStackTrace());
 				testFailure.setBuild(build);
 				EntityHelper.persist(testFailure);
 			}
