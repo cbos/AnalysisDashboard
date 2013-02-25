@@ -18,10 +18,12 @@ import model.analysis.Failure;
 import model.analysis.TestFailure;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import play.data.validation.Constraints.Required;
 
 @Entity(name = "build")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Build extends EntityBase
 {
 	@Id

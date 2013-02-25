@@ -11,14 +11,16 @@
 					<div ng-repeat="failure in jobToShow.lastBuild.failures">
 						<span class="muted" ng-show="failure.summary">{{failure.summary}}</span>
 						<span ng-show="failure.age">
-							<li> <a ng-href="{{failure.url}}">{{failure.testMethodName}}</a> (Age:{{failure.age}})
-							<blockquote> {{failure.errorDetails}}
-							</blockquote></li>
+							<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
+								ng-click="failure.showDetails=!failure.showDetails"></i>
+								<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}})
+							<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
 						</span>
 					</div>
 					<BR>
 					<ul class="inline" style="font-size: 12px;">
-						<li><a href="{{jobToShow.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{jobToShow.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{jobToShow.url}}/{{jobToShow.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
 						<li><a href="{{jobToShow.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 						<li><a  href="" ng-click="stopWatching(jobToShow)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 					</ul>

@@ -11,7 +11,7 @@
 					<strong>{{computer.displayName}}</strong><BR>
 					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
 					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
-						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{computer.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 					</ul>
 				</div>
@@ -25,7 +25,7 @@
 					<strong>{{computer.displayName}}</strong><BR>
 					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
 					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
-						<li><a href="{{computer.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{computer.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 					</ul>
 				</div>
@@ -44,7 +44,7 @@
 					ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': job.status=='STABLE', 
 								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
-					<a href="" ng-click="showBuild(job)" alt="Show details"><i class="icon-list-alt"></i></a>&nbsp;<strong>{{job.name}}</strong>
+					<a href="" ng-click="showBuild(job)" tooltip="Show details"><i class="icon-list-alt"></i></a>&nbsp;<strong>{{job.name}}</strong>
 					<span class="pull-right" style="font-size: 40px;">
 						<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
 					</span><BR>
@@ -53,17 +53,19 @@
 					<div ng-repeat="failure in job.lastBuild.failures" ng-show="job.lastBuild.failures.length < 6">
 						<span class="muted" ng-show="failure.summary">{{failure.summary}}</span>
 						<span ng-show="failure.age">
-							<li> <a ng-href="{{failure.url}}">{{failure.testMethodName}}</a> (Age:{{failure.age}})
-							<blockquote> {{failure.errorDetails}}
-							</blockquote></li>
+							<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
+								ng-click="failure.showDetails=!failure.showDetails"></i>
+								<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}})
+							<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
 						</span>
 					</div>
 					</div>
 					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
-						<li><a href="{{job.url}}"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+						<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
 						<li><a href="" ng-click="showBuild(job)"><i class="icon-list-alt"></i>&nbsp;Show details</a></li>
 						<li><a href="{{job.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
-						<li><a  href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
+						<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 					</ul>
 				</div>
 			</div>
