@@ -21,6 +21,17 @@ angular.module(
 				controller : JenkinsServerCreateCtrl,
 				templateUrl : 'partials/jenkinsserver/detail.html'
 			}).
+			
+			when('/user', {
+				controller : UserListCtrl,
+				templateUrl : 'partials/user/list.html'
+			}).when('/user/edit/:id', {
+				controller : UserEditCtrl,
+				templateUrl : 'partials/user/detail.html'
+			}).when('/user/new', {
+				controller : UserCreateCtrl,
+				templateUrl : 'partials/user/detail.html'
+			}).
 
 			when('/computer', {
 				controller : ComputerListCtrl,

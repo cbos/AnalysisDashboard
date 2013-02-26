@@ -32,8 +32,8 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 			                {name:'Sync-merge', value:'syncmerge', order:40},
 			                {name:'Drop-merge', value:'dropmerge', order:50},
 			                {name:'Quick build', value:'quick-build', order:60},
-			                {name:'Loadtests', value:'loadtests', order:70},
-			                {name:'Regression test', value:'regression-test', order:80},
+			                {name:'Regression test', value:'regression-test', order:70},
+			                {name:'Loadtests', value:'loadtests', order:80},
 			                {name:'Misc', value:'misc', order:90},
 			                {name:'Unknown', value:'', order:100}
 				            ];
@@ -150,6 +150,46 @@ function JenkinsServerEditCtrl($scope, $location, $routeParams, $http,
 	$scope.save = function() {
 		$scope.jenkinsserver.$save(function() {
 			$location.path('/jenkinsserver');
+		});
+	};
+}
+
+function UserListCtrl($scope, User) {
+	$scope.users = User.query();
+}
+
+function UserCreateCtrl($scope, $location, User) {
+	$scope.save = function() {
+		User.save($scope.user, function(user) {
+			$location.path('/user/edit/' + user.id);
+		});
+	}
+}
+
+function UserEditCtrl($scope, $location, $routeParams, $http,
+		User) {
+	var self = this;
+
+	User.get({
+		id : $routeParams.id
+	}, function(user) {
+		self.original = user;
+		$scope.user = new User(self.original);
+	});
+
+	$scope.isClean = function() {
+		return angular.equals(self.original, $scope.user);
+	}
+
+	$scope.destroy = function() {
+		self.original.$remove(function() {
+			$location.path('/user');
+		});
+	};
+
+	$scope.save = function() {
+		$scope.user.$save(function() {
+			$location.path('/user');
 		});
 	};
 }

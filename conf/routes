@@ -28,6 +28,12 @@ GET		/job/:id							@controllers.data.JobController.entity(id:Long)
 POST	/job/:id							@controllers.data.JobController.save(id:Long)
 DELETE  /job/:id							@controllers.data.JobController.delete(id:Long)
 
+GET		/user								@controllers.data.UserController.entity(id:Long ?= -1L)
+POST	/user								@controllers.data.UserController.newInstance()
+GET		/user/:id							@controllers.data.UserController.entity(id:Long)
+POST	/user/:id							@controllers.data.UserController.save(id:Long)
+DELETE  /user/:id							@controllers.data.UserController.delete(id:Long)
+
 
 
 # Map static resources from the /public folder to the /assets URL path
