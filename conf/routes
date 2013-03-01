@@ -34,7 +34,11 @@ GET		/user/:id							@controllers.data.UserController.entity(id:Long)
 POST	/user/:id							@controllers.data.UserController.save(id:Long)
 DELETE  /user/:id							@controllers.data.UserController.delete(id:Long)
 
-
+GET		/task								@controllers.data.TaskController.entity(id:Long ?= -1L)
+POST	/task								@controllers.data.TaskController.newInstance()
+GET		/task/:id							@controllers.data.TaskController.entity(id:Long)
+POST	/task/:id							@controllers.data.TaskController.save(id:Long)
+DELETE  /task/:id							@controllers.data.TaskController.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file               		controllers.Assets.at(path="/public", file)

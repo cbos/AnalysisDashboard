@@ -43,6 +43,12 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 				$rootScope.jobToShow = job;
 			}
 			
+			$rootScope.showTask = function(task, tasks)
+			{
+				$rootScope.taskToShow = task;
+				$rootScope.taskList = tasks;
+			}
+			
 			$rootScope.imageJobStatus = function(job)
 			{
 				if(job)
@@ -73,7 +79,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 
 /* Controllers */
 
-function DashboardCtrl($scope, $timeout,  Computer, Job) {
+function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User) {
 	
 	$scope.reload = function()
 	{
@@ -81,9 +87,12 @@ function DashboardCtrl($scope, $timeout,  Computer, Job) {
 		
 		$scope.jobs = Job.query();
 		
+		$scope.tasks = Task.query();
+		
 		$timeout($scope.reload, 60000);
 	}
 	$timeout($scope.reload, 0);
+	$rootScope.users = User.query();
 	
 	$scope.stopWatching = function(job) {
 		job.watch = false;
@@ -98,13 +107,62 @@ function DashboardCtrl($scope, $timeout,  Computer, Job) {
 		}
 		return "computer.png";
 	}
+	
+	$scope.createComputerTask = function(computer) {
+		var newComputerTask = {'summary': "Bring " + computer.displayName + " back online"};
+		Task.save(newComputerTask, function(task) {
+			$scope.tasks.push(task);
+		});
+	}
+	
+	$scope.createJobTask = function(job) {
+		
+		var details = "";
+		
+		if(job.lastBuild)
+		{	
+			details = "Investigate failure(s) of buildnr " + job.lastBuild.buildNumber  + "<BR>\n"; 
+			angular.forEach(job.lastBuild.failures, function(failure, key){
+				if(failure.testMethodName)
+				{
+					details += "Failing test: " + failure.testMethodName + "<BR>\n";
+				}
+				else
+				{
+					details += "Failure summary: " + failure.summary;
+				}
+			});
+		}
+		
+		var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'details':details};
+		Task.save(newJobTask, function(task) {
+			$scope.tasks.push(task);
+		});
+	}
 }
 
-var JobDetailsController = function ($scope, $rootScope) {
-	  $scope.close = function () {
-	    $rootScope.jobToShow = null;
-	  };
-	};
+var JobDetailsController = function($scope, $rootScope) {
+	$scope.close = function() {
+		$rootScope.jobToShow = null;
+	}
+}
+
+var TaskDetailsController = function($scope, $rootScope) {
+	$scope.close = function() {
+		$rootScope.change($rootScope.taskToShow);
+		$rootScope.taskToShow = null;
+	}
+
+	$scope.taskDone = function() {
+		$rootScope.taskToShow.done = !$rootScope.taskToShow.done;
+		$scope.close();
+	}
+	
+	$scope.taskRemove = function() {
+		$rootScope.destroy($rootScope.taskList, $rootScope.taskToShow);
+		$rootScope.taskToShow = null;
+	}
+}
 
 function ComputerListCtrl($scope, Computer) {
 	$scope.computers = Computer.query();

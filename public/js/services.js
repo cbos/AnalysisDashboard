@@ -52,3 +52,10 @@ serviceModule.factory('User', function($resource) {
 	});
 	return Job;
 });
+
+serviceModule.factory('Task', function($resource) {
+	var Job = $resource('/task/:id', {
+		id : '@id'
+	});
+	return Job;
+});

@@ -1,0 +1,41 @@
+<div ng-controller="TaskDetailsController">
+    <div modal="taskToShow" close="close()" style="width:80%; left:25%">
+        <div class="modal-header">
+            <h4>{{taskToShow.summary}}</h4>
+        </div>
+        <div class="modal-body">
+	        <form name="myForm" class="form-vertical">
+				<fieldset>
+        
+	        		<div class="control-group">
+					  <label class="control-label">Summary</label>
+					  <div class="controls">
+					  	<input type="text" name="summary" ng-model="taskToShow.summary" class="input-xxlarge"/>
+					  </div>
+					</div>
+					
+					<div class="control-group">
+					  <label class="control-label">Details</label>
+					  <div class="controls">
+					 	 <textarea rows="6" name="details" ng-model="taskToShow.details" class="input-xxlarge" style=" width:95%;"></textarea>
+					 	 <span class="help-block">Provide details about the task or tell what has been done.</span>
+					  </div>
+					</div>
+					
+					<div class="control-group">
+					  <label class="control-label">Assignee</label>
+					  <div class="controls">
+						<select ng-model="taskToShow.assignee" ng-options="u as u.fullName for u in users"></select>
+					  </div>
+					</div>
+				</fieldset>
+			</form>	
+		</div>
+        <div class="modal-footer">
+        	<button class="btn btn-danger" ng-click="taskRemove()">Delete task</button>
+        	<button class="btn btn-success" ng-click="taskDone()" ng-show="!taskToShow.done">Task done</button>
+        	<button class="btn btn-inverse" ng-click="taskDone()" ng-show="!!taskToShow.done">Uncomplete task</button>
+            <button class="btn" ng-click="close()">Ok</button>
+        </div>
+    </div>
+</div>

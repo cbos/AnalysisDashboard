@@ -12,7 +12,7 @@
 					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
 					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
 						<li><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
-						<li><a href="{{computer.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+						<li><a href="" ng-click="createComputerTask(computer)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 					</ul>
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
 					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
 						<li><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
-						<li><a href="{{computer.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+						<li><a href="" ng-click="createComputerTask(computer)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 					</ul>
 				</div>
 			</div>
@@ -45,26 +45,25 @@
 								'alert-success': job.status=='STABLE', 
 								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
 					<a href="" ng-click="showBuild(job)" tooltip="Show details"><i class="icon-list-alt"></i></a>&nbsp;<strong>{{job.name}}</strong>
-					<span class="pull-right" style="font-size: 40px;">
+					<span class="pull-right" style="font-size: 36px;">
 						<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
 					</span><BR>
-					<div style="font-size: 12px;">
-					{{job.description}}<BR>
-					<div ng-repeat="failure in job.lastBuild.failures" ng-show="job.lastBuild.failures.length < 6">
-						<span class="muted" ng-show="failure.summary">{{failure.summary}}</span>
-						<span ng-show="failure.age">
-							<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
-								ng-click="failure.showDetails=!failure.showDetails"></i>
-								<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}})
-							<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
-						</span>
-					</div>
+					<div style="font-size: 12px;overflow:hidden;word-wrap:break-word;">
+						<div ng-repeat="failure in job.lastBuild.failures" ng-show="job.lastBuild.failures.length < 6">
+							<blockquote ng-show="failure.summary" style="margin:0px;"><i class="icon-exclamation-sign"></i>&nbsp;{{failure.summary}}</blockquote>
+							<span ng-show="failure.age">
+								<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
+									ng-click="failure.showDetails=!failure.showDetails"></i>&nbsp;
+									<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}})
+								<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
+							</span>
+						</div>
 					</div>
 					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
 						<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
 						<li><a href="" ng-click="showBuild(job)"><i class="icon-list-alt"></i>&nbsp;Show details</a></li>
-						<li><a href="{{job.url}}"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+						<li><a href="" ng-click="createJobTask(job)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 						<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 					</ul>
 				</div>
@@ -72,5 +71,23 @@
 		</div>
 	
 	</div>
-	<div class="span4"></div>
+	<div class="span4">
+		<div ng-repeat="task in tasks | orderBy:'done'">
+			<div class="alert"
+				ng-class="{ 'alert-error': job.status=='FAILED', 
+								'alert-success': task.done 
+								}"
+				style="margin-bottom: 0px;">
+				<a href="" ng-click="showTask(task, tasks)" tooltip="Show details"><i class="icon-flag"></i></a>&nbsp;{{task.summary}}
+				<span class="pull-right" style="font-size: 12px;" >
+					{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
+					<img ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
+				</span>
+				<BR>
+				<span style="font-size: 12px;" ng-show="task.details" ng-bind-html-unsafe="task.details">
+					<BR>
+				</span>
+			</div>
+		</div>
+	</div>
 </div>
