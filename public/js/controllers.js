@@ -83,11 +83,15 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User)
 	
 	$scope.reload = function()
 	{
-		$scope.computers = Computer.query();
-		
-		$scope.jobs = Job.query();
-		
-		$scope.tasks = Task.query();
+		//don't reload if there is modal view open, then you might loss data
+		if(!$rootScope.jobToShow && !$rootScope.taskToShow)
+		{
+			$scope.computers = Computer.query();
+			
+			$scope.jobs = Job.query();
+			
+			$scope.tasks = Task.query();
+		}
 		
 		$timeout($scope.reload, 60000);
 	}
