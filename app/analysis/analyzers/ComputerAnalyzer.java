@@ -1,4 +1,4 @@
-package analysis;
+package analysis.analyzers;
 
 import java.util.Set;
 

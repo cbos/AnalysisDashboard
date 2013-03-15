@@ -1,11 +1,9 @@
 package controllers.data;
 
 import model.jenkins.JenkinsServer;
-import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.Result;
-import analysis.JenkinsServerAnalyzer;
-import analysis.JsonReaderImpl;
+import analysis.executor.AnalysisExecutor;
 
 public class JenkinsServerController extends EntityController<JenkinsServer>
 {
@@ -18,21 +16,10 @@ public class JenkinsServerController extends EntityController<JenkinsServer>
 	public Result analyzeServer(final Long id)
 	{
 		JenkinsServer jenkinsServer = getEntityById(id);
-		analyzeServer(jenkinsServer);
+		AnalysisExecutor.getInstance().analyzeServer(jenkinsServer);
 		return ok();
 	}
 
-	public static synchronized void analyzeServer(final JenkinsServer jenkinsServer)
-	{
-		JenkinsServerAnalyzer jenkinsServerAnalyzer = new JenkinsServerAnalyzer(jenkinsServer, new JsonReaderImpl());
-		Logger.of(JenkinsServerController.class).info("Analyzing computers");
-		jenkinsServerAnalyzer.analyzeComputers();
-		Logger.of(JenkinsServerController.class).info("Analyzing views");
-		jenkinsServerAnalyzer.analyzeViews();
-		Logger.of(JenkinsServerController.class).info("Done with the analysis");
-
-		Logger.of(JenkinsServerController.class).info("Ready");
-	}
 	/*public Result analyzeServer(final Long id)
 	{
 		{

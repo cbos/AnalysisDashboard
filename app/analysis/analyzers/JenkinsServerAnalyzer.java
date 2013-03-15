@@ -1,4 +1,4 @@
-package analysis;
+package analysis.analyzers;
 
 import java.util.HashSet;
 import java.util.Set;

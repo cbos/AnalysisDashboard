@@ -59,3 +59,38 @@ serviceModule.factory('Task', function($resource) {
 	});
 	return Job;
 });
+
+serviceModule.factory('AnalyzerWebSocket', function($location) {
+	var onOpenWebSocket, onCloseWebSocket, onMessageWebSocket;
+	var location = "ws://" + $location.host() + ":" + $location.port()
+			+ "/websocket"
+	var ws = new WebSocket(location);
+	ws.onopen = function() {
+		if (onOpenWebSocket !== undefined) {
+			onOpenWebSocket();
+		}
+	};
+	ws.onclose = function() {
+		if (onCloseWebSocket !== undefined) {
+			onCloseWebSocket();
+		}
+	};
+	ws.onmessage = function(m) {
+		if (onMessageWebSocket !== undefined) {
+			onMessageWebSocket(m);
+		}
+	};
+
+	return {
+		onOpen : function(handler) {
+			onOpenWebSocket = handler;
+		},
+		onClose : function(handler) {
+			onCloseWebSocket = handler;
+		},
+		onMessage : function(handler) {
+			onMessageWebSocket = handler;
+		}
+	};
+});
+

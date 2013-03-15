@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import play.Play;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.WebSocket;
+import analysis.listener.WebSocketAnalysisListener;
 
 public class Application extends Controller
 {
@@ -20,5 +22,10 @@ public class Application extends Controller
 	{
 		File logfile = Play.application().getFile("logs/application.log");
 		return ok(Files.readAllBytes(logfile.toPath())).as("text/plain");
+	}
+
+	public static WebSocket<String> websocket()
+	{
+		return new WebSocketAnalysisListener();
 	}
 }

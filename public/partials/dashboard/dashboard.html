@@ -3,6 +3,7 @@
 		<div>
 			<!-- Computers -->
 			
+			
 			<p class="text-error"><Strong>Offline computers</Strong></p>
 			<div ng-repeat="computer in computers | filter:{offline:true, watch:true} |orderBy:'displayName'">
 				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
@@ -29,6 +30,9 @@
 						<li><a href="" ng-click="createComputerTask(computer)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 					</ul>
 				</div>
+			</div>
+			<BR>
+			<div class="well" style="font-size: 12px;"> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} <img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
 			</div>
 		</div>
 	</div>

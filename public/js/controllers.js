@@ -79,7 +79,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 
 /* Controllers */
 
-function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User) {
+function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User, AnalyzerWebSocket) {
 	
 	$scope.reload = function()
 	{
@@ -143,6 +143,14 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User)
 			$scope.tasks.push(task);
 		});
 	}
+	
+	AnalyzerWebSocket.onMessage(function(m) {
+		console.log("message invoked in scope: " + m);
+		console.log(m);
+		$scope.$apply(function() {
+			$scope.analyzerStatus = angular.fromJson(m.data);
+		})
+	});
 }
 
 var JobDetailsController = function($scope, $rootScope) {

@@ -5,6 +5,7 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET		/log						controllers.Application.getLog()
+GET		/websocket					controllers.Application.websocket()
 
 # Authentication
 GET     /login                      		controllers.authentication.LoginController.login()
