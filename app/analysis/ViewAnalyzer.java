@@ -37,7 +37,7 @@ public class ViewAnalyzer
 
 	public void analyze()
 	{
-		Logger.of(ViewAnalyzer.class).info("Analyzing view " + m_name + " on " + m_jenkinsServer.getName());
+		Logger.debug("Analyzing view " + m_name + " on " + m_jenkinsServer.getName());
 
 		String url = String.format("%s/view/%s/api/json?depth=1", m_jenkinsServer.getUrl(), m_name);
 

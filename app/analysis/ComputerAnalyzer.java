@@ -23,7 +23,7 @@ public class ComputerAnalyzer
 
 	public void analyze()
 	{
-		Logger.of(ComputerAnalyzer.class).info("Analyzing " + m_computerParser.getDisplayName());
+		Logger.debug("Analyzing " + m_computerParser.getDisplayName());
 
 		Set<Computer> computers = m_jenkinsServer.getComputers();
 		Computer computerEntity = null;

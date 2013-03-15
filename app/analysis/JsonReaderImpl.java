@@ -17,7 +17,7 @@ public class JsonReaderImpl implements JsonReader
 	public JsonNode getJSonResult(final String url)
 	{
 		String enhancedURL = enhanceURL(url);
-		Logger.of(JsonReaderImpl.class).info("Loading url " + enhancedURL);
+		Logger.debug("Loading url " + enhancedURL);
 		try
 		{
 			WSRequestHolder requestHolder = WS.url(enhancedURL);
