@@ -10,10 +10,11 @@ public class JobController extends EntityController<Job>
 	}
 
 	@Override
-	protected void validateEntity(final Long id, final Job entity)
+	protected void validateEntity(final Long id, final Job job)
 	{
 		Job jobFromDB = getEntityById(id);
 
-		entity.setJenkinsServer(jobFromDB.getJenkinsServer());
+		job.setJenkinsServer(jobFromDB.getJenkinsServer());
+		job.setLastBuild(jobFromDB.getLastBuild());
 	}
 }

@@ -7,8 +7,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @Entity(name = "testfailure")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TestFailure extends Failure
 {
 

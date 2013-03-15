@@ -16,9 +16,14 @@ import model.EntityBase;
 import model.jenkins.Build;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonSubTypes;
+import org.codehaus.jackson.annotate.JsonSubTypes.Type;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
 
 @Entity(name = "failure")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({ @Type(value = TestFailure.class, name = "testfailure"), @Type(value = Failure.class, name = "failure") })
 public class Failure extends EntityBase
 {
 

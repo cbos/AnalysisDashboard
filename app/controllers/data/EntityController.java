@@ -47,6 +47,10 @@ public class EntityController<T extends EntityBase> extends Controller
 
 	private Result parseAndPersist(final Long id) throws IOException, JsonParseException, JsonMappingException
 	{
+		if (request().body().isMaxSizeExceeded())
+		{
+			return badRequest("Too much data. Change the parsers.text.maxLength setting in the configuration.");
+		}
 		JsonNode json = request().body().asJson();
 		ObjectMapper mapper = new ObjectMapper();
 		T entity = mapper.readValue(json, m_clazz);
