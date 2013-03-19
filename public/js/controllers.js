@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope) 
+angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, Task) 
 		  {
 			$rootScope.alerts = [];
 
@@ -75,6 +75,32 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 					return "img/" + img + ".png";
 				}
 			}
+			
+			$rootScope.createJobTask = function(job) {
+				var details = "";
+				if(job.lastBuild)
+				{	
+					details = "Investigate failure(s) of buildnr " + job.lastBuild.buildNumber  + "<BR>\n"; 
+					angular.forEach(job.lastBuild.failures, function(failure, key){
+						if(failure.testMethodName)
+						{
+							details += "Failing test: " + failure.testMethodName + "<BR>\n";
+						}
+						else
+						{
+							details += "Failure summary: " + failure.summary;
+						}
+					});
+				}
+				
+				var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'details':details};
+				Task.save(newJobTask, function(task) {
+					if($rootScope.dashboardController)
+					{
+						$rootScope.dashboardController.tasks.push(task);
+					}
+				});
+			}
 		});
 
 /* Controllers */
@@ -97,6 +123,7 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User,
 	}
 	$timeout($scope.reload, 0);
 	$rootScope.users = User.query();
+	$rootScope.dashboardController = $scope;
 	
 	$scope.stopWatching = function(job) {
 		job.watch = false;
@@ -119,34 +146,7 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User,
 		});
 	}
 	
-	$scope.createJobTask = function(job) {
-		
-		var details = "";
-		
-		if(job.lastBuild)
-		{	
-			details = "Investigate failure(s) of buildnr " + job.lastBuild.buildNumber  + "<BR>\n"; 
-			angular.forEach(job.lastBuild.failures, function(failure, key){
-				if(failure.testMethodName)
-				{
-					details += "Failing test: " + failure.testMethodName + "<BR>\n";
-				}
-				else
-				{
-					details += "Failure summary: " + failure.summary;
-				}
-			});
-		}
-		
-		var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'details':details};
-		Task.save(newJobTask, function(task) {
-			$scope.tasks.push(task);
-		});
-	}
-	
 	AnalyzerWebSocket.onMessage(function(m) {
-		console.log("message invoked in scope: " + m);
-		console.log(m);
 		$scope.$apply(function() {
 			$scope.analyzerStatus = angular.fromJson(m.data);
 		})
