@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, Task) 
+angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, Task, Failure) 
 		  {
 			$rootScope.alerts = [];
 
@@ -100,6 +100,11 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 						$rootScope.dashboardController.tasks.push(task);
 					}
 				});
+			}
+			
+			$rootScope.toggleRandomFailure = function(failure) {
+				failure.randomFailure = !failure.randomFailure;
+				Failure.save(failure);
 			}
 		});
 

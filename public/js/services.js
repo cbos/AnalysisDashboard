@@ -60,6 +60,13 @@ serviceModule.factory('Task', function($resource) {
 	return Job;
 });
 
+serviceModule.factory('Failure', function($resource) {
+	var Failure = $resource('/failure/:id', {
+		id : '@id'
+	});
+	return Failure;
+});
+
 serviceModule.factory('AnalyzerWebSocket', function($location) {
 	var onOpenWebSocket, onCloseWebSocket, onMessageWebSocket;
 	var location = "ws://" + $location.host() + ":" + $location.port()
