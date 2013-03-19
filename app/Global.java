@@ -24,15 +24,22 @@ public class Global extends GlobalSettings
 																				 @Override
 																				 public void run()
 																				 {
-																					 JPA.withTransaction(new Callback0()
+																					 try
 																					 {
-
-																						 @Override
-																						 public void invoke() throws Throwable
+																						 JPA.withTransaction(new Callback0()
 																						 {
-																							 AnalysisExecutor.getInstance().executeAnalysis();
-																						 }
-																					 });
+
+																							 @Override
+																							 public void invoke() throws Throwable
+																							 {
+																								 AnalysisExecutor.getInstance().executeAnalysis();
+																							 }
+																						 });
+																					 }
+																					 catch (Exception e)
+																					 {
+																						 Logger.error("Error during scheduled task", e);
+																					 }
 																				 }
 																			 },
 																			 Akka.system().dispatcher());
