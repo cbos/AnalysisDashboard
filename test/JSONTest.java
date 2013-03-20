@@ -3,6 +3,7 @@ import static play.test.Helpers.running;
 import model.EntityHelper;
 import model.jenkins.JenkinsServer;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import play.db.jpa.JPA;
@@ -11,6 +12,7 @@ public class JSONTest
 {
 
 	@Test
+	@Ignore("Test to initialize a developer machine")
 	public void findById()
 	{
 		running(fakeApplication(), new Runnable()
