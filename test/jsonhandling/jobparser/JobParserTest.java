@@ -91,6 +91,7 @@ public class JobParserTest
 
 		assertThat(build.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(build.getDescription(), equalTo("Loadtest on #1424"));
+		assertThat(build.getFullDisplayName(), equalTo("FP1-LOADTEST-MYSQL #1091"));
 		assertThat(build.getBuildNumber(), equalTo(1091l));
 		assertThat(build.hasTestResults(), equalTo(true));
 		assertThat(build.getFailedTestCount(), equalTo(2L));
@@ -117,6 +118,7 @@ public class JobParserTest
 
 		assertThat(build.getStatus(), equalTo(BuildStatus.UNSTABLE));
 		assertThat(build.getDescription(), IsNull.nullValue());
+		assertThat(build.getFullDisplayName(), equalTo("cws-wip-uiunit #1885"));
 		assertThat(build.getBuildNumber(), equalTo(1885l));
 		assertThat(build.hasTestResults(), equalTo(true));
 		assertThat(build.getFailedTestCount(), equalTo(8L));

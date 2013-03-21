@@ -1,9 +1,13 @@
 package analysis.analyzers;
 
+import java.util.List;
+
 import jsonhandling.BuildParser;
 import jsonhandling.JobParser;
 import jsonhandling.JsonReader;
+import jsonhandling.RunParser;
 import model.EntityHelper;
+import model.jenkins.Build;
 import model.jenkins.Job;
 
 public class JobAnalyzer
@@ -56,14 +60,19 @@ public class JobAnalyzer
 
 	private void analyzeDetails()
 	{
-		if (m_jobParser.isMatrixJob())
+		BuildParser buildParser = m_jobParser.loadLastCompletedBuild(m_jsonReader);
+		Build rootBuild = new RunAnalyzer(m_job, buildParser, m_jsonReader).analyze();
+		if (buildParser.hasRuns())
 		{
-			//TODO
+			List<RunParser> runs = buildParser.getRuns(m_jsonReader);
+			for (RunParser runParser : runs)
+			{
+				Build childBuild = new RunAnalyzer(m_job, runParser, m_jsonReader).analyze();
+				childBuild.setParentBuild(rootBuild);
+			}
 		}
-		else
-		{
-			BuildParser buildParser = m_jobParser.loadLastCompletedBuild(m_jsonReader);
-			new RunAnalyzer(m_job, buildParser, m_jsonReader).analyze();
-		}
+
+		m_job.setLastBuildNumber(rootBuild.getBuildNumber());
+		m_job.setLastBuild(rootBuild);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import jsonhandling.BuildParser;
 import jsonhandling.JsonReader;
+import jsonhandling.RunParser;
 import jsonhandling.TestReportParser;
 import jsonhandling.TestReportParser.TestCase;
 import model.EntityHelper;
@@ -20,18 +21,18 @@ public class RunAnalyzer
 
 	private final Job m_job;
 
-	private final BuildParser m_buildParser;
+	private final RunParser m_buildParser;
 
 	private final JsonReader m_jsonReader;
 
-	public RunAnalyzer(final Job job, final BuildParser buildParser, final JsonReader jsonReader)
+	public RunAnalyzer(final Job job, final RunParser buildParser, final JsonReader jsonReader)
 	{
 		m_job = job;
 		m_buildParser = buildParser;
 		m_jsonReader = jsonReader;
 	}
 
-	public void analyze()
+	public Build analyze()
 	{
 		Build build = new Build();
 		build.setBuildNumber(m_buildParser.getBuildNumber());
@@ -39,6 +40,7 @@ public class RunAnalyzer
 		build.setStatus(m_buildParser.getStatus());
 		build.setTimestamp(m_buildParser.getTimestamp());
 		build.setJob(m_job);
+		setDisplayName(build);
 		EntityHelper.persist(build);
 
 		switch (m_buildParser.getStatus())
@@ -52,45 +54,69 @@ public class RunAnalyzer
 		default:
 			break;
 		}
+		return build;
+	}
 
-		m_job.setLastBuildNumber(build.getBuildNumber());
-		m_job.setLastBuild(build);
+	private void setDisplayName(final Build build)
+	{
+		String fullDisplayName = m_buildParser.getFullDisplayName();
+
+		//rootbuilds have a name like this: cws-wip-uiunit #1885
+		if (fullDisplayName.indexOf('#') > 0)
+		{
+			fullDisplayName = fullDisplayName.split("#")[0].trim();
+		}
+
+		//Runs have names like this "cws-wip-uiunit » 64,Safari,oraclejdk-1.7.3 64,Safari,oraclejdk-1.7.3"
+		if (fullDisplayName.indexOf('»') > 0)
+		{
+			fullDisplayName = fullDisplayName.split("»")[1].trim();
+		}
+		build.setDisplayName(fullDisplayName);
 	}
 
 	private void analyzeDetails(final Build build)
 	{
-		if (m_buildParser.hasTestResults())
+		if (m_buildParser instanceof BuildParser && ((BuildParser) m_buildParser).hasRuns())
 		{
-			TestReportParser testReportParser = m_buildParser.loadTestReport(m_jsonReader);
-			List<TestCase> failingTestCases = testReportParser.getFailingTestCases();
-			for (TestCase testCase : failingTestCases)
-			{
-				TestClass testClass = getOrCreateTestClass(testCase.getClassName());
-				TestMethod testMethod = getOrCreateMethod(testClass, testCase.getMethodName());
-
-				TestFailure testFailure = new TestFailure();
-				testFailure.setTestMethod(testMethod);
-				testFailure.setAge(testCase.getAge());
-				testFailure.setErrorDetails(testCase.getErrorDetails());
-				testFailure.setBuild(build);
-				EntityHelper.persist(testFailure);
-			}
+			//There are runs, so these contain the details of the failure
+			//Do nothing here
 		}
 		else
-			if (m_buildParser.getDescription() != null && !"".equals(m_buildParser.getDescription()))
+		{
+			if (m_buildParser.hasTestResults())
 			{
-				Failure failure = new Failure();
-				failure.setSummary(m_buildParser.getDescription());
-				failure.setBuild(build);
-				EntityHelper.persist(failure);
+				TestReportParser testReportParser = m_buildParser.loadTestReport(m_jsonReader);
+				List<TestCase> failingTestCases = testReportParser.getFailingTestCases();
+				for (TestCase testCase : failingTestCases)
+				{
+					TestClass testClass = getOrCreateTestClass(testCase.getClassName());
+					TestMethod testMethod = getOrCreateMethod(testClass, testCase.getMethodName());
+
+					TestFailure testFailure = new TestFailure();
+					testFailure.setTestMethod(testMethod);
+					testFailure.setAge(testCase.getAge());
+					testFailure.setErrorDetails(testCase.getErrorDetails());
+					testFailure.setBuild(build);
+					EntityHelper.persist(testFailure);
+				}
 			}
 			else
-			{
-				Failure failure = new Failure();
-				failure.setSummary("Unknown reason of failure");
-				failure.setBuild(build);
-				EntityHelper.persist(failure);
-			}
+				if (m_buildParser.getDescription() != null && !"".equals(m_buildParser.getDescription()))
+				{
+					Failure failure = new Failure();
+					failure.setSummary(m_buildParser.getDescription());
+					failure.setBuild(build);
+					EntityHelper.persist(failure);
+				}
+				else
+				{
+					Failure failure = new Failure();
+					failure.setSummary("Unknown reason of failure");
+					failure.setBuild(build);
+					EntityHelper.persist(failure);
+				}
+		}
 	}
 
 	private TestClass getOrCreateTestClass(final String className)

@@ -39,9 +39,18 @@ public class Build extends EntityBase
 	@Required
 	private Long timestamp;
 
+	private String displayName;
+
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, targetEntity = Job.class)
 	@JoinColumn(name = "job_id", nullable = false, updatable = true, insertable = true)
 	private Job job;
+
+	@ManyToOne(optional = true, fetch = FetchType.EAGER, targetEntity = Build.class)
+	@JoinColumn(name = "parentBuild_id", nullable = true, updatable = true, insertable = true)
+	private Build parentBuild;
+
+	@OneToMany(targetEntity = Build.class, fetch = FetchType.LAZY, mappedBy = "parentBuild", cascade = CascadeType.ALL)
+	private Set<Build> childBuilds;
 
 	@OneToMany(targetEntity = Failure.class, fetch = FetchType.LAZY, mappedBy = "build", cascade = CascadeType.ALL)
 	private Set<Failure> failures;
@@ -110,12 +119,16 @@ public class Build extends EntityBase
 		if (parsedStatus == BuildStatus.FAILED || parsedStatus == BuildStatus.UNSTABLE)
 		{
 			long testFailCount = 0l;
-			for (Failure failure : failures)
+			if (childBuilds.size() > 0)
 			{
-				if (failure instanceof TestFailure)
+				for (Build childBuild : childBuilds)
 				{
-					testFailCount++;
+					testFailCount += childBuild._getFailedTestCount();
 				}
+			}
+			else
+			{
+				testFailCount = _getFailedTestCount();
 			}
 			if (testFailCount > 0)
 			{
@@ -123,5 +136,44 @@ public class Build extends EntityBase
 			}
 		}
 		return "";
+	}
+
+	private long _getFailedTestCount()
+	{
+		long testFailCount = 0l;
+		for (Failure failure : failures)
+		{
+			if (failure instanceof TestFailure)
+			{
+				testFailCount++;
+			}
+		}
+		return testFailCount;
+	}
+
+	public String getDisplayName()
+	{
+		return displayName;
+	}
+
+	public void setDisplayName(final String displayName)
+	{
+		this.displayName = displayName;
+	}
+
+	@JsonIgnore
+	public Build getParentBuild()
+	{
+		return parentBuild;
+	}
+
+	public void setParentBuild(final Build parentBuild)
+	{
+		this.parentBuild = parentBuild;
+	}
+
+	public Set<Build> getChildBuilds()
+	{
+		return childBuilds;
 	}
 }

@@ -13,12 +13,6 @@ public class BuildParser extends RunParser
 		super(node);
 	}
 
-	@Override
-	public BuildStatus getStatus()
-	{
-		return BuildStatus.fromString(path("result").asText());
-	}
-
 	public boolean hasRuns()
 	{
 		return !path("runs").isMissingNode();
