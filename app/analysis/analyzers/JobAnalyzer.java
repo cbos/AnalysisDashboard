@@ -62,13 +62,19 @@ public class JobAnalyzer
 	{
 		BuildParser buildParser = m_jobParser.loadLastCompletedBuild(m_jsonReader);
 		Build rootBuild = new RunAnalyzer(m_job, buildParser, m_jsonReader).analyze();
+		Long buildNumber = rootBuild.getBuildNumber();
 		if (buildParser.hasRuns())
 		{
 			List<RunParser> runs = buildParser.getRuns(m_jsonReader);
 			for (RunParser runParser : runs)
 			{
-				Build childBuild = new RunAnalyzer(m_job, runParser, m_jsonReader).analyze();
-				childBuild.setParentBuild(rootBuild);
+				//When there were other configurations in the past, then there are multiple runs
+				//But the build number does not match
+				if (runParser.getBuildNumber() == buildNumber)
+				{
+					Build childBuild = new RunAnalyzer(m_job, runParser, m_jsonReader).analyze();
+					childBuild.setParentBuild(rootBuild);
+				}
 			}
 		}
 
