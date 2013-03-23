@@ -11,7 +11,7 @@ public class WebSocketAnalysisListener extends WebSocket<String> implements Anal
 {
 	private Out<String> webSocketOut = null;
 
-	private static String JSONRespons = "{\"lastExecution\":%s, \"isExecuting\":%s }";
+	private static String JSONRespons = "{\"lastExecution\":%s, \"isExecuting\":%s, \"isSuccessful\":%s }";
 
 	@Override
 	public void startAnalysis()
@@ -24,12 +24,13 @@ public class WebSocketAnalysisListener extends WebSocket<String> implements Anal
 		if (webSocketOut != null)
 		{
 			String executionDate = "";
-			Date lastExecution = AnalysisExecutor.getInstance().lastExecution();
+			AnalysisExecutor analysisExecutor = AnalysisExecutor.getInstance();
+			Date lastExecution = analysisExecutor.lastExecution();
 			if (lastExecution != null)
 			{
 				executionDate = lastExecution.getTime() + "";
 			}
-			webSocketOut.write(String.format(JSONRespons, executionDate, isAnalyzing));
+			webSocketOut.write(String.format(JSONRespons, executionDate, isAnalyzing, analysisExecutor.isSuccessful()));
 		}
 	}
 
@@ -51,8 +52,7 @@ public class WebSocketAnalysisListener extends WebSocket<String> implements Anal
 			@Override
 			public void invoke(final String event)
 			{
-				// Log events to the console
-				System.out.println(event);
+				// incoming messages
 			}
 		});
 
@@ -63,8 +63,6 @@ public class WebSocketAnalysisListener extends WebSocket<String> implements Anal
 			public void invoke()
 			{
 				AnalysisExecutor.getInstance().unregisterListener(listener);
-				System.out.println("Disconnected");
-
 			}
 		});
 

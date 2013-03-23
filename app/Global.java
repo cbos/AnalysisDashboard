@@ -28,16 +28,17 @@ public class Global extends GlobalSettings
 																					 {
 																						 JPA.withTransaction(new Callback0()
 																						 {
-
 																							 @Override
 																							 public void invoke() throws Throwable
 																							 {
 																								 AnalysisExecutor.getInstance().executeAnalysis();
 																							 }
 																						 });
+																						 AnalysisExecutor.getInstance().markSuccessful();
 																					 }
 																					 catch (Exception e)
 																					 {
+																						 AnalysisExecutor.getInstance().markFailed();
 																						 Logger.error("Error during scheduled task", e);
 																					 }
 																				 }

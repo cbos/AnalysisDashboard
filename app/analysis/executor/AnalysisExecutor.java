@@ -20,6 +20,8 @@ public class AnalysisExecutor
 
 	private Date lastExecutionDate = null;
 
+	private boolean lastSuccessful = true;
+
 	private AnalysisExecutor()
 	{
 
@@ -33,6 +35,26 @@ public class AnalysisExecutor
 	public Date lastExecution()
 	{
 		return lastExecutionDate;
+	}
+
+	public boolean isSuccessful()
+	{
+		return lastSuccessful;
+	}
+
+	public void markSuccessful()
+	{
+		if (!lastSuccessful)
+		{
+			lastSuccessful = true;
+			notifyListenerOnEnd();
+		}
+	}
+
+	public void markFailed()
+	{
+		lastSuccessful = false;
+		notifyListenerOnEnd();
 	}
 
 	public void executeAnalysis()
