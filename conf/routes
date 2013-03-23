@@ -36,6 +36,7 @@ POST	/user/:id							@controllers.data.UserController.save(id:Long)
 DELETE  /user/:id							@controllers.data.UserController.delete(id:Long)
 
 GET		/task								@controllers.data.TaskController.entity(id:Long ?= -1L)
+GET		/task/todayList						@controllers.data.TaskController.getTodaysList()
 POST	/task								@controllers.data.TaskController.newInstance()
 GET		/task/:id							@controllers.data.TaskController.entity(id:Long)
 POST	/task/:id							@controllers.data.TaskController.save(id:Long)

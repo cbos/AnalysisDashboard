@@ -1,6 +1,8 @@
 package model.task;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Query;
 
 import model.EntityBase;
 import model.user.User;
 import play.data.validation.Constraints.Required;
+import play.db.jpa.JPA;
 
 @Entity(name = "task")
 public class Task extends EntityBase
@@ -112,5 +116,20 @@ public class Task extends EntityBase
 	public void setDone(final boolean done)
 	{
 		this.done = done;
+	}
+
+	public static List<Task> getTodaysList()
+	{
+		String genericQueryPart = "from task t where t.done=0 or t.updateDate > :today";
+
+		Query dataQuery = JPA.em().createQuery(genericQueryPart);
+
+		final Calendar now = Calendar.getInstance();
+		now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE), 0, 0, 0);
+		final Date today = now.getTime();
+
+		dataQuery.setParameter("today", today);
+
+		return dataQuery.getResultList();
 	}
 }

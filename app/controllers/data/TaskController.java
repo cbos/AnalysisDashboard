@@ -3,6 +3,9 @@ package controllers.data;
 import java.util.Date;
 
 import model.task.Task;
+import play.db.jpa.Transactional;
+import play.libs.Json;
+import play.mvc.Result;
 
 public class TaskController extends EntityController<Task>
 {
@@ -22,4 +25,9 @@ public class TaskController extends EntityController<Task>
 		entity.setUpdateDate(now);
 	}
 
+	@Transactional(readOnly = true)
+	public Result getTodaysList()
+	{
+		return ok(Json.toJson(Task.getTodaysList()));
+	}
 }
