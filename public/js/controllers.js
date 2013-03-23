@@ -102,6 +102,18 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				});
 			}
 			
+			$rootScope.getRuns = function(job) {
+				if(job.lastBuild)
+				{
+					if(job.lastBuild.childBuilds.length >0)
+					{
+						return job.lastBuild.childBuilds;
+					}
+					return [job.lastBuild];
+				}
+				return null;
+			}
+			
 			$rootScope.toggleRandomFailure = function(failure) {
 				failure.randomFailure = !failure.randomFailure;
 				Failure.save(failure);

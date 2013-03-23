@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<BR>
-			<div class="well" style="font-size: 12px;"> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} <img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
+			<div class="well" style="font-size: 12px;"><img ng-show="analyzerStatus.isSuccessful" src="img/blue.png"/><img ng-hide="analyzerStatus.isSuccessful" src="img/red.png"/> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} <img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
 			</div>
 		</div>
 	</div>
@@ -53,17 +53,20 @@
 						<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
 					</span><BR>
 					<div style="font-size: 12px;overflow:hidden;word-wrap:break-word;">
-						<div ng-repeat="failure in job.lastBuild.failures" ng-show="job.lastBuild.failures.length < 6">
-							<blockquote ng-show="failure.summary" style="margin:0px;"><i class="icon-exclamation-sign"></i>&nbsp;{{failure.summary}} <span ng-show="failure.randomFailure" class="label label-warning">Random</span></blockquote>
-							<span ng-show="failure.age">
-								<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
-									ng-click="failure.showDetails=!failure.showDetails"></i>&nbsp;
-									<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
-								<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
-							</span>
-							<ul ng-show="failure.showDetails||(failure.summary&&job.showActions)" class="inline" style="font-size: 12px;">
-								<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
-							</ul>
+						<div ng-repeat="run in getRuns(job)" ng-show="job.lastBuild.failedTestCount < 6">
+							<span ng-show="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
+							<div ng-repeat="failure in run.failures">
+								<blockquote ng-show="failure.summary" style="margin:0px;"><i class="icon-exclamation-sign"></i>&nbsp;{{failure.summary}} <span ng-show="failure.randomFailure" class="label label-warning">Random</span></blockquote>
+								<span ng-show="failure.age">
+									<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
+										ng-click="failure.showDetails=!failure.showDetails"></i>&nbsp;
+										<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
+									<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
+								</span>
+								<ul ng-show="failure.showDetails||(failure.summary&&job.showActions)" class="inline" style="font-size: 12px;">
+									<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">

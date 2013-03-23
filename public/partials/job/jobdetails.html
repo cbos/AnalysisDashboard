@@ -8,17 +8,20 @@
         <div class="modal-body">
         			Job description: {{jobToShow.description}}<BR>
         			<hr/>
-					<div ng-repeat="failure in jobToShow.lastBuild.failures" style="font-size: 13px;">
-						<span class="muted" ng-show="failure.summary">{{failure.summary}}</span>
-						<span ng-show="failure.age">
-							<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
-								ng-click="failure.showDetails=!failure.showDetails"></i>
-								<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
-							<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
-						</span>
-							<ul ng-show="failure.showDetails||failure.summary" class="inline" style="font-size: 12px;">
-								<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
-							</ul>
+        			<div ng-repeat="run in getRuns(jobToShow)">
+						<span ng-show="jobToShow.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
+						<div ng-repeat="failure in run.failures" style="font-size: 13px;">
+							<span class="muted" ng-show="failure.summary">{{failure.summary}}</span>
+							<span ng-show="failure.age">
+								<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
+									ng-click="failure.showDetails=!failure.showDetails"></i>
+									<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
+								<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
+							</span>
+								<ul ng-show="failure.showDetails||failure.summary" class="inline" style="font-size: 12px;">
+									<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
+								</ul>
+						</div>
 					</div>
 					<BR>
 					<ul class="inline" style="font-size: 12px;">
