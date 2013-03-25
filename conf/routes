@@ -25,6 +25,7 @@ POST	/computer/:id						@controllers.data.ComputerController.save(id:Long)
 DELETE  /computer/:id						@controllers.data.ComputerController.delete(id:Long)
 
 GET		/job								@controllers.data.JobController.entity(id:Long ?= -1L)
+GET		/job/unstableList					@controllers.data.JobController.getUnstableJobs()
 GET		/job/:id							@controllers.data.JobController.entity(id:Long)
 POST	/job/:id							@controllers.data.JobController.save(id:Long)
 DELETE  /job/:id							@controllers.data.JobController.delete(id:Long)
