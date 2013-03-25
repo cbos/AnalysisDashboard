@@ -130,10 +130,8 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User,
 		if(!$rootScope.jobToShow && !$rootScope.taskToShow)
 		{
 			$scope.computers = Computer.query();
-			
-			$scope.jobs = Job.query();
-			
-			$scope.tasks = Task.query();
+			$scope.jobs = Job.unstableJobs();
+			$scope.tasks = Task.todayList();
 		}
 		
 		$timeout($scope.reload, 60000);

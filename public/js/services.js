@@ -43,21 +43,29 @@ serviceModule.factory('Job', function($resource) {
 	var Job = $resource('/job/:id', {
 		id : '@id'
 	});
+	
+	Job.unstableJobs = function() {
+        return Job.query({id: 'unstableList'});
+    };
 	return Job;
 });
 
 serviceModule.factory('User', function($resource) {
-	var Job = $resource('/user/:id', {
+	var User = $resource('/user/:id', {
 		id : '@id'
 	});
-	return Job;
+	return User;
 });
 
 serviceModule.factory('Task', function($resource) {
-	var Job = $resource('/task/:id', {
+	var Task = $resource('/task/:id', {
 		id : '@id'
 	});
-	return Job;
+	
+	Task.todayList = function() {
+        return Task.query({id: 'todayList'});
+    };
+	return Task;
 });
 
 serviceModule.factory('Failure', function($resource) {
