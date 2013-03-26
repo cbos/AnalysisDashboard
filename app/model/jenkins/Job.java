@@ -1,5 +1,6 @@
 package model.jenkins;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Query;
 
 import jsonhandling.JobStatus;
 import model.EntityBase;
@@ -20,6 +22,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import play.data.validation.Constraints.Required;
+import play.db.jpa.JPA;
 
 @Entity(name = "job")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -171,5 +174,12 @@ public class Job extends EntityBase
 	public void setLastBuild(final Build lastBuild)
 	{
 		this.lastBuild = lastBuild;
+	}
+
+	public static List<Job> getUnstableJobs()
+	{
+		String genericQueryPart = "from job j where j.status<>'blue'";
+		Query dataQuery = JPA.em().createQuery(genericQueryPart);
+		return dataQuery.getResultList();
 	}
 }
