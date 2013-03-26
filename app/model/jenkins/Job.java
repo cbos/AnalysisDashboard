@@ -156,14 +156,7 @@ public class Job extends EntityBase
 
 	public void setDescription(final String description)
 	{
-		if (description != null && description.length() > 250)
-		{
-			this.description = description.substring(0, 249);
-		}
-		else
-		{
-			this.description = description;
-		}
+		this.description = truncate(description, 249);
 	}
 
 	public Build getLastBuild()

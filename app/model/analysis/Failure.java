@@ -105,6 +105,7 @@ public class Failure extends EntityBase
 
 	public void setSummary(final String summary)
 	{
-		this.summary = summary;
+		this.summary = truncate(summary, 250);
+
 	}
 }
