@@ -70,7 +70,7 @@ public class JobAnalyzer
 			{
 				//When there were other configurations in the past, then there are multiple runs
 				//But the build number does not match
-				if (runParser.getBuildNumber() == buildNumber)
+				if (runParser.getBuildNumber().equals(buildNumber))
 				{
 					Build childBuild = new RunAnalyzer(m_job, runParser, m_jsonReader).analyze();
 					childBuild.setParentBuild(rootBuild);

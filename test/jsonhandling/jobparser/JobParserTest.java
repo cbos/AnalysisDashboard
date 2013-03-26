@@ -2,6 +2,7 @@ package jsonhandling.jobparser;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -136,6 +137,7 @@ public class JobParserTest
 		assertThat(runChrome.hasTestResults(), equalTo(true));
 		assertThat(runChrome.getFailedTestCount(), equalTo(2L));
 		assertThat(runChrome.getBuildNumber(), equalTo(1885l));
+		assertTrue(runChrome.getBuildNumber().equals(build.getBuildNumber()));
 
 		jsonreader.setNextResult("cws-wip-uiunit-1885-chrome-testreport.json");
 		TestReportParser testReport = runChrome.loadTestReport(jsonreader);
@@ -151,6 +153,7 @@ public class JobParserTest
 		assertThat(runFirefox.hasTestResults(), equalTo(true));
 		assertThat(runFirefox.getFailedTestCount(), equalTo(0L));
 		assertThat(runFirefox.getBuildNumber(), equalTo(1885l));
+		assertTrue(runFirefox.getBuildNumber().equals(build.getBuildNumber()));
 
 		jsonreader.setNextResult("cws-wip-uiunit-1885-firefox-testreport.json");
 		testReport = runFirefox.loadTestReport(jsonreader);
@@ -166,6 +169,7 @@ public class JobParserTest
 		assertThat(runSafari.hasTestResults(), equalTo(true));
 		assertThat(runSafari.getFailedTestCount(), equalTo(6L));
 		assertThat(runSafari.getBuildNumber(), equalTo(1885l));
+		assertTrue(runSafari.getBuildNumber().equals(build.getBuildNumber()));
 
 		jsonreader.setNextResult("cws-wip-uiunit-1885-safari-testreport.json");
 		testReport = runSafari.loadTestReport(jsonreader);
