@@ -15,12 +15,12 @@ Overtime it should also be able to identify random issues.
 ## How to start
 
 * Download PlayFramework
-* Edit conf/application.conf and add something like
-
-     db.default.driver=com.mysql.jdbc.Driver
-     db.default.url="jdbc:mysql://localhost/analysisDashboard"
-     db.default.user=root
-	db.default.password=password
-	db.default.jndiName=DefaultDS
-	jpa.default=defaultPersistenceUnit
-* execute run of PlayFramework and open http://localhost:9000 for testing
+* Create a database (for example called 'analysisDashboard')
+* Edit conf/application.conf and add something like  
+	db.default.driver=com.mysql.jdbc.Driver  
+	db.default.url="jdbc:mysql://localhost/analysisDashboard"  
+	db.default.user=root  
+	db.default.password=password  
+	db.default.jndiName=DefaultDS  
+	jpa.default=defaultPersistenceUnit  
+* Execute 'run' of [PlayFramework Console](http://www.playframework.com/documentation/2.1.0/PlayConsole) and open http://localhost:9000 for testing
