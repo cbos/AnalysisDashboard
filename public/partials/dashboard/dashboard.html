@@ -84,6 +84,8 @@
 	<div class="span4">
 		<div ng-repeat="task in tasks | orderBy:'done'">
 			<div class="alert"
+				ng-mouseenter="task.showActions=true" 
+				ng-mouseleave="task.showActions=false" 
 				ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': task.done 
 								}"
@@ -97,6 +99,11 @@
 				<span style="font-size: 12px;" ng-show="task.details" ng-bind-html-unsafe="task.details">
 					<BR>
 				</span>
+				<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
+					<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-list-alt"></i>&nbsp;Show details</a></li>
+					<li><a href="" ng-click="task.done = !task.done;change(task)"><i class="icon-ok-sign"></i>&nbsp;Mark done</a></li>
+					<li><a href="" ng-click="destroy(tasks, task)"><i class="icon-trash"></i>&nbsp;Delete task</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
