@@ -86,9 +86,7 @@
 			<div class="alert"
 				ng-mouseenter="task.showActions=true" 
 				ng-mouseleave="task.showActions=false" 
-				ng-class="{ 'alert-error': job.status=='FAILED', 
-								'alert-success': task.done 
-								}"
+				ng-class="{ 'alert-success': task.done }"
 				style="margin-bottom: 0px;">
 				<a href="" ng-click="showTask(task, tasks)" tooltip="Show details"><i class="icon-flag"></i></a>&nbsp;{{task.summary}}
 				<span class="pull-right" style="font-size: 12px;" >
@@ -101,7 +99,7 @@
 				</span>
 				<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
 					<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-list-alt"></i>&nbsp;Show details</a></li>
-					<li><a href="" ng-click="task.done = !task.done;change(task)"><i class="icon-ok-sign"></i>&nbsp;Mark done</a></li>
+					<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Reopen</span></a></li>
 					<li><a href="" ng-click="destroy(tasks, task)"><i class="icon-trash"></i>&nbsp;Delete task</a></li>
 				</ul>
 			</div>
