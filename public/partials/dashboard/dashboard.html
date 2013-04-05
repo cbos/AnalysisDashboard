@@ -99,7 +99,7 @@
 				</span>
 				<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
 					<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-list-alt"></i>&nbsp;Show details</a></li>
-					<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Reopen</span></a></li>
+					<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Uncomplete task</span></a></li>
 					<li><a href="" ng-click="destroy(tasks, task)"><i class="icon-trash"></i>&nbsp;Delete task</a></li>
 				</ul>
 			</div>
