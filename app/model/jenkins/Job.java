@@ -124,7 +124,7 @@ public class Job extends EntityBase
 		return JobStatus.fromString(status);
 	}
 
-	public String getURL()
+	public String getUrl()
 	{
 		return String.format("%s/job/%s", jenkinsServer.getUrl(), getName());
 	}

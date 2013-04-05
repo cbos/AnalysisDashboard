@@ -41,6 +41,8 @@ public class Build extends EntityBase
 
 	private String displayName;
 
+	private String url;
+
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, targetEntity = Job.class)
 	@JoinColumn(name = "job_id", nullable = false, updatable = true, insertable = true)
 	private Job job;
@@ -175,5 +177,15 @@ public class Build extends EntityBase
 	public Set<Build> getChildBuilds()
 	{
 		return childBuilds;
+	}
+
+	public String getUrl()
+	{
+		return url;
+	}
+
+	public void setUrl(String url)
+	{
+		this.url = url;
 	}
 }

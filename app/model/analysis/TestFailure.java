@@ -58,13 +58,7 @@ public class TestFailure extends Failure
 			namespace = fullClassName.substring(0, lastIndexOf);
 			className = fullClassName.substring(lastIndexOf + 1);
 		}
-
-		return String.format("%s/%s/testReport/junit/%s/%s/%s",
-												 getBuild().getJob().getURL(),
-												 getBuild().getBuildNumber(),
-												 namespace,
-												 className,
-												 methodName);
+		return String.format("%s/testReport/junit/%s/%s/%s", getBuild().getUrl(), namespace, className, methodName);
 	}
 
 	public long getAge()

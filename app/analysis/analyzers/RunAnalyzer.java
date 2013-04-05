@@ -40,6 +40,7 @@ public class RunAnalyzer
 		build.setStatus(m_buildParser.getStatus());
 		build.setTimestamp(m_buildParser.getTimestamp());
 		build.setJob(m_job);
+		build.setUrl(m_buildParser.getUrl());
 		setDisplayName(build);
 		EntityHelper.persist(build);
 
