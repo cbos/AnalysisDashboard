@@ -15,6 +15,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			};
 			
 			$rootScope.change = function(entity) {
+				delete entity.showActions;
 			    entity.$save();
 			};
 
@@ -82,11 +83,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				{	
 					details = "Investigate failure(s) of buildnr " + job.lastBuild.buildNumber  + "<BR>\n"; 
 					angular.forEach(job.lastBuild.failures, function(failure, key){
-						if(failure.testMethodName)
-						{
-							details += "Failing test: " + failure.testMethodName + "<BR>\n";
-						}
-						else
+						if(!failure.testMethodName)
 						{
 							details += "Failure summary: " + failure.summary;
 						}
@@ -103,7 +100,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			}
 			
 			$rootScope.getRuns = function(job) {
-				if(job.lastBuild)
+				if(job && job.lastBuild)
 				{
 					if(job.lastBuild.childBuilds.length >0)
 					{
