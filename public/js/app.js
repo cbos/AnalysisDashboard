@@ -10,6 +10,11 @@ angular.module(
 				controller : DashboardCtrl,
 				templateUrl : 'partials/dashboard/dashboard.html'
 			}).
+			
+			when('/panel', {
+				controller : PanelCtrl,
+				templateUrl : 'partials/dashboard/panel.html'
+			}).
 
 			when('/jenkinsserver', {
 				controller : JenkinsServerListCtrl,

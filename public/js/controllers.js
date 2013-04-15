@@ -165,6 +165,27 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User,
 	});
 }
 
+function PanelCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User, AnalyzerWebSocket) {
+	
+	$scope.reload = function()
+	{
+		$scope.computers = Computer.query();
+		$scope.jobs = Job.unstableJobs();
+		$scope.tasks = Task.todayList();
+	}
+	$timeout($scope.reload, 0);
+	
+	AnalyzerWebSocket.onMessage(function(m) {
+		$scope.$apply(function() {
+			$scope.analyzerStatus = angular.fromJson(m.data);
+			if(!$scope.analyzerStatus.isExecuting)
+			{
+				$scope.reload();
+			}
+		})
+	});
+}
+
 var JobDetailsController = function($scope, $rootScope) {
 	$scope.close = function() {
 		$rootScope.jobToShow = null;
