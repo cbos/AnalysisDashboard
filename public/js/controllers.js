@@ -15,7 +15,6 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			};
 			
 			$rootScope.change = function(entity) {
-				delete entity.showActions;
 			    entity.$save();
 			};
 

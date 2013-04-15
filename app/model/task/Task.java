@@ -17,10 +17,14 @@ import javax.persistence.Query;
 
 import model.EntityBase;
 import model.user.User;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import play.data.validation.Constraints.Required;
 import play.db.jpa.JPA;
 
 @Entity(name = "task")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Task extends EntityBase
 {
 
