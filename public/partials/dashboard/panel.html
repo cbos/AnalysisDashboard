@@ -39,7 +39,7 @@
 		<div ng-repeat="task in tasks | orderBy:'done'">
 			<div class="alert"
 				ng-class="{ 'alert-success': task.done }"
-				style="font-size:28px">
+				style="font-size:20px">
 				{{task.summary}}
 				<span class="pull-right" style="font-size: 12px;" >
 					{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
