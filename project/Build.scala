@@ -10,7 +10,8 @@ object ApplicationBuild extends Build {
     val appDependencies = Seq(
     	javaCore, javaJpa, 
       "org.hibernate" % "hibernate-entitymanager" % "3.6.9.Final",
-      "mysql" % "mysql-connector-java" % "5.1.18"
+      "mysql" % "mysql-connector-java" % "5.1.18",
+      "org.apache.commons" % "commons-email" % "1.3.1"
     )
 
 	val main = play.Project(appName, appVersion, appDependencies).settings(
