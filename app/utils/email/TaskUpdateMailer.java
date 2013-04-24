@@ -1,9 +1,10 @@
 package utils.email;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Scanner;
 
 import model.task.Task;
 
@@ -86,10 +87,29 @@ public class TaskUpdateMailer
 	{
 		if (null == s_emailContent)
 		{
-			byte[] readAllBytes = Files.readAllBytes(Paths.get(TaskUpdateMailer.class.getResource(TASK_UPDATE_GENERATED_EMAIL_PATH)
-																																							 .toURI()));
-			s_emailContent = new String(readAllBytes);
+			s_emailContent = readFile(TaskUpdateMailer.class.getResource(TASK_UPDATE_GENERATED_EMAIL_PATH).toURI());
 		}
 		return s_emailContent;
+	}
+
+	private static String readFile(final URI uri) throws IOException
+	{
+		File file = new File(uri);
+		StringBuilder fileContents = new StringBuilder((int) file.length());
+		Scanner scanner = new Scanner(file);
+		String lineSeparator = System.getProperty("line.separator");
+
+		try
+		{
+			while (scanner.hasNextLine())
+			{
+				fileContents.append(scanner.nextLine() + lineSeparator);
+			}
+			return fileContents.toString();
+		}
+		finally
+		{
+			scanner.close();
+		}
 	}
 }
