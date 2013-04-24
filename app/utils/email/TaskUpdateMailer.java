@@ -1,6 +1,7 @@
 package utils.email;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -22,11 +23,13 @@ public class TaskUpdateMailer
 	//Save the transformed page in task_update_generated_email.html
 	//That file will be used to send the mail
 
-	static String TASK_UPDATE_GENERATED_EMAIL_PATH = "./app/utils/email/task_update_generated_email.html";
+	static String TASK_UPDATE_GENERATED_EMAIL_PATH = "task_update_generated_email.html";
 
 	private final Task task;
 
 	private final String url;
+
+	private static String s_emailContent;
 
 	public TaskUpdateMailer(final Task task, final String url)
 	{
@@ -45,7 +48,7 @@ public class TaskUpdateMailer
 
 			email.send();
 		}
-		catch (EmailException | IOException e)
+		catch (EmailException | IOException | URISyntaxException e)
 		{
 			Logger.error("Error during sending of the email", e);
 			throw new RuntimeException(e);
@@ -57,10 +60,9 @@ public class TaskUpdateMailer
 		email.setSubject(String.format("Task '%s' has been assign to you", task.getSummary()));
 	}
 
-	private void setEmailBody(final HtmlEmail email) throws IOException, EmailException
+	private void setEmailBody(final HtmlEmail email) throws IOException, EmailException, URISyntaxException
 	{
-		byte[] readAllBytes = Files.readAllBytes(Paths.get(TASK_UPDATE_GENERATED_EMAIL_PATH));
-		String emailContent = new String(readAllBytes);
+		String emailContent = getGeneratedEmail();
 		emailContent = emailContent.replaceAll("%task.summary%", task.getSummary());
 		emailContent = emailContent.replaceAll("%task.details%", task.getDetails());
 		emailContent = emailContent.replaceAll("%url%", url);
@@ -78,5 +80,16 @@ public class TaskUpdateMailer
 		email.setHostName(ConfigurationHelper.getEmailSMTPHost());
 		email.setFrom(ConfigurationHelper.getEmailFromMailAddress(), ConfigurationHelper.getEmailFromName());
 		return email;
+	}
+
+	private static String getGeneratedEmail() throws IOException, URISyntaxException
+	{
+		if (null == s_emailContent)
+		{
+			byte[] readAllBytes = Files.readAllBytes(Paths.get(TaskUpdateMailer.class.getResource(TASK_UPDATE_GENERATED_EMAIL_PATH)
+																																							 .toURI()));
+			s_emailContent = new String(readAllBytes);
+		}
+		return s_emailContent;
 	}
 }

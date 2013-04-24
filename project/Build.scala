@@ -16,6 +16,11 @@ object ApplicationBuild extends Build {
 
 	val main = play.Project(appName, appVersion, appDependencies).settings(
 
+		// Add app folder as resource directory so that widget files are in the classpath
+		unmanagedResourceDirectories in Compile <+= baseDirectory( _ / "app"),
+		// but filter out java files that would then also be copied to the classpath
+		excludeFilter in Compile in unmanagedResources := "*.java",
+
 		//Fix issue in generation scalaDoc (with WebSockets)
 		sources in doc in Compile := List(),
 
