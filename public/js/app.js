@@ -4,7 +4,7 @@
 angular.module(
 		'analysisApp',
 		[ 'analysisApp.rootScopeInitializer', 'analysisApp.filters', 'analysisApp.services',
-				'analysisApp.directives', 'ui.bootstrap.alert', 'ui.bootstrap.modal', 'ui.bootstrap.tooltip']).config(
+				'analysisApp.directives', 'ui.bootstrap.alert', 'ui.bootstrap.modal', 'ui.bootstrap.tooltip', 'ui.bootstrap.dropdownToggle']).config(
 		[ '$routeProvider', function($routeProvider) {
 			$routeProvider.when('/dashboard', {
 				controller : DashboardCtrl,

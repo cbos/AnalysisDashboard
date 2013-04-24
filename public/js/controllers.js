@@ -157,6 +157,11 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User,
 		});
 	}
 	
+	$scope.changeAssignee = function(task, user) {
+		task.assignee = user;
+		task.$save();
+	}
+	
 	AnalyzerWebSocket.onMessage(function(m) {
 		$scope.$apply(function() {
 			$scope.analyzerStatus = angular.fromJson(m.data);
