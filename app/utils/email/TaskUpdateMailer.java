@@ -2,6 +2,7 @@ package utils.email;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 
 import model.task.Task;
 
@@ -99,6 +100,9 @@ public class TaskUpdateMailer
 
 	private static String readFile(final InputStream inputStream) throws IOException
 	{
-		return IOUtils.toString(inputStream, "UTF-8");
+		//IOUtils.toString is not working properly
+		StringWriter writer = new StringWriter();
+		IOUtils.copy(inputStream, writer, "UTF-8");
+		return writer.toString();
 	}
 }
