@@ -2,7 +2,6 @@ package utils.email;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 
 import model.task.Task;
 
@@ -59,7 +58,7 @@ public class TaskUpdateMailer
 
 	private void setEmailSubject(final HtmlEmail email)
 	{
-		email.setSubject(String.format("Task '%s' has been assign to you", task.getSummary()));
+		email.setSubject(String.format("Task '%s' has been assigned to you", task.getSummary()));
 	}
 
 	private void setEmailBody(final HtmlEmail email) throws IOException, EmailException
@@ -100,8 +99,6 @@ public class TaskUpdateMailer
 
 	private static String readFile(final InputStream inputStream) throws IOException
 	{
-		StringWriter writer = new StringWriter();
-		IOUtils.copy(inputStream, writer, "UTF-8");
-		return writer.toString();
+		return IOUtils.toString(inputStream, "UTF-8");
 	}
 }
