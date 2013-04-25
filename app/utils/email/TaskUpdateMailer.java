@@ -1,13 +1,12 @@
 package utils.email;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
+import java.io.InputStream;
+import java.io.StringWriter;
 
 import model.task.Task;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
@@ -51,7 +50,7 @@ public class TaskUpdateMailer
 
 			email.send();
 		}
-		catch (EmailException | IOException | URISyntaxException e)
+		catch (EmailException | IOException e)
 		{
 			Logger.error("Error during sending of the email", e);
 			throw new RuntimeException(e);
@@ -63,7 +62,7 @@ public class TaskUpdateMailer
 		email.setSubject(String.format("Task '%s' has been assign to you", task.getSummary()));
 	}
 
-	private void setEmailBody(final HtmlEmail email) throws IOException, EmailException, URISyntaxException
+	private void setEmailBody(final HtmlEmail email) throws IOException, EmailException
 	{
 		String emailContent = getGeneratedEmail();
 		emailContent = emailContent.replaceAll("%task.summary%", task.getSummary());
@@ -85,7 +84,7 @@ public class TaskUpdateMailer
 		return email;
 	}
 
-	private static String getGeneratedEmail() throws IOException, URISyntaxException
+	private static String getGeneratedEmail() throws IOException
 	{
 		if (null == s_emailContent)
 		{
@@ -94,13 +93,15 @@ public class TaskUpdateMailer
 		return s_emailContent;
 	}
 
-	private static URI getURI(final String relativePath) throws URISyntaxException
+	private static InputStream getURI(final String relativePath)
 	{
-		return Play.application().resource(relativePath).toURI();
+		return Play.application().resourceAsStream(relativePath);
 	}
 
-	private static String readFile(final URI uri) throws IOException
+	private static String readFile(final InputStream inputStream) throws IOException
 	{
-		return new String(Files.readAllBytes(new File(uri).toPath()));
+		StringWriter writer = new StringWriter();
+		IOUtils.copy(inputStream, writer, "UTF-8");
+		return writer.toString();
 	}
 }
