@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Scanner;
+import java.nio.file.Files;
 
 import model.task.Task;
 
@@ -12,6 +12,7 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
 import play.Logger;
+import play.Play;
 import utils.ConfigurationHelper;
 
 public class TaskUpdateMailer
@@ -24,7 +25,8 @@ public class TaskUpdateMailer
 	//Save the transformed page in task_update_generated_email.html
 	//That file will be used to send the mail
 
-	static String TASK_UPDATE_GENERATED_EMAIL_PATH = "task_update_generated_email.html";
+	//File is located in the config folder
+	static String TASK_UPDATE_GENERATED_EMAIL_PATH = "email/task_update_generated_email.html";
 
 	private final Task task;
 
@@ -87,29 +89,18 @@ public class TaskUpdateMailer
 	{
 		if (null == s_emailContent)
 		{
-			s_emailContent = readFile(TaskUpdateMailer.class.getResource(TASK_UPDATE_GENERATED_EMAIL_PATH).toURI());
+			s_emailContent = readFile(getURI(TASK_UPDATE_GENERATED_EMAIL_PATH));
 		}
 		return s_emailContent;
 	}
 
+	private static URI getURI(final String relativePath) throws URISyntaxException
+	{
+		return Play.application().resource(relativePath).toURI();
+	}
+
 	private static String readFile(final URI uri) throws IOException
 	{
-		File file = new File(uri);
-		StringBuilder fileContents = new StringBuilder((int) file.length());
-		Scanner scanner = new Scanner(file);
-		String lineSeparator = System.getProperty("line.separator");
-
-		try
-		{
-			while (scanner.hasNextLine())
-			{
-				fileContents.append(scanner.nextLine() + lineSeparator);
-			}
-			return fileContents.toString();
-		}
-		finally
-		{
-			scanner.close();
-		}
+		return new String(Files.readAllBytes(new File(uri).toPath()));
 	}
 }
