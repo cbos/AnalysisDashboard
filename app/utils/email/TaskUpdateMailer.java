@@ -2,7 +2,6 @@ package utils.email;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 
 import model.task.Task;
 
@@ -65,10 +64,15 @@ public class TaskUpdateMailer
 	private void setEmailBody(final HtmlEmail email) throws IOException, EmailException
 	{
 		String emailContent = getGeneratedEmail();
-		emailContent = emailContent.replaceAll("%task.summary%", task.getSummary());
-		emailContent = emailContent.replaceAll("%task.details%", task.getDetails());
-		emailContent = emailContent.replaceAll("%url%", url);
+		emailContent = replaceText(emailContent, "%task.summary%", task.getSummary());
+		emailContent = replaceText(emailContent, "%task.details%", task.getDetails());
+		emailContent = replaceText(emailContent, "%url%", url);
 		email.setHtmlMsg(emailContent);
+	}
+
+	private String replaceText(final String content, final String toReplace, final String newText)
+	{
+		return content.replaceAll(toReplace, newText == null ? "" : newText);
 	}
 
 	private void addRecipient(final HtmlEmail email, final String userName) throws EmailException
@@ -100,9 +104,6 @@ public class TaskUpdateMailer
 
 	private static String readFile(final InputStream inputStream) throws IOException
 	{
-		//IOUtils.toString is not working properly
-		StringWriter writer = new StringWriter();
-		IOUtils.copy(inputStream, writer, "UTF-8");
-		return writer.toString();
+		return IOUtils.toString(inputStream, "UTF-8");
 	}
 }
