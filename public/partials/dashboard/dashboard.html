@@ -6,7 +6,7 @@
 			
 			<p class="text-error"><Strong>Offline computers</Strong></p>
 			<div ng-repeat="computer in computers | filter:{offline:true, watch:true} |orderBy:'displayName'">
-				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
+				<div class="alert dashboard-alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false"  
 					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img ng-src="img/{{imageComputerStatus(computer)}}"/>&nbsp;
 					<strong>{{computer.displayName}}</strong><BR>
@@ -20,7 +20,7 @@
 			<BR>
 			<p class="text-info"><Strong>Computers in watch list</Strong></p>
 			<div ng-repeat="computer in computers | filter:{stickyWatch:true} |orderBy:'displayName'">
-				<div class="alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" style="margin-bottom: 0px;" 
+				<div class="alert dashboard-alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" 
 					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 					<img ng-src="img/{{imageComputerStatus(computer)}}"/>&nbsp;
 					<strong>{{computer.displayName}}</strong><BR>
@@ -41,10 +41,9 @@
 			<!-- Jobs -->
 			
 			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |jobType:jobTypes">
-				<div class="alert" 
+				<div class="alert dashboard-alert" 
 					ng-mouseenter="job.showActions=true" 
 					ng-mouseleave="job.showActions=false" 
-					style="margin-bottom: 0px;" 
 					ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': job.status=='STABLE', 
 								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
@@ -83,11 +82,10 @@
 	</div>
 	<div class="span4">
 		<div ng-repeat="task in tasks | orderBy:'done'">
-			<div class="alert"
+			<div class="alert dashboard-alert"
 				ng-mouseenter="task.showActions=true" 
 				ng-mouseleave="task.showActions=false" 
-				ng-class="{ 'alert-success': task.done }"
-				style="margin-bottom: 0px;">
+				ng-class="{ 'alert-success': task.done }">
 				<a href="" ng-click="showTask(task, tasks)" tooltip="Show details"><i class="icon-flag"></i></a>&nbsp;{{task.summary}}
 				<span class="pull-right" style="font-size: 12px;" >
 					{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
