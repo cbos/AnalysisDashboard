@@ -39,7 +39,7 @@
 	<div class="span5">
 		<div>
 			<!-- Jobs -->
-			
+			<p class="text-error"><Strong>Jobs with problems</Strong></p>
 			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |jobType:jobTypes">
 				<div class="alert dashboard-alert" 
 					ng-mouseenter="job.showActions=true" 
@@ -81,6 +81,7 @@
 	
 	</div>
 	<div class="span4">
+		<p class="text-info"><Strong>Tasks to investigate problems</Strong></p>
 		<div ng-repeat="task in tasks | orderBy:'done'">
 			<div class="alert dashboard-alert"
 				ng-mouseenter="task.showActions=true" 
@@ -109,6 +110,29 @@
 						  </ul>
 					</li>
 					<li><a href="" ng-click="destroy(tasks, task)"><i class="icon-trash"></i>&nbsp;Delete task</a></li>
+				</ul>
+			</div>
+		</div>
+		<BR>
+		<p class="text-error"><Strong>Issues in the buildstreet</Strong><BR>
+		<a href="" ng-click="createIssue()"><i class="icon-plus-sign"></i> Add issue</a></p>
+		<div ng-repeat="issue in issues | orderBy:'solved'">
+			<div class="alert dashboard-alert"
+				ng-mouseenter="issue.showActions=true" 
+				ng-mouseleave="issue.showActions=false" 
+				ng-class="{ 'alert-success': issue.solved }">
+				<a href="" ng-click="showIssue(issue)" tooltip="Edit details"><i class="icon-pencil"></i></a>&nbsp;
+				<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
+				{{issue.summary}}
+				<BR>
+				<span style="font-size: 12px;" ng-show="issue.details" ng-bind-html-unsafe="issue.details">
+					<BR>
+				</span>
+				<ul class="inline" ng-show="issue.showActions" style="font-size: 12px;">
+					<li><a href="" ng-click="showIssue(issue)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
+					<li><a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank"><img src="img/icon-jira.png" width="16px"/>&nbsp;{{issue.jira_id}}</a></li>
+					<li><a href="" ng-click="issue.solved = !issue.solved;change(issue)"><i ng-class="{ 'icon-ok-sign': !issue.done, 'icon-remove-circle': issue.done }"></i>&nbsp;<span ng-hide="issue.solved">Mark solved</span><span ng-show="issue.solved">Mark unsolved</span></a></li>
+					<li><a href="" ng-click="destroy(issues, issue)"><i class="icon-trash"></i>&nbsp;Delete issue</a></li>
 				</ul>
 			</div>
 		</div>

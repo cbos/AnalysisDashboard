@@ -49,6 +49,12 @@ GET		/failure/:id						@controllers.data.FailureController.entity(id:Long)
 POST	/failure/:id						@controllers.data.FailureController.save(id:Long)
 DELETE  /failure/:id						@controllers.data.FailureController.delete(id:Long)
 
+GET		/issue								@controllers.data.IssueController.entity(id:Long ?= -1L)
+POST	/issue								@controllers.data.IssueController.newInstance()
+GET		/issue/:id							@controllers.data.IssueController.entity(id:Long)
+POST	/issue/:id							@controllers.data.IssueController.save(id:Long)
+DELETE  /issue/:id							@controllers.data.IssueController.delete(id:Long)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file               		controllers.Assets.at(path="/public", file)
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

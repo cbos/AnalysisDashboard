@@ -20,6 +20,7 @@
 	<div class="span5">
 		<div>
 			<!-- Jobs -->
+			<p class="text-error"><Strong>Jobs with problems</Strong></p>
 			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |jobType:jobTypes">
 				<div class="alert" 
 					ng-class="{ 'alert-error': job.status=='FAILED', 
@@ -36,6 +37,7 @@
 	
 	</div>
 	<div class="span4">
+		<p class="text-info"><Strong>Tasks to investigate problems</Strong></p>
 		<div ng-repeat="task in tasks | orderBy:'done'">
 			<div class="alert"
 				ng-class="{ 'alert-success': task.done }"
@@ -46,6 +48,16 @@
 					<img ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
 				</span>
 				<BR>
+			</div>
+		</div>
+		<BR>
+		<p class="text-error"><Strong>Issues in the buildstreet</Strong></p>
+		<div ng-repeat="issue in issues | orderBy:'solved'">
+			<div class="alert"
+				ng-class="{ 'alert-success': issue.solved }"
+				style="font-size:20px; height:40px; text-align:left;">
+				<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
+				{{issue.summary}}
 			</div>
 		</div>
 	</div>

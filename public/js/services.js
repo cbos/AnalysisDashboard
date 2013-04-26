@@ -75,6 +75,13 @@ serviceModule.factory('Failure', function($resource) {
 	return Failure;
 });
 
+serviceModule.factory('Issue', function($resource) {
+	var Issue = $resource('/issue/:id', {
+		id : '@id'
+	});
+	return Issue;
+});
+
 serviceModule.factory('AnalyzerWebSocket', function($location) {
 	var onOpenWebSocket, onCloseWebSocket, onMessageWebSocket;
 	var location = "ws://" + $location.host() + ":" + $location.port()

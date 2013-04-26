@@ -1,0 +1,50 @@
+<div ng-controller="IssueDetailsController">
+		<div modal="issueToShow" close="close()" style="width: 80%; left: 25%">
+				<div class="modal-header">
+						<h4 class="text-error">
+								<i class="icon-warning-sign"></i>&nbsp;Issue: {{issueToShow.summary}}
+						</h4>
+				</div>
+				<div class="modal-body">
+						<form name="myForm" class="form-vertical">
+								<fieldset>
+
+										<div class="control-group">
+												<div class="controls controls-row">
+														<input type="text" name="summary" ng-model="issueToShow.summary" class="span8" placeholder="Summary of the issue"/>
+														<input type="text" name="jira_id" ng-model="issueToShow.jira_id" class="span2" placeholder="Jira ID"/>
+														 <span class="help-inline" ng-show="issueToShow.jira_id">
+														 	<a href="https://jira.cordys.com/jira/browse/{{issueToShow.jira_id}}" target="_blank" tooltip="Link to the Jira ticket" tooltip-placement="bottom"><img src="img/icon-jira.png" width="24px"/>&nbsp;{{issueToShow.jira_id}}</a>
+														</span>
+												</div>
+										</div>
+
+										<div class="control-group">
+												<label class="control-label">Details</label>
+												<div class="controls">
+														<textarea rows="6" name="details" ng-model="issueToShow.details" class="input-xxlarge" style="width: 95%;" placeholder="Provide (some) details of the issue"></textarea>
+												</div>
+										</div>
+
+										<div class="control-group">
+												<div class="controls">
+														<select ng-model="issueToShow.type" ng-options="t.value as t.name for t in issueTypes"></select>
+														<span class="help-inline">Select the type of issue.</span>
+												</div>
+										</div>
+										
+										<div class="control-group">
+												<div class="controls">
+														<input type="checkbox" name="solved" ng-model="issueToShow.solved" />
+														<span class="help-inline">Mark the issue as solved when it should not occur anymore.</span>
+												</div>
+										</div>
+								</fieldset>
+						</form>
+				</div>
+				<div class="modal-footer">
+						<button class="btn btn-danger" ng-click="issueRemove()">Delete issue</button>
+						<button class="btn" ng-click="close()">Ok</button>
+				</div>
+		</div>
+</div>

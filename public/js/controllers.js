@@ -38,6 +38,15 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			                {name:'Unknown', value:'', order:100}
 				            ];
 			
+			$rootScope.issueTypes = [
+					                {name:'Product', value:'product'},
+					                {name:'Testcase/Testutils', value:'testcase'},
+					                {name:'Configuration', value:'configuration'},
+					                {name:'Infrastructure - Jenkins', value:'jenkins'},
+					                {name:'Infrastructure - Slave setup', value:'slave'},
+					                {name:'Unknown', value:''}
+						            ];
+			
 			$rootScope.showBuild = function(job)
 			{
 				$rootScope.jobToShow = job;
@@ -47,6 +56,11 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			{
 				$rootScope.taskToShow = task;
 				$rootScope.taskList = tasks;
+			}
+			
+			$rootScope.showIssue = function(issue)
+			{
+				$rootScope.issueToShow = issue;
 			}
 			
 			$rootScope.imageJobStatus = function(job)
@@ -98,6 +112,10 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				});
 			}
 			
+			$rootScope.createIssue = function() {
+				$rootScope.issueToShow = {'type':""};
+			}
+			
 			$rootScope.getRuns = function(job) {
 				if(job && job.lastBuild)
 				{
@@ -118,16 +136,17 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 
 /* Controllers */
 
-function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User, AnalyzerWebSocket) {
+function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task, User, AnalyzerWebSocket) {
 	
 	$scope.reload = function()
 	{
 		//don't reload if there is modal view open, then you might loss data
-		if(!$rootScope.jobToShow && !$rootScope.taskToShow)
+		if(!$rootScope.jobToShow && !$rootScope.taskToShow && !$rootScope.issueToShow)
 		{
 			$scope.computers = Computer.query();
 			$scope.jobs = Job.unstableJobs();
 			$scope.tasks = Task.todayList();
+			$scope.issues = Issue.query();
 		}
 		
 		$timeout($scope.reload, 60000);
@@ -169,13 +188,14 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User,
 	});
 }
 
-function PanelCtrl($scope, $rootScope, $timeout,  Computer, Job, Task, User, AnalyzerWebSocket) {
+function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, User, AnalyzerWebSocket) {
 	
 	$scope.reload = function()
 	{
 		$scope.computers = Computer.query();
 		$scope.jobs = Job.unstableJobs();
 		$scope.tasks = Task.todayList();
+		$scope.issues = Issue.query();
 	}
 	$timeout($scope.reload, 0);
 	
@@ -210,6 +230,30 @@ var TaskDetailsController = function($scope, $rootScope) {
 	$scope.taskRemove = function() {
 		$rootScope.destroy($rootScope.taskList, $rootScope.taskToShow);
 		$rootScope.taskToShow = null;
+	}
+}
+
+var IssueDetailsController = function($scope, $rootScope, Issue) {
+	$scope.close = function() {
+		if($rootScope.issueToShow.id)
+		{
+			$rootScope.change($rootScope.issueToShow);
+		}
+		else
+		{
+			Issue.save($rootScope.issueToShow, function(savedIssue) {
+				if($rootScope.dashboardController)
+				{
+					$rootScope.dashboardController.issues.push(savedIssue);
+				}
+			});
+		}
+		$rootScope.issueToShow = null;
+	}
+
+	$scope.issueRemove = function() {
+		$rootScope.destroy($rootScope.dashboardController.issues, $rootScope.issueToShow);
+		$rootScope.issueToShow = null;
 	}
 }
 
