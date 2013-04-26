@@ -47,7 +47,7 @@
 					ng-class="{ 'alert-error': job.status=='FAILED', 
 								'alert-success': job.status=='STABLE', 
 								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
-					<a href="" ng-click="showBuild(job)" tooltip="Show details"><i class="icon-list-alt"></i></a>&nbsp;<strong>{{job.name}}</strong>
+					<strong>{{job.name}}</strong>
 					<span class="pull-right" style="font-size: 36px;">
 						<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
 					</span><BR>
@@ -71,7 +71,7 @@
 					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
 						<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
-						<li><a href="" ng-click="showBuild(job)"><i class="icon-list-alt"></i>&nbsp;Show details</a></li>
+						<li><a href="" ng-click="showBuild(job)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
 						<li><a href="" ng-click="createJobTask(job)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 						<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 					</ul>
@@ -87,7 +87,7 @@
 				ng-mouseenter="task.showActions=true" 
 				ng-mouseleave="task.showActions=false" 
 				ng-class="{ 'alert-success': task.done }">
-				<a href="" ng-click="showTask(task, tasks)" tooltip="Show details"><i class="icon-flag"></i></a>&nbsp;{{task.summary}}
+				{{task.summary}}
 				<span class="pull-right" style="font-size: 12px;" >
 					{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
 					<img tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
@@ -97,7 +97,7 @@
 					<BR>
 				</span>
 				<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
-					<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-list-alt"></i>&nbsp;Show details</a></li>
+					<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
 					<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Uncomplete task</span></a></li>
 					<li class="dropdown">
 						  <a class="dropdown-toggle">
@@ -121,7 +121,6 @@
 				ng-mouseenter="issue.showActions=true" 
 				ng-mouseleave="issue.showActions=false" 
 				ng-class="{ 'alert-success': issue.solved }">
-				<a href="" ng-click="showIssue(issue)" tooltip="Edit details"><i class="icon-pencil"></i></a>&nbsp;
 				<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
 				{{issue.summary}}
 				<BR>
