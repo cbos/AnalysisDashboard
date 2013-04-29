@@ -56,7 +56,7 @@
   font-size: 36px;
   text-align: center;
   vertical-align: middle;
-  height:80px;
+  min-height:80px;
   font-family: Verdana, Helvetica, 'sans serif';
   line-height: normal;
   white-space: normal;
