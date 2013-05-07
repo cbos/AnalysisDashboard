@@ -79,6 +79,10 @@ serviceModule.factory('Issue', function($resource) {
 	var Issue = $resource('/issue/:id', {
 		id : '@id'
 	});
+	
+	Issue.todayList = function() {
+        return Issue.query({id: 'todayList'});
+    };
 	return Issue;
 });
 

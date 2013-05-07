@@ -1,6 +1,8 @@
 package model.issue;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,12 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Query;
 
 import model.EntityBase;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import play.data.validation.Constraints.Required;
+import play.db.jpa.JPA;
 
 @Entity(name = "issue")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -126,5 +130,20 @@ public class Issue extends EntityBase
 	public void setJira_id(final String jira_id)
 	{
 		this.jira_id = jira_id;
+	}
+
+	public static List<Issue> getTodaysList()
+	{
+		String genericQueryPart = "from issue i where i.solved=0 or i.updateDate > :today";
+
+		Query dataQuery = JPA.em().createQuery(genericQueryPart);
+
+		final Calendar now = Calendar.getInstance();
+		now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE), 0, 0, 0);
+		final Date today = now.getTime();
+
+		dataQuery.setParameter("today", today);
+
+		return dataQuery.getResultList();
 	}
 }

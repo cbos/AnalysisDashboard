@@ -146,7 +146,7 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task
 			$scope.computers = Computer.query();
 			$scope.jobs = Job.unstableJobs();
 			$scope.tasks = Task.todayList();
-			$scope.issues = Issue.query();
+			$scope.issues = Issue.todayList();
 		}
 		
 		$timeout($scope.reload, 60000);
@@ -195,7 +195,7 @@ function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, Use
 		$scope.computers = Computer.query();
 		$scope.jobs = Job.unstableJobs();
 		$scope.tasks = Task.todayList();
-		$scope.issues = Issue.query();
+		$scope.issues = Issue.todayList();
 	}
 	$timeout($scope.reload, 0);
 	
