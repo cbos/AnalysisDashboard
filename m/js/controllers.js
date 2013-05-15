@@ -57,11 +57,20 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 
 /* Controllers */
 
-function MobileController($scope, $rootScope, $timeout,  GistData) {
+function MobileController($scope, $rootScope, $timeout, $http) {
 	
 	$scope.reload = function()
 	{
-			$scope.jobs = GistData.query();
+		$http({method: 'GET', url: 'https://gist.github.com/cbos/3ef7272e0e9fabd02ed7/raw/16d7416cd83ae1ab68bebec8c1a988f16957427d/unstableList.json'}).
+	      success(function(data, status) {
+	        $scope.status = status;
+	        $scope.jobs = data;
+	      }).
+	      error(function(data, status) {
+	        $scope.jobs = null;
+	        $scope.status = status;
+	    });
+			//$scope.jobs = GistData.query();
 	}
 	$timeout($scope.reload, 0);
 }

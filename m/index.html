@@ -18,6 +18,8 @@
 			<div class="span5">
 				<div>
 					<!-- Jobs -->
+					{{status}}
+					
 					<p class="text-error"><Strong>Jobs with problems</Strong></p>
 					<div ng-repeat="job in jobs | filter:{watch:true} |jobType:jobTypes">
 						<div class="alert dashboard-alert" 
