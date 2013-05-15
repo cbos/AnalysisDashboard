@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" ng-app="analysisApp">
+<head>
+	<meta charset="utf-8">
+	<title>Analysis Dashboard</title>
+	<link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+</head>
+<body>
+	<div ng-controller="MobileController">
+		<div class="row-fluid" style="font-size: 16px;">
+			<div class="span5">
+				<div>
+					<!-- Jobs -->
+					<p class="text-error"><Strong>Jobs with problems</Strong></p>
+					<div ng-repeat="job in jobs | filter:{watch:true} |jobType:jobTypes">
+						<div class="alert dashboard-alert" 
+							ng-mouseenter="job.showActions=true" 
+							ng-mouseleave="job.showActions=false" 
+							ng-class="{ 'alert-error': job.status=='FAILED', 
+										'alert-success': job.status=='STABLE', 
+										'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
+							<strong>{{job.name}}</strong>
+							<span class="pull-right" style="font-size: 36px;">
+								<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
+							</span><BR>
+							<div style="font-size: 12px;overflow:hidden;word-wrap:break-word;">
+								<div ng-repeat="run in getRuns(job)" ng-show="job.lastBuild.failedTestCount < 6">
+									<span ng-show="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
+									<div ng-repeat="failure in run.failures">
+										<blockquote ng-show="failure.summary" style="margin:0px;"><i class="icon-exclamation-sign"></i>&nbsp;{{failure.summary}} <span ng-show="failure.randomFailure" class="label label-warning">Random</span></blockquote>
+										<span ng-show="failure.age">
+											<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
+												ng-click="failure.showDetails=!failure.showDetails"></i>&nbsp;
+												<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
+											<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
+										</span>
+										<ul ng-show="failure.showDetails||(failure.summary&&job.showActions)" class="inline" style="font-size: 12px;">
+											<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
