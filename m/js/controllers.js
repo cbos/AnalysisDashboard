@@ -61,7 +61,8 @@ function MobileController($scope, $rootScope, $timeout, $http) {
 	
 	$scope.reload = function()
 	{
-		$http({method: 'GET', url: 'https://gist.github.com/cbos/3ef7272e0e9fabd02ed7/raw/16d7416cd83ae1ab68bebec8c1a988f16957427d/unstableList.json'}).
+		//https://api.github.com/gists/3ef7272e0e9fabd02ed7 via the gist api
+		$http({method: 'GET', url: 'unstableList.json'}).
 	      success(function(data, status) {
 	        $scope.status = status;
 	        $scope.jobs = data;

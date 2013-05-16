@@ -5,5 +5,5 @@ angular.module(
 		'analysisApp',
 		[ 'analysisApp.rootScopeInitializer', 'analysisApp.filters', 'analysisApp.services']).config(['$httpProvider', function($httpProvider) {
 			$httpProvider.defaults.useXDomain = true;
-		    delete $httpProvider.defaults.headers.common["X-Requested-With"]
+		    delete $httpProvider.defaults.headers.common["X-Requested-With"];
 		}]);
