@@ -18,7 +18,7 @@
 			<div class="span5">
 				<div>
 					<!-- Jobs -->
-					<p class="text-error"><Strong>Jobs with problems</Strong></p>
+					<p class="text-info"><Strong>Last update: {{lastUpdate | date:'MM/dd/yy @ h:mm:ss a'}}</Strong></p>
 					<div ng-repeat="job in jobs | filter:{watch:true} |jobType:jobTypes">
 						<div class="alert dashboard-alert" 
 							ng-mouseenter="job.showActions=true" 
@@ -28,7 +28,7 @@
 										'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
 							<strong>{{job.name}}</strong>
 							<span class="pull-right" style="font-size: 36px;">
-								<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
+								<strong>{{job.lastBuild.failedTestCount}}</strong>
 							</span><BR>
 							<div style="font-size: 12px;overflow:hidden;word-wrap:break-word;">
 								<div ng-repeat="run in getRuns(job)" ng-show="job.lastBuild.failedTestCount < 10">
@@ -45,6 +45,7 @@
 									</div>
 								</div>
 							</div>
+							<span ng-show="job.building" class="badge badge-info">In progress</span>
 						</div>
 					</div>
 				</div>

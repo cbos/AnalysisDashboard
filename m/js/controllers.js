@@ -15,33 +15,6 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope)
 			                {name:'Unknown', value:'', order:100}
 				            ];
 			
-			$rootScope.imageJobStatus = function(job)
-			{
-				if(job)
-				{
-					var img = "";
-					switch (job.status)
-					{
-					case "UNSTABLE":
-						img = "yellow";
-					  break;
-					case "STABLE":
-						img = "blue";
-					  break;
-					case "FAILED":
-						img = "red";
-					  break;
-					default:
-						img = "grey";
-					}
-					if(job.building)
-					{
-						return "img/" + img + "_anime.gif";
-					}
-					return "img/" + img + ".png";
-				}
-			}
-				
 			$rootScope.getRuns = function(job) {
 				if(job && job.lastBuild)
 				{
@@ -65,6 +38,7 @@ function MobileController($scope, $rootScope, $timeout, $http) {
 	      success(function(data, status) {
 	        $scope.status = status;
 	        $scope.jobs = angular.fromJson(data.files['unstableList.json'].content);
+	        $scope.lastUpdate = data['updated_at'];
 	      }).
 	      error(function(data, status) {
 	        $scope.jobs = null;
