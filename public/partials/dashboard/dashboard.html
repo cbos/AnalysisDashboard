@@ -6,33 +6,18 @@
 			
 			<p class="text-error"><Strong>Offline computers</Strong></p>
 			<div ng-repeat="computer in computers | filter:{offline:true, watch:true} |orderBy:'displayName'">
-				<div class="alert dashboard-alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false"  
-					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
-					<img ng-src="img/{{imageComputerStatus(computer)}}"/>&nbsp;
-					<strong>{{computer.displayName}}</strong><BR>
-					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
-					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
-						<li><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
-						<li><a href="" ng-click="createComputerTask(computer)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
-					</ul>
-				</div>
+				<div ng-include src="'partials/computer/computer.item.dashboard.html'"></div>
 			</div>
 			<BR>
 			<p class="text-info"><Strong>Computers in watch list</Strong></p>
 			<div ng-repeat="computer in computers | filter:{stickyWatch:true} |orderBy:'displayName'">
-				<div class="alert dashboard-alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false" 
-					ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
-					<img ng-src="img/{{imageComputerStatus(computer)}}"/>&nbsp;
-					<strong>{{computer.displayName}}</strong><BR>
-					<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
-					<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
-						<li><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
-						<li><a href="" ng-click="createComputerTask(computer)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
-					</ul>
-				</div>
+				<div ng-include src="'partials/computer/computer.item.dashboard.html'"></div>
 			</div>
 			<BR>
-			<div class="well" style="font-size: 12px;"><img ng-show="analyzerStatus.isSuccessful" src="img/blue.png"/><img ng-hide="analyzerStatus.isSuccessful" src="img/red.png"/> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} <img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
+			<div class="well" style="font-size: 12px;">
+				<img ng-show="analyzerStatus.isSuccessful" src="img/blue.png"/>
+				<img ng-hide="analyzerStatus.isSuccessful" src="img/red.png"/> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} 
+				<img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
 			</div>
 		</div>
 	</div>
@@ -41,41 +26,7 @@
 			<!-- Jobs -->
 			<p class="text-error"><Strong>Jobs with problems</Strong></p>
 			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |jobType:jobTypes">
-				<div class="alert dashboard-alert" 
-					ng-mouseenter="job.showActions=true" 
-					ng-mouseleave="job.showActions=false" 
-					ng-class="{ 'alert-error': job.status=='FAILED', 
-								'alert-success': job.status=='STABLE', 
-								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
-					<strong>{{job.name}}</strong>
-					<span class="pull-right" style="font-size: 36px;">
-						<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
-					</span><BR>
-					<div style="font-size: 12px;overflow:hidden;word-wrap:break-word;">
-						<div ng-repeat="run in getRuns(job)" ng-show="job.lastBuild.failedTestCount < 6">
-							<span ng-show="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
-							<div ng-repeat="failure in run.failures">
-								<blockquote ng-show="failure.summary" style="margin:0px;"><i class="icon-exclamation-sign"></i>&nbsp;{{failure.summary}} <span ng-show="failure.randomFailure" class="label label-warning">Random</span></blockquote>
-								<span ng-show="failure.age">
-									<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
-										ng-click="failure.showDetails=!failure.showDetails"></i>&nbsp;
-										<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
-									<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
-								</span>
-								<ul ng-show="failure.showDetails||(failure.summary&&job.showActions)" class="inline" style="font-size: 12px;">
-									<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
-						<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
-						<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
-						<li><a href="" ng-click="showBuild(job)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
-						<li><a href="" ng-click="createJobTask(job)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
-						<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
-					</ul>
-				</div>
+				<div ng-include src="'partials/job/job.item.dashboard.html'"></div>
 			</div>
 		</div>
 	
@@ -83,57 +34,13 @@
 	<div class="span4">
 		<p class="text-info"><Strong>Tasks to investigate problems</Strong></p>
 		<div ng-repeat="task in tasks | orderBy:'done'">
-			<div class="alert dashboard-alert"
-				ng-mouseenter="task.showActions=true" 
-				ng-mouseleave="task.showActions=false" 
-				ng-class="{ 'alert-success': task.done }">
-				{{task.summary}}
-				<span class="pull-right" style="font-size: 12px;" >
-					{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
-					<img tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
-				</span>
-				<BR>
-				<span style="font-size: 12px;" ng-show="task.details" ng-bind-html-unsafe="task.details">
-					<BR>
-				</span>
-				<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
-					<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
-					<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Uncomplete task</span></a></li>
-					<li class="dropdown">
-						  <a class="dropdown-toggle">
-						    <i class="icon-user"></i>&nbsp;Change assignee
-						  </a>
-						  <ul class="dropdown-menu">
-						    <li ng-repeat="user in users">
-						      <a ng-click="changeAssignee(task, user)">{{user.fullName}}</a>
-						    </li>
-						  </ul>
-					</li>
-					<li><a href="" ng-click="destroy(tasks, task)"><i class="icon-trash"></i>&nbsp;Delete task</a></li>
-				</ul>
-			</div>
+			<div ng-include src="'partials/task/task.item.dashboard.html'"></div>
 		</div>
 		<BR>
 		<p class="text-error"><Strong>Issues in the buildstreet</Strong><BR>
 		<a href="" ng-click="createIssue()"><i class="icon-plus-sign"></i> Add issue</a></p>
 		<div ng-repeat="issue in issues | orderBy:'solved'">
-			<div class="alert dashboard-alert"
-				ng-mouseenter="issue.showActions=true" 
-				ng-mouseleave="issue.showActions=false" 
-				ng-class="{ 'alert-success': issue.solved }">
-				<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
-				{{issue.summary}}
-				<BR>
-				<span style="font-size: 12px;" ng-show="issue.details" ng-bind-html-unsafe="issue.details">
-					<BR>
-				</span>
-				<ul class="inline" ng-show="issue.showActions" style="font-size: 12px;">
-					<li><a href="" ng-click="showIssue(issue)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
-					<li><a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank"><img src="img/icon-jira.png" width="16px"/>&nbsp;{{issue.jira_id}}</a></li>
-					<li><a href="" ng-click="issue.solved = !issue.solved;change(issue)"><i ng-class="{ 'icon-ok-sign': !issue.done, 'icon-remove-circle': issue.done }"></i>&nbsp;<span ng-hide="issue.solved">Mark solved</span><span ng-show="issue.solved">Mark unsolved</span></a></li>
-					<li><a href="" ng-click="destroy(issues, issue)"><i class="icon-trash"></i>&nbsp;Delete issue</a></li>
-				</ul>
-			</div>
+			<div ng-include src="'partials/issue/issue.item.dashboard.html'"></div>
 		</div>
 	</div>
 </div>

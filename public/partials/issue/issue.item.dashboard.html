@@ -1,0 +1,17 @@
+<div class="alert dashboard-alert"
+	ng-mouseenter="issue.showActions=true" 
+	ng-mouseleave="issue.showActions=false" 
+	ng-class="{ 'alert-success': issue.solved }">
+	<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
+	{{issue.summary}}
+	<BR>
+	<span style="font-size: 12px;" ng-show="issue.details" ng-bind-html-unsafe="issue.details">
+		<BR>
+	</span>
+	<ul class="inline" ng-show="issue.showActions" style="font-size: 12px;">
+		<li><a href="" ng-click="showIssue(issue)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
+		<li><a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank"><img src="img/icon-jira.png" width="16px"/>&nbsp;{{issue.jira_id}}</a></li>
+		<li><a href="" ng-click="issue.solved = !issue.solved;change(issue)"><i ng-class="{ 'icon-ok-sign': !issue.done, 'icon-remove-circle': issue.done }"></i>&nbsp;<span ng-hide="issue.solved">Mark solved</span><span ng-show="issue.solved">Mark unsolved</span></a></li>
+		<li><a href="" ng-click="destroy(issues, issue)"><i class="icon-trash"></i>&nbsp;Delete issue</a></li>
+	</ul>
+</div>

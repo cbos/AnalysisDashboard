@@ -1,0 +1,29 @@
+<div class="alert dashboard-alert"
+	ng-mouseenter="task.showActions=true" 
+	ng-mouseleave="task.showActions=false" 
+	ng-class="{ 'alert-success': task.done }">
+	{{task.summary}}
+	<span class="pull-right" style="font-size: 12px;" >
+		{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
+		<img tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
+	</span>
+	<BR>
+	<span style="font-size: 12px;" ng-show="task.details" ng-bind-html-unsafe="task.details">
+		<BR>
+	</span>
+	<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
+		<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
+		<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Uncomplete task</span></a></li>
+		<li class="dropdown">
+			  <a class="dropdown-toggle">
+			    <i class="icon-user"></i>&nbsp;Change assignee
+			  </a>
+			  <ul class="dropdown-menu">
+			    <li ng-repeat="user in users">
+			      <a ng-click="changeAssignee(task, user)">{{user.fullName}}</a>
+			    </li>
+			  </ul>
+		</li>
+		<li><a href="" ng-click="destroy(tasks, task)"><i class="icon-trash"></i>&nbsp;Delete task</a></li>
+	</ul>
+</div>

@@ -1,0 +1,35 @@
+<div class="alert dashboard-alert" 
+	ng-mouseenter="job.showActions=true" 
+	ng-mouseleave="job.showActions=false" 
+	ng-class="{ 'alert-error': job.status=='FAILED', 
+				'alert-success': job.status=='STABLE', 
+				'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
+	<strong>{{job.name}}</strong>
+	<span class="pull-right" style="font-size: 36px;">
+		<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
+	</span><BR>
+	<div style="font-size: 12px;overflow:hidden;word-wrap:break-word;">
+		<div ng-repeat="run in getRuns(job)" ng-show="job.lastBuild.failedTestCount < 6">
+			<span ng-show="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
+			<div ng-repeat="failure in run.failures">
+				<blockquote ng-show="failure.summary" style="margin:0px;"><i class="icon-exclamation-sign"></i>&nbsp;{{failure.summary}} <span ng-show="failure.randomFailure" class="label label-warning">Random</span></blockquote>
+				<span ng-show="failure.age">
+					<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
+						ng-click="failure.showDetails=!failure.showDetails"></i>&nbsp;
+						<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
+					<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
+				</span>
+				<ul ng-show="failure.showDetails||(failure.summary&&job.showActions)" class="inline" style="font-size: 12px;">
+					<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
+		<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
+		<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
+		<li><a href="" ng-click="showBuild(job)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
+		<li><a href="" ng-click="createJobTask(job)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+		<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
+	</ul>
+</div>
