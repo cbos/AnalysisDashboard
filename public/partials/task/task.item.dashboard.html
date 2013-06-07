@@ -4,8 +4,8 @@
 	ng-class="{ 'alert-success': task.done }">
 	{{task.summary}}
 	<span class="pull-right" style="font-size: 12px;" >
-		{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
-		<img tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
+		Updated: {{task.updateDate | date:'MM/dd/yy HH:mm'}}<BR>
+		<img class="pull-right" tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
 	</span>
 	<BR>
 	<span style="font-size: 12px;" ng-show="task.details" ng-bind-html-unsafe="task.details">
