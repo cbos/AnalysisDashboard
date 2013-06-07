@@ -33,13 +33,13 @@
 	</div>
 	<div class="span4">
 		<p class="text-info"><Strong>Tasks to investigate problems</Strong></p>
-		<div ng-repeat="task in tasks | orderBy:'done'">
+		<div ng-repeat="task in tasks | orderBy:['done','-updateDate']">
 			<div ng-include src="'partials/task/task.item.dashboard.html'"></div>
 		</div>
 		<BR>
 		<p class="text-error"><Strong>Issues in the buildstreet</Strong><BR>
 		<a href="" ng-click="createIssue()"><i class="icon-plus-sign"></i> Add issue</a></p>
-		<div ng-repeat="issue in issues | orderBy:'solved'">
+		<div ng-repeat="issue in issues | orderBy:['solved','-updateDate']">
 			<div ng-include src="'partials/issue/issue.item.dashboard.html'"></div>
 		</div>
 	</div>
