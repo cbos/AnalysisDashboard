@@ -171,7 +171,7 @@ public class Job extends EntityBase
 
 	public static List<Job> getUnstableJobs()
 	{
-		String genericQueryPart = "from job j where j.status<>'blue'";
+		String genericQueryPart = "from job j where j.status<>'blue' and j.watch=true";
 		Query dataQuery = JPA.em().createQuery(genericQueryPart);
 		return dataQuery.getResultList();
 	}
