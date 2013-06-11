@@ -12,7 +12,7 @@
 		<BR>
 	</span>
 	<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
-		<li><a href="" ng-click="showTask(task, tasks)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
+		<li><a href="" ng-click="showTask(task)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
 		<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Uncomplete task</span></a></li>
 		<li class="dropdown">
 			  <a class="dropdown-toggle">

@@ -4,7 +4,6 @@ import java.util.Date;
 
 import model.task.Task;
 import play.db.jpa.Transactional;
-import play.libs.Json;
 import play.mvc.Result;
 import utils.email.TaskUpdateMailer;
 
@@ -49,6 +48,6 @@ public class TaskController extends EntityController<Task>
 	@Transactional(readOnly = true)
 	public Result getTodaysList()
 	{
-		return ok(Json.toJson(Task.getTodaysList()));
+		return ok(toJson(Task.getTodaysList()));
 	}
 }

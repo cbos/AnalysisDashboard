@@ -1,6 +1,7 @@
 package controllers.data;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import model.EntityBase;
 import model.EntityHelper;
@@ -9,6 +10,7 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.node.ArrayNode;
 
 import play.db.jpa.Transactional;
 import play.libs.Json;
@@ -34,9 +36,26 @@ public class EntityController<T extends EntityBase> extends Controller
 	{
 		if (id > 0)
 		{
-			return ok(Json.toJson(EntityHelper.getEntityById(m_clazz, id)));
+			return ok(toJson(EntityHelper.getEntityById(m_clazz, id)));
 		}
-		return ok(Json.toJson(EntityHelper.getAll(m_clazz)));
+		return ok(toJson(EntityHelper.getAll(m_clazz)));
+	}
+
+	protected JsonNode toJson(final Object result)
+	{
+		//This is to fix an issue in Json.toJson
+		//Entities with @JsonTypeInfo @JsonSubTypes are not properly handled. The type is not added
+		if (result instanceof Collection)
+		{
+			ArrayNode arrayNode = Json.newObject().arrayNode();
+			for (Object entry : (Collection<?>) result)
+			{
+				arrayNode.add(Json.toJson(entry));
+			}
+			return arrayNode;
+		}
+		JsonNode json = Json.toJson(result);
+		return json;
 	}
 
 	@Transactional()
@@ -57,7 +76,7 @@ public class EntityController<T extends EntityBase> extends Controller
 		validateEntity(id, entity);
 		EntityHelper.persist(entity);
 
-		return ok(Json.toJson(entity));
+		return ok(toJson(entity));
 	}
 
 	protected void validateEntity(final Long id, final T entity)

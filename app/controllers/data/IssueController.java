@@ -4,7 +4,6 @@ import java.util.Date;
 
 import model.issue.Issue;
 import play.db.jpa.Transactional;
-import play.libs.Json;
 import play.mvc.Result;
 
 public class IssueController extends EntityController<Issue>
@@ -28,6 +27,6 @@ public class IssueController extends EntityController<Issue>
 	@Transactional(readOnly = true)
 	public Result getTodaysList()
 	{
-		return ok(Json.toJson(Issue.getTodaysList()));
+		return ok(toJson(Issue.getTodaysList()));
 	}
 }

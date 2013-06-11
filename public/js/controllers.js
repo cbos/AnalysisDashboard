@@ -52,10 +52,9 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				$rootScope.jobToShow = job;
 			}
 			
-			$rootScope.showTask = function(task, tasks)
+			$rootScope.showTask = function(task)
 			{
 				$rootScope.taskToShow = task;
-				$rootScope.taskList = tasks;
 			}
 			
 			$rootScope.showIssue = function(issue)
@@ -103,7 +102,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 					});
 				}
 				
-				var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'details':details};
+				var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'type':'task', 'details':details};
 				Task.save(newJobTask, function(task) {
 					if($rootScope.dashboardController)
 					{
@@ -170,10 +169,26 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task
 	}
 	
 	$scope.createComputerTask = function(computer) {
-		var newComputerTask = {'summary': "Bring " + computer.displayName + " back online"};
+		var newComputerTask = {'summary': "Bring " + computer.displayName + " back online", 'type':'computertask', 'computerId': computer.id};
 		Task.save(newComputerTask, function(task) {
 			$scope.tasks.push(task);
 		});
+	}
+	
+	$scope.linkComputerTask = function(computer) {
+		for ( var i = 0; i < $scope.tasks.length; i++) {
+			var task = $scope.tasks[i];
+			if(task.type=="computertask")
+			{
+				if(task.computerId == computer.id)
+				{
+					computer.__task = task;
+					return true;
+				}
+			}
+		}
+		computer.__task = null;
+		return false;
 	}
 	
 	$scope.changeAssignee = function(task, user) {
@@ -228,7 +243,7 @@ var TaskDetailsController = function($scope, $rootScope) {
 	}
 	
 	$scope.taskRemove = function() {
-		$rootScope.destroy($rootScope.taskList, $rootScope.taskToShow);
+		$rootScope.destroy($rootScope.dashboardController.tasks, $rootScope.taskToShow);
 		$rootScope.taskToShow = null;
 	}
 }
