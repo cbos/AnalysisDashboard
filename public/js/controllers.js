@@ -89,6 +89,23 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				}
 			}
 			
+			$rootScope.linkComputerTask = function(computer) {
+				var tasks = $rootScope.dashboardController.tasks;
+				for ( var i = 0; i < tasks.length; i++) {
+					var task = tasks[i];
+					if(task.type=="computertask")
+					{
+						if(task.computerId == computer.id)
+						{
+							computer.__task = task;
+							return true;
+						}
+					}
+				}
+				computer.__task = null;
+				return false;
+			}
+			
 			$rootScope.createJobTask = function(job) {
 				var details = "";
 				if(job.lastBuild)
@@ -175,22 +192,6 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task
 		});
 	}
 	
-	$scope.linkComputerTask = function(computer) {
-		for ( var i = 0; i < $scope.tasks.length; i++) {
-			var task = $scope.tasks[i];
-			if(task.type=="computertask")
-			{
-				if(task.computerId == computer.id)
-				{
-					computer.__task = task;
-					return true;
-				}
-			}
-		}
-		computer.__task = null;
-		return false;
-	}
-	
 	$scope.changeAssignee = function(task, user) {
 		task.assignee = user;
 		task.$save();
@@ -213,6 +214,7 @@ function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, Use
 		$scope.issues = Issue.todayList();
 	}
 	$timeout($scope.reload, 0);
+	$rootScope.dashboardController = $scope;
 	
 	AnalyzerWebSocket.onMessage(function(m) {
 		$scope.$apply(function() {
