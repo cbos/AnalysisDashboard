@@ -106,6 +106,23 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				return false;
 			}
 			
+			$rootScope.linkJobTask = function(job) {
+				var tasks = $rootScope.dashboardController.tasks;
+				for ( var i = 0; i < tasks.length; i++) {
+					var task = tasks[i];
+					if(task.type=="jobtask")
+					{
+						if(task.relatedJobs == job.id)
+						{
+							job.__task = task;
+							return true;
+						}
+					}
+				}
+				job.__task = null;
+				return false;
+			}
+			
 			$rootScope.createJobTask = function(job) {
 				var details = "";
 				if(job.lastBuild)
@@ -119,7 +136,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 					});
 				}
 				
-				var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'type':'task', 'details':details};
+				var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'type':'jobtask', 'relatedJobs': angular.toJson(job.id,false),'details':details};
 				Task.save(newJobTask, function(task) {
 					if($rootScope.dashboardController)
 					{

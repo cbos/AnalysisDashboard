@@ -5,7 +5,7 @@
 	<strong>{{computer.displayName}}</strong>
 	<span ng-show="linkComputerTask(computer)" class="pull-right">
 		<span class="badge"
-			ng-class="{ 'badge-info': !computer.__task.done, 'badge-success': computer.__task.done}" ng-click="showTask(computer.__task, tasks)">
+			ng-class="{ 'badge-info': !computer.__task.done, 'badge-success': computer.__task.done}" ng-click="showTask(computer.__task)">
 			<i class="icon-wrench"></i>&nbsp;<span ng-hide="computer.__task.done">Task available</span><span ng-show="computer.__task.done">Task done</span>
 		</span>
 	</span>

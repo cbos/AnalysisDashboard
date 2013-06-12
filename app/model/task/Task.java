@@ -31,7 +31,7 @@ import play.db.jpa.JPA;
 @Entity(name = "task")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-@JsonSubTypes({ @Type(value = ComputerTask.class, name = "computertask"), @Type(value = Task.class, name = "task") })
+@JsonSubTypes({ @Type(value = ComputerTask.class, name = "computertask"), @Type(value = JobTask.class, name = "jobtask"), @Type(value = Task.class, name = "task") })
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Task extends EntityBase
 {

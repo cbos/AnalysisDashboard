@@ -7,7 +7,14 @@
 	<strong>{{job.name}}</strong>
 	<span class="pull-right" style="font-size: 36px;">
 		<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
-	</span><BR>
+	</span>
+	<span ng-show="linkJobTask(job)" class="pull-right">
+		<span class="badge"
+			ng-class="{ 'badge-info': !job.__task.done, 'badge-success': job.__task.done}" ng-click="showTask(job.__task)">
+			<i class="icon-wrench"></i>&nbsp;
+		</span>&nbsp;
+	</span>
+	<BR>
 	<div style="font-size: 12px;overflow:hidden;word-wrap:break-word;">
 		<div ng-repeat="run in getRuns(job)" ng-show="job.lastBuild.failedTestCount < 6">
 			<span ng-show="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
@@ -35,7 +42,7 @@
 		<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 		<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
 		<li><a href="" ng-click="showBuild(job)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
-		<li><a href="" ng-click="createJobTask(job)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+		<li ng-hide="job.__task"><a href="" ng-click="createJobTask(job)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
 		<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 	</ul>
 </div>
