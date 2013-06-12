@@ -45,6 +45,11 @@ public class RunParser extends BaseParser
 		return path("timestamp").asLong();
 	}
 
+	public long getEstimatedDuration()
+	{
+		return path("estimatedDuration").asLong();
+	}
+
 	public String getUrl()
 	{
 		return path("url").asText();

@@ -33,6 +33,10 @@ public class JobAnalyzer
 		}
 
 		m_job.setBuilding(m_jobParser.isBuilding());
+		if (m_job.isBuilding())
+		{
+			calculateETA();
+		}
 		m_job.setStatus(m_jobParser.getStatus());
 		m_job.setDescription(m_jobParser.getDescription());
 
@@ -56,6 +60,23 @@ public class JobAnalyzer
 		}
 
 		EntityHelper.persist(m_job);
+	}
+
+	private void calculateETA()
+	{
+		BuildParser lastBuild = m_jobParser.loadLastBuild(m_jsonReader);
+		long estimatedDuration = lastBuild.getEstimatedDuration();
+		if (estimatedDuration > 0)
+		{
+			long startTime = lastBuild.getTimestamp();
+			double timeTaken = (System.currentTimeMillis() - startTime);
+
+			m_job.setEta(timeTaken / estimatedDuration);
+		}
+		else
+		{
+			m_job.setEta(-1);
+		}
 	}
 
 	private void analyzeDetails()

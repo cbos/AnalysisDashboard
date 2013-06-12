@@ -55,6 +55,8 @@ public class Job extends EntityBase
 
 	private boolean isBuilding;
 
+	private double eta;
+
 	private String status;
 
 	private boolean watch;
@@ -167,6 +169,16 @@ public class Job extends EntityBase
 	public void setLastBuild(final Build lastBuild)
 	{
 		this.lastBuild = lastBuild;
+	}
+
+	public double getEta()
+	{
+		return eta;
+	}
+
+	public void setEta(final double eta)
+	{
+		this.eta = eta;
 	}
 
 	public static List<Job> getUnstableJobs()

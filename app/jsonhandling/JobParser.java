@@ -72,4 +72,9 @@ public class JobParser extends BaseParser
 		checkHasCompletedBuild();
 		return new BuildParser(reader.getJSonResult(path("lastCompletedBuild", "url").asText()));
 	}
+
+	public BuildParser loadLastBuild(final JsonReader reader)
+	{
+		return new BuildParser(reader.getJSonResult(path("lastBuild", "url").asText()));
+	}
 }

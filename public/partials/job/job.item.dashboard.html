@@ -25,6 +25,12 @@
 			</div>
 		</div>
 	</div>
+	<div ng-show="job.building">
+		<BR>
+		<div class="progress progress-striped active">
+		  <div class="bar" style="width: {{job.eta * 100 | number:0}}%;"></div>
+		</div>
+	</div>
 	<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
 		<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 		<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
