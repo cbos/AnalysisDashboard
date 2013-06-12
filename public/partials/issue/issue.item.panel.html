@@ -1,0 +1,6 @@
+<div class="alert"
+	ng-class="{ 'alert-success': issue.solved }"
+	style="font-size:20px; min-height:50px; text-align:left;">
+	<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
+	{{issue.summary}}
+</div>

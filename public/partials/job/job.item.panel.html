@@ -1,0 +1,19 @@
+<div class="alert" 
+	ng-class="{ 'alert-error': job.status=='FAILED', 
+				'alert-success': job.status=='STABLE', 
+				'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
+	<strong nowrap>{{job.name}}</strong>
+	<span class="pull-right">
+		<strong><span ng-show="linkJobTask(job)" class="badge" style="vertical-align: 7px;"
+			ng-class="{ 'badge-info': !job.__task.done, 'badge-success': job.__task.done}" ng-click="showTask(job.__task)">
+			<i class="icon-wrench"></i>
+		</span>&nbsp;{{job.lastBuild.failedTestCount}}</strong>
+	</span>
+	<BR>
+	<div ng-show="job.building" style="font-size: 12px;">
+		<BR>
+		<div class="progress progress-striped active">
+		  <div class="bar" style="width: {{job.eta * 100 | number:0}}%;"></div>
+		</div>
+	</div>
+</div>

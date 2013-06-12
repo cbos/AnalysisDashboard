@@ -9,7 +9,10 @@
 				<div ng-include src="'partials/computer/computer.item.panel.html'"></div>
 			</div>
 			<BR>
-			<div class="well" style="font-size: 12px;"><img ng-show="analyzerStatus.isSuccessful" src="img/blue.png"/><img ng-hide="analyzerStatus.isSuccessful" src="img/red.png"/> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} <img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
+			<div class="well" style="font-size: 12px;">
+				<img ng-show="analyzerStatus.isSuccessful" src="img/blue.png"/>
+				<img ng-hide="analyzerStatus.isSuccessful" src="img/red.png"/> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} 
+				<img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
 			</div>
 		</div>
 	</div>
@@ -18,48 +21,20 @@
 			<!-- Jobs -->
 			<p class="text-error"><Strong>Jobs with problems</Strong></p>
 			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |jobType:jobTypes">
-				<div class="alert" 
-					ng-class="{ 'alert-error': job.status=='FAILED', 
-								'alert-success': job.status=='STABLE', 
-								'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
-					<strong nowrap>{{job.name}}</strong>
-					<span class="pull-right">
-						<strong>{{job.lastBuild.failedTestCount}}</strong>
-					</span><BR>
-					<div ng-show="job.building" style="font-size: 12px;">
-						<BR>
-						<div class="progress progress-striped active">
-						  <div class="bar" style="width: {{job.eta * 100 | number:0}}%;"></div>
-						</div>
-					</div>
-				</div>
+				<div ng-include src="'partials/job/job.item.panel.html'"></div>
 			</div>
 		</div>
 	
 	</div>
 	<div class="span4">
 		<p class="text-info"><Strong>Tasks to investigate problems</Strong></p>
-		<div ng-repeat="task in tasks | orderBy:'done'">
-			<div class="alert"
-				ng-class="{ 'alert-success': task.done }"
-				style="font-size:20px">
-				{{task.summary}}
-				<span class="pull-right" style="font-size: 12px;" >
-					{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
-					<img ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
-				</span>
-				<BR>
-			</div>
+		<div ng-repeat="task in tasks | orderBy:['done','-updateDate']">
+			<div ng-include src="'partials/task/task.item.panel.html'"></div>
 		</div>
 		<BR>
 		<p class="text-error"><Strong>Issues in the buildstreet</Strong></p>
-		<div ng-repeat="issue in issues | orderBy:'solved'">
-			<div class="alert"
-				ng-class="{ 'alert-success': issue.solved }"
-				style="font-size:20px; min-height:50px; text-align:left;">
-				<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
-				{{issue.summary}}
-			</div>
+		<div ng-repeat="issue in issues | orderBy:['solved','-updateDate']">
+			<div ng-include src="'partials/issue/issue.item.panel.html'"></div>
 		</div>
 	</div>
 </div>
