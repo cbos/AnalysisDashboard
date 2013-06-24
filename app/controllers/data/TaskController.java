@@ -2,6 +2,7 @@ package controllers.data;
 
 import java.util.Date;
 
+import model.task.JobTask;
 import model.task.Task;
 import play.db.jpa.Transactional;
 import play.mvc.Result;
@@ -21,11 +22,13 @@ public class TaskController extends EntityController<Task>
 		if (id == null)
 		{
 			entity.setCreationDate(now);
+			updateJobTask(entity, null);
 			sendUpdateEmail(entity);
 		}
 		else
 		{
 			Task taskFromDB = getEntityById(id);
+			updateJobTask(entity, taskFromDB);
 			if (entity.getAssignee() != null
 					&& (taskFromDB.getAssignee() == null || !entity.getAssignee()
 																												 .getId()
@@ -35,6 +38,23 @@ public class TaskController extends EntityController<Task>
 			}
 		}
 		entity.setUpdateDate(now);
+	}
+
+	private void updateJobTask(final Task entityToUpdate, final Task taskFromDB)
+	{
+		if (entityToUpdate instanceof JobTask)
+		{
+			updateJobTaskRelatedJobs((JobTask) entityToUpdate, (JobTask) taskFromDB);
+		}
+	}
+
+	private void updateJobTaskRelatedJobs(final JobTask entityToUpdate, final JobTask taskFromDB)
+	{
+		if (taskFromDB != null)
+		{
+			entityToUpdate._setJobs(taskFromDB._getJobs());
+		}
+		entityToUpdate.updateRelatedJobs();
 	}
 
 	private void sendUpdateEmail(final Task task)

@@ -107,20 +107,18 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			}
 			
 			$rootScope.linkJobTask = function(job) {
-				var tasks = $rootScope.dashboardController.tasks;
-				for ( var i = 0; i < tasks.length; i++) {
-					var task = tasks[i];
-					if(task.type=="jobtask")
-					{
-						if(task.relatedJobs == job.id)
+				
+				job.__task = null;
+				angular.forEach($rootScope.dashboardController.tasks, function(task)
+				{
+					angular.forEach(task.relatedJobs, function(relatedJob) {
+						if(relatedJob.id == job.id)
 						{
 							job.__task = task;
-							return true;
 						}
-					}
-				}
-				job.__task = null;
-				return false;
+				    });
+				});
+				return job.__task != null;
 			}
 			
 			$rootScope.createJobTask = function(job) {
@@ -136,13 +134,53 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 					});
 				}
 				
-				var newJobTask = {'summary': "Investigate failure(s) of " + job.name, 'type':'jobtask', 'relatedJobs': angular.toJson(job.id,false),'details':details};
+				var newJobTask = {'type':'jobtask', 'relatedJobs': [{'id':job.id, 'name': job.name}] ,'details':details};
+				updateJobName(newJobTask);
 				Task.save(newJobTask, function(task) {
 					if($rootScope.dashboardController)
 					{
 						$rootScope.dashboardController.tasks.push(task);
 					}
 				});
+			}
+			
+			function updateJobName(jobTask)
+			{
+				var jobs = "";
+				var count = 0;
+				angular.forEach(jobTask.relatedJobs, function(relatedJob) {
+					count++;
+					if(count>1)
+					{
+						jobs += ", "
+					}
+					jobs += relatedJob.name
+			    });
+				jobTask.summary = "Investigate failure(s) of " + jobs
+			}
+			
+			$rootScope.connectTask = function(jobTask, job, link)
+			{
+				if(link)
+				{
+					jobTask.relatedJobs.push({'id':job.id, 'name': job.name});
+				}
+				else
+				{
+					var relatedIndexToDelete = -1;
+					angular.forEach(jobTask.relatedJobs, function(relatedJob) {
+						if(relatedJob.id == job.id)
+						{
+							relatedIndexToDelete = jobTask.relatedJobs.indexOf(relatedJob);
+						}
+				    });
+					if(relatedIndexToDelete>-1)
+					{
+						jobTask.relatedJobs.splice(relatedIndexToDelete, 1)
+					}
+				}
+				updateJobName(jobTask);
+				$rootScope.change(jobTask);
 			}
 			
 			$rootScope.createIssue = function() {

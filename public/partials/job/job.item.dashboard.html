@@ -42,7 +42,18 @@
 		<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 		<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
 		<li><a href="" ng-click="showBuild(job)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
-		<li ng-hide="job.__task"><a href="" ng-click="createJobTask(job)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+		<li ng-hide="job.__task" class="dropdown">
+			  <a class="dropdown-toggle">
+			    <i class="icon-wrench"></i>&nbsp;Add / assign task to fix this
+			  </a>
+			  <ul class="dropdown-menu">
+			  	<li><a ng-click="createJobTask(job)">Create NEW task</a></li>
+			  	<li>  --- Link with one below ---</li>
+			    <li ng-repeat="jobTask in tasks | filter:{type:'jobtask'} |orderBy:'summary'"">
+			      <a ng-click="connectTask(jobTask, job, true)">{{jobTask.summary}}</a>
+			    </li>
+			  </ul>
+		</li>
 		<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 	</ul>
 </div>

@@ -3,15 +3,20 @@
 	ng-mouseleave="task.showActions=false" 
 	ng-class="{ 'alert-success': task.done }">
 	{{task.summary}}
-	<span class="pull-right" style="font-size: 12px;" >
+	<span class="pull-right smaller-font">
 		Updated: {{task.updateDate | date:'MM/dd/yy HH:mm'}}<BR>
 		<img class="pull-right" tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
 	</span>
 	<BR>
-	<span style="font-size: 12px;" ng-show="task.details" ng-bind-html-unsafe="task.details">
+	<span class="smaller-font" ng-show="task.details" ng-bind-html-unsafe="task.details">
 		<BR>
 	</span>
-	<ul class="inline" ng-show="task.showActions" style="font-size: 12px;">
+	<ul ng-show="task.relatedJobs.length > 1">
+		<li class="smaller-font" ng-repeat="job in task.relatedJobs">
+			{{job.name}} <a href="" ng-click="connectTask(task, job, false)"><i class="icon-remove-sign" tooltip="Unlink job from this task"></i></a>
+		</li>
+	</ul>
+	<ul class="inline smaller-font" ng-show="task.showActions">
 		<li><a href="" ng-click="showTask(task)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
 		<li><a href="" ng-click="task.done = !task.done;change(task)"><i ng-class="{ 'icon-ok-sign': !task.done, 'icon-remove-circle': task.done }"></i>&nbsp;<span ng-hide="task.done">Mark done</span><span ng-show="task.done">Uncomplete task</span></a></li>
 		<li class="dropdown">
