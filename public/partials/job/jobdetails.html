@@ -3,33 +3,49 @@
         <div class="modal-header">
             <h4>{{jobToShow.name}}<span class="pull-right" style="font-size: 40px;">
 						<strong>{{jobToShow.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(jobToShow)}}"/>
-					</span></h4>
+					</span>
+					<span ng-show="jobToShow.__task" class="pull-right">
+						<span class="badge"
+							ng-class="{ 'badge-info': !job.__task.done, 'badge-success': job.__task.done}">
+							<i class="icon-wrench"></i>&nbsp;
+						</span>&nbsp;
+					</span>
+			</h4>
         </div>
         <div class="modal-body">
         			Job description: {{jobToShow.description}}<BR>
         			<hr/>
         			<div ng-repeat="run in getRuns(jobToShow)">
 						<span ng-show="jobToShow.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
-						<div ng-repeat="failure in run.failures" style="font-size: 13px;">
-							<span class="muted" ng-show="failure.summary">{{failure.summary}}</span>
-							<span ng-show="failure.age">
-								<i ng-class="{'icon-chevron-right' : !failure.showDetails, 'icon-chevron-down': !!failure.showDetails}"
-									ng-click="failure.showDetails=!failure.showDetails"></i>
-									<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) <span ng-show="failure.randomFailure" class="label label-warning">Random</span>
-								<blockquote ng-show="failure.showDetails"> {{failure.errorDetails}}</blockquote>
-							</span>
-								<ul ng-show="failure.showDetails||failure.summary" class="inline" style="font-size: 12px;">
-									<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
-								</ul>
+						<div ng-repeat="failure in run.failures |orderBy:'testMethodName'" class="smaller-font">
+							<div ng-include src="'partials/job/failure.item.dashboard.html'"></div>
 						</div>
 					</div>
 					<BR>
 					<ul class="inline" style="font-size: 12px;">
 						<li><a href="{{jobToShow.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
 						<li><a href="{{jobToShow.url}}/{{jobToShow.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
-						<li><a href="" ng-click="createJobTask(jobToShow)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+						<li ng-hide="jobToShow.__task" class="dropdown">
+							  <a class="dropdown-toggle">
+							    <i class="icon-wrench"></i>&nbsp;Add / assign task to fix this
+							  </a>
+							  <ul class="dropdown-menu">
+							  	<li><a ng-click="createJobTask(jobToShow)">Create NEW task</a></li>
+							  	<li>  --- Link with one below ---</li>
+							    <li ng-repeat="jobTask in $root.dashboardController.tasks | filter:{type:'jobtask'} |orderBy:'summary'">
+							      <a ng-click="connectTask(jobTask, jobToShow true)">{{jobTask.summary}}</a>
+							    </li>
+							  </ul>
+						</li>
 						<li><a href="" ng-click="stopWatching(jobToShow)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
 					</ul>
+					<BR><BR>
+					<div ng-show="jobToShow.building">
+						Job is in progress:<BR>
+						<div class="progress progress-striped active">
+						  <div class="bar" style="width: {{jobToShow.eta * 100 | number:0}}%;"></div>
+						</div>
+					</div><BR><BR>
 				</div>
         <div class="modal-footer">
             <button class="btn" ng-click="close()">Ok</button>
