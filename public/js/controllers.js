@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, Task, Failure) 
+angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, Task, Failure, AnalyzerWebSocket) 
 		  {
 			$rootScope.alerts = [];
 
@@ -208,11 +208,22 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				failure.randomFailure = !failure.randomFailure;
 				Failure.save(failure);
 			}
+			
+			AnalyzerWebSocket.onMessage(function(m) {
+				$rootScope.$apply(function() {
+					var status = angular.fromJson(m.data);
+					$rootScope.analyzerStatus = status;
+					if(!status.isExecuting && $rootScope.dashboardController)
+					{
+						$rootScope.dashboardController.analyzerFinished();
+					}
+				})
+			});
 		});
 
 /* Controllers */
 
-function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task, User, AnalyzerWebSocket) {
+function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task, User) {
 	
 	$scope.reload = function()
 	{
@@ -257,14 +268,13 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task
 		task.$save();
 	}
 	
-	AnalyzerWebSocket.onMessage(function(m) {
-		$scope.$apply(function() {
-			$scope.analyzerStatus = angular.fromJson(m.data);
-		})
-	});
+	$scope.analyzerFinished = function()
+	{
+		//do nothing
+	}
 }
 
-function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, User, AnalyzerWebSocket) {
+function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, User) {
 	
 	$scope.reload = function()
 	{
@@ -276,15 +286,10 @@ function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, Use
 	$timeout($scope.reload, 0);
 	$rootScope.dashboardController = $scope;
 	
-	AnalyzerWebSocket.onMessage(function(m) {
-		$scope.$apply(function() {
-			$scope.analyzerStatus = angular.fromJson(m.data);
-			if(!$scope.analyzerStatus.isExecuting)
-			{
-				$scope.reload();
-			}
-		})
-	});
+	$scope.analyzerFinished = function()
+	{
+		$scope.reload();
+	}
 }
 
 var JobDetailsController = function($scope, $rootScope) {

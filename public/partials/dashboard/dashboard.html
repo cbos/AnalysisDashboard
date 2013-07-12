@@ -14,11 +14,7 @@
 				<div ng-include src="'partials/computer/computer.item.dashboard.html'"></div>
 			</div>
 			<BR>
-			<div class="well" style="font-size: 12px;">
-				<img ng-show="analyzerStatus.isSuccessful" src="img/blue.png"/>
-				<img ng-hide="analyzerStatus.isSuccessful" src="img/red.png"/> Last analysis: {{analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} 
-				<img ng-show="analyzerStatus.isExecuting" src="img/spinner.gif"/>
-			</div>
+			<div ng-include src="'partials/dashboard/analyzerStatus.html'"></div>
 		</div>
 	</div>
 	<div class="span5">

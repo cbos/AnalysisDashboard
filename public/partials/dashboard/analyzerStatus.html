@@ -1,0 +1,5 @@
+<div class="well" style="font-size: 12px;">
+	<img ng-show="$root.analyzerStatus.isSuccessful" src="img/blue.png"/>
+	<img ng-hide="$root.analyzerStatus.isSuccessful" src="img/red.png"/> Last analysis: {{$root.analyzerStatus.lastExecution | date:'MM/dd/yy @ H:mm:ss'}} 
+	<img ng-show="$root.analyzerStatus.isExecuting" src="img/spinner.gif"/>
+</div>
