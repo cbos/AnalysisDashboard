@@ -33,7 +33,7 @@
 							  	<li><a ng-click="createJobTask(jobToShow)">Create NEW task</a></li>
 							  	<li>  --- Link with one below ---</li>
 							    <li ng-repeat="jobTask in $root.dashboardController.tasks | filter:{type:'jobtask'} |orderBy:'summary'">
-							      <a ng-click="connectTask(jobTask, jobToShow true)">{{jobTask.summary}}</a>
+							      <a ng-click="connectTask(jobTask, jobToShow, true)">{{jobTask.summary}}</a>
 							    </li>
 							  </ul>
 						</li>
