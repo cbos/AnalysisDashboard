@@ -1,0 +1,30 @@
+<div>
+	<span class="dropdown">
+		  <a class="dropdown-toggle">
+		    <i class="icon-wrench"></i><span class="caret"></span>
+		  </a>
+		  <ul class="dropdown-menu">
+		    <li><a href="" ng-click="failure.showDetails=!failure.showDetails"><i class="icon-align-justify"></i>&nbsp;Show error message</a></li>
+		    <li><a ng-href="{{failure.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;Open stacktrace in Jenkins</a></li>
+		    <li class="divider">aa</li>
+		  	<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
+		    <li>-- Link to an issue below --</li>
+		    <li ng-repeat="issue in issues | orderBy:'jira_id'">
+		      <a ng-click="connectIssue(failure,issue)">{{issue.jira_id}} - {{issue.summary}}</a>
+		    </li>
+		  </ul>
+	</span>
+	<span style="overflow:hidden;word-wrap:break-word;">
+		<blockquote ng-show="failure.summary" style="margin:0px;">
+			{{failure.summary}} 
+			<span ng-show="failure.randomFailure" class="label label-warning">Random</span>
+			<span ng-show="failure.issue" class="label label-important"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span><i class="icon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></i></span>
+		</blockquote>
+		<span ng-show="failure.age">
+			<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) 
+				<span ng-show="failure.randomFailure" class="label label-warning">Random</span>
+				<span ng-show="failure.issue" class="label label-important"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span><i class="icon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></i></span>
+				<blockquote ng-show="failure.showDetails"><i class="icon-remove-sign" ng-click="failure.showDetails=false" tooltip="Hide error message"></i>{{failure.errorDetails}}</blockquote>
+		</span>
+	</span>
+</div>

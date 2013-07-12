@@ -9,10 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import model.EntityBase;
+import model.issue.Issue;
 import model.jenkins.Build;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -40,10 +40,9 @@ public class Failure extends EntityBase
 	@JoinColumn(name = "build_id", nullable = false, updatable = true, insertable = true)
 	private Build build;
 
-	@Lob
-	private String analysis;
-
-	private boolean issueIdentified;
+	@ManyToOne(optional = true, fetch = FetchType.EAGER, targetEntity = Issue.class)
+	@JoinColumn(name = "issue_id", nullable = true, updatable = true, insertable = true)
+	private Issue issue;
 
 	private boolean randomFailure;
 
@@ -57,26 +56,6 @@ public class Failure extends EntityBase
 	protected void setId(final Long id)
 	{
 		this.id = id;
-	}
-
-	public String getAnalysis()
-	{
-		return analysis;
-	}
-
-	public void setAnalysis(final String analysis)
-	{
-		this.analysis = analysis;
-	}
-
-	public boolean isIssueIdentified()
-	{
-		return issueIdentified;
-	}
-
-	public void setIssueIdentified(final boolean issueIdentified)
-	{
-		this.issueIdentified = issueIdentified;
 	}
 
 	public boolean isRandomFailure()
@@ -108,6 +87,15 @@ public class Failure extends EntityBase
 	public void setSummary(final String summary)
 	{
 		this.summary = truncate(summary, 250);
+	}
 
+	public Issue getIssue()
+	{
+		return issue;
+	}
+
+	public void setIssue(final Issue issue)
+	{
+		this.issue = issue;
 	}
 }

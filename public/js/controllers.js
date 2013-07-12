@@ -187,6 +187,11 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				$rootScope.issueToShow = {'type':""};
 			}
 			
+			$rootScope.connectIssue = function(failure, issue) {
+				failure.issue = issue;
+				Failure.save(failure);
+			}
+			
 			$rootScope.getRuns = function(job) {
 				if(job && job.lastBuild)
 				{
