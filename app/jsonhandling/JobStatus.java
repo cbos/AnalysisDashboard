@@ -2,7 +2,7 @@ package jsonhandling;
 
 public enum JobStatus
 {
-	STABLE("blue"), UNSTABLE("yellow"), DISABLED("disabled"), FAILED("red"), ABORTED("aborted"), NEW("grey");
+	STABLE("blue"), UNSTABLE("yellow"), DISABLED("disabled"), FAILED("red"), ABORTED("aborted"), NEW("grey"), NOTBUILT("notbuilt");
 
 	private String jenkinsStatus;
 
