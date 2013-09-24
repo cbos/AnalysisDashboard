@@ -1,6 +1,8 @@
 <div>
 	<span class="dropdown">
-		  <a class="dropdown-toggle">
+		  <a class="dropdown-toggle"
+		  	ng-mouseenter="failure.__issue = $root.dashboardController.issues" 
+			ng-mouseleave="failure.__issue = null" >
 		    <i class="icon-wrench"></i><span class="caret"></span>
 		  </a>
 		  <ul class="dropdown-menu">
@@ -9,7 +11,7 @@
 		    <li class="divider">aa</li>
 		  	<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
 		    <li>-- Link to an issue below --</li>
-		    <li ng-repeat="issue in $root.dashboardController.issues | orderBy:'jira_id'">
+		    <li ng-repeat="issue in failure.__issue | orderBy:'jira_id'">
 		      <a ng-click="connectIssue(failure,issue)">{{issue.jira_id}} - {{issue.summary}}</a>
 		    </li>
 		  </ul>
