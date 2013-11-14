@@ -23,6 +23,9 @@
 			</div>
 		</div>
 	</div>
+	<div ng-show="{{job.status=='DISABLED'}}" class="smaller-font">
+		<span>{{job.description}}</span>
+	</div>
 	<div ng-show="job.building">
 		<BR>
 		<div class="progress">
