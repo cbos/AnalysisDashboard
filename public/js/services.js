@@ -5,7 +5,7 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 var serviceModule = angular.module('analysisApp.services', [ 'ngResource' ]);
-serviceModule.value('version', '0.2');
+serviceModule.value('version', '0.3');
 
 serviceModule.factory('JenkinsServer', function($resource, $http, $rootScope) {
 	var JenkinsServer = $resource('/jenkinsserver/:id', {

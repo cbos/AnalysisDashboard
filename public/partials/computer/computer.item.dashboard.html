@@ -1,19 +1,19 @@
 <div class="alert dashboard-alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false"  
-	ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}"
+	ng-class="{ 'alert-danger': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}"
 	>
 	<img ng-src="img/{{imageComputerStatus(computer)}}"/>&nbsp;
 	<strong>{{computer.displayName}}</strong>
 	<span ng-show="linkComputerTask(computer)" class="pull-right">
-		<span class="badge"
-			ng-class="{ 'badge-info': !computer.__task.done, 'badge-success': computer.__task.done}" ng-click="showTask(computer.__task)">
-			<i class="icon-wrench"></i>&nbsp;<span ng-hide="computer.__task.done">Task available</span><span ng-show="computer.__task.done">Task done</span>
+		<span class="label"
+			ng-class="{ 'label-info': !computer.__task.done, 'label-success': computer.__task.done}" ng-click="showTask(computer.__task)">
+			<span class="glyphicon glyphicon-wrench"></span>&nbsp;<span ng-hide="computer.__task.done">Task available</span><span ng-show="computer.__task.done">Task done</span>
 		</span>
 	</span>
 	<BR>
 	<span style="font-size: 12px;" ng-show="computer.diskSpaceLeft>0"> has {{computer.diskSpaceLeft}}Gb left.</span><span style="font-size: 12px;">{{computer.offlineCause}}</span><BR>
 	
-	<ul class="inline" ng-show="computer.showActions" style="font-size: 12px;">
-		<li><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
-		<li ng-hide="computer.__task"><a href="" ng-click="createComputerTask(computer)"><i class="icon-wrench"></i>&nbsp;Add task to fix this</a></li>
+	<ul class="list-inline" ng-show="computer.showActions" style="font-size: 12px;">
+		<li><a href="{{computer.url}}" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;URL</a></li>
+		<li ng-hide="computer.__task"><a href="" ng-click="createComputerTask(computer)"><span class="glyphicon glyphicon-wrench"></span>&nbsp;Add task to fix this</a></li>
 	</ul>
 </div>

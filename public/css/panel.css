@@ -110,3 +110,8 @@
 .alert-block p + p {
   margin-top: 5px;
 }
+
+.smaller-font
+{
+	font-size: 16px;
+}

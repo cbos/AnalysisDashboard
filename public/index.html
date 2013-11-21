@@ -3,35 +3,36 @@
 <head>
 	<meta charset="utf-8">
 	<title>Analysis Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/analysisDashboard.css" />
 </head>
 <body>
-	<div class="navbar navbar-inverse">
-		<div class="navbar-inner">
-			<div class="container" style="width: auto;">
-				<a class="btn btn-navbar" data-toggle="collapse"
-					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="#/dashboard"><img
-					src="img/favicon.ico" style="height: 16px" />&nbsp;Analysis
-					Dashboard</a>
-				<div class="nav-collapse">
-					<ul class="nav">
-						<li><a href="#/jenkinsserver">JenkinsServers</a></li>
-						<li><a href="#/computer">Computers</a></li>
-						<li><a href="#/job">Jobs</a></li>
-						<li><a href="#/user">Users</a></li>
-						<li><a href="#/panel">Panel</a></li>
-					</ul>
-				</div>
-				<!-- /.nav-collapse -->
-			</div>
-		<!-- /navbar-inner -->
-		</div>
+
+	<nav class="navbar navbar-inverse" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#/dashboard"><img src="img/favicon.ico" style="height: 16px" />&nbsp;Analysis	Dashboard</a>
+		  </div>
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    <ul class="nav navbar-nav">
+		     	<li><a href="#/jenkinsserver">JenkinsServers</a></li>
+				<li><a href="#/computer">Computers</a></li>
+				<li><a href="#/job">Jobs</a></li>
+				<li><a href="#/user">Users</a></li>
+				<li><a href="#/panel">Panel</a></li>
+		    </ul>
+		  </div><!-- /.navbar-collapse -->
 	<!-- /navbar -->
-	</div>
+	</nav>
 	
 	<div class="container">
 		<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">
@@ -41,20 +42,14 @@
 	</div>
 	<div ng-view></div>
 	
-	 <div ng-include src="'partials/job/jobdetails.html'"></div>
-	 <div ng-include src="'partials/task/taskdetails.html'"></div>
-	 <div ng-include src="'partials/issue/issuedetails.html'"></div>
-
 	<div>
 		Analysis Dashboard: v<span app-version></span>
 	</div>
 
-	<!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-  -->
 	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
 	<script src="lib/angular/angular-resource.js"></script>
-	<script src="js/ui-bootstrap-tpls-0.1.0.min.js"></script> <!-- From http://angular-ui.github.com/bootstrap/ -->
+	<script src="js/ui-bootstrap-tpls-0.6.0_bs3.min.js"></script> <!-- From http://angular-ui.github.com/bootstrap/ -->
 	<script src="js/app.js"></script>
 	<script src="js/services.js"></script>
 	<script src="js/controllers.js"></script>

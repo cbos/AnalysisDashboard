@@ -1,53 +1,33 @@
 <div class="alert dashboard-alert" 
 	ng-mouseenter="job.showActions=true" 
 	ng-mouseleave="job.showActions=false" 
-	ng-class="{ 'alert-error': job.status=='FAILED', 
+	ng-class="{ 'alert-danger': job.status=='FAILED', 
 				'alert-success': job.status=='STABLE', 
-				'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW'}">
+				'alert-warning': job.status=='UNSTABLE',
+				'alert-info': job.status=='ABORTED' || job.status=='DISABLED' || job.status=='NEW' || job.status=='NOTBUILT'}">
 	<strong>{{job.name}}</strong>
 	<span class="pull-right" style="font-size: 36px;">
-		<strong>{{job.lastBuild.failedTestCount}}</strong> <img ng-src="{{imageJobStatus(job)}}"/>
+		<strong style="position:relative;top:-10px">{{job.lastBuild.failedTestCount}}</strong> <img  style="vertical-align: top;" ng-src="{{imageJobStatus(job)}}"/>
 	</span>
-	<span ng-show="linkJobTask(job)" class="pull-right">
-		<span class="badge"
-			ng-class="{ 'badge-info': !job.__task.done, 'badge-success': job.__task.done}" ng-click="showTask(job.__task)">
-			<i class="icon-wrench"></i>&nbsp;
+	<span ng-if="linkJobTask(job)" class="pull-right">
+		<span class="label"
+			ng-class="{ 'label-info': !job.__task.done, 'label-success': job.__task.done}" ng-click="showTask(job.__task)">
+			<span class="glyphicon glyphicon-wrench"></span>
 		</span>&nbsp;
 	</span>
 	<BR>
 	<div class="smaller-font">
-		<div ng-repeat="run in getRuns(job)" ng-show="job.lastBuild.failedTestCount < 6">
-			<span ng-show="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
+		<div ng-repeat="run in getRuns(job)" ng-if="job.lastBuild.failedTestCount < 6">
+			<span ng-if="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
 			<div ng-repeat="failure in run.failures |orderBy:'testMethodName'">
 				<div ng-include src="'partials/job/failure.item.dashboard.html'"></div>
 			</div>
 		</div>
 	</div>
-	<div ng-show="job.status=='DISABLED'" class="smaller-font">
+	<div ng-if="job.status=='DISABLED'" class="smaller-font">
 		<span>{{job.description}}</span>
 	</div>
-	<div ng-show="job.building">
-		<BR>
-		<div class="progress">
-		  <div class="bar" style="width: {{job.eta * 100 | number:0}}%;"></div>
-		</div>
-	</div>
-	<ul class="inline" ng-show="job.showActions" style="font-size: 12px;">
-		<li><a href="{{job.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></li>
-		<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
-		<li><a href="" ng-click="showBuild(job)"><i class="icon-pencil"></i>&nbsp;Edit details</a></li>
-		<li ng-hide="job.__task" class="dropdown">
-			  <a class="dropdown-toggle">
-			    <i class="icon-wrench"></i>&nbsp;Add / assign task to fix this
-			  </a>
-			  <ul class="dropdown-menu">
-			  	<li><a ng-click="createJobTask(job)">Create NEW task</a></li>
-			  	<li>  --- Link with one below ---</li>
-			    <li ng-repeat="jobTask in tasks | filter:{type:'jobtask'} |orderBy:'summary'">
-			      <a ng-click="connectTask(jobTask, job, true)">{{jobTask.summary}}</a>
-			    </li>
-			  </ul>
-		</li>
-		<li><a href="" ng-click="stopWatching(job)"><i class="icon-eye-close"></i>&nbsp;Stop watching</a></li>
-	</ul>
+	<div ng-include src="'partials/job/job.progressbar.html'"></div>
+	<div ng-include src="'partials/job/job.actions.html'" ng-show="job.showActions"></div>
+	
 </div>

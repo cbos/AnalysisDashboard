@@ -1,10 +1,10 @@
-<div class="row-fluid" style="font-size: 16px;">
+<div class="row" style="font-size: 16px;">
 		<link rel="stylesheet" href="css/panel.css" />
 
-	<div class="span3">
+	<div class="col-md-3">
 		<div>
 			<!-- Computers -->
-			<p class="text-error"><Strong>Offline computers</Strong></p>
+			<p class="text-danger"><Strong>Offline computers</Strong></p>
 			<div ng-repeat="computer in computers | filter:{offline:true, watch:true} |orderBy:'displayName'">
 				<div ng-include src="'partials/computer/computer.item.panel.html'"></div>
 			</div>
@@ -12,23 +12,23 @@
 			<div ng-include src="'partials/dashboard/analyzerStatus.html'"></div>
 		</div>
 	</div>
-	<div class="span5">
+	<div class="col-md-5">
 		<div>
 			<!-- Jobs -->
-			<p class="text-error"><Strong>Jobs with problems</Strong></p>
+			<p class="text-danger"><Strong>Jobs with problems</Strong></p>
 			<div ng-repeat="job in jobs | nonStableJobs | filter:{watch:true} |jobType:jobTypes">
 				<div ng-include src="'partials/job/job.item.panel.html'"></div>
 			</div>
 		</div>
 	
 	</div>
-	<div class="span4">
+	<div class="col-md-4">
 		<p class="text-info"><Strong>Tasks to investigate problems</Strong></p>
 		<div ng-repeat="task in tasks | orderBy:['done','-updateDate']">
 			<div ng-include src="'partials/task/task.item.panel.html'"></div>
 		</div>
 		<BR>
-		<p class="text-error"><Strong>Issues in the buildstreet</Strong></p>
+		<p class="text-danger"><Strong>Issues in the buildstreet</Strong></p>
 		<div ng-repeat="issue in issues | orderBy:['solved','-updateDate']">
 			<div ng-include src="'partials/issue/issue.item.panel.html'"></div>
 		</div>

@@ -1,5 +1,5 @@
-<div class="row-fluid">
-	<div class="offset2 span8">
+<div class="row">
+	<div class="col-md-offset-1 col-md-10">
 		<div class="well">
 			<table class="table table-striped table-hover table-condensed">
 			  <thead>
@@ -17,16 +17,16 @@
 			  <tbody>
 			  <tr ng-repeat="computer in computers | orderBy:'displayName'">
 			  	<td>
-			  	  <button ng-click="destroy(computers, computer)" ng-show="computer.id" class="btn btn-danger btn-mini"><i class="icon-trash"></i>&nbsp;Delete</button>
+			  	  <button ng-click="destroy(computers, computer)" ng-show="computer.id" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>&nbsp;Delete</button>
 			    </td>
 			    <td><img src="img/computer.png" ng-show="!computer.offline">
 						<img src="img/computer-x.png" ng-show="computer.offline">&nbsp;{{computer.displayName}}</td>
 				<td class="text-right">{{computer.diskSpaceLeft}} Gb</td>
-			    <td><span ng-class="{ 'label label-important': computer.offline}">{{computer.offline}}</span></td>
+			    <td><span ng-class="{ 'label label-danger': computer.offline}">{{computer.offline}}</span></td>
 			    <td>{{computer.offlineCause}}</td>
 			    <td><input type="checkbox" ng-model="computer.watch" ng-change="change(computer)"></td>
 			    <td><input type="checkbox" ng-model="computer.stickyWatch" ng-change="change(computer)"></td>
-			    <td><a href="{{computer.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;URL</a></td>
+			    <td><a href="{{computer.url}}" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;URL</a></td>
 			    <td></td>
 			  </tr>
 			  </tbody>

@@ -1,0 +1,18 @@
+<ul class="list-inline" style="font-size: 12px;">
+	<li><a href="{{job.url}}" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;URL</a></li>
+	<li><a href="{{job.url}}/{{job.lastBuild.buildNumber}}/console" target="_blank"><img src="img/terminal.png" width="16px"/>&nbsp;Console</a></li>
+	<li><a href="" ng-click="showBuild(job)"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit details</a></li>
+	<li ng-if="!job.__task" class="dropdown">
+		  <a class="dropdown-toggle">
+		    <span class="glyphicon glyphicon-wrench"></span>&nbsp;Add / assign task to fix this
+		  </a>
+		  <ul class="dropdown-menu">
+		  	<li><a ng-click="createJobTask(job)">Create NEW task</a></li>
+		  	<li class="dropdown-header">  --- Link with one below ---</li>
+		    <li ng-repeat="jobTask in tasks | filter:{type:'jobtask'} |orderBy:'summary'">
+		      <a ng-click="connectTask(jobTask, job, true)">{{jobTask.summary}}</a>
+		    </li>
+		  </ul>
+	</li>
+	<li><a href="" ng-click="stopWatching(job)"><span class="glyphicon glyphicon-eye-close"></span>&nbsp;Stop watching</a></li>
+</ul>
