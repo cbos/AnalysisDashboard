@@ -1,9 +1,9 @@
-<div class="alert" ng-class="{ 'alert-error': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
+<div class="alert" ng-class="{ 'alert-danger': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}">
 	<strong>{{computer.displayName}}</strong>
-	<span ng-show="linkComputerTask(computer)" style="font-size: 12px;">
-		<BR><span class="badge"
-			ng-class="{ 'badge-info': !computer.__task.done, 'badge-success': computer.__task.done}">
-			<i class="icon-wrench"></i>&nbsp;<span ng-hide="computer.__task.done">Task available</span><span ng-show="computer.__task.done">Task done</span>
+	<span ng-show="linkComputerTask(computer)" class="smaller-font">
+		<BR><span class="label"
+			ng-class="{ 'label-info': !computer.__task.done, 'label-success': computer.__task.done}">
+			<span class="glyphicon glyphicon-wrench"></span>&nbsp;<span ng-hide="computer.__task.done">Task available</span><span ng-show="computer.__task.done">Task done</span>
 		</span>
 	</span>
 </div>

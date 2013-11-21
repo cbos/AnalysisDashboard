@@ -1,0 +1,8 @@
+<div ng-if="job.building" class="small-font">
+	<BR>
+	<div class="progress">
+		<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{job.eta * 100 | number:0}}%;">
+   			<span class="sr-only">{{job.eta * 100 | number:0}}% Complete</span>
+ 			</div>
+	</div>
+</div>

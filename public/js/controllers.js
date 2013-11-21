@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, Task, Failure, AnalyzerWebSocket) 
+angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, $modal, Task, Failure, AnalyzerWebSocket) 
 		  {
 			$rootScope.alerts = [];
 
@@ -49,17 +49,56 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			
 			$rootScope.showBuild = function(job)
 			{
-				$rootScope.jobToShow = job;
+				$rootScope.dialogOpen = true;
+				var modalInstance = $modal.open({
+					templateUrl : 'partials/job/jobdetails.html',
+					controller : JobDetailsController,
+					resolve : {
+						job : function() {
+							return job;
+						}
+					}
+				});
+
+				modalInstance.result.then(function() {
+					$rootScope.dialogOpen = false;
+				});
 			}
 			
 			$rootScope.showTask = function(task)
 			{
-				$rootScope.taskToShow = task;
+				$rootScope.dialogOpen = true;
+				var modalInstance = $modal.open({
+					templateUrl : 'partials/task/taskdetails.html',
+					controller : TaskDetailsController,
+					resolve : {
+						task : function() {
+							return task;
+						}
+					}
+				});
+
+				modalInstance.result.then(function() {
+					$rootScope.dialogOpen = false;
+				});
 			}
 			
 			$rootScope.showIssue = function(issue)
 			{
-				$rootScope.issueToShow = issue;
+				$rootScope.dialogOpen = true;
+				var modalInstance = $modal.open({
+					templateUrl : 'partials/issue/issuedetails.html',
+					controller : IssueDetailsController,
+					resolve : {
+						issue : function() {
+							return issue;
+						}
+					}
+				});
+
+				modalInstance.result.then(function() {
+					$rootScope.dialogOpen = false;
+				});
 			}
 			
 			$rootScope.imageJobStatus = function(job)
@@ -184,7 +223,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 			}
 			
 			$rootScope.createIssue = function() {
-				$rootScope.issueToShow = {'type':""};
+				$rootScope.showIssue({'type':""});
 			}
 			
 			$rootScope.connectIssue = function(failure, issue) {
@@ -228,7 +267,7 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task
 	$scope.reload = function()
 	{
 		//don't reload if there is modal view open, then you might loss data
-		if(!$rootScope.jobToShow && !$rootScope.taskToShow && !$rootScope.issueToShow)
+		if(!$rootScope.dialogOpen)
 		{
 			$scope.computers = Computer.query();
 			$scope.jobs = Job.unstableJobs();
@@ -292,50 +331,57 @@ function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, Use
 	}
 }
 
-var JobDetailsController = function($scope, $rootScope) {
+var JobDetailsController = function($scope, $rootScope, $modalInstance, job) {
+	$scope.job = job
 	$scope.close = function() {
-		$rootScope.jobToShow = null;
+		$modalInstance.close();
 	}
 }
 
-var TaskDetailsController = function($scope, $rootScope) {
+var TaskDetailsController = function($scope, $rootScope, $modalInstance, task) {
+	$scope.taskToEdit = task
+	
 	$scope.close = function() {
-		$rootScope.change($rootScope.taskToShow);
-		$rootScope.taskToShow = null;
+		$rootScope.change($scope.taskToEdit);
+		$modalInstance.close();
 	}
 
 	$scope.taskDone = function() {
-		$rootScope.taskToShow.done = !$rootScope.taskToShow.done;
+		$scope.taskToEdit.done = !$scope.taskToEdit.done;
 		$scope.close();
 	}
 	
 	$scope.taskRemove = function() {
-		$rootScope.destroy($rootScope.dashboardController.tasks, $rootScope.taskToShow);
-		$rootScope.taskToShow = null;
+		$rootScope.destroy($rootScope.dashboardController.tasks, $scope.taskToEdit);
+		$modalInstance.dismiss('removed');
 	}
 }
 
-var IssueDetailsController = function($scope, $rootScope, Issue) {
+var IssueDetailsController = function($scope, $rootScope, Issue, $modalInstance, issue) {
+	$scope.issueToEdit = issue
 	$scope.close = function() {
-		if($rootScope.issueToShow.id)
+		if($scope.issueToEdit.id)
 		{
-			$rootScope.change($rootScope.issueToShow);
+			$rootScope.change($scope.issueToEdit);
 		}
 		else
 		{
-			Issue.save($rootScope.issueToShow, function(savedIssue) {
+			Issue.save($scope.issueToEdit, function(savedIssue) {
 				if($rootScope.dashboardController)
 				{
 					$rootScope.dashboardController.issues.push(savedIssue);
 				}
 			});
 		}
-		$rootScope.issueToShow = null;
+		$modalInstance.close();
 	}
 
 	$scope.issueRemove = function() {
-		$rootScope.destroy($rootScope.dashboardController.issues, $rootScope.issueToShow);
-		$rootScope.issueToShow = null;
+		if($scope.issueToEdit.id)
+		{
+			$rootScope.destroy($rootScope.dashboardController.issues, $scope.issueToEdit);
+		}
+		$modalInstance.dismiss('removed');
 	}
 }
 

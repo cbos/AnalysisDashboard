@@ -2,30 +2,30 @@
 	<span class="dropdown">
 		  <a class="dropdown-toggle"
 		  	ng-mouseenter="failure.__issue = $root.dashboardController.issues" >
-		    <i class="icon-wrench"></i><span class="caret"></span>
+		    <span class="glyphicon glyphicon-wrench"></span><span class="caret"></span>
 		  </a>
 		  <ul class="dropdown-menu">
-		    <li><a href="" ng-click="failure.showDetails=!failure.showDetails"><i class="icon-align-justify"></i>&nbsp;Show error message</a></li>
-		    <li><a ng-href="{{failure.url}}" target="_blank"><i class="icon-circle-arrow-right"></i>&nbsp;Open stacktrace in Jenkins</a></li>
+		    <li><a href="" ng-click="failure.showDetails=!failure.showDetails"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Show error message</a></li>
+		    <li><a ng-href="{{failure.url}}" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;Open stacktrace in Jenkins</a></li>
 		    <li class="divider">aa</li>
-		  	<li><a href="" ng-click="toggleRandomFailure(failure)"><i class="icon-random"></i>&nbsp;Mark/unmark as random</a></li>
-		    <li>-- Link to an issue below --</li>
+		  	<li><a href="" ng-click="toggleRandomFailure(failure)"><span class="glyphicon glyphicon-random"></span>&nbsp;Mark/unmark as random</a></li>
+		    <li class="dropdown-header">-- Link to an issue below --</li>
 		    <li ng-repeat="issue in failure.__issue | orderBy:'jira_id'">
 		      <a ng-click="connectIssue(failure,issue)">{{issue.jira_id}} - {{issue.summary}}</a>
 		    </li>
 		  </ul>
 	</span>
 	<span style="overflow:hidden;word-wrap:break-word;">
-		<blockquote ng-show="failure.summary" style="margin:0px;">
+		<blockquote ng-if="failure.summary" style="margin:0px;">
 			{{failure.summary}} 
-			<span ng-show="failure.randomFailure" class="label label-warning">Random <i class="icon-remove-sign" ng-click="toggleRandomFailure(failure)" tooltip="Unmark random"></i></span>
-			<span ng-show="failure.issue" class="label label-important"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span> <i class="icon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></i></span>
+			<span ng-if="failure.randomFailure" class="label label-warning">Random <span class="glyphicon glyphicon-remove-sign" ng-click="toggleRandomFailure(failure)" tooltip="Unmark random"></span></span>
+			<span ng-if="failure.issue" class="label label-danger"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span> <span class="glyphicon glyphicon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></span></span>
 		</blockquote>
-		<span ng-show="failure.age">
+		<span ng-if="failure.age">
 			<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) 
-				<span ng-show="failure.randomFailure" class="label label-warning">Random <i class="icon-remove-sign" ng-click="toggleRandomFailure(failure)" tooltip="Unmark random"></i></span>
-				<span ng-show="failure.issue" class="label label-important"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span> <i class="icon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></i></span>
-				<blockquote ng-show="failure.showDetails"><i class="icon-remove-sign" ng-click="failure.showDetails=false" tooltip="Hide error message"></i>{{failure.errorDetails}}</blockquote>
+				<span ng-show="failure.randomFailure" class="label label-warning">Random <span class="glyphicon glyphicon-remove-sign" ng-click="toggleRandomFailure(failure)" tooltip="Unmark random"></span></span>
+				<span ng-show="failure.issue" class="label label-danger"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span> <span class="glyphicon glyphicon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></span></span>
+				<blockquote ng-show="failure.showDetails"><span class="glyphicon glyphicon-remove-sign" ng-click="failure.showDetails=false" tooltip="Hide error message"></span>{{failure.errorDetails}}</blockquote>
 		</span>
 	</span>
 </div>
