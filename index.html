@@ -1,1 +1,346 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Analysis Dashboard Documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/png" href="images/favicon.ico">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		/* Show and affix the side nav when space allows it */
+		@media (min-width: 992px) {
+		  .nav > .active > ul {
+			display: block;
+		  }
+		  /* Widen the fixed sidebar */
+		  .nav,
+		  .affix,
+		  .affix-bottom {
+			width: 213px;
+		  }
+		  .affix {
+			position: fixed; /* Undo the static from mobile first approach */
+			top: 80px;
+		  }
+		  .affix-bottom {
+			position: absolute; /* Undo the static from mobile first approach */
+		  }
+		  .affix-bottom {
+			margin-top: 0;
+			margin-bottom: 0;
+		  }
+		}
+		
+		@media (min-width: 1500px) {
+			.container {
+				width: 1470px;
+			}
+		}
+		.dl-horizontal dt{
+			width: 200px;
+		}
+		.dl-horizontal dd {
+			margin-left: 220px;
+		}
+		.nav .nav > li > a {
+			padding-left: 30px;
+			font-size: 90%;
+		}
+	</style>
+
+</head>
+
+<body data-spy="scroll" data-target="#myAffix">
+	<div class="container">
+		<div class="jumbotron">
+			<h1>
+				<img src="images/favicon.ico">Analysis Dashboard Documentation</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2" id="myAffix">
+				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="10">
+					<li>
+						<a href="#about" class="active">About</a>
+					</li>
+					<li>
+						<a href="#installation">Installation</a>
+					</li>
+					<li>
+						<a href="#config">Configuration</a>
+					</li>
+					<li>
+						<a href="#usage">Dashboard Usage</a>
+						<ul class="nav">
+							<li>
+								<a href="#dashboardcomputers">Offline computers</a>
+							</li>
+							<li>
+								<a href="#dashboardjobs">Jobs with problems</a>
+							</li>
+							<li>
+								<a href="#dashboardtasks">Tasks to investigate problems</a>
+							</li>
+							<li>
+								<a href="#dashboardissues">Issues in the buildstreet</a>
+							</li>
+						</ul>
+								   
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-10">
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h1 id="about">About AnalysisDashboard</h1>
+						</div>
+					</div>
+					<div class="panel-body">
+						Analysis of the buildstreet takes time, especially when there are issues. This tool is mend to help in the analysis and recognize when failures/issues are recurring. Overtime it should also be able to identify random issues.
+						<BR>
+						<h2>Technology used by the AnalysisDashboard</h2>
+
+						<ul>
+							<li>PlayFramework as web framework, it support handling of REST URLs.</li>
+							<li>Bootstrap for uniform styling.</li>
+							<li>AngularJS for the web-app part.</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h1 id="installation">Installation
+								<small>for development</small>
+							</h1>
+						</div>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>You have to
+								<a href="http://www.playframework.com/download">download the Play Framework</a>. Then you have to unzip the tool.</li>
+							<li>You have to create a database in MySQL e.g. 'analysisDashboard'
+							</li>
+							<li>You have edit the configuration at
+								<code>conf/application.conf</code>, e.g.:
+								<BR>
+								<BR>
+								<pre>
+	db.default.driver=com.mysql.jdbc.Driver
+	db.default.url="jdbc:mysql://localhost/analysisDashboard"
+	db.default.user=root db.default.password=password
+	db.default.jndiName=DefaultDS
+	jpa.default=defaultPersistenceUnit
+								</pre>
+							</li>
+							<li>Clone the Git repository to a certain directory on you machine (you can also download the sources as zip).
+								<BR>
+								<BR>
+								<pre>
+	git clone https://github.com/cbos/AnalysisDashboard.git
+								</pre>
+							</li>
+							<li>Start the Play Framework console.
+								<BR>
+								<BR>
+								<pre>
+	$ cd /path/to/any/application 
+	# Execute the play framework ('play' can be found in the play folder) 
+	$ play 
+	# Now can do all kind of actions in the play framework like running the application: 
+	$ [AnalysisDashboard] run</pre>
+							</li>
+							<li>Now visit
+								<a href="http://localhost:9000">http://localhost:9000</a>to start using the AnalysisDashboard</li>
+							<BR>
+							You will see an empty AnalysisDashboard:
+							<BR>
+							<img src="images/empty_analysisDashboard.png" class="img-thumbnail" />
+						</ul>
+					</div>
+				</div>
+				
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h1 id="config">Configuration</h1>
+						</div>
+					</div>
+					<div class="panel-body">
+					To fill the AnalysisDashboard some configuration has to be done. In the navigation bar in to you find 4 items to configure, these are listed in the 4 chapters below.
+
+					<h2 id="jenkinsservers">Jenkins servers</h2>
+
+					The AnalysisDashboard can monitor multiple Jenkins servers. Each Jenkins server has to be added to the list of servers.
+					<BR>A server can be added by clicking on the
+					<span class="glyphicon glyphicon-plus-sign"></span> icon.
+					<BR>For each server you have to fill the following fields:
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Field</th>
+								<th>Explanation</th>
+								<th>Required</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Name</td>
+								<td>Name you give to the Jenkins server</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>Jenkins URL</td>
+								<td>The URL where the Jenkins server can be accessed (like http://localhost:8080/jenkins)</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td nowrap>Slave labels to analyze</td>
+								<td>In Jenkins you can add labels to a slave machine, you can configure that at
+									<code>http://JENKINSSERVER/jenkins/computer/SLAVENAME/configure</code>on your Jenkins server. We used that to add an label for the corresponding team who own the slave. You can add multiple labels to slave. You can also add
+									<strong>multiple labels</strong>in this field
+									<strong>whitespace separated</strong>. When nothing is filled in no slaves are analyzed (for this Jenkins server)</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>Views to analyze</td>
+								<td>In Jenkins you can define all kind of views. We use views to have an overview per team. Each job on the view will be analyzed by AnalysisDashboard. You can also add
+									<strong>multiple views</strong>in this field
+									<strong>whitespace separated</strong>. When nothing is filled in no views/jobs are analyzed (for this Jenkins server)</td>
+								<td>No</td>
+							</tr>
+						</tbody>
+					</table>
+
+					Once you have filled in one or more Jenkins servers the AnalysisDashboard will start analyzing the jobs each
+					<strong>2 minutes</strong>.
+
+					<h2>Computers</h2>
+
+					The list of computers is automatically filled based on the 'Slave labels to analyze' above at the
+					<a href="#jenkinsservers">Jenkins server configuration</a>. There are 3 options you have here to modify the list. You can
+					<strong>delete computers</strong>from the list, that can be used if the slave does not have a certain label anymore and is not analyzed anymore. In that case you have to remove it from the list manually.
+					<BR>
+					<BR>You can choose to
+					<strong>stop watching</strong>a slave. That means it still be analyzed by the scheduled analyzer, but the results are not visible anymore on the dashboard. You can reach that by unchecking the checkbox in the column
+					<strong>'Watch'</strong>.
+					<BR>
+					<BR>You can also continuously add a slave to the dashboard even if it is successful. That you can enable with
+					<strong>'Stick watch'</strong>. The slave will appear in the section for 'sticky watch list'. Some slaves require special attention, when these are offline you have an issue, which you want to know as soon as possible, you like to prevent that. Jenkins is monitoring the free diskspace for example. That is mentioned as detail for sticky slaves.
+					<h2>Jobs</h2>
+
+					The list of jobs is automatically filled based on the 'Views to analyze' above at the
+					<a href="#jenkinsservers">Jenkins server configuration</a>. There are 3 options you have here to modify the list. You can
+					<strong>delete jobs</strong>from the list, that can be used if the job is not part of a view anymore and is not analyzed anymore. In that case you have to remove it from the list manually.
+					<BR>
+					<BR>You can choose to
+					<strong>stop watching</strong>a job. That means it still be analyzed by the scheduled analyzer (because it is on the view), but the results are not visible anymore on the dashboard. You can reach that by unchecking the checkbox in the column
+					<strong>'Watch'</strong>.
+					<BR>
+					<BR>The order of jobs is done based on the Job type. There are these types of jobs:
+
+					<dl class="dl-horizontal">
+						<dt>Full build</dt>
+						<dd>E.g. the builds creating the full installer</dd>
+						<dt>Install</dt>
+						<dd>Jobs which install the full build</dd>
+						<dt>Upgrade</dt>
+						<dd>Jobs executing an upgrade from an old installation to the latest full build</dd>
+						<dt>Sync-merge</dt>
+						<dd>Job executing the sync-merge from a parent branch to the working branch of a team</dd>
+						<dt>Drop-merge</dt>
+						<dd>Job executing the drop-merge from a working branch of a team to the parent branch</dd>
+						<dt>Quick build</dt>
+						<dd>Jobs executiong compile / builds of a part of the product for quick validation</dd>
+						<dt>Regression test</dt>
+						<dd>Jobs executing all kind of regression tests</dd>
+						<dt>Loadtests</dt>
+						<dd>Jobs executing load tests</dd>
+						<dt>Misc</dt>
+						<dd>'All' other jobs</dd>
+						<dt>Unknown</dt>
+						<dd>This is the default type for all new analyzed jobs.</dd>
+					</dl>
+					The order of the jobs on the dashboard is based on this list in this order. The reason for that is that you starting looking at the top of the AnalysisDashboard and will see the job which is the first in the chain of jobs. If the full build fails, then install does not make that much sense as it installed an old build. If the install has issues, then most likely an upgrade has issues as well etc.
+					<BR>Once you have configured the Jenkins server(s) you have to visit the 'Jobs' list to adjust this list to appear in the right order on the dashboard.
+
+					<h2>Users</h2>
+
+					Tasks on the dasboard can be assigned to users, therefor you can configure users.
+					<BR>A user can be added by clicking on the
+					<span class="glyphicon glyphicon-plus-sign"></span> icon.
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Field</th>
+								<th>Explanation</th>
+								<th>Required</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Username</td>
+								<td>The user name of the user used in Crucible (as the Avatar is loaded from Crucible)</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>Full name</td>
+								<td>The full name of the user</td>
+								<td>No</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h1 id="usage">Dashboard usage</h1>
+						</div>
+					</div>
+					<div class="panel-body">
+	
+						There are 4 sections on the dashboard:
+						<img src="images/4sections.png" class="img-thumbnail" />
+						<dl class="dl-horizontal">
+							<dt>Offline computers</dt>
+							<dd>This will list all offline slaves (and the sticky watch list)</dd>
+							<dt>Jobs with problems</dt>
+							<dd>This will list all jobs having issues or jobs which are (temporary) disabled. Jobs in this list require attention</dd>
+							<dt>Tasks to investigate</dt>
+							<dd>Offline computers and jobs require some attention. You can create 'short lived' tasks for that. Based on that investigation can be done. Based on that first analysis and ticket can be created or the (configuration) issue can be solved.</dd>
+							<dt>Issues in the buildstreet</dt>
+							<dd>This is a list of identified issues where tickets for have been created. This is
+								<strong>not synced</strong> from the ticket system</dd>
+						</dl>
+						
+						<h2 id="dashboardcomputers">Offline computers</h2>
+						
+						
+						<h2 id="dashboardjobs">Jobs with problems</h2>
+						
+						<h2 id="dashboardtasks">Tasks to investigate problems</h2>
+						
+						<h2 id="dashboardissues">Issues in the buildstreet</h2>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
