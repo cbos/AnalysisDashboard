@@ -4,7 +4,7 @@
 angular.module(
 		'analysisApp',
 		[ 'ngRoute', 'ngSanitize', 'analysisApp.rootScopeInitializer', 'analysisApp.filters', 'analysisApp.services',
-				'analysisApp.directives', 'ui.bootstrap.alert', 'ui.bootstrap.modal', 'ui.bootstrap.tooltip', 'ui.bootstrap.dropdownToggle']).config(
+				'analysisApp.directives', 'ui.bootstrap.alert', 'ui.bootstrap.modal', 'ui.bootstrap.tooltip', 'ui.bootstrap.dropdownToggle', 'ui.bootstrap.pagination']).config(
 		[ '$routeProvider', function($routeProvider) {
 			$routeProvider.when('/dashboard', {
 				controller : DashboardCtrl,
@@ -46,6 +46,11 @@ angular.module(
 			when('/job', {
 				controller : JobListCtrl,
 				templateUrl : 'partials/job/list.html'
+			}).
+			
+			when('/randomfailures', {
+				controller : RandomFailureListCtrl,
+				templateUrl : 'partials/randomfailures/list.html'
 			}).
 
 			otherwise({

@@ -472,3 +472,44 @@ function UserEditCtrl($scope, $location, $routeParams, $http,
 		});
 	};
 }
+
+function RandomFailureListCtrl($scope, Failure) {
+	$scope.totalPages = 0;
+	$scope.totalRandomFailures = 0;
+	$scope.pageSize = 10;
+	
+	$scope.hover = function(failure)
+	{
+		$scope.hoveredFailure = failure;	
+	}
+	
+	// default criteria that will be sent to the server
+	$scope.filterCriteria = {
+		pageNumber : 1,
+	};
+
+	// The function that is responsible of fetching the result from the server
+	// and setting the grid to the new result
+	$scope.fetchResult = function() {
+		return Failure.randomFailureList($scope.filterCriteria.pageNumber).then(function(response) {
+			var data = response.data;
+			$scope.failures = data.failures;
+			$scope.totalPages = data.totalPages;
+			$scope.totalRandomFailures = data.totalRandomFailures;
+			$scope.pageSize = data.pageSize;
+		}, function() {
+			$scope.failures = [];
+			$scope.totalPages = 0;
+			$scope.totalRandomFailures = 0;
+		});
+	};
+
+	//called when navigate to another page in the pagination
+	$scope.selectPage = function(page) {
+		$scope.filterCriteria.pageNumber = page;
+		$scope.fetchResult();
+	};
+
+	//manually select a page to trigger an ajax request to populate the grid on page load
+	$scope.selectPage(1);
+}

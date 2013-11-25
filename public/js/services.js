@@ -68,10 +68,13 @@ serviceModule.factory('Task', function($resource) {
 	return Task;
 });
 
-serviceModule.factory('Failure', function($resource) {
+serviceModule.factory('Failure', function($resource, $http) {
 	var Failure = $resource('/failure/:id', {
 		id : '@id'
 	});
+	Failure.randomFailureList = function(page) {
+		return $http.get('/failure/randomList/' + page)
+    };
 	return Failure;
 });
 
