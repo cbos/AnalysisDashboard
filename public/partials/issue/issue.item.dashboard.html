@@ -5,7 +5,7 @@
 	<a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank">{{issue.jira_id}}</a>&nbsp;
 	{{issue.summary}}
 	<BR>
-	<span style="font-size: 12px;" ng-show="issue.details" ng-bind-html-unsafe="issue.details">
+	<span style="font-size: 12px;" ng-show="issue.details" ng-bind-html="issue.details">
 		<BR>
 	</span>
 	<ul class="list-inline" ng-show="issue.showActions" style="font-size: 12px;">
