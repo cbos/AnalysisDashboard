@@ -3,7 +3,7 @@
 // Declare app level module which depends on filters, and services
 angular.module(
 		'analysisApp',
-		[ 'ngRoute', 'analysisApp.rootScopeInitializer', 'analysisApp.filters', 'analysisApp.services',
+		[ 'ngRoute', 'ngSanitize', 'analysisApp.rootScopeInitializer', 'analysisApp.filters', 'analysisApp.services',
 				'analysisApp.directives', 'ui.bootstrap.alert', 'ui.bootstrap.modal', 'ui.bootstrap.tooltip', 'ui.bootstrap.dropdownToggle']).config(
 		[ '$routeProvider', function($routeProvider) {
 			$routeProvider.when('/dashboard', {

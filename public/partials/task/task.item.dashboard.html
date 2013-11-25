@@ -8,7 +8,7 @@
 		<img class="pull-right" tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" ng-src="http://srv-ind-scrat:8060/avatar/{{task.assignee.userName}}?s=32"/>
 	</span>
 	<BR>
-	<span class="smaller-font" ng-show="task.details" ng-bind-html-unsafe="task.details">
+	<span class="smaller-font" ng-show="task.details" ng-bind-html="task.details">
 		<BR>
 	</span>
 	<ul ng-show="task.relatedJobs.length > 1">
