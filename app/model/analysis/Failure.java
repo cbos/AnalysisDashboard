@@ -1,5 +1,7 @@
 package model.analysis;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,16 +12,20 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Query;
 
 import model.EntityBase;
 import model.issue.Issue;
 import model.jenkins.Build;
+import model.task.Task;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonSubTypes.Type;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
+
+import play.db.jpa.JPA;
 
 @Entity(name = "failure")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -97,5 +103,27 @@ public class Failure extends EntityBase
 	public void setIssue(final Issue issue)
 	{
 		this.issue = issue;
+	}
+	
+	public String getJobName()
+	{
+		return this.getBuild().getJob().getName();
+	}
+	
+	public static List<Task> getRandomFailures(int pageNumber, int pageSize)
+	{
+		String genericQueryPart = "from failure f where f.randomFailure=1 order by f.id DESC";
+
+		Query dataQuery = JPA.em().createQuery(genericQueryPart);
+		dataQuery.setFirstResult((pageNumber - 1) * pageSize).setMaxResults(pageSize);
+
+		return dataQuery.getResultList();
+	}
+	
+	public static Long getTotalRandomFailures()
+	{
+		return (Long) JPA.em()
+				 .createQuery("select count(f) from failure f where f.randomFailure=1")
+				 .getSingleResult();
 	}
 }
