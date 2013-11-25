@@ -9,7 +9,7 @@
 				<div ng-include src="'partials/computer/computer.item.dashboard.html'"></div>
 			</div>
 			<BR>
-			<p class="text-info"><Strong>Computers in watch list</Strong></p>
+			<p class="text-info"><Strong>Computers in 'sticky watch list'</Strong></p>
 			<div ng-repeat="computer in computers | filter:{stickyWatch:true} |orderBy:'displayName'">
 				<div ng-include src="'partials/computer/computer.item.dashboard.html'"></div>
 			</div>
