@@ -46,7 +46,7 @@
 	<div class="container">
 		<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">
 			<strong>{{alert.info}}</strong><BR>{{alert.status}}
-			<div ng-bind-html-unsafe="alert.data"></div>
+			<div ng-bind-html="alert.data"></div>
 		</alert>
 	</div>
 	<div ng-view></div>
