@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.persistence.Entity;
 
-import play.db.jpa.JPA;
+import utils.EMHelper;
 
 public class EntityHelper
 {
 
 	public static <T extends EntityBase> T persist(final T entityToPersist)
 	{
-		if (null == entityToPersist.getId() || entityToPersist.getId() < 1L)
+		if ((null == entityToPersist.getId()) || (entityToPersist.getId() < 1L))
 		{
 			entityToPersist.create();
 		}
@@ -24,7 +24,7 @@ public class EntityHelper
 
 	public static <T extends EntityBase> T getEntityById(final Class<T> clazz, final Long id)
 	{
-		return JPA.em().find(clazz, id);
+		return EMHelper.em().find(clazz, id);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -32,6 +32,6 @@ public class EntityHelper
 	{
 		Entity entityAnnotation = clazz.getAnnotation(Entity.class);
 		String entityName = entityAnnotation.name();
-		return JPA.em().createQuery("from " + entityName).getResultList();
+		return EMHelper.em().createQuery("from " + entityName).getResultList();
 	}
 }

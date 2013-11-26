@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<h4>
+		History of: {{testmethod.className}} {{testmethod.methodName}}
+	</h4>
+</div>
+<div class="modal-body">
+	<table class="table table-striped table-hover table-condensed">
+	  <thead>
+	  <tr>
+	  	<th>Issue</th>
+	    <th>Random</th>
+	    <th>URL</th>
+	    <th>Trend URL</th>
+	    <th>Date</th>
+	    <th>Age</th>
+	    <th>Job</th>
+	    <th>Run</th>
+	  </tr>
+	  </thead>
+	  <tbody>
+	   <tr ng-repeat="failure in failures" >
+	   	<td><span ng-show="failure.issue" class="label label-danger"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span></span></td>
+	    <td><span ng-show="failure.randomFailure" class="label label-warning">Random</span></td>
+	    <td><a href="{{failure.url}}" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;Failure</a></td>
+	    <td><a href="{{failure.url}}/history" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;Trend</a></td>
+	    <td>{{failure.timestamp | date:'MM/dd/yy HH:mm'}}</td>
+	    <td>{{failure.age}}</td>
+	    <td>{{failure.jobName}}</td>
+	    <td>{{failure.runName}}</td>
+	  </tr>
+	  </tbody>
+	</table>
+	<div ng-show="totalFailures == 0">
+	  <h4>No failures found</h4>
+	</div>
+	<div class="center-block">
+		<pagination total-items="totalFailures" num-pages="totalPages" page="filterCriteria.pageNumber" items-per-page="pageSize" boundary-links="true" on-select-page="selectPage(page)"></pagination>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="close()">Ok</button>
+</div>

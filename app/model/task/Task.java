@@ -26,12 +26,14 @@ import org.codehaus.jackson.annotate.JsonSubTypes.Type;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 
 import play.data.validation.Constraints.Required;
-import play.db.jpa.JPA;
+import utils.EMHelper;
 
 @Entity(name = "task")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-@JsonSubTypes({ @Type(value = ComputerTask.class, name = "computertask"), @Type(value = JobTask.class, name = "jobtask"), @Type(value = Task.class, name = "task") })
+@JsonSubTypes({ @Type(value = ComputerTask.class, name = "computertask"),
+							 @Type(value = JobTask.class, name = "jobtask"),
+							 @Type(value = Task.class, name = "task") })
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Task extends EntityBase
 {
@@ -134,7 +136,7 @@ public class Task extends EntityBase
 	{
 		String genericQueryPart = "from task t where t.done=0 or t.updateDate > :today";
 
-		Query dataQuery = JPA.em().createQuery(genericQueryPart);
+		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
 
 		final Calendar now = Calendar.getInstance();
 		now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE), 0, 0, 0);

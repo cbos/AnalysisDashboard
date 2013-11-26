@@ -50,7 +50,7 @@ angular.module(
 			
 			when('/randomfailures', {
 				controller : RandomFailureListCtrl,
-				templateUrl : 'partials/randomfailures/list.html'
+				templateUrl : 'partials/testmethod/randomfailurelist.html'
 			}).
 
 			otherwise({
