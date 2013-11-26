@@ -17,7 +17,7 @@ import model.EntityBase;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import play.data.validation.Constraints.Required;
-import play.db.jpa.JPA;
+import utils.EMHelper;
 
 @Entity(name = "issue")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -136,7 +136,7 @@ public class Issue extends EntityBase
 	{
 		String genericQueryPart = "from issue i where i.solved=0 or i.updateDate > :today";
 
-		Query dataQuery = JPA.em().createQuery(genericQueryPart);
+		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
 
 		final Calendar now = Calendar.getInstance();
 		now.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE), 0, 0, 0);

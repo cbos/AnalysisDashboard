@@ -48,7 +48,10 @@ POST	/failure							@controllers.data.FailureController.newInstance()
 GET		/failure/:id						@controllers.data.FailureController.entity(id:Long)
 POST	/failure/:id						@controllers.data.FailureController.save(id:Long)
 DELETE  /failure/:id						@controllers.data.FailureController.delete(id:Long)
-GET		/failure/randomList/:id				@controllers.data.FailureController.getRandomList(id:Integer)
+
+GET		/testmethod/randomList/:id			@controllers.data.TestMethodController.getRandomList(id:Integer)
+GET		/testmethod/forfailure/:id			@controllers.data.TestMethodController.forFailure(id:Long)
+GET		/testmethod/:id/failures/:page		@controllers.data.TestMethodController.getTestFailures(id:Long, page:Integer)
 
 GET		/issue								@controllers.data.IssueController.entity(id:Long ?= -1L)
 GET		/issue/todayList					@controllers.data.IssueController.getTodaysList()

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, $modal, Task, Failure, AnalyzerWebSocket) 
+angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, $modal, Task, Failure, TestMethod, AnalyzerWebSocket) 
 		  {
 			$rootScope.alerts = [];
 
@@ -96,6 +96,30 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 					}
 				});
 
+				modalInstance.result.then(function() {
+					$rootScope.dialogOpen = false;
+				});
+			}
+			
+			$rootScope.showHistoryOfFailure = function(failure)
+			{
+				TestMethod.forFailure(failure).then(function(response){
+					$rootScope.showHistory(new TestMethod(response.data));
+				});
+			}
+			
+			$rootScope.showHistory = function(testmethod)
+			{
+				$rootScope.dialogOpen = true;
+				var modalInstance = $modal.open({
+					templateUrl : 'partials/testmethod/history.html',
+					controller : TestMethodHistoryController,
+					resolve : {
+						testmethod : function() {
+							return testmethod;
+						}
+					}
+				});
 				modalInstance.result.then(function() {
 					$rootScope.dialogOpen = false;
 				});
@@ -473,15 +497,10 @@ function UserEditCtrl($scope, $location, $routeParams, $http,
 	};
 }
 
-function RandomFailureListCtrl($scope, Failure) {
+function RandomFailureListCtrl($scope, TestMethod) {
 	$scope.totalPages = 0;
 	$scope.totalRandomFailures = 0;
 	$scope.pageSize = 10;
-	
-	$scope.hover = function(failure)
-	{
-		$scope.hoveredFailure = failure;	
-	}
 	
 	// default criteria that will be sent to the server
 	$scope.filterCriteria = {
@@ -491,7 +510,7 @@ function RandomFailureListCtrl($scope, Failure) {
 	// The function that is responsible of fetching the result from the server
 	// and setting the grid to the new result
 	$scope.fetchResult = function() {
-		return Failure.randomFailureList($scope.filterCriteria.pageNumber).then(function(response) {
+		return TestMethod.randomFailureList($scope.filterCriteria.pageNumber).then(function(response) {
 			var data = response.data;
 			$scope.failures = data.failures;
 			$scope.totalPages = data.totalPages;
@@ -504,6 +523,45 @@ function RandomFailureListCtrl($scope, Failure) {
 		});
 	};
 
+	//called when navigate to another page in the pagination
+	$scope.selectPage = function(page) {
+		$scope.filterCriteria.pageNumber = page;
+		$scope.fetchResult();
+	};
+
+	//manually select a page to trigger an ajax request to populate the grid on page load
+	$scope.selectPage(1);
+}
+
+var TestMethodHistoryController = function($scope, $rootScope, TestMethod, $modalInstance, testmethod) {
+	$scope.testmethod = testmethod
+	$scope.close = function() {
+		$modalInstance.close();
+	}
+	
+	$scope.totalPages = 0;
+	$scope.totalFailures = 0;
+	$scope.pageSize = 10;
+	
+	// default criteria that will be sent to the server
+	$scope.filterCriteria = {
+		pageNumber : 1,
+	};
+	
+	$scope.fetchResult = function() {
+		TestMethod.loadFailures($scope.testmethod, $scope.filterCriteria.pageNumber).then(function(response) {
+			var data = response.data;
+			$scope.failures = data.failures;
+			$scope.totalPages = data.totalPages;
+			$scope.totalFailures = data.totalFailures;
+			$scope.pageSize = data.pageSize;
+		}, function() {
+			$scope.failures = [];
+			$scope.totalPages = 0;
+			$scope.totalFailures = 0;
+		});
+	};
+	
 	//called when navigate to another page in the pagination
 	$scope.selectPage = function(page) {
 		$scope.filterCriteria.pageNumber = page;

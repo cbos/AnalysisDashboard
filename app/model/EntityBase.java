@@ -1,6 +1,6 @@
 package model;
 
-import play.db.jpa.JPA;
+import utils.EMHelper;
 
 public abstract class EntityBase
 {
@@ -10,23 +10,23 @@ public abstract class EntityBase
 
 	public void update()
 	{
-		JPA.em().merge(this);
-		JPA.em().flush();
+		EMHelper.em().merge(this);
+		EMHelper.em().flush();
 	}
 
 	public void create()
 	{
-		JPA.em().persist(this);
+		EMHelper.em().persist(this);
 	}
 
 	public void delete()
 	{
-		JPA.em().remove(this);
+		EMHelper.em().remove(this);
 	}
 
 	public static String truncate(final String content, final int length)
 	{
-		if (content != null && content.length() > length)
+		if ((content != null) && (content.length() > length))
 		{
 			return content.substring(0, length - 5) + " ...";
 		}

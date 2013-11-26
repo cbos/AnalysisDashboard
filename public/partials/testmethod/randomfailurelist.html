@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-offset-1 col-md-10">
+		<div class="well">
+			<h2>List of random failures <small>Last occurences are first in the list</small></h2>
+			<table class="table table-striped table-hover table-condensed">
+			  <thead>
+			  <tr>
+			  	<th></th>
+			    <th>ClassName</th>
+			    <th>MethodName</th>
+			    <th>Occurrences</th>
+			    <th>Last occurrence</th>
+			  </tr>
+			  </thead>
+			  <tbody>
+			   <tr ng-repeat="testmethod in failures" >
+			   	<td><a href="" tooltip="Show history of this testmethod" ng-click="showHistory(testmethod)"><span class="glyphicon glyphicon-film"></span></a></td>
+			    <td>{{testmethod.className}}</td>
+			    <td>{{testmethod.methodName}}</td>
+			    <td>{{testmethod.randomFailureCount}}</td>
+			    <td>{{testmethod.lastRandomOccurrence | date:'MM/dd/yy HH:mm'}}</td>
+			  </tr>
+			  </tbody>
+			</table>
+			<div ng-show="totalRandomFailures == 0">
+			  <h4>No random failures found</h4>
+			</div>
+			<div class="center-block">
+				<pagination total-items="totalRandomFailures" num-pages="totalPages" page="filterCriteria.pageNumber" items-per-page="pageSize" boundary-links="true" on-select-page="selectPage(page)"></pagination>
+			</div>
+		</div>
+	</div>
+</div>

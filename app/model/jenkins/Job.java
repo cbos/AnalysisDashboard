@@ -22,7 +22,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import play.data.validation.Constraints.Required;
-import play.db.jpa.JPA;
+import utils.EMHelper;
 
 @Entity(name = "job")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -184,7 +184,7 @@ public class Job extends EntityBase
 	public static List<Job> getUnstableJobs()
 	{
 		String genericQueryPart = "from job j where j.status<>'blue' and j.watch=true";
-		Query dataQuery = JPA.em().createQuery(genericQueryPart);
+		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
 		return dataQuery.getResultList();
 	}
 }

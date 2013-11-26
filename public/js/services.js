@@ -72,10 +72,25 @@ serviceModule.factory('Failure', function($resource, $http) {
 	var Failure = $resource('/failure/:id', {
 		id : '@id'
 	});
-	Failure.randomFailureList = function(page) {
-		return $http.get('/failure/randomList/' + page)
-    };
 	return Failure;
+});
+
+serviceModule.factory('TestMethod', function($resource, $http) {
+	var TestMethod = $resource('/testmethod/:id', {
+		id : '@id'
+	});
+	TestMethod.forFailure = function(failure) {
+		return $http.get('/testmethod/forfailure/' + failure.id)
+    };
+    
+    TestMethod.loadFailures = function(testmethod, pageNumber) {
+		return $http.get('/testmethod/' + testmethod.id + '/failures/' + pageNumber);
+    };
+    
+    TestMethod.randomFailureList = function(pageNumber) {
+		return $http.get('/testmethod/randomList/' + pageNumber)
+    };
+	return TestMethod;
 });
 
 serviceModule.factory('Issue', function($resource) {
