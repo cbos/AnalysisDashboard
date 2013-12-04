@@ -355,8 +355,24 @@ function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, Use
 	}
 }
 
-var JobDetailsController = function($scope, $rootScope, $modalInstance, job) {
+function JobEditCtrl($scope, $routeParams, Job) {
+	Job.get({
+		id : $routeParams.id
+	}, function(job) {
+		$scope.job = job;
+		
+		Job.history(job).then(function(response) {
+			$scope.jobHistory = response.data;
+		});
+	});
+}
+
+var JobDetailsController = function($scope, $rootScope, $modalInstance, Job, job) {
 	$scope.job = job
+
+	Job.history(job).then(function(response) {
+		$scope.jobHistory = response.data;
+	});
 	$scope.close = function() {
 		$modalInstance.close();
 	}

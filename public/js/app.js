@@ -46,6 +46,9 @@ angular.module(
 			when('/job', {
 				controller : JobListCtrl,
 				templateUrl : 'partials/job/list.html'
+			}).when('/job/edit/:id', {
+				controller : JobEditCtrl,
+				templateUrl : 'partials/job/jobdetails.html'
 			}).
 			
 			when('/randomfailures', {

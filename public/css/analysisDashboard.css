@@ -12,3 +12,74 @@
 {
 	font-size: 12px;
 }
+
+.calendar-graph {
+	min-height: 107px;
+	text-align: center;
+	padding: 5px 0 3px 0;
+	font: 10px sans-serif;
+}
+
+.calendar-graph.days-selected rect.day {
+	opacity: 0.5
+}
+.calendar-graph.days-selected rect.day.active {
+	opacity: 1
+}
+.calendar-graph .activity {
+	margin-top: 0
+}
+.calendar-graph .dots {
+	margin: 20px auto 0 auto;
+	width: 64px;
+	height: 64px
+}
+.calendar-graph text.month {
+	font-size: 10px;
+	fill: #aaa
+}
+.calendar-graph text.wday {
+	fill: #ccc;
+	font-size: 9px
+}
+
+.calendar-graph rect.day {
+	shape-rendering: crispedges;
+	 fill: #fff;
+  	 stroke: #eee;
+}
+.calendar-graph rect.day:hover {
+	stroke: #555;
+	stroke-width: 1px;
+}
+.calendar-graph rect.day.empty:hover {
+	stroke: none
+}
+.contrib-footer {
+	padding: 0px 10px 10px 10px
+}
+.contrib-footer .contrib-info {
+	font-size: 11px;
+	color: #999;
+	float: left
+}
+.contrib-legend {
+	font-size: 11px;
+	color: #777;
+	font-weight: normal;
+	float: right
+}
+.contrib-legend span {
+	font-weight: normal;
+	color: #999
+}
+.contrib-legend ul.legend {
+	display: inline-block;
+	list-style: none;
+	margin: 0 5px
+}
+.contrib-legend ul.legend li span {
+	display: inline-block;
+	width: 10px;
+	height: 10px
+}

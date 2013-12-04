@@ -5,7 +5,7 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 var serviceModule = angular.module('analysisApp.services', [ 'ngResource' ]);
-serviceModule.value('version', '0.3');
+serviceModule.value('version', '0.4');
 
 serviceModule.factory('JenkinsServer', function($resource, $http, $rootScope) {
 	var JenkinsServer = $resource('/jenkinsserver/:id', {
@@ -39,13 +39,17 @@ serviceModule.factory('Computer', function($resource) {
 	return Computer;
 });
 
-serviceModule.factory('Job', function($resource) {
+serviceModule.factory('Job', function($resource, $http) {
 	var Job = $resource('/job/:id', {
 		id : '@id'
 	});
 	
 	Job.unstableJobs = function() {
         return Job.query({id: 'unstableList'});
+    };
+    
+    Job.history = function(job) {
+		return $http.get('/job/' + job.id + '/history')
     };
 	return Job;
 });
