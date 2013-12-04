@@ -1,5 +1,6 @@
 package model.jenkins;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -179,6 +180,19 @@ public class Job extends EntityBase
 	public void setEta(final double eta)
 	{
 		this.eta = eta;
+	}
+
+	@JsonIgnore
+	public List<Build> getBuilds(Date startDate, Date endDate)
+	{
+		String genericQueryPart = "select b from build b where b.job = :job and b.timestamp >= :startDate and b.timestamp < :endDate order by b.timestamp";
+
+		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
+		dataQuery.setParameter("job", this);
+		dataQuery.setParameter("startDate", startDate.getTime());
+		dataQuery.setParameter("endDate", endDate.getTime());
+
+		return dataQuery.getResultList();
 	}
 
 	public static List<Job> getUnstableJobs()

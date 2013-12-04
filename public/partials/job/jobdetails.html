@@ -12,6 +12,7 @@
 <div class="modal-body">
 	Job description: {{job.description}}<BR>
 	<hr />
+	<calendar-graph data="jobHistory"></calendar-graph>
 	<div ng-repeat="run in getRuns(job)">
 		<span ng-show="job.lastBuild.childBuilds.length >0"><strong>{{run.displayName}}</strong></span>
 		<div ng-repeat="failure in run.failures |orderBy:'testMethodName'" class="smaller-font">

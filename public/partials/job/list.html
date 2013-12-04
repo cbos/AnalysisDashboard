@@ -10,6 +10,7 @@
 			    <th>Watch</th>
 			    <th>Type</th>
 			    <th>URL</th>
+			    <th>Details</th>
 			  </tr>
 			  </thead>
 			  <tbody>
@@ -22,7 +23,9 @@
 			    <td><input type="checkbox" ng-model="job.watch" ng-change="change(job)"></td>
 			    <td><select ng-model="job.type" class="form-control" ng-options="t.value as t.name for t in jobTypes" ng-change="change(job)"></select></td>
 			    <td><a href="{{job.url}}" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;URL</a></td>
-			    <td></td>
+			    <td>
+			      <a href="#/job/edit/{{job.id}}"><span class="glyphicon glyphicon-pencil"></span> Details</a>
+			    </td>
 			  </tr>
 			  </tbody>
 			</table>

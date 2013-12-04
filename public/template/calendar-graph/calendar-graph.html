@@ -1,0 +1,16 @@
+<div><!-- calendar will be inserted here --></div>
+<div ng-if="isLoading" class="calendar-graph calendar-graph-loading" style="height:{{height}}px;width:{{width}}px;"><img src="img/spinner.gif"/> Loading data ...</div>
+<div class="contrib-footer clearfix" style="height:{{height}}px;width:{{width}}px;">
+	<div class="contrib-info">
+		Summary of all job results. 
+	</div>
+	<div class="contrib-legend">
+		<ul class="legend list-inline">
+			<li><span style="background-color: red"></span> At least one failure</li>
+			<li><span style="background-color: gold"></span> At least one unstable</li>
+			<li><span style="background-color: gray"></span> At least one aborted</li>
+			<li><span style="background-color: #8cc665"></span> All stable</li>
+			<li><span style="background-color: white;border-width:1px;border-style:solid;"></span> No builds</li>
+		</ul>
+	</div>
+</div>
