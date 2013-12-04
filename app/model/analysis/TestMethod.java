@@ -80,7 +80,7 @@ public class TestMethod extends EntityBase
 
 	public Long getLastRandomOccurrence()
 	{
-		String genericQueryPart = "select f from testfailure f where f.testMethod = :testMethod and f.randomFailure=1 order by f.id DESC";
+		String genericQueryPart = "select f from testfailure f where f.testMethod = :testMethod and f.randomFailure=1 order by f.build.timestamp DESC";
 
 		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
 		dataQuery.setParameter("testMethod", this);
@@ -97,7 +97,7 @@ public class TestMethod extends EntityBase
 
 	public static List<TestMethod> getRandomFailures(int pageNumber, int pageSize)
 	{
-		String genericQueryPart = "select DISTINCT t from testmethod t, testfailure f where f.testMethod = t and f.randomFailure=1 order by f.id DESC";
+		String genericQueryPart = "select t from testmethod t, testfailure f where f.testMethod = t and f.randomFailure=1 group by t.id order by MAX(f.build.timestamp) DESC";
 
 		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
 		dataQuery.setFirstResult((pageNumber - 1) * pageSize).setMaxResults(pageSize);
@@ -108,14 +108,14 @@ public class TestMethod extends EntityBase
 	public static Long getTotalRandomFailures()
 	{
 		return (Long) EMHelper.em()
-													.createQuery("select count(DISTINCT t) from testmethod t, testfailure f where f.testMethod = t and f.randomFailure=1 order by f.id DESC")
+													.createQuery("select count(DISTINCT t) from testmethod t, testfailure f where f.testMethod = t and f.randomFailure=1")
 													.getSingleResult();
 	}
 
 	@JsonIgnore
 	public List<TestFailure> getTestFailures(int pageNumber, int pageSize)
 	{
-		String genericQueryPart = "select f from testfailure f where f.testMethod = :testMethod order by f.id DESC";
+		String genericQueryPart = "select f from testfailure f where f.testMethod = :testMethod order by f.build.timestamp DESC";
 
 		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
 		dataQuery.setParameter("testMethod", this);
