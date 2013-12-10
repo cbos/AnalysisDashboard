@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Changelog Analysis Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/png" href="images/favicon.ico">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		/* Show and affix the side nav when space allows it */
+		@media (min-width: 992px) {
+		  .nav > .active > ul {
+			display: block;
+		  }
+		  /* Widen the fixed sidebar */
+		  .nav,
+		  .affix,
+		  .affix-bottom {
+			width: 213px;
+		  }
+		  .affix {
+			position: fixed; /* Undo the static from mobile first approach */
+			top: 80px;
+		  }
+		  .affix-bottom {
+			position: absolute; /* Undo the static from mobile first approach */
+		  }
+		  .affix-bottom {
+			margin-top: 0;
+			margin-bottom: 0;
+		  }
+		}
+		
+		@media (min-width: 1500px) {
+			.container {
+				width: 1470px;
+			}
+		}
+		.dl-horizontal dt{
+			width: 200px;
+		}
+		.dl-horizontal dd {
+			margin-left: 220px;
+		}
+		.nav .nav > li > a {
+			padding-left: 30px;
+			font-size: 90%;
+		}
+	</style>
+
+</head>
+
+<body data-spy="scroll" data-target="#myAffix">
+	<div class="container">
+		<div class="page-header">
+			<h1>
+				<img src="images/favicon.ico"> Changelog Analysis Dashboard</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2" id="myAffix">
+				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="10">
+					<li><a href="#04" class="active">v0.4</a></li>
+					<li><a href="#03" class="active">v0.3</a></li>
+					<li><a href="#00" class="active">older</a></li>
+				</ul>
+				<BR><BR>
+			</div>
+			<div class="col-md-10">
+				
+				<div class="panel panel-primary" data-offset-top="300">
+					<div class="panel-heading">
+						<div class="panel-title">Github</div>
+					</div>
+					<div class="panel-body">
+						All information is public available at Github: <a href="https://github.com/cbos/AnalysisDashboard/commits/master">AnalysisDashboard repository</a>. This includes all code and code changes.						
+					</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title" id="04">v0.4</div>
+					</div>
+					<div class="panel-body">
+						
+						<h4>Features</h4>
+						<ul>
+							<li>Overview of a job can be opened in a separate window instead of only a popup. This is available from 2 places:
+								<ul>
+									<li>From the list of jobs, there is a new column with the links to open the job details</li>
+									<li>In the dashboard view: right click on the 'edit details' and open in a new tab or new window</li>
+								</ul>
+							</li>
+							<li>Stability overview of a job:<BR><img src="images/job_summary.png"><BR>
+					With this chart you can have a feeling about stability of a job.<BR>
+When you hover a box you will get the info about that day: date and number of failed builds, number of unstable builds, number of aborted build and number of stable builds.
+As soon as there is non-stable run, it will turn into that color although there might be more successful runs as well.</li>
+						</ul>
+						
+						<h4>Bug fixes</h4>
+						<ul>
+							<li>Ordering of the Random Failures list was not correct</li>
+						</ul>
+						
+					</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title" id="03">v0.3</div>
+					</div>
+					<div class="panel-body">
+						<h4>Features</h4>
+						<ul>
+							<li>List of random failures. In the toolbar a new entry is available: 'Random failures'<BR>
+							This list gives an overview of all test failures which are marked as 'random'. Each testcase is only listed once, with the date of the last occurrence. With the option mentioned at the bullot below you can see the list of all failures for this testcase.</li>
+							<li>For each test you can view a list of all failures, including random failures. It is accessible when you click on this icon: <span class="glyphicon glyphicon-film"></span></li>
+						</ul>
+						
+						<h4>Bug fixes</h4>
+						<ul>
+							<li>-</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title" id="00">Older</div>
+					</div>
+					<div class="panel-body">
+						Not all changes are recorder per version number. Complete documentation of the AnalysisDashboard can be found <a href="index.html">here</a>.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
