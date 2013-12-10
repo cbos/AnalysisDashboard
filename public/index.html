@@ -35,7 +35,7 @@
 			        <ul class="dropdown-menu">
 			          <li><a href="http://cbos.github.io/AnalysisDashboard/" target="_blank">Documentation</a></li>
 			          <li><a href="http://www.github.com/cbos/AnalysisDashboard/issues" target="_blank">Report issues</a></li>
-			          <li><a href="https://github.com/cbos/AnalysisDashboard/commits/master" target="_blank">Recent changes</a></li>
+			          <li><a href="http://cbos.github.io/AnalysisDashboard/changelog.html" target="_blank">Recent changes</a></li>
 			        </ul>
 			      </li>
 		    </ul>
@@ -52,7 +52,13 @@
 	<div ng-view></div>
 	
 	<div>
-		Analysis Dashboard: v<span app-version></span>
+		<ul class="list-inline">
+          <li>Analysis Dashboard: v<span app-version></span></li>
+          <li class="muted">·</li>
+          <li><a href="http://cbos.github.io/AnalysisDashboard/" target="_blank">Documentation</a></li>
+          <li class="muted">·</li>
+          <li><a href="http://cbos.github.io/AnalysisDashboard/changelog.html" target="_blank">Changelog</a></li>
+        </ul>
 	</div>
 
 	<script src="lib/angular/angular.js"></script>
