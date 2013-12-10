@@ -11,7 +11,7 @@
 	<ul class="list-inline" ng-show="issue.showActions" style="font-size: 12px;">
 		<li><a href="" ng-click="showIssue(issue)"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit details</a></li>
 		<li><a href="https://jira.cordys.com/jira/browse/{{issue.jira_id}}" target="_blank"><img src="img/icon-jira.png" width="16px"/>&nbsp;{{issue.jira_id}}</a></li>
-		<li><a href="" ng-click="issue.solved = !issue.solved;change(issue)"><span class="glyphicon" ng-class="{ 'glyphicon-ok-sign': !issue.done, 'glyphicon-remove-circle': issue.done }"></span>&nbsp;<span ng-hide="issue.solved">Mark solved</span><span ng-show="issue.solved">Mark unsolved</span></a></li>
+		<li><a href="" ng-click="issue.solved = !issue.solved;change(issue)"><span class="glyphicon" ng-class="{ 'glyphicon-ok-sign': !issue.solved, 'glyphicon-remove-circle': issue.solved }"></span>&nbsp;<span ng-hide="issue.solved">Mark solved</span><span ng-show="issue.solved">Mark unsolved</span></a></li>
 		<li><a href="" ng-click="destroy(issues, issue)"><span class="glyphicon glyphicon-trash"></span>&nbsp;Delete issue</a></li>
 	</ul>
 </div>
