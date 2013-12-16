@@ -1,6 +1,7 @@
 <div class="alert dashboard-alert" ng-mouseenter="computer.showActions=true" ng-mouseleave="computer.showActions=false"  
-	ng-class="{ 'alert-danger': computer.offline, 'alert-success': !computer.offline && computer.diskSpaceLeft>3}"
-	>
+	ng-class="{ 'alert-danger': computer.offline, 
+				'alert-success': !computer.offline && computer.diskSpaceLeft>3,
+				'alert-warning': !computer.offline && computer.diskSpaceLeft<=3 }" >
 	<img ng-src="img/{{imageComputerStatus(computer)}}"/>&nbsp;
 	<strong>{{computer.displayName}}</strong>
 	<span ng-show="linkComputerTask(computer)" class="pull-right">
