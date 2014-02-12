@@ -13,11 +13,10 @@ import javax.persistence.Lob;
 import javax.persistence.Query;
 
 import model.EntityBase;
-
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import play.data.validation.Constraints.Required;
 import utils.EMHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "issue")
 @JsonIgnoreProperties(ignoreUnknown = true)

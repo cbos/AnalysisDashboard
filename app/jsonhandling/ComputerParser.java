@@ -2,7 +2,7 @@ package jsonhandling;
 
 import java.math.BigDecimal;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class ComputerParser extends BaseParser
 {
@@ -19,12 +19,12 @@ public class ComputerParser extends BaseParser
 
 	public boolean isOffline()
 	{
-		return path("offline").getBooleanValue();
+		return path("offline").booleanValue();
 	}
 
 	public boolean isTemporarilyOffline()
 	{
-		return path("temporarilyOffline").getBooleanValue();
+		return path("temporarilyOffline").booleanValue();
 	}
 
 	public boolean isOfflineCauseAvailable()

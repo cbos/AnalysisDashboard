@@ -5,8 +5,8 @@ import java.io.InputStream;
 
 import jsonhandling.computerparser.ComputerParserTest;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ParserUtil
 {

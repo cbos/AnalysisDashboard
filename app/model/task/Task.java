@@ -19,14 +19,13 @@ import javax.persistence.Query;
 
 import model.EntityBase;
 import model.user.User;
-
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonSubTypes;
-import org.codehaus.jackson.annotate.JsonSubTypes.Type;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-
 import play.data.validation.Constraints.Required;
 import utils.EMHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity(name = "task")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

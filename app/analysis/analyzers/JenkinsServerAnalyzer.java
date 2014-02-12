@@ -7,7 +7,7 @@ import jsonhandling.ComputerParser;
 import jsonhandling.JsonReader;
 import model.jenkins.JenkinsServer;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class JenkinsServerAnalyzer
 {

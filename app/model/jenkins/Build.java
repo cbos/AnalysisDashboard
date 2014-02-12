@@ -16,11 +16,10 @@ import jsonhandling.BuildStatus;
 import model.EntityBase;
 import model.analysis.Failure;
 import model.analysis.TestFailure;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import play.data.validation.Constraints.Required;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "build")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -118,7 +117,7 @@ public class Build extends EntityBase
 	public String getFailedTestCount()
 	{
 		BuildStatus parsedStatus = getStatus();
-		if (parsedStatus == BuildStatus.FAILED || parsedStatus == BuildStatus.UNSTABLE)
+		if ((parsedStatus == BuildStatus.FAILED) || (parsedStatus == BuildStatus.UNSTABLE))
 		{
 			long testFailCount = 0l;
 			if (childBuilds.size() > 0)

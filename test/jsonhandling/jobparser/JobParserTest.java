@@ -17,7 +17,7 @@ import jsonhandling.ParserUtil;
 import jsonhandling.RunParser;
 import jsonhandling.TestReportParser;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.hamcrest.core.IsNull;
 import org.junit.Test;
 

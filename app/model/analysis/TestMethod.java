@@ -13,11 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Query;
 
 import model.EntityBase;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-
 import play.data.validation.Constraints.Required;
 import utils.EMHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "testmethod")
 public class TestMethod extends EntityBase
