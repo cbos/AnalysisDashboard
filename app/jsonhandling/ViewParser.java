@@ -3,7 +3,7 @@ package jsonhandling;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class ViewParser extends BaseParser
 {

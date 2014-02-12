@@ -7,12 +7,11 @@ import java.util.List;
 
 import model.jenkins.Build;
 import model.jenkins.Job;
-
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.JsonNodeFactory;
-
 import play.db.jpa.Transactional;
 import play.mvc.Result;
+
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 
 public class JobController extends EntityController<Job>
 {

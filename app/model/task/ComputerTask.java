@@ -2,9 +2,9 @@ package model.task;
 
 import javax.persistence.Entity;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import play.data.validation.Constraints.Required;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "computertask")
 @JsonIgnoreProperties(ignoreUnknown = true)

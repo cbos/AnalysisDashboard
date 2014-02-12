@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import jsonhandling.ComputerParser;
 import jsonhandling.ParserUtil;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.hamcrest.core.IsNull;
 import org.junit.Test;
 

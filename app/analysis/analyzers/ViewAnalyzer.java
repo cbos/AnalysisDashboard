@@ -10,7 +10,7 @@ import model.EntityHelper;
 import model.jenkins.JenkinsServer;
 import model.jenkins.Job;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import play.Logger;
 

@@ -5,17 +5,17 @@ import java.util.Collection;
 
 import model.EntityBase;
 import model.EntityHelper;
-
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ArrayNode;
-
 import play.db.jpa.Transactional;
 import play.libs.Json;
+import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class EntityController<T extends EntityBase> extends Controller
 {
@@ -59,6 +59,7 @@ public class EntityController<T extends EntityBase> extends Controller
 	}
 
 	@Transactional()
+	@BodyParser.Of(BodyParser.TolerantText.class)
 	public Result newInstance() throws JsonParseException, JsonMappingException, IOException
 	{
 		return parseAndPersist(null);
@@ -70,9 +71,9 @@ public class EntityController<T extends EntityBase> extends Controller
 		{
 			return badRequest("Too much data. Change the parsers.text.maxLength setting in the configuration.");
 		}
-		JsonNode json = request().body().asJson();
+		String jsonString = request().body().asText();
 		ObjectMapper mapper = new ObjectMapper();
-		T entity = mapper.readValue(json, m_clazz);
+		T entity = mapper.readValue(jsonString, m_clazz);
 		validateEntity(id, entity);
 		EntityHelper.persist(entity);
 
@@ -85,6 +86,7 @@ public class EntityController<T extends EntityBase> extends Controller
 	}
 
 	@Transactional()
+	@BodyParser.Of(BodyParser.TolerantText.class)
 	public Result save(final Long id) throws JsonParseException, JsonMappingException, IOException
 	{
 		return parseAndPersist(id);

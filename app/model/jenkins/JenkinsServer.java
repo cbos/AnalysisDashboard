@@ -12,10 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import model.EntityBase;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-
 import play.data.validation.Constraints.Required;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "jenkinsserver")
 public class JenkinsServer extends EntityBase

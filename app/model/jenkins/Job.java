@@ -18,12 +18,11 @@ import javax.persistence.Query;
 
 import jsonhandling.JobStatus;
 import model.EntityBase;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import play.data.validation.Constraints.Required;
 import utils.EMHelper;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "job")
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -1,14 +1,13 @@
 package analysis;
 
 import jsonhandling.JsonReader;
-
-import org.codehaus.jackson.JsonNode;
-
 import play.Logger;
 import play.libs.F.Promise;
 import play.libs.WS;
 import play.libs.WS.Response;
 import play.libs.WS.WSRequestHolder;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class JsonReaderImpl implements JsonReader
 {
@@ -33,6 +32,7 @@ public class JsonReaderImpl implements JsonReader
 				}
 			}
 
+			requestHolder.setTimeout(600000);
 			Promise<Response> promise = requestHolder.get();
 			Response response = promise.get(600000L);
 

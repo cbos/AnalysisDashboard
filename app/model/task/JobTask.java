@@ -14,12 +14,12 @@ import javax.persistence.Transient;
 import model.EntityHelper;
 import model.jenkins.Job;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.JsonNodeFactory;
-import org.codehaus.jackson.node.ObjectNode;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Entity(name = "jobtask")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -69,7 +69,7 @@ public class JobTask extends Task
 			}
 
 			List<Job> untouchedJobs = new ArrayList<>(jobs);
-			Iterator<JsonNode> elements = m_jsonNodeForUpdate.getElements();
+			Iterator<JsonNode> elements = m_jsonNodeForUpdate.elements();
 			while (elements.hasNext())
 			{
 				JsonNode jobElement = elements.next();
