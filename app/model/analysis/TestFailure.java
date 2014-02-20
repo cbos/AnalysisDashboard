@@ -36,7 +36,7 @@ public class TestFailure extends Failure
 
 	public String getTestMethodName()
 	{
-		String methodName = testMethod.getMethodName();
+		String methodName = getTestMethodNameForURL();
 		TestClass testClass = testMethod.getTestClass();
 		String className = testClass.getClassName();
 		return String.format("%s.%s", className, methodName);
@@ -44,7 +44,7 @@ public class TestFailure extends Failure
 
 	public String getUrl()
 	{
-		String methodName = testMethod.getMethodName();
+		String methodName = getTestMethodNameForURL();
 
 		TestClass testClass = testMethod.getTestClass();
 		String fullClassName = testClass.getClassName();
@@ -59,6 +59,21 @@ public class TestFailure extends Failure
 			className = fullClassName.substring(lastIndexOf + 1);
 		}
 		return String.format("%s/testReport/junit/%s/%s/%s", getBuild().getUrl(), namespace, className, methodName);
+	}
+
+	private String getTestMethodNameForURL()
+	{
+		char[] specialCharacters = { ' ', '.', '[', ']', ',', '=' };
+
+		String methodName = testMethod.getMethodName();
+		if (methodName != null)
+		{
+			for (char c : specialCharacters)
+			{
+				methodName = methodName.replace(c, '_');
+			}
+		}
+		return methodName;
 	}
 
 	public long getAge()
