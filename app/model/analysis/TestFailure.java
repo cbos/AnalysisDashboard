@@ -36,7 +36,7 @@ public class TestFailure extends Failure
 
 	public String getTestMethodName()
 	{
-		String methodName = getTestMethodNameForURL();
+		String methodName = testMethod.getMethodName();
 		TestClass testClass = testMethod.getTestClass();
 		String className = testClass.getClassName();
 		return String.format("%s.%s", className, methodName);
