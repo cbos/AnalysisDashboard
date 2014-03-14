@@ -98,7 +98,7 @@ public class Computer extends EntityBase
 
 	public void setOfflineCause(final String offlineCause)
 	{
-		this.offlineCause = offlineCause;
+		this.offlineCause = truncate(offlineCause, 250);
 	}
 
 	public Double getDiskSpaceLeft()
