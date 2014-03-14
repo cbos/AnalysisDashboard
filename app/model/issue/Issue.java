@@ -68,7 +68,7 @@ public class Issue extends EntityBase
 
 	public void setSummary(final String summary)
 	{
-		this.summary = summary;
+		this.summary = truncate(summary, 250);
 	}
 
 	public String getDetails()
