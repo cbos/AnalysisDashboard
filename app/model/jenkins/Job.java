@@ -18,6 +18,7 @@ import javax.persistence.Query;
 
 import jsonhandling.JobStatus;
 import model.EntityBase;
+import model.task.JobTask;
 import play.data.validation.Constraints.Required;
 import utils.EMHelper;
 
@@ -179,6 +180,32 @@ public class Job extends EntityBase
 	public void setEta(final double eta)
 	{
 		this.eta = eta;
+	}
+
+	@Override
+	public void delete()
+	{
+		for (JobTask task : getRelatedJobTaskEntries())
+		{
+			if (task._getJobs().size() == 1)
+			{
+				task.delete();
+			}
+			else
+			{
+				task._getJobs().remove(this);
+			}
+		}
+		super.delete();
+	}
+
+	private List<JobTask> getRelatedJobTaskEntries()
+	{
+		String genericQueryPart = "select t from jobtask t join t.jobs j where j = :job";
+
+		Query dataQuery = EMHelper.em().createQuery(genericQueryPart);
+		dataQuery.setParameter("job", this);
+		return dataQuery.getResultList();
 	}
 
 	@JsonIgnore
