@@ -4,7 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET		/log						controllers.Application.getLog()
+GET		/logfull					controllers.Application.getLog()
+GET		/log						controllers.Application.getLogTail()
 GET		/websocket					controllers.Application.websocket()
 
 # Authentication
