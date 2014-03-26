@@ -1,5 +1,5 @@
 <div class="well" style="font-size: 12px;">
-	<span ng-show="Eclipse.isEnabled()"><img ng-src="{{Eclipse.iconURL}}"/> Eclipse integration is enabled. </span>
-	<span ng-hide="Eclipse.isEnabled()"><img src="img/red.png"/> Eclipse integration is not enabled. See documentation for more details. </span>
+	<span ng-show="Eclipse.isEnabled()"><img ng-src="{{Eclipse.iconURL}}"/> <a href="http://cbos.github.io/OpenFromExternalEvent/">Eclipse integration</a> is enabled. </span>
+	<span ng-hide="Eclipse.isEnabled()"><span class="glyphicon glyphicon-warning-sign"></span> <a href="http://cbos.github.io/OpenFromExternalEvent/">Eclipse integration</a> is not enabled.</span>
 	<img ng-show="Eclipse.isAnalyzing()" src="img/spinner.gif"/>
 </div>
