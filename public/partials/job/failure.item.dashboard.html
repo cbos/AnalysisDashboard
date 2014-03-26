@@ -23,11 +23,20 @@
 		</blockquote>
 		<span ng-if="failure.age">
 			<a href="" tooltip="Show history of this testmethod" ng-click="showHistoryOfFailure(failure)"><span class="glyphicon glyphicon-film"></span></a>&nbsp;
+			<a href="" ng-click="failure.showDetails=!failure.showDetails"><img ng-src="img/{{failure.showDetails ? 'min' : 'plus'}}.png" /></a>&nbsp;
 			<span ng-if="Eclipse.isEnabled()"><a href="" tooltip="Send to Eclipse" ng-click="Eclipse.sendEvent(failure.testMethodName)"><img ng-src="{{Eclipse.iconURL}}"/></a>&nbsp;</span>
 			<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) 
 				<span ng-show="failure.randomFailure" class="label label-warning">Random <span class="glyphicon glyphicon-remove-sign" ng-click="toggleRandomFailure(failure)" tooltip="Unmark random"></span></span>
 				<span ng-show="failure.issue" class="label label-danger"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span> <span class="glyphicon glyphicon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></span></span>
-				<blockquote ng-show="failure.showDetails"><span class="glyphicon glyphicon-remove-sign" ng-click="failure.showDetails=false" tooltip="Hide error message"></span>{{failure.errorDetails}}</blockquote>
+				
+				<blockquote ng-show="failure.showDetails"  class="smaller-font">
+					<h4 class="smaller-font"><a href="" ng-click="failure.hiddenErrorDetails=!failure.hiddenErrorDetails"><img width="8px" ng-src="img/{{failure.hiddenErrorDetails ? 'plus' : 'min'}}.png">&nbsp;Error Details</a></h4>
+					<span ng-hide="failure.hiddenErrorDetails">{{failure.errorDetails}}</span>
+					<div ng-if="failure.errorStackTrace">
+						<h4 class="smaller-font"><a href="" ng-click="failure.showStackTrace=!failure.showStackTrace"><img width="8px" ng-src="img/{{failure.showStackTrace ? 'min' : 'plus'}}.png">&nbsp;Stack Trace</a>&nbsp;<span ng-if="Eclipse.isEnabled()"><a href="" tooltip="Send to Eclipse" ng-click="Eclipse.sendEvent(failure.errorStackTrace)"><img ng-src="{{Eclipse.iconURL}}"/></a></h4>
+						<span ng-if="failure.showStackTrace">{{failure.errorStackTrace}}</span>
+					</div>
+				</blockquote>
 		</span>
 	</span>
 </div>
