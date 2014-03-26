@@ -21,7 +21,7 @@ serviceModule.factory('JenkinsServer', function($resource, $http, $rootScope) {
 				}).error(function(data, status, headers, config) {
 			js.isBusyAnalyzing = false;
 
-			$rootScope.addAlert("error", "Analysis of the server failed", "HTML status code:" + status, data);
+			$rootScope.addAlert("danger", "Analysis of the server failed", "HTML status code:" + status, data);
 		});
 	};
 
@@ -140,5 +140,50 @@ serviceModule.factory('AnalyzerWebSocket', function($location) {
 			onMessageWebSocket = handler;
 		}
 	};
+});
+
+serviceModule.factory('EclipseIntegration', function($resource, $http, $rootScope) {
+
+	function EclipseIntegration()
+	{
+	}
+	
+	EclipseIntegration.url = "http://localhost:58642";
+	EclipseIntegration.iconURL = EclipseIntegration.url + "/icon";
+	EclipseIntegration._enabled = false;
+	
+	EclipseIntegration.isEnabled = function() {
+		if(!EclipseIntegration._externalCheckDone)
+		{
+			EclipseIntegration._externalCheckDone = true;
+			EclipseIntegration.checkEclipseStarted();
+		}
+		return EclipseIntegration._enabled;
+	};
+	
+	EclipseIntegration.checkEclipseStarted = function() {
+		EclipseIntegration._isBusyAnalyzing = true;
+		$http.get(EclipseIntegration.url + '/postevent').success(
+				function(data, status, headers, config) {
+					EclipseIntegration._isBusyAnalyzing = false;
+					EclipseIntegration._enabled = true;
+				}).error(function(data, status, headers, config) {
+					EclipseIntegration._isBusyAnalyzing = false;
+					EclipseIntegration._enabled = false;
+		});
+	};
+	
+	EclipseIntegration.sendEvent = function(eventData) {
+		$http.post(EclipseIntegration.url + '/postevent', eventData).success(
+				function(data, status, headers, config) {
+				}).error(function(data, status, headers, config) {
+					$rootScope.addAlert("danger", "Eclipse post failed", "HTML status code:" + status, data);
+		});
+	};
+
+	EclipseIntegration.isAnalyzing = function() {
+		return !!EclipseIntegration._isBusyAnalyzing;
+	}
+	return EclipseIntegration;
 });
 

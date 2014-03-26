@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, $modal, Task, Failure, TestMethod, AnalyzerWebSocket) 
+angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, $modal, Task, Failure, TestMethod, AnalyzerWebSocket, EclipseIntegration) 
 		  {
 			$rootScope.alerts = [];
+			$rootScope.Eclipse = EclipseIntegration;
 
 			$rootScope.addAlert = function(type, info, status, data)
 			{
