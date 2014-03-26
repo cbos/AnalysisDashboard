@@ -78,7 +78,7 @@ public class RunAnalyzer
 
 	private void analyzeDetails(final Build build)
 	{
-		if (m_buildParser instanceof BuildParser && ((BuildParser) m_buildParser).hasRuns())
+		if ((m_buildParser instanceof BuildParser) && ((BuildParser) m_buildParser).hasRuns())
 		{
 			//There are runs, so these contain the details of the failure
 			//Do nothing here
@@ -98,12 +98,13 @@ public class RunAnalyzer
 					testFailure.setTestMethod(testMethod);
 					testFailure.setAge(testCase.getAge());
 					testFailure.setErrorDetails(testCase.getErrorDetails());
+					testFailure.setErrorStackTrace(testCase.getErrorStackTrace());
 					testFailure.setBuild(build);
 					EntityHelper.persist(testFailure);
 				}
 			}
 			else
-				if (m_buildParser.getDescription() != null && !"".equals(m_buildParser.getDescription()))
+				if ((m_buildParser.getDescription() != null) && !"".equals(m_buildParser.getDescription()))
 				{
 					Failure failure = new Failure();
 					failure.setSummary(m_buildParser.getDescription());

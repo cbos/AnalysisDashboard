@@ -23,6 +23,9 @@ public class TestFailure extends Failure
 	@Lob
 	private String errorDetails;
 
+	@Lob
+	private String errorStackTrace;
+
 	@JsonIgnore
 	public TestMethod getTestMethod()
 	{
@@ -94,5 +97,15 @@ public class TestFailure extends Failure
 	public void setErrorDetails(final String errorDetails)
 	{
 		this.errorDetails = errorDetails;
+	}
+
+	public String getErrorStackTrace()
+	{
+		return errorStackTrace;
+	}
+
+	public void setErrorStackTrace(String errorStackTrace)
+	{
+		this.errorStackTrace = errorStackTrace;
 	}
 }
