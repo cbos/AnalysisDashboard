@@ -1,0 +1,5 @@
+<div class="well" style="font-size: 12px;">
+	<span ng-show="Eclipse.isEnabled()"><img ng-src="{{Eclipse.iconURL}}"/> Eclipse integration is enabled. </span>
+	<span ng-hide="Eclipse.isEnabled()"><img src="img/red.png"/> Eclipse integration is not enabled. See documentation for more details. </span>
+	<img ng-show="Eclipse.isAnalyzing()" src="img/spinner.gif"/>
+</div>
