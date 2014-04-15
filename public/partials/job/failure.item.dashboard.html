@@ -34,7 +34,7 @@
 					<span ng-hide="failure.hiddenErrorDetails">{{failure.errorDetails}}</span>
 					<div ng-if="failure.errorStackTrace">
 						<h4 class="smaller-font"><a href="" ng-click="failure.showStackTrace=!failure.showStackTrace"><img width="8px" ng-src="img/{{failure.showStackTrace ? 'min' : 'plus'}}.png">&nbsp;Stack Trace</a>&nbsp;<span ng-if="Eclipse.isEnabled()"><a href="" tooltip="Send to Eclipse" ng-click="Eclipse.sendEvent(failure.errorStackTrace)"><img ng-src="{{Eclipse.iconURL}}"/></a></h4>
-						<span ng-if="failure.showStackTrace">{{failure.errorStackTrace}}</span>
+						<span ng-if="failure.showStackTrace"><pre class="smaller-font">{{failure.errorStackTrace}}</pre></span>
 					</div>
 				</blockquote>
 		</span>
