@@ -66,7 +66,7 @@ public class TestFailure extends Failure
 
 	private String getTestMethodNameForURL()
 	{
-		char[] specialCharacters = { ' ', '.', '[', ']', ',', '=' };
+		char[] specialCharacters = { ' ', '.', '[', ']', ',', '=', '(', ')' };
 
 		String methodName = testMethod.getMethodName();
 		if (methodName != null)
