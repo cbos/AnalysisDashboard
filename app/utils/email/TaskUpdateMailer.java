@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import model.task.Task;
+import model.user.User;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.mail.EmailException;
@@ -45,7 +46,7 @@ public class TaskUpdateMailer
 			HtmlEmail email = createEmail();
 			setEmailSubject(email);
 			setEmailBody(email);
-			addRecipient(email, task.getAssignee().getUserName());
+			addRecipient(email, task.getAssignee());
 
 			email.send();
 		}
@@ -75,9 +76,9 @@ public class TaskUpdateMailer
 		return content.replaceAll(toReplace, newText == null ? "" : newText);
 	}
 
-	private void addRecipient(final HtmlEmail email, final String userName) throws EmailException
+	private void addRecipient(final HtmlEmail email, final User user) throws EmailException
 	{
-		email.addTo(String.format("%s%s", userName, ConfigurationHelper.getEmailToSuffix()));
+		email.addTo(user.getEmailAddress());
 	}
 
 	private HtmlEmail createEmail() throws EmailException

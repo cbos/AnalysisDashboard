@@ -19,6 +19,8 @@ public class User extends EntityBase
 
 	private String fullName;
 
+	private String emailAddress;
+
 	@Override
 	protected void setId(final Long id)
 	{
@@ -51,4 +53,13 @@ public class User extends EntityBase
 		this.fullName = fullName;
 	}
 
+	public String getEmailAddress()
+	{
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress)
+	{
+		this.emailAddress = emailAddress;
+	}
 }
