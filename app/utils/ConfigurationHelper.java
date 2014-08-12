@@ -20,11 +20,6 @@ public class ConfigurationHelper
 		return getStringProperty("email.from.mailaddress");
 	}
 
-	public static String getEmailToSuffix()
-	{
-		return getStringProperty("email.to.suffix");
-	}
-
 	private static String getStringProperty(final String key)
 	{
 		return Configuration.root().getString(key);
