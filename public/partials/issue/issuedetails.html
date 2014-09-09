@@ -13,7 +13,7 @@
 				<input type="text" name="jira_id" ng-model="issueToEdit.jira_id" class="form-control" placeholder="Jira ID" />
 			</div>
 			<div class="col-sm-2">
-				<span class="help-inline" ng-show="issueToEdit.jira_id"> <a href="https://jira.cordys.com/jira/browse/{{issueToEdit.jira_id}}"
+				<span class="help-inline" ng-show="issueToEdit.jira_id"> <a href="{{issueToEdit.jiraLink()}}"
 					target="_blank" tooltip="Link to the Jira ticket" tooltip-placement="bottom"><img src="img/icon-jira.png" width="24px" />&nbsp;{{issueToEdit.jira_id}}</a>
 				</span>
 			</div>

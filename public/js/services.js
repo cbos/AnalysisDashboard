@@ -105,6 +105,10 @@ serviceModule.factory('Issue', function($resource) {
 	Issue.todayList = function() {
         return Issue.query({id: 'todayList'});
     };
+    Issue.prototype.jiraLink = function()
+    {
+    	return "https://jira.opentext.com/browse/" + this.jira_id;
+    };
 	return Issue;
 });
 
