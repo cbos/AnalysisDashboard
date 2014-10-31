@@ -51,6 +51,7 @@ DELETE  /failure/:id						@controllers.data.FailureController.delete(id:Long)
 GET		/failure							@controllers.data.FailureController.entity(id:Long ?= -1L)
 POST	/failure							@controllers.data.FailureController.newInstance()
 
+GET		/testmethod/:id						@controllers.data.TestMethodController.entity(id:Long)
 GET		/testmethod/randomList/:id			@controllers.data.TestMethodController.getRandomList(id:Integer)
 GET		/testmethod/forfailure/:id			@controllers.data.TestMethodController.forFailure(id:Long)
 GET		/testmethod/:id/failures/:page		@controllers.data.TestMethodController.getTestFailures(id:Long, page:Integer)

@@ -14,7 +14,7 @@
 			  </thead>
 			  <tbody>
 			   <tr ng-repeat="testmethod in failures" >
-			   	<td><a href="" tooltip="Show history of this testmethod" ng-click="showHistory(testmethod)"><span class="glyphicon glyphicon-film"></span></a></td>
+			   	<td><a href="#/testmethod/{{testmethod.id}}" tooltip="Show history of this testmethod" ng-click="showHistory(testmethod)" stop-event="click"><span class="glyphicon glyphicon-film"></span></a></td>
 			    <td>{{testmethod.className}}</td>
 			    <td>{{testmethod.methodName}}</td>
 			    <td>{{testmethod.randomFailureCount}}</td>

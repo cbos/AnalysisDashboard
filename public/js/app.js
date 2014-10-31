@@ -51,6 +51,11 @@ angular.module(
 				templateUrl : 'partials/job/jobdetails.html'
 			}).
 			
+			when('/testmethod/:id', {
+				controller : TestMethodHistoryEditCtrl,
+				templateUrl : 'partials/testmethod/history.html'
+			}).
+			
 			when('/randomfailures', {
 				controller : RandomFailureListCtrl,
 				templateUrl : 'partials/testmethod/randomfailurelist.html'
