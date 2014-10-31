@@ -45,6 +45,11 @@ public class TestFailure extends Failure
 		return String.format("%s.%s", className, methodName);
 	}
 
+	public long getTestMethodId()
+	{
+		return testMethod.getId();
+	}
+
 	public String getUrl()
 	{
 		String methodName = getTestMethodNameForURL();

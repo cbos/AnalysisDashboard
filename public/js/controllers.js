@@ -550,12 +550,27 @@ function RandomFailureListCtrl($scope, TestMethod) {
 	$scope.selectPage(1);
 }
 
+function TestMethodHistoryEditCtrl($scope, $routeParams, TestMethod) {
+	TestMethod.get({
+		id : $routeParams.id
+	}, function(testmethod) {
+		$scope.testmethod = testmethod
+		
+		addHistoryBehavior($scope, TestMethod);
+	});
+}
+
 var TestMethodHistoryController = function($scope, $rootScope, TestMethod, $modalInstance, testmethod) {
 	$scope.testmethod = testmethod
 	$scope.close = function() {
 		$modalInstance.close();
 	}
 	
+	addHistoryBehavior($scope, TestMethod);
+}
+
+function addHistoryBehavior($scope, TestMethod)
+{
 	$scope.totalPages = 0;
 	$scope.totalFailures = 0;
 	$scope.pageSize = 10;
@@ -587,4 +602,10 @@ var TestMethodHistoryController = function($scope, $rootScope, TestMethod, $moda
 
 	//manually select a page to trigger an ajax request to populate the grid on page load
 	$scope.selectPage(1);
+	
+  	//To be added on scope
+	$scope.highlight = function (failure)
+	{
+		$scope.highlightedFailure = failure;
+	}
 }

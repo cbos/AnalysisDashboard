@@ -56,6 +56,11 @@ public class TestMethod extends EntityBase
 		this.methodName = methodName;
 	}
 
+	public String getClassName()
+	{
+		return testClass.getClassName();
+	}
+
 	@JsonIgnore
 	public TestClass getTestClass()
 	{
@@ -107,8 +112,8 @@ public class TestMethod extends EntityBase
 	public static Long getTotalRandomFailures()
 	{
 		return (Long) EMHelper.em()
-													.createQuery("select count(DISTINCT t) from testmethod t, testfailure f where f.testMethod = t and f.randomFailure=1")
-													.getSingleResult();
+				.createQuery("select count(DISTINCT t) from testmethod t, testfailure f where f.testMethod = t and f.randomFailure=1")
+				.getSingleResult();
 	}
 
 	@JsonIgnore

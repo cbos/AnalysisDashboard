@@ -34,13 +34,13 @@ public class TestMethodController extends EntityController<TestMethod>
 	{
 		TestFailure testFailure = EntityHelper.getEntityById(TestFailure.class, failureId);
 
-		return ok(testMethodToJson(testFailure.getTestMethod()));
+		return ok(toJson(testFailure.getTestMethod()));
 	}
 
 	@Transactional(readOnly = true)
 	public Result getTestFailures(final Long testMethodID, final Integer id)
 	{
-		int pageSize = 20;
+		int pageSize = 15;
 
 		TestMethod testMethod = getEntityById(testMethodID);
 
@@ -91,27 +91,8 @@ public class TestMethodController extends EntityController<TestMethod>
 		objectNode.put("pageSize", pageSize);
 		objectNode.put("totalRandomFailures", total);
 		objectNode.put("totalPages", Double.valueOf(Math.ceil(total / (double) pageSize)).intValue());
-		objectNode.put("failures", prepareRandomFailures(TestMethod.getRandomFailures(Math.max(1, id), pageSize)));
+		objectNode.put("failures", toJson(TestMethod.getRandomFailures(Math.max(1, id), pageSize)));
 
 		return ok(objectNode);
-	}
-
-	private JsonNode prepareRandomFailures(List<TestMethod> testmethods)
-	{
-		ArrayNode arrayNode = JsonNodeFactory.instance.arrayNode();
-
-		for (TestMethod testMethod : testmethods)
-		{
-			ObjectNode testMethodJson = testMethodToJson(testMethod);
-			arrayNode.add(testMethodJson);
-		}
-		return arrayNode;
-	}
-
-	private ObjectNode testMethodToJson(TestMethod testMethod)
-	{
-		ObjectNode testMethodJson = (ObjectNode) toJson(testMethod);
-		testMethodJson.put("className", testMethod.getTestClass().getClassName());
-		return testMethodJson;
 	}
 }

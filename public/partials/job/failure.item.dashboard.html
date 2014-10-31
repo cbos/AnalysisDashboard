@@ -22,7 +22,7 @@
 			<span ng-if="failure.issue" class="label label-danger"><span tooltip="{{failure.issue.summary}}">{{failure.issue.jira_id}}</span> <span class="glyphicon glyphicon-remove-sign" ng-click="connectIssue(failure,null)" tooltip="Unlink issue from this failure"></span></span>
 		</blockquote>
 		<span ng-if="failure.age">
-			<a href="" tooltip="Show history of this testmethod" ng-click="showHistoryOfFailure(failure)"><span class="glyphicon glyphicon-film"></span></a>&nbsp;
+			<a href="#/testmethod/{{failure.testMethodId}}" tooltip="Show history of this testmethod" ng-click="showHistoryOfFailure(failure)" stop-event="click"><span class="glyphicon glyphicon-film"></span></a>&nbsp;
 			<a href="" ng-click="failure.showDetails=!failure.showDetails"><img ng-src="img/{{failure.showDetails ? 'min' : 'plus'}}.png" /></a>&nbsp;
 			<span ng-if="Eclipse.isEnabled()"><a href="" tooltip="Send to Eclipse" ng-click="Eclipse.sendEvent(failure.testMethodName)"><img ng-src="{{Eclipse.iconURL}}"/></a>&nbsp;</span>
 			<a ng-href="{{failure.url}}" target="_blank">{{failure.testMethodName}}</a> (Age:{{failure.age}}) 
