@@ -20,6 +20,8 @@ public class User extends EntityBase
 	private String fullName;
 
 	private String emailAddress;
+	
+	private String avatarURL;
 
 	@Override
 	protected void setId(final Long id)
@@ -41,6 +43,7 @@ public class User extends EntityBase
 	public void setUserName(String userName)
 	{
 		this.userName = userName;
+		setAvatarURL(userName);
 	}
 
 	public String getFullName()
@@ -61,5 +64,16 @@ public class User extends EntityBase
 	public void setEmailAddress(String emailAddress)
 	{
 		this.emailAddress = emailAddress;
+	}
+	
+	public String getAvatarURL()
+	{
+		return avatarURL;
+	}
+	
+	public String setAvatarURL(String userName)
+	{
+		/* Below URL is of the Crucible ( codereview ) server */
+		this.avatarURL = "http://srv-ind-scrat.vanenburg.com:8060/avatar/" + userName;
 	}
 }
