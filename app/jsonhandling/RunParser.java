@@ -93,6 +93,8 @@ public class RunParser extends BaseParser
 		{
 			throw new IllegalStateException("There is not testReport available");
 		}
-		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport"));
+		// Below JSONOutputFilter is added because 'stdout' in 'suites[cases[stdout]]]' can blow up returned JSON response above 1GB but it is never used
+		String JSONOutputFilter = "/api/json?pretty=true&tree=duration,empty,failCount,passCount,skipCount,suites[cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status],duration,id,name,timestamp]";
+		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport" + JSONOutputFilter));
 	}
 }
