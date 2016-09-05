@@ -40,7 +40,7 @@ public class User extends EntityBase
 		return userName;
 	}
 
-	public void setUserName(String userName)
+	public void setUserName(final String userName)
 	{
 		this.userName = userName;
 		setAvatarURL(userName);
@@ -51,7 +51,7 @@ public class User extends EntityBase
 		return fullName;
 	}
 
-	public void setFullName(String fullName)
+	public void setFullName(final String fullName)
 	{
 		this.fullName = fullName;
 	}
@@ -61,7 +61,7 @@ public class User extends EntityBase
 		return emailAddress;
 	}
 
-	public void setEmailAddress(String emailAddress)
+	public void setEmailAddress(final String emailAddress)
 	{
 		this.emailAddress = emailAddress;
 	}
@@ -71,9 +71,9 @@ public class User extends EntityBase
 		return avatarURL;
 	}
 	
-	public String setAvatarURL(String userName)
+	public String setAvatarURL(final String userName)
 	{
 		/* Below URL is of the Crucible ( codereview ) server */
-		this.avatarURL = "http://srv-ind-scrat.vanenburg.com:8060/avatar/" + userName;
+		return this.avatarURL = "http://srv-ind-scrat.vanenburg.com:8060/avatar/" + userName;
 	}
 }
