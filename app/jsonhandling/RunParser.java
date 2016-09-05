@@ -94,7 +94,7 @@ public class RunParser extends BaseParser
 			throw new IllegalStateException("There is not testReport available");
 		}
 		// Below JSONOutputFilter is added because 'stdout' in 'suites[cases[stdout]]]' can blow up returned JSON response above 1GB but it is never used
-		String JSONOutputFilter = "/api/json?tree=duration,empty,failCount,passCount,skipCount,suites[cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status],duration,id,name,timestamp]";
+		String JSONOutputFilter = "/api/json?tree=duration%2Cempty%2CfailCount%2CpassCount%2CskipCount%2Csuites%5Bcases%5Bage%2CclassName%2Cduration%2CerrorDetails%2CerrorStackTrace%2CfailedSince%2Cname%2Cskipped%2Cstatus%5D%2Cduration%2Cid%2Cname%2Ctimestamp%5D";
 		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport" + JSONOutputFilter));
 	}
 }
