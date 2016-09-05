@@ -89,14 +89,19 @@ public class RunParser extends BaseParser
 		return testActionNode.path("failCount").asLong();
 	}
 
-	public TestReportParser loadTestReport(final JsonReader reader) throws UnsupportedEncodingException
+	public TestReportParser loadTestReport(final JsonReader reader)
 	{
 		if (!hasTestResults())
 		{
 			throw new IllegalStateException("There is not testReport available");
 		}
 		// Below JSONOutputFilter is added because 'stdout' in 'suites[cases[stdout]]]' can blow up returned JSON response above 1GB but it is never used
-		String filterForJSONOutput = "/api/json?tree="+java.net.URLEncoder.encode("duration,empty,failCount,passCount,skipCount,suites[cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status],duration,id,name,timestamp]","UTF-8");
+		String filterForJSONOutput = "";
+    try {
+	    filterForJSONOutput = "/api/json?tree="+java.net.URLEncoder.encode("duration,empty,failCount,passCount,skipCount,suites[cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status],duration,id,name,timestamp]","UTF-8");
+    } catch (UnsupportedEncodingException e) {
+	    e.printStackTrace();
+    }
 		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport" + filterForJSONOutput));
 	}
 }
