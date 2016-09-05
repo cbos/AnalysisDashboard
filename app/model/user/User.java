@@ -71,9 +71,9 @@ public class User extends EntityBase
 		return avatarURL;
 	}
 	
-	public String setAvatarURL(final String userName)
+	public void setAvatarURL(final String userName)
 	{
 		/* Below URL is of the Crucible ( codereview ) server */
-		return this.avatarURL = "http://srv-ind-scrat.vanenburg.com:8060/avatar/" + userName;
+		this.avatarURL = "http://srv-ind-scrat.vanenburg.com:8060/avatar/" + userName;
 	}
 }
