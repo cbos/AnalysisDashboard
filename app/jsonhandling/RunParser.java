@@ -95,10 +95,11 @@ public class RunParser extends BaseParser
 		{
 			throw new IllegalStateException("There is not testReport available");
 		}
-		// Below JSONOutputFilter is added because 'stdout' in 'suites[cases[stdout]]]' can blow up returned JSON response above 1GB but it is never used
-		String filterForJSONOutput = "";
+		// Below filterForJSONOutput is added because 'stdout' in 'suites[cases[stdout]]]' can blow up returned JSON response above 1GB but it is never used
+		String suitesSelector = "suites[duration,id,name,timestamp,cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status]]";
+		String filterForJSONOutput = "/api/json?tree=*,childReports[child[number,url],result[*,"+suitesSelector+"]],"+suitesSelector;
     try {
-	    filterForJSONOutput = "/api/json?tree="+java.net.URLEncoder.encode("duration,empty,failCount,passCount,skipCount,suites[cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status],duration,id,name,timestamp]","UTF-8");
+    	filterForJSONOutput = java.net.URLEncoder.encode(filterForJSONOutput,"UTF-8");
     } catch (UnsupportedEncodingException e) {
 	    e.printStackTrace();
     }

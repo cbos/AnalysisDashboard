@@ -14,3 +14,4 @@ dist
 /RUNNING_PID
 /bin
 /.project
+.settings/org.eclipse.jdt.core.prefs
