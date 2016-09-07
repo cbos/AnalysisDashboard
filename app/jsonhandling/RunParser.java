@@ -97,9 +97,10 @@ public class RunParser extends BaseParser
 		}
 		// Below filterForJSONOutput is added because 'stdout' in 'suites[cases[stdout]]]' can blow up returned JSON response above 1GB but it is never used
 		String suitesSelector = "suites[duration,id,name,timestamp,cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status]]";
-		String filterForJSONOutput = "/api/json?tree=*,childReports[child[number,url],result[*,"+suitesSelector+"]],"+suitesSelector;
+		String testReportSelector = "*,childReports[child[number,url],result[*,"+suitesSelector+"]],"+suitesSelector;
+		String filterForJSONOutput = "/api/json?tree=";
     try {
-    	filterForJSONOutput = java.net.URLEncoder.encode(filterForJSONOutput,"UTF-8");
+    	filterForJSONOutput.concat(java.net.URLEncoder.encode(testReportSelector,"UTF-8"));
     } catch (UnsupportedEncodingException e) {
 	    e.printStackTrace();
     }
