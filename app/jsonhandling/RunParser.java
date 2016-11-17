@@ -44,6 +44,11 @@ public class RunParser extends BaseParser
 	{
 		return path("timestamp").asLong();
 	}
+	
+	public long getDuration()
+	{
+		return path("duration").asLong();
+	}
 
 	public long getEstimatedDuration()
 	{
@@ -93,6 +98,18 @@ public class RunParser extends BaseParser
 		{
 			throw new IllegalStateException("There is not testReport available");
 		}
-		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport"));
+		String filterForJSONOutput = "";
+		// Commented out below lines because not all test-failure related data is retrieved using below filter
+		/*
+		// Below filterForJSONOutput is added because 'stdout' in 'suites[cases[stdout]]]' can blow up returned JSON response above 1GB but it is never used
+		String suitesSelector = "suites[duration,id,name,timestamp,cases[age,className,duration,errorDetails,errorStackTrace,failedSince,name,skipped,status]]";
+		String testReportSelector = "*,childReports[child[number,url],result[*,"+suitesSelector+"]],"+suitesSelector;
+		
+    try {
+    	filterForJSONOutput = "/api/json?tree=" + java.net.URLEncoder.encode(testReportSelector,"UTF-8");
+    } catch (UnsupportedEncodingException e) {
+	    e.printStackTrace();
+    }*/
+		return new TestReportParser(reader.getJSonResult(getUrl() + "testReport" + filterForJSONOutput));
 	}
 }

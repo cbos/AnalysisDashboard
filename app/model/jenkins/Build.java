@@ -37,6 +37,8 @@ public class Build extends EntityBase
 
 	@Required
 	private Long timestamp;
+	
+	private Long duration;
 
 	private String displayName;
 
@@ -99,6 +101,16 @@ public class Build extends EntityBase
 		this.timestamp = timestamp;
 	}
 
+	public Long getDuration()
+	{
+		return duration;
+	}
+
+	public void setDuration(final Long duration)
+	{
+		this.duration = duration;
+	}
+	
 	public void setStatus(final BuildStatus buildStatus)
 	{
 		status = buildStatus.asText();
@@ -183,7 +195,7 @@ public class Build extends EntityBase
 		return url;
 	}
 
-	public void setUrl(String url)
+	public void setUrl(final String url)
 	{
 		this.url = url;
 	}

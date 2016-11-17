@@ -36,9 +36,9 @@ public class RunAnalyzer
 	{
 		Build build = new Build();
 		build.setBuildNumber(m_buildParser.getBuildNumber());
-
 		build.setStatus(m_buildParser.getStatus());
 		build.setTimestamp(m_buildParser.getTimestamp());
+		build.setDuration(m_buildParser.getDuration());
 		build.setJob(m_job);
 		build.setUrl(m_buildParser.getUrl());
 		setDisplayName(build);

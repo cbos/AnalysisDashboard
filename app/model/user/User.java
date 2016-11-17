@@ -38,7 +38,7 @@ public class User extends EntityBase
 		return userName;
 	}
 
-	public void setUserName(String userName)
+	public void setUserName(final String userName)
 	{
 		this.userName = userName;
 	}
@@ -48,7 +48,7 @@ public class User extends EntityBase
 		return fullName;
 	}
 
-	public void setFullName(String fullName)
+	public void setFullName(final String fullName)
 	{
 		this.fullName = fullName;
 	}
@@ -58,7 +58,7 @@ public class User extends EntityBase
 		return emailAddress;
 	}
 
-	public void setEmailAddress(String emailAddress)
+	public void setEmailAddress(final String emailAddress)
 	{
 		this.emailAddress = emailAddress;
 	}
