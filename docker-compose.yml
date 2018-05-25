@@ -1,0 +1,28 @@
+version: '3'
+services:
+  analysisdashboard:
+    image: opentext/analysisdashboard
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: analysisdashboard
+    ports:
+      - "9000:9000"
+    networks:
+      - analysisdashboard
+    depends_on:
+      - mysql
+    tty: true
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-analysisdashboard
+    networks:
+      - analysisdashboard
+    volumes:
+      - ./datadir:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: platformdba
+      MYSQL_DATABASE: analysisdashboard
+
+networks:
+  analysisdashboard:
