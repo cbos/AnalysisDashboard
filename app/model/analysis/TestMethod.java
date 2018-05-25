@@ -26,7 +26,7 @@ public class TestMethod extends EntityBase
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 250)
+	@Column(length = 500)
 	@Required
 	private String methodName;
 
