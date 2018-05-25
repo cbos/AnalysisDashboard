@@ -14,7 +14,7 @@ filterModule.filter('nonStableJobs', function() {
 		if (items) {
 			var arrayToReturn = [];
 			for ( var i = 0; i < items.length; i++) {
-				if (items[i].status != "STABLE") {
+				if (items[i].status !== "STABLE") {
 					arrayToReturn.push(items[i]);
 				}
 			}
@@ -33,7 +33,7 @@ filterModule.filter('jobType', function() {
 			// Greater than 0: Sort "b" to be a lower index than "a".
 			items.sort(function(a, b) {
 				var diff = getOrder(a, types) - getOrder(b,types);
-				if(diff == 0)
+				if(diff === 0)
 				{
 					return (a.name<b.name?-1:(a.name>b.name?1:0));
 				}
@@ -46,7 +46,7 @@ filterModule.filter('jobType', function() {
 
 function getOrder(job, types) {
 	for ( var i = 0; i < types.length; i++) {
-		if(types[i].value == job.type)
+		if(types[i].value === job.type)
 		{
 			return types[i].order;
 		}

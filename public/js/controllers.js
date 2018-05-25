@@ -64,8 +64,8 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				modalInstance.result.then(function() {
 					$rootScope.dialogOpen = false;
 				});
-			}
-			
+			};
+
 			$rootScope.showTask = function(task)
 			{
 				$rootScope.dialogOpen = true;
@@ -82,8 +82,8 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				modalInstance.result.then(function() {
 					$rootScope.dialogOpen = false;
 				});
-			}
-			
+			};
+
 			$rootScope.showIssue = function(issue)
 			{
 				$rootScope.dialogOpen = true;
@@ -100,14 +100,14 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				modalInstance.result.then(function() {
 					$rootScope.dialogOpen = false;
 				});
-			}
+			};
 			
 			$rootScope.showHistoryOfFailure = function(failure)
 			{
 				TestMethod.forFailure(failure).then(function(response){
 					$rootScope.showHistory(new TestMethod(response.data));
 				});
-			}
+			};
 			
 			$rootScope.showHistory = function(testmethod)
 			{
@@ -124,7 +124,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				modalInstance.result.then(function() {
 					$rootScope.dialogOpen = false;
 				});
-			}
+			};
 			
 			$rootScope.imageJobStatus = function(job)
 			{
@@ -151,15 +151,15 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 					}
 					return "img/" + img + ".png";
 				}
-			}
+			};
 			
 			$rootScope.linkComputerTask = function(computer) {
 				var tasks = $rootScope.dashboardController.tasks;
 				for ( var i = 0; i < tasks.length; i++) {
 					var task = tasks[i];
-					if(task.type=="computertask")
+					if(task.type==="computertask")
 					{
-						if(task.computerId == computer.id)
+						if(task.computerId === computer.id)
 						{
 							computer.__task = task;
 							return true;
@@ -168,7 +168,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				}
 				computer.__task = null;
 				return false;
-			}
+			};
 			
 			$rootScope.linkJobTask = function(job) {
 				
@@ -176,14 +176,14 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				angular.forEach($rootScope.dashboardController.tasks, function(task)
 				{
 					angular.forEach(task.relatedJobs, function(relatedJob) {
-						if(relatedJob.id == job.id)
+						if(relatedJob.id === job.id)
 						{
 							job.__task = task;
 						}
 				    });
 				});
 				return job.__task != null;
-			}
+			};
 			
 			$rootScope.createJobTask = function(job) {
 				var details = "";
@@ -206,7 +206,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 						$rootScope.dashboardController.tasks.push(task);
 					}
 				});
-			}
+			};
 			
 			function updateJobName(jobTask)
 			{
@@ -233,7 +233,7 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				{
 					var relatedIndexToDelete = -1;
 					angular.forEach(jobTask.relatedJobs, function(relatedJob) {
-						if(relatedJob.id == job.id)
+						if(relatedJob.id === job.id)
 						{
 							relatedIndexToDelete = jobTask.relatedJobs.indexOf(relatedJob);
 						}
@@ -245,16 +245,16 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 				}
 				updateJobName(jobTask);
 				$rootScope.change(jobTask);
-			}
+			};
 			
 			$rootScope.createIssue = function() {
 				$rootScope.showIssue({'type':""});
-			}
+			};
 			
 			$rootScope.connectIssue = function(failure, issue) {
 				failure.issue = issue;
 				Failure.save(failure);
-			}
+			};
 			
 			$rootScope.getRuns = function(job) {
 				if(job && job.lastBuild)
@@ -266,12 +266,12 @@ angular.module('analysisApp.rootScopeInitializer', []).run(function($rootScope, 
 					return [job.lastBuild];
 				}
 				return null;
-			}
+			};
 			
 			$rootScope.toggleRandomFailure = function(failure) {
 				failure.randomFailure = !failure.randomFailure;
 				Failure.save(failure);
-			}
+			};
 			
 			AnalyzerWebSocket.onMessage(function(m) {
 				$rootScope.$apply(function() {
@@ -301,7 +301,7 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task
 		}
 		
 		$timeout($scope.reload, 60000);
-	}
+	};
 	$timeout($scope.reload, 0);
 	$rootScope.users = User.query();
 	$rootScope.dashboardController = $scope;
@@ -318,19 +318,19 @@ function DashboardCtrl($scope, $rootScope, $timeout,  Computer, Issue, Job, Task
 			return "computer-x.png";
 		}
 		return "computer.png";
-	}
+	};
 	
 	$scope.createComputerTask = function(computer) {
 		var newComputerTask = {'summary': "Bring " + computer.displayName + " back online", 'type':'computertask', 'computerId': computer.id};
 		Task.save(newComputerTask, function(task) {
 			$scope.tasks.push(task);
 		});
-	}
+	};
 	
 	$scope.changeAssignee = function(task, user) {
 		task.assignee = user;
 		task.$save();
-	}
+	};
 	
 	$scope.analyzerFinished = function()
 	{
@@ -346,7 +346,7 @@ function PanelCtrl($scope, $rootScope, $timeout, Computer, Issue, Job, Task, Use
 		$scope.jobs = Job.unstableJobs();
 		$scope.tasks = Task.todayList();
 		$scope.issues = Issue.todayList();
-	}
+	};
 	$timeout($scope.reload, 0);
 	$rootScope.dashboardController = $scope;
 	
@@ -369,7 +369,7 @@ function JobEditCtrl($scope, $routeParams, Job) {
 }
 
 var JobDetailsController = function($scope, $rootScope, $modalInstance, Job, job) {
-	$scope.job = job
+	$scope.job = job;
 
 	Job.history(job).then(function(response) {
 		$scope.jobHistory = response.data;
@@ -377,29 +377,29 @@ var JobDetailsController = function($scope, $rootScope, $modalInstance, Job, job
 	$scope.close = function() {
 		$modalInstance.close();
 	}
-}
+};
 
 var TaskDetailsController = function($scope, $rootScope, $modalInstance, task) {
-	$scope.taskToEdit = task
+	$scope.taskToEdit = task;
 	
 	$scope.close = function() {
 		$rootScope.change($scope.taskToEdit);
 		$modalInstance.close();
-	}
+	};
 
 	$scope.taskDone = function() {
 		$scope.taskToEdit.done = !$scope.taskToEdit.done;
 		$scope.close();
-	}
+	};
 	
 	$scope.taskRemove = function() {
 		$rootScope.destroy($rootScope.dashboardController.tasks, $scope.taskToEdit);
 		$modalInstance.dismiss('removed');
 	}
-}
+};
 
 var IssueDetailsController = function($scope, $rootScope, Issue, $modalInstance, issue) {
-	$scope.issueToEdit = issue
+	$scope.issueToEdit = issue;
 	$scope.close = function() {
 		if($scope.issueToEdit.id)
 		{
@@ -415,7 +415,7 @@ var IssueDetailsController = function($scope, $rootScope, Issue, $modalInstance,
 			});
 		}
 		$modalInstance.close();
-	}
+	};
 
 	$scope.issueRemove = function() {
 		if($scope.issueToEdit.id)
@@ -424,7 +424,7 @@ var IssueDetailsController = function($scope, $rootScope, Issue, $modalInstance,
 		}
 		$modalInstance.dismiss('removed');
 	}
-}
+};
 
 function ComputerListCtrl($scope, Computer) {
 	$scope.computers = Computer.query();
@@ -459,7 +459,7 @@ function JenkinsServerEditCtrl($scope, $location, $routeParams, $http,
 
 	$scope.isClean = function() {
 		return angular.equals(self.original, $scope.jenkinsserver);
-	}
+	};
 
 	$scope.destroy = function() {
 		self.original.$remove(function() {
@@ -499,7 +499,7 @@ function UserEditCtrl($scope, $location, $routeParams, $http,
 
 	$scope.isClean = function() {
 		return angular.equals(self.original, $scope.user);
-	}
+	};
 
 	$scope.destroy = function() {
 		self.original.$remove(function() {
@@ -521,7 +521,7 @@ function RandomFailureListCtrl($scope, TestMethod) {
 	
 	// default criteria that will be sent to the server
 	$scope.filterCriteria = {
-		pageNumber : 1,
+		pageNumber : 1
 	};
 
 	// The function that is responsible of fetching the result from the server
@@ -554,20 +554,20 @@ function TestMethodHistoryEditCtrl($scope, $routeParams, TestMethod) {
 	TestMethod.get({
 		id : $routeParams.id
 	}, function(testmethod) {
-		$scope.testmethod = testmethod
+		$scope.testmethod = testmethod;
 		
 		addHistoryBehavior($scope, TestMethod);
 	});
 }
 
 var TestMethodHistoryController = function($scope, $rootScope, TestMethod, $modalInstance, testmethod) {
-	$scope.testmethod = testmethod
+	$scope.testmethod = testmethod;
 	$scope.close = function() {
 		$modalInstance.close();
-	}
+	};
 	
 	addHistoryBehavior($scope, TestMethod);
-}
+};
 
 function addHistoryBehavior($scope, TestMethod)
 {
@@ -577,7 +577,7 @@ function addHistoryBehavior($scope, TestMethod)
 	
 	// default criteria that will be sent to the server
 	$scope.filterCriteria = {
-		pageNumber : 1,
+		pageNumber : 1
 	};
 	
 	$scope.fetchResult = function() {

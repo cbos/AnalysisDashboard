@@ -39,7 +39,7 @@ directivesModule.directive('calendarGraph', function() {
 			var week = d3.time.format("%U");
 			var year = d3.time.format("%Y");
 			var monthName = d3.time.format("%b");
-			var dayOfTheMonth = d3.time.format("%d")
+			var dayOfTheMonth = d3.time.format("%d");
 			
 			scope.$watch(attrs.data, function(value) {
 				if(angular.isObject(value))
@@ -81,11 +81,11 @@ directivesModule.directive('calendarGraph', function() {
 					var actualYear = year(date);
 					var actualWeek = week(date);
 					return actualWeek - startWeek + weeksInYear	* (actualYear - startYear);
-				}
+				};
 				
 				d3.map(data).forEach(function(key, value){
 					var date = new Date(value[0]);
-					if((key == 0 && dayOfTheMonth(date)<20) || (day(date)==0 && dayOfTheMonth(date)<=7))
+					if((key === 0 && dayOfTheMonth(date)<20) || (day(date)===0 && dayOfTheMonth(date)<=7))
 					{
 						svg.append("text")
 							.attr("class", "month")
@@ -114,7 +114,7 @@ directivesModule.directive('calendarGraph', function() {
 					{
 						return "fill: #8cc665;";
 					}
-				}
+				};
 
 				var rect = svg.selectAll(".day").data(function(d) {
 					return data;
@@ -130,7 +130,7 @@ directivesModule.directive('calendarGraph', function() {
 				rect.append("title").text(function(d) {
 					var tooltip = "";
 					tooltip += d[0];
-					tooltip += ":"
+					tooltip += ":";
 					var results = d[1];
 					tooltip += " \nFailed: " + results.failed;
 					tooltip += " \nUnstable: " + results.unstable;

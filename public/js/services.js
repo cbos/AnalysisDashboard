@@ -27,16 +27,15 @@ serviceModule.factory('JenkinsServer', function($resource, $http, $rootScope) {
 
 	JenkinsServer.prototype.isAnalyzing = function() {
 		return !!this.isBusyAnalyzing;
-	}
+	};
 
 	return JenkinsServer;
 });
 
 serviceModule.factory('Computer', function($resource) {
-	var Computer = $resource('/computer/:id', {
+	return $resource('/computer/:id', {
 		id : '@id'
 	});
-	return Computer;
 });
 
 serviceModule.factory('Job', function($resource, $http) {
@@ -55,10 +54,9 @@ serviceModule.factory('Job', function($resource, $http) {
 });
 
 serviceModule.factory('User', function($resource) {
-	var User = $resource('/user/:id', {
-		id : '@id'
-	});
-	return User;
+    return $resource('/user/:id', {
+        id: '@id'
+    });
 });
 
 serviceModule.factory('Task', function($resource) {
@@ -72,11 +70,10 @@ serviceModule.factory('Task', function($resource) {
 	return Task;
 });
 
-serviceModule.factory('Failure', function($resource, $http) {
-	var Failure = $resource('/failure/:id', {
-		id : '@id'
-	});
-	return Failure;
+serviceModule.factory('Failure', function($resource) {
+    return $resource('/failure/:id', {
+        id: '@id'
+    });
 });
 
 serviceModule.factory('TestMethod', function($resource, $http) {
@@ -115,7 +112,7 @@ serviceModule.factory('Issue', function($resource) {
 serviceModule.factory('AnalyzerWebSocket', function($location) {
 	var onOpenWebSocket, onCloseWebSocket, onMessageWebSocket;
 	var location = "ws://" + $location.host() + ":" + $location.port()
-			+ "/websocket"
+			+ "/websocket";
 	var ws = new WebSocket(location);
 	ws.onopen = function() {
 		if (onOpenWebSocket !== undefined) {
@@ -187,7 +184,7 @@ serviceModule.factory('EclipseIntegration', function($resource, $http, $rootScop
 
 	EclipseIntegration.isAnalyzing = function() {
 		return !!EclipseIntegration._isBusyAnalyzing;
-	}
+	};
 	return EclipseIntegration;
 });
 
