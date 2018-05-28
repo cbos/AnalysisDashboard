@@ -24,10 +24,9 @@ RUN play help
 
 # Copy your entire project
 COPY ./ ./
+COPY docker/application.conf ./conf/application.conf
 
 RUN play -Dsbt.log.noformat=true clean compile test stage
-
-COPY docker/application.conf ./conf/application.conf
 
 ENV JAVA_OPTS -Xms250m -Xmx3000m -XX:MaxPermSize=750m -XX:ReservedCodeCacheSize=375m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF-8 -Dpidfile.path=/dev/null
 
