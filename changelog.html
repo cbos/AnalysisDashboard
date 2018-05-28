@@ -61,12 +61,13 @@
 	<div class="container">
 		<div class="page-header">
 			<h1>
-				<img src="images/favicon.ico"> Changelog Analysis Dashboard</h1>
+				<img src="images/favicon-256.png" style="width: 64px"> Changelog Analysis Dashboard</h1>
 		</div>
 
 		<div class="row">
 			<div class="col-md-2" id="myAffix">
 				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="10">
+					<li><a href="#20" class="active">v2.0</a></li>
 					<li><a href="#05" class="active">v0.5</a></li>
 					<li><a href="#04" class="active">v0.4</a></li>
 					<li><a href="#03" class="active">v0.3</a></li>
@@ -87,10 +88,28 @@
 				
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<div class="panel-title" id="05">v0.5</div>
+						<div class="panel-title" id="20">v2.0</div>
 					</div>
 					<div class="panel-body">
 						
+						<h4>Features</h4>
+						<ul>
+							<li>Icon has been changed</li>
+						</ul>
+						<h4>Bug fixes</h4>
+						<ul>
+							<li>MethodName can be larger, otherwise some test results could not be captured</li>
+							<li>User icon url is now centralized</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title" id="05">v0.5</div>
+					</div>
+					<div class="panel-body">
+
 						<h4>Features</h4>
 						<ul>
 							<li>Overview of a the history of a testcase can be opened in a separate tab/window instead of only a popup. This is available from 2 places:
@@ -103,7 +122,7 @@
 In the history overview of testcase you can see the error details of earlier failures as well. That is showed in the right side of the list.<BR>
 There is the error message and the error stacktrace. Also in this overview there is the integration with Eclipse to send the stacktrace to Eclipse.</li>
 						</ul>
-						
+
 					</div>
 				</div>
 
