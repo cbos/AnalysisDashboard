@@ -4,7 +4,7 @@
 	{{task.summary}}
 	<span class="pull-right" style="font-size: 12px;" >
 		{{task.updateDate | date:'MM/dd/yy @ h:mma'}}
-		<img ng-show="task.assignee" avatar-username="{{task.assignee.userName}}" data-size="32"/>
+		<img ng-if="task.assignee" avatar-username="{{task.assignee.userName}}" data-size="32"/>
 	</span>
 	<BR>
 </div>

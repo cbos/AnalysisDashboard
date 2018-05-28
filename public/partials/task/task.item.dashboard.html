@@ -5,7 +5,7 @@
 	{{task.summary}}
 	<span class="pull-right smaller-font">
 		Updated: {{task.updateDate | date:'MM/dd/yy HH:mm'}}<BR>
-		<img class="pull-right" tooltip="{{task.assignee.fullName}}" ng-show="task.assignee" avatar-username="{{task.assignee.userName}}" data-size="32"/>
+		<img class="pull-right" tooltip="{{task.assignee.fullName}}" ng-if="task.assignee" avatar-username="{{task.assignee.userName}}" data-size="32"/>
 	</span>
 	<BR>
 	<span class="smaller-font" ng-show="task.details" ng-bind-html="task.details">
