@@ -61,7 +61,7 @@ public class TaskController extends EntityController<Task>
 	{
 		if (task.getAssignee() != null)
 		{
-			new TaskUpdateMailer(task, "http:" + request().host()).sendMail();
+			new TaskUpdateMailer(task, "http://" + request().host()).sendMail();
 		}
 	}
 
