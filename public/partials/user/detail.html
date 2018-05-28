@@ -1,39 +1,42 @@
+<BR>
 <div class="container">
-	<div class="well">
-		<form name="myForm" class="form-horizontal">
-			<fieldset>
-				<legend>Edit user {{user.userName}}</legend>
-				<div class="pull-right">
-					<img avatar-username="{{user.userName}}" data-size="40" />
-				</div>
-				<div class="form-group" ng-class="{'has-error': myForm.userName.$invalid}">
-					<label for="userName" class="col-sm-2 control-label">Username</label>
+    <div class="row justify-content-md-center">
+        <div class="card card-body bg-light">
+            <form name="myForm" class="form-horizontal">
+                <h2>Edit user {{user.userName}}</h2>
+                <div class="float-right">
+                    <img avatar-username="{{user.userName}}" data-size="40"/>
+                </div>
+                <div class="form-group row" ng-class="{'has-error': myForm.userName.$invalid}">
+					<label for="userName" class="col-sm-2 col-form-label">Username</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="userName" ng-model="user.userName" required> <span
-							ng-show="myForm.userName.$error.required" class="help-block">Required</span>
+						<input type="text" class="form-control" id="userName" ng-model="user.userName" required> <div
+							ng-show="myForm.userName.$error.required" class="invalid-feedback">Required</div>
 					</div>
-				</div>
+                </div>
 
-				<div class="form-group">
-					<label for="fullName" class="col-sm-2 control-label">Fullname</label>
+                <div class="form-group row">
+					<label for="fullName" class="col-sm-2 col-form-label">Fullname</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="fullName" ng-model="user.fullName" />
+						<input type="text" class="form-control" id="fullName" ng-model="user.fullName" />
 					</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="emailAddress" class="col-sm-2 control-label">EmailAddress</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" name="emailAddress" ng-model="user.emailAddress" />
-					</div>
-				</div>
+                </div>
 
-				<div class="form-actions">
-					<a href="#/" class="btn btn-default">Cancel</a>
-					<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
-					<button ng-click="destroy()" ng-show="user.id" class="btn btn-danger">Delete</button>
-				</div>
-			</fieldset>
-		</form>
-	</div>
+                <div class="form-group row">
+					<label for="emailAddress" class="col-sm-2 col-form-label">EmailAddress</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="emailAddress" ng-model="user.emailAddress" />
+					</div>
+                </div>
+
+                <div class="form-actions">
+                    <a href="#/" class="btn btn-default">Cancel</a>
+                    <button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">
+                        Save
+                    </button>
+                    <button ng-click="destroy()" ng-show="user.id" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

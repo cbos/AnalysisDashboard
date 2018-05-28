@@ -1,10 +1,12 @@
-<div class="row">
-	<div class="col-md-offset-2 col-md-8">
-		<div class="well">
-			<table class="table table-striped table-hover table-condensed">
+<BR>
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div class="card card-body bg-light">
+			<table class="table table-hover table-condensed">
+				<thead class="thead-light">
 			  <thead>
 			  <tr>
-			    <th><a href="#/user/new"><span class="glyphicon glyphicon-plus-sign"></span></a></th>
+			    <th><a href="#/user/new"><i class="far fa-plus-square"></i></a></th>
 			    <th>Username</th>
 			    <th>FullName</th>
 			    <th>EmailAddress</th>
@@ -14,7 +16,7 @@
 			  <tbody>
 			  <tr ng-repeat="user in users | orderBy:'userName'">
 			  	<td>
-			      <a href="#/user/edit/{{user.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+			      <a href="#/user/edit/{{user.id}}"><i class="far fa-edit"></i></a>
 			    </td>
 			    <td>{{user.userName}}</td>
 			    <td>{{user.fullName}}</td>

@@ -13,6 +13,9 @@ services:
     depends_on:
       - mysql
     tty: true
+    volumes:
+      - ./public:/app/public
+      - ./public:/app/target/scala-2.10/classes/public
   mysql:
     image: mysql:5.7
     container_name: mysql-analysisdashboard
