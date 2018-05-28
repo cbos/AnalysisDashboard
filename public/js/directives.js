@@ -24,7 +24,9 @@ directivesModule.directive('stopEvent', function () {
 directivesModule.directive('avatarUsername', function () {
     return function(scope, elm, attrs) {
     	var size = attrs.size ? attrs.size : 32;
-    	elm.attr("src", "http://srv-ind-scrat.vanenburg.com:8060/avatar/" + attrs.avatarUsername + "?s=" + size);
+        attrs.$observe('avatarUsername',function(value){
+    		elm.attr("src", "http://srv-ind-scrat.vanenburg.com:8060/avatar/" + value + "?s=" + size);
+        });
     };
 });
 
